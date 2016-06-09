@@ -13,6 +13,10 @@
         <script src="lib/js/angular-translate/storage-local.js" type="text/javascript"></script>
         <script src="lib/js/angular-translate/storage-cookie.js" type="text/javascript"></script>
         <script src="lib/js/angular-translate/loader-static-files.js" type="text/javascript"></script>
+        <script src="lib/js/angular-translate/tmhDynamicLocale.js" type="text/javascript"></script>
+        <!--ANGULAR LOCALS-->
+        <script src="languages/locals/angular-locale_en.js" type="text/javascript"></script>
+        <script src="languages/locals/angular-locale_pl.js" type="text/javascript"></script>
         <!--ANGULAR COMPONENTS-->
         <script src="components/controllers/translate/translateController.js" type="text/javascript"></script>
         <!--CSS-->
@@ -31,5 +35,6 @@
 
         </select>
         {{ "ACCEPT"| translate}}
+        {{foo | date}}
     </body>
 </html>

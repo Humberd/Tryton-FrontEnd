@@ -1,4 +1,4 @@
-var app = angular.module("Translate", ["pascalprecht.translate", "ngSanitize", "ngCookies"]);
+var app = angular.module("Translate", ["pascalprecht.translate", "ngSanitize", "ngCookies", "tmh.dynamicLocale"]);
 app.config(function ($translateProvider, LanguageListProvider) {
     LanguageListProvider.put("Polski", "pl", true);
     LanguageListProvider.put("English", "en", true);
@@ -22,6 +22,16 @@ app.config(function ($translateProvider, LanguageListProvider) {
     $translateProvider.useStaticFilesLoader({
         prefix: "languages/",
         suffix: ".json"
+    });
+});
+app.config(function (tmhDynamicLocaleProvider) {
+    //ustawiam ścieżkę do plików locals
+    tmhDynamicLocaleProvider.localeLocationPattern("./languages/locals/angular-locale_{{locale}}.js");
+});
+app.run(function ($rootScope, tmhDynamicLocale) {
+    //przy kazdej zmianie języka musi zmieniać też locale
+    $rootScope.$on("$translateChangeSuccess", function (arg1, langObj) {
+        tmhDynamicLocale.set(langObj.language);
     });
 });
 //przechowuje listę języków
@@ -83,8 +93,7 @@ app.provider("LanguageList", function () {
     };
     return new returnObject();
 });
-
-app.controller("translateController", function ($scope, $translate, LanguageList) {
+app.controller("translateController", function ($scope, $translate, LanguageList, $locale) {
     $scope.LanguageList = LanguageList;
     $scope.selectedLanguage = $translate.proposedLanguage() || $translate.use();
     
