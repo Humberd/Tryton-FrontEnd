@@ -1,4 +1,6 @@
 {
-    "ACCEPT": "Akceptuj",
-    "CANCEL": "Anuluj"
+    "USER-NAV-BAR": {
+        "LOGIN": "Zaloguj",
+        "REGISTER": "Zarejestruj się"
+    }
 }

@@ -1,5 +1,6 @@
 {
-    "ACCEPT": "Accept",
-    "CANCEL": "Cancel",
-    "REJECT": "Reject"
+    "USER-NAV-BAR": {
+        "LOGIN": "Login",
+        "REGISTER": "Register"
+    }
 }

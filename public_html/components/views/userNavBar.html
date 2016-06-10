@@ -1,0 +1,56 @@
+<style>
+    #user-nav-bar {
+        background-color: #141414;
+        width: 100%;
+        padding: 3px 10px;
+        color: #BFBFBF;
+        border-bottom: 1px solid gray;
+        font-weight: bold;
+        font-size: 14px;
+        height: 26px;
+        line-height: 18px;
+    }
+    #user-nav-bar a{
+        margin: 0 5px;
+        padding: 2px 10px;
+        color: inherit;
+    }
+    #user-nav-bar a:hover {
+        text-decoration: none;
+        border-bottom: 1px solid #BFBFBF;
+        color: #f8f8f9;
+        cursor: pointer;
+    }
+    #user-nav-bar-left {
+        float: left;
+    }
+    #user-nav-bar-right {
+        float: right;
+    }
+    #user-nav-bar-languages {
+        color: #141414;
+    }
+    #user-nav-bar .glyphicon {
+        margin-right: 10px;
+        display: inline-block !important;
+    }
+</style>
+
+<div id="user-nav-bar">
+    <div id="user-nav-bar-left">
+        <div class="glyphicon glyphicon-globe"></div>
+        <select id="user-nav-bar-languages" ng-model="selectedLanguage"
+                ng-options="language.shortName as language.name for language in LanguageList.getAll()| filter:{isAvailable: true} | orderBy:'name'">
+        </select>
+    </div>
+    <div id="user-nav-bar-right">
+        <a>
+            <span class="glyphicon glyphicon-log-in"></span>
+            {{ "USER-NAV-BAR.LOGIN" | translate}}
+        </a>
+        <a>
+            <span class="glyphicon glyphicon-lock"></span>
+            {{ "USER-NAV-BAR.REGISTER" | translate}}
+        </a>
+    </div>
+</div>
