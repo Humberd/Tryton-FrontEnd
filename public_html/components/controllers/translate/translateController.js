@@ -1,16 +1,16 @@
-var app = angular.module("Translate", ["pascalprecht.translate", "ngSanitize", "ngCookies", "tmh.dynamicLocale"]);
+var app = angular.module("Translate", ["pascalprecht.translate", "ngSanitize", "ngCookies", "tmh.dynamicLocale", "Logger"]);
 app.config(function ($translateProvider, LanguageListProvider) {
     LanguageListProvider.put("Polski", "pl", true);
     LanguageListProvider.put("English", "en", true);
     LanguageListProvider.put("Francais", "fr", false);
-    
+
     //ustawiam język, z którego ma brać  tłumaczenia, jeśli zabraknie ich w swoim
 //    $translateProvider.fallbackLanguage("en");
 
     //ustala, w jaki sposób ma wyświetlać tłumaczenia,
     //czy parsować kod html, czy zostawić jako string
     $translateProvider.useSanitizeValueStrategy("escape");
-    
+
     //wyświetla wiadomość w konsoli, jeśli odwołuję się do nie istniejącego tłumaczenia
     $translateProvider.useMissingTranslationHandler("NotExistingTranslationHandler");
 
@@ -33,13 +33,14 @@ app.config(function (tmhDynamicLocaleProvider) {
     tmhDynamicLocaleProvider.localeLocationPattern("./languages/locals/angular-locale_{{locale}}.js");
 });
 ////////////////////////////////////
-app.run(function ($rootScope, tmhDynamicLocale) {
+app.run(function ($rootScope, tmhDynamicLocale, Logger) {
     //przy kazdej zmianie języka musi zmieniać też locale
     $rootScope.$on("$translateChangeSuccess", function (arg1, langObj) { //<-------dodać logger
         tmhDynamicLocale.set(langObj.language);
+        Logger.info("Successfully changed language to [%s]", langObj.language);
     });
     $rootScope.$on("$translateChangeError", function (arg1, langObj) { //<-------dodać logger
-        
+        Logger.error("Cannot change language to [%s]", langObj.language);
     });
 });
 ////////////////////////////////////
@@ -51,6 +52,7 @@ app.provider("LanguageList", function () {
         shortName: "pl",
         isAvailable: true
     };
+
     var list = [];
 
     var methods = {
@@ -104,19 +106,21 @@ app.provider("LanguageList", function () {
 });
 ////////////////////////////////////
 //handler obsługi nieistniejących tłumaczeń
-app.factory("NotExistingTranslationHandler", function () { //<-------dodać logger
+app.factory("NotExistingTranslationHandler", function (Logger) { //<-------dodać logger
     return function (translationId, lang) {
-        return "Missing_Translation("+translationId+", "+lang+")";
+        var string = "Missing_Translation(" + translationId + ", " + lang + ")";
+        Logger.warning(string);
+        return string;
     };
 });
 ////////////////////////////////////
-app.controller("translateController", function ($scope, $translate, LanguageList, $locale) {
+app.controller("translateController", function ($scope, $translate, LanguageList, Logger) {
     $scope.LanguageList = LanguageList;
     $scope.selectedLanguage = $translate.proposedLanguage() || $translate.use();
-    
+
     $scope.$watch("selectedLanguage", function (newVal, oldVal) {
         if (angular.isString(newVal)) {
             $translate.use(newVal);
-        };
+        }
     });
 });

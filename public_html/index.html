@@ -4,6 +4,7 @@
         <title>Tryton</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="">
         <!--ANGULAR LIB-->
         <script src="lib/js/angular.js" type="text/javascript"></script>
         <script src="lib/js/angular-route.js" type="text/javascript"></script>
@@ -20,13 +21,14 @@
         <script src="languages/locals/angular-locale_pl.js" type="text/javascript"></script>
         <!--ANGULAR COMPONENTS-->
         <script src="components/controllers/translate/translateController.js" type="text/javascript"></script>
+        <script src="components/services/Logger.js" type="text/javascript"></script>
         <!--CSS-->
         <link href="custom/css/global.css" rel="stylesheet" type="text/css"/>
         <!--JS-->
 
         <!--LIB-->
         <script>
-            var app = angular.module("TrytonApp", ["ngRoute", "Translate"]);
+            var app = angular.module("TrytonApp", ["ngRoute", "Translate", "Logger"]);
         </script>
 
     </head>
