@@ -1,4 +1,5 @@
 {
     "ACCEPT": "Accept",
-    "CANCEL": "Cancel"
+    "CANCEL": "Cancel",
+    "REJECT": "Reject"
 }

@@ -5,11 +5,14 @@ app.config(function ($translateProvider, LanguageListProvider) {
     LanguageListProvider.put("Francais", "fr", false);
     
     //ustawiam język, z którego ma brać  tłumaczenia, jeśli zabraknie ich w swoim
-    $translateProvider.fallbackLanguage("en");
+//    $translateProvider.fallbackLanguage("en");
 
     //ustala, w jaki sposób ma wyświetlać tłumaczenia,
     //czy parsować kod html, czy zostawić jako string
-    $translateProvider.useSanitizeValueStrategy(null);
+    $translateProvider.useSanitizeValueStrategy("escape");
+    
+    //wyświetla wiadomość w konsoli, jeśli odwołuję się do nie istniejącego tłumaczenia
+    $translateProvider.useMissingTranslationHandler("NotExistingTranslationHandler");
 
     //rejestruje dostępne możliwe języki
     $translateProvider.registerAvailableLanguageKeys(LanguageListProvider.getAllShortNames());
@@ -24,16 +27,22 @@ app.config(function ($translateProvider, LanguageListProvider) {
         suffix: ".json"
     });
 });
+////////////////////////////////////
 app.config(function (tmhDynamicLocaleProvider) {
     //ustawiam ścieżkę do plików locals
     tmhDynamicLocaleProvider.localeLocationPattern("./languages/locals/angular-locale_{{locale}}.js");
 });
+////////////////////////////////////
 app.run(function ($rootScope, tmhDynamicLocale) {
     //przy kazdej zmianie języka musi zmieniać też locale
-    $rootScope.$on("$translateChangeSuccess", function (arg1, langObj) {
+    $rootScope.$on("$translateChangeSuccess", function (arg1, langObj) { //<-------dodać logger
         tmhDynamicLocale.set(langObj.language);
     });
+    $rootScope.$on("$translateChangeError", function (arg1, langObj) { //<-------dodać logger
+        
+    });
 });
+////////////////////////////////////
 //przechowuje listę języków
 app.provider("LanguageList", function () {
     //szablon języka
@@ -93,6 +102,14 @@ app.provider("LanguageList", function () {
     };
     return new returnObject();
 });
+////////////////////////////////////
+//handler obsługi nieistniejących tłumaczeń
+app.factory("NotExistingTranslationHandler", function () { //<-------dodać logger
+    return function (translationId, lang) {
+        return "Missing_Translation("+translationId+", "+lang+")";
+    };
+});
+////////////////////////////////////
 app.controller("translateController", function ($scope, $translate, LanguageList, $locale) {
     $scope.LanguageList = LanguageList;
     $scope.selectedLanguage = $translate.proposedLanguage() || $translate.use();

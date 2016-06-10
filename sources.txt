@@ -3,3 +3,4 @@ https://github.com/angular/angular.js 09.06.2016
 https://angular-translate.github.io/ 09.06.2016
 http://stackoverflow.com/a/17946272/4256929 09.06.2016
 http://stackoverflow.com/a/28903658/4256929 10.06.2016
+https://github.com/lgalfaso/angular-dynamic-locale 10.06.2016
