@@ -1,8 +1,8 @@
 var app = angular.module("TrytonApp");
-app.directive("userNavBar", function () {
-    var prefix = "./components/views/";
+app.directive("userNavBar", function (ViewUrl) {
     return {
         restrict: "A",
-        templateUrl: prefix+"userNavBar.html"
+        templateUrl: ViewUrl + "userNavBar.html",
+        controller: "userNavBarController"
     };
 });

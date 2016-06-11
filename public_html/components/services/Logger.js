@@ -43,11 +43,13 @@ app.provider("Logger", function () {
                     if (printOnlySelectedLevel && level.priority !== priority) {
                         return;
                     }
-
+                    
+                    //zmienna przechowująca nazwę funkcji, która wywołała loggera
+                    var functionName = params.callee.caller.name;
                     //zamieniam obiekt parametrów na tablicę parametrów
                     var params = Array.prototype.slice.call(params);
-                    //dodaję prefix
-                    params[0] = addPrefix() + params[0];
+                    //dodaję prefix z parametrem nazwy funkcji, która wywoała logger
+                    params[0] = addPrefix(functionName) + params[0];
                     //dodaję suffix
                     params.push(addSuffix());
 
@@ -56,8 +58,11 @@ app.provider("Logger", function () {
                 }
             }
             //dodaje to, co ma wyswietlac przed wiadomością
-            function addPrefix() {
-                return $filter("date")(new Date(), "HH:mm:ss") + "  --  ";
+            function addPrefix(functionName) {
+                if (angular.isString(functionName) && functionName.length > 0) {
+                    functionName += "  --  ";
+                } 
+                return $filter("date")(new Date(), "HH:mm:ss") + "  --  "+functionName;
             }
             
             function addSuffix() {

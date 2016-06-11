@@ -28,18 +28,18 @@ app.config(function ($translateProvider, LanguageListProvider) {
     });
 });
 ////////////////////////////////////
-app.config(function (tmhDynamicLocaleProvider) {
+app.config(function DynamicLocaleProvider(tmhDynamicLocaleProvider) {
     //ustawiam ścieżkę do plików locals
     tmhDynamicLocaleProvider.localeLocationPattern("./languages/locals/angular-locale_{{locale}}.js");
 });
 ////////////////////////////////////
-app.run(function ($rootScope, tmhDynamicLocale, Logger) {
+app.run(function TranslateRun($rootScope, tmhDynamicLocale, Logger) {
     //przy kazdej zmianie języka musi zmieniać też locale
-    $rootScope.$on("$translateChangeSuccess", function (arg1, langObj) { //<-------dodać logger
+    $rootScope.$on("$translateChangeSuccess", function TranslateControllerRun(arg1, langObj) { //<-------dodać logger
         tmhDynamicLocale.set(langObj.language);
         Logger.info("Successfully changed language to [%s]", langObj.language);
     });
-    $rootScope.$on("$translateChangeError", function (arg1, langObj) { //<-------dodać logger
+    $rootScope.$on("$translateChangeError", function TranslateControllerRun(arg1, langObj) { //<-------dodać logger
         Logger.error("Cannot change language to [%s]", langObj.language);
     });
 });
@@ -107,7 +107,7 @@ app.provider("LanguageList", function () {
 ////////////////////////////////////
 //handler obsługi nieistniejących tłumaczeń
 app.factory("NotExistingTranslationHandler", function (Logger) { //<-------dodać logger
-    return function (translationId, lang) {
+    return function TranslateControllerFactory(translationId, lang) {
         var string = "Missing_Translation(" + translationId + ", " + lang + ")";
         Logger.warning(string);
         return string;
