@@ -1,1 +1,6 @@
-
+@media screen and (min-width: 550px) {
+    .modal-login, .modal-register {
+        width: 500px;
+        margin: 100px auto;
+    }
+}
