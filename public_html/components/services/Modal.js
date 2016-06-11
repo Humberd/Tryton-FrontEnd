@@ -16,7 +16,7 @@ app.service("Modal", function ($uibModal, ViewUrl, Logger) {
         }
         return $uibModal.open({
             animation: true, //animacja
-            backdrop: true, //tło - (true,false,"static")
+            backdrop: "static", //tło - (true,false,"static")
             controller: controller,
             keyboard: true, //czy wylaczyc modal klawiszem ESC
             resolve: resolvers, //obiekt zmiennych przekazywanych do controllera,

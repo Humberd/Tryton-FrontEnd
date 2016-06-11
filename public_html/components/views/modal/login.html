@@ -1,9 +1,38 @@
-<style>
-    .test2 {
-        width: 1000px;
-        margin: auto;
-    }
-</style>
-<div class="test2">
-    teest
+<div class="modal-custom-content">
+    <div class="modal-close-glyphicon" ng-click="close()">
+        <span class="glyphicon glyphicon-remove"></span>
+    </div>
+    <div class="modal-custom-body">
+        <h1 class="modal-logo"></h1>
+        <div class="modal-form">
+            <div class="modal-form-group input-group">
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-envelope"></span>
+                </span>
+                <input class="form-control" placeholder="{{ 'EMAIL' | translate}}"/>
+            </div>
+            <div class="modal-form-group input-group">
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-lock"></span>
+                </span>
+                <input class="form-control" placeholder="{{ 'PASSWORD' | translate}}"/>
+            </div>
+            <div class="modal-form-submit">
+                <button class="btn btn-primary btn-block">
+                    {{ "MODALS.LOGIN.LOGIN" | translate}}
+                </button>
+            </div>
+            <div class="modal-form-info">
+                <div>
+                    <a>{{"MODALS.LOGIN.FORGOT-PASSWORD"| translate}}</a>
+                </div>
+                <div>
+                    <a>{{"MODALS.LOGIN.NO-ACCOUNT"| translate}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-custom-footer">
+
+    </div>
 </div>

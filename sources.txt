@@ -9,3 +9,4 @@ http://stackoverflow.com/a/13611023/4256929 10.06.2016
 http://stackoverflow.com/a/23683176/4256929 11.06.2016
 http://stackoverflow.com/a/26924234/4256929 11.06.2016
 http://stackoverflow.com/a/280396/4256929   11.06.2016
+http://stackoverflow.com/a/6818878/4256929  11.06.2016

@@ -1,6 +1,18 @@
 {
     "USER-NAV-BAR": {
         "LOGIN": "Zaloguj",
-        "REGISTER": "Zarejestruj się"
-    }
+        "REGISTER": "Zarejestruj"
+    },
+    "MODALS": {
+        "LOGIN": {
+            "LOGIN": "@:USER-NAV-BAR.LOGIN",
+            "FORGOT-PASSWORD": "Nie pamiętasz hasła?",
+            "NO-ACCOUNT": "Nie masz jeszcze konta?"
+        },
+        "REGISTER": {
+            "REGISTER": "@:USER-NAV-BAR.REGISTER"
+        }
+    },
+    "EMAIL": "Email",
+    "PASSWORD": "Hasło"
 }

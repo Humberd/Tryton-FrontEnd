@@ -2,5 +2,17 @@
     "USER-NAV-BAR": {
         "LOGIN": "Login",
         "REGISTER": "Register"
-    }
+    },
+    "MODALS": {
+        "LOGIN": {
+            "LOGIN": "@:USER-NAV-BAR.LOGIN",
+            "FORGOT-PASSWORD": "Forgot your password?",
+            "NO-ACCOUNT": "Dont't have an account yet?"
+        },
+        "REGISTER": {
+            "REGISTER": "@:USER-NAV-BAR.REGISTER"
+        }
+    },
+    "EMAIL": "Email",
+    "PASSWORD": "Password"
 }
