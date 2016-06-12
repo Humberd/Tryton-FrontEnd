@@ -35,6 +35,10 @@
             </div>
             <div vc-recaptcha key="'6LeeVyITAAAAAOE0WyhwnMVRU2_q5UyR7kaqqsfe'"
                  class="modal-captcha" ng-model="register.captcha"></div>
+            <div class="modal-form-tos">
+                <span>{{ "MODALS.REGISTER.ACCEPT-TOS" | translate}}</span>
+                <a>{{ "TOS" |translate}}</a>
+            </div>
             <div class="modal-form-submit">
                 <button class="btn btn-primary btn-block" tabindex="5" ng-click="submit()">
                     {{ "MODALS.REGISTER.REGISTER" | translate}}

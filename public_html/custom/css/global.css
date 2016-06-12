@@ -39,7 +39,7 @@ a:hover {
     margin-top: 5px;
 }
 .modal-form-submit {
-    margin-top: 15px;
+    margin-top: 7px;
 }
 .modal-form-info {
     margin-top: 15px;
@@ -47,6 +47,9 @@ a:hover {
 .modal-captcha {
     width: 300px;
     margin: 15px auto;
+}
+.modal-form-tos {
+    
 }
 @media screen and (min-width: 500px) {
     .modal-login, .modal-register {
