@@ -9,25 +9,33 @@
                 <span class="input-group-addon">
                     <span class="glyphicon glyphicon-envelope"></span>
                 </span>
-                <input class="form-control" placeholder="{{ 'EMAIL' | translate}}"/>
+                <input class="form-control" placeholder="{{ 'EMAIL' | translate}}"
+                       tabindex="1" autofocus ng-model="login.email"/>
             </div>
             <div class="modal-form-group input-group">
                 <span class="input-group-addon">
                     <span class="glyphicon glyphicon-lock"></span>
                 </span>
-                <input class="form-control" placeholder="{{ 'PASSWORD' | translate}}"/>
+                <input class="form-control" placeholder="{{ 'PASSWORD' | translate}}"
+                       type="password" tabindex="2" ng-model="login.password"/>
             </div>
             <div class="modal-form-submit">
-                <button class="btn btn-primary btn-block">
+                <button class="btn btn-primary btn-block" tabindex="3" ng-click="submit()">
                     {{ "MODALS.LOGIN.LOGIN" | translate}}
                 </button>
             </div>
             <div class="modal-form-info">
                 <div>
-                    <a>{{"MODALS.LOGIN.FORGOT-PASSWORD"| translate}}</a>
+                    <span>{{"MODALS.LOGIN.FORGOT-PASSWORD"| translate}}</span>
+                    <a>
+                        {{"MODALS.LOGIN.RESET-PASSWORD"| translate}}
+                    </a>
                 </div>
                 <div>
-                    <a>{{"MODALS.LOGIN.NO-ACCOUNT"| translate}}</a>
+                    <span>{{"MODALS.LOGIN.NO-ACCOUNT"| translate}}</span>
+                    <a ng-click="switchToRegisterModal()">
+                        {{"MODALS.REGISTER.REGISTER"| translate}}
+                    </a>
                 </div>
             </div>
         </div>

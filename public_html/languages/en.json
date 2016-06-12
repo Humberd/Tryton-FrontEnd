@@ -7,12 +7,16 @@
         "LOGIN": {
             "LOGIN": "@:USER-NAV-BAR.LOGIN",
             "FORGOT-PASSWORD": "Forgot your password?",
+            "RESET-PASSWORD": "Reset password",
             "NO-ACCOUNT": "Dont't have an account yet?"
         },
         "REGISTER": {
-            "REGISTER": "@:USER-NAV-BAR.REGISTER"
+            "REGISTER": "@:USER-NAV-BAR.REGISTER",
+            "HAVE-ACCOUNT": "Already have an account?"
         }
     },
+    "USERNAME": "Username",
     "EMAIL": "Email",
-    "PASSWORD": "Password"
+    "PASSWORD": "Password",
+    "REPEAT-PASSWORD": "Repeat password"
 }

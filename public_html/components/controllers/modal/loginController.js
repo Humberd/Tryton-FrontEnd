@@ -1,6 +1,6 @@
-var app = angular.module("TrytonApp");
+var app = angular.module("Authentication", ["vcRecaptcha"]);
 app.controller("loginController", function ($scope, $uibModalInstance, registerModal) {
-    $scope.login = function () {
+    $scope.submit = function () {
         
     };  
     $scope.close = function () {

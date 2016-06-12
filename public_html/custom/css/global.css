@@ -44,6 +44,10 @@ a:hover {
 .modal-form-info {
     margin-top: 15px;
 }
+.modal-captcha {
+    width: 300px;
+    margin: 15px auto;
+}
 @media screen and (min-width: 500px) {
     .modal-login, .modal-register {
         width: 450px;

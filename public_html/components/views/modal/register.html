@@ -1,8 +1,53 @@
 <div class="modal-custom-content">
-    <div class="modal-close-glyphicon">
+    <div class="modal-close-glyphicon" ng-click="close()">
         <span class="glyphicon glyphicon-remove"></span>
     </div>
     <div class="modal-custom-body">
-        
+        <h1 class="modal-logo"></h1>
+        <div class="modal-form">
+            <div class="modal-form-group input-group">
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-user"></span>
+                </span>
+                <input class="form-control" placeholder="{{ 'USERNAME' | translate}}"
+                       tabindex="1" autofocus ng-model="register.username"/>
+            </div>
+            <div class="modal-form-group input-group">
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-envelope"></span>
+                </span>
+                <input class="form-control" placeholder="{{ 'EMAIL' | translate}}"
+                       tabindex="2" autofocus ng-model="register.email"/>
+            </div>
+            <div class="modal-form-group input-group">
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-lock"></span>
+                </span>
+                <input class="form-control" placeholder="{{ 'PASSWORD' | translate}}"
+                       type="password" tabindex="3" autofocus ng-model="register.password"/>
+            </div>
+            <div class="modal-form-group input-group">
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-lock"></span>
+                </span>
+                <input class="form-control" placeholder="{{ 'REPEAT-PASSWORD' | translate}}"
+                       type="password" tabindex="4" autofocus ng-model="register.repeatPassword"/>
+            </div>
+            <div vc-recaptcha key="'6LeeVyITAAAAAOE0WyhwnMVRU2_q5UyR7kaqqsfe'"
+                 class="modal-captcha" ng-model="register.captcha"></div>
+            <div class="modal-form-submit">
+                <button class="btn btn-primary btn-block" tabindex="5" ng-click="submit()">
+                    {{ "MODALS.REGISTER.REGISTER" | translate}}
+                </button>
+            </div>
+            <div class="modal-form-info">
+                <div>
+                    <span>{{"MODALS.REGISTER.HAVE-ACCOUNT"| translate}}</span>
+                    <a ng-click="switchToLoginModal()">
+                        {{"MODALS.LOGIN.LOGIN"| translate}}
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

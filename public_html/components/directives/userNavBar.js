@@ -33,5 +33,5 @@ app.controller("userNavBarController", function ($scope, Modal) {
 
                 });
     };
-    $scope.openLoginModal();
+    $scope.openRegisterModal();
 });
