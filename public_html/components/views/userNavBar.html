@@ -61,11 +61,20 @@
         </div>
     </div>
     <div id="user-nav-bar-right">
-        <div ng-click="openLoginModal()">
+        <div ng-show="Session.isLogged()">
+            <span class="glyphicon glyphicon-user"></span>
+            <a>{{ Session.getUser().username}}</a>
+        </div>
+        <div ng-click="logout()" ng-show="Session.isLogged()">
+            <span class="glyphicon glyphicon-log-out"></span>
+            <a>{{ "LOGOUT" | translate}}</a>
+        </div>
+        
+        <div ng-click="openLoginModal()" ng-hide="Session.isLogged()">
             <span class="glyphicon glyphicon-log-in"></span>
             <a>{{ "USER-NAV-BAR.LOGIN" | translate}}</a>
         </div>
-        <div ng-click="openRegisterModal()">
+        <div ng-click="openRegisterModal()" ng-hide="Session.isLogged()">
             <span class="glyphicon glyphicon-lock"></span>
             <a>{{ "USER-NAV-BAR.REGISTER" | translate}}</a>
         </div>

@@ -35,7 +35,7 @@ a:hover {
     width: 90%;
     margin: 10px auto;
 }
-.modal-form > .modal-form-group:not(:first-of-type) {
+.modal-form .modal-form-group:not(:first-of-type) {
     margin-top: 5px;
 }
 .modal-form-submit {
@@ -50,6 +50,10 @@ a:hover {
 }
 .modal-form-tos {
     
+}
+form ng-invalid {
+    /*border: 1px solid red;*/
+    background-color: #FA787E;
 }
 @media screen and (min-width: 500px) {
     .modal-login, .modal-register {

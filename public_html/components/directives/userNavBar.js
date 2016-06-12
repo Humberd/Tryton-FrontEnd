@@ -6,7 +6,7 @@ app.directive("userNavBar", function (ViewUrl) {
         controller: "userNavBarController"
     };
 });
-app.controller("userNavBarController", function ($scope, Modal) {
+app.controller("userNavBarController", function ($scope, Modal, Auth) {
     $scope.openLoginModal = function openLoginModal() {
         var resolver = {
             registerModal: function () {
@@ -15,7 +15,7 @@ app.controller("userNavBarController", function ($scope, Modal) {
         };
         Modal("login.html", "loginController", "login", resolver).result
                 .then(function (result) {
-
+                    Auth.login(result);
                 }, function (reason) {
 
                 });
@@ -28,10 +28,14 @@ app.controller("userNavBarController", function ($scope, Modal) {
         };
         Modal("register.html", "registerController", "register", resolver).result
                 .then(function (result) {
-
+                    Auth.register(result);
                 }, function (reason) {
 
                 });
     };
-    $scope.openRegisterModal();
+    $scope.logout = function logout() {
+        Auth.logout();
+    };
+    $scope.openLoginModal();
+    
 });

@@ -20,5 +20,6 @@
     "EMAIL": "Email",
     "PASSWORD": "Hasło",
     "REPEAT-PASSWORD": "Powtórz hasło",
-    "TOS": "Regulamin"
+    "TOS": "Regulamin",
+    "LOGOUT": "Wyloguj"
 }

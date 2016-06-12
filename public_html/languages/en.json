@@ -20,5 +20,6 @@
     "EMAIL": "Email",
     "PASSWORD": "Password",
     "REPEAT-PASSWORD": "Repeat password",
-    "TOS": "Terms of Service"
+    "TOS": "Terms of Service",
+    "LOGOUT": "Logout"
 }
