@@ -12,3 +12,6 @@ http://stackoverflow.com/a/280396/4256929   11.06.2016
 http://stackoverflow.com/a/6818878/4256929  11.06.2016
 https://www.google.com/recaptcha            12.06.2016
 https://github.com/VividCortex/angular-recaptcha    12.06.2016
+https://www.youtube.com/watch?v=EypyCWyQl04     12.06.2016
+https://www.reddit.com/r/webdev/comments/3ajfoc/api_jwt_why_use_an_applicationwide_secret_instead/ 12.06.2016
+http://stackoverflow.com/a/34983109/4256929 12.06.2016

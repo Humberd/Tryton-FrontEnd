@@ -6,7 +6,7 @@ app.directive("userNavBar", function (ViewUrl) {
         controller: "userNavBarController"
     };
 });
-app.controller("userNavBarController", function ($scope, Modal, Auth) {
+app.controller("userNavBarController", function userNavBarController($scope, Modal, Auth, Logger) {
     $scope.openLoginModal = function openLoginModal() {
         var resolver = {
             registerModal: function () {
