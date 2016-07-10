@@ -1,0 +1,32 @@
+{
+  "name": "tryton--front-end",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Maciej Sawicki"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "league",
+    "of",
+    "legends",
+    "esport",
+    "achievements"
+  ],
+  "homepage": "",
+  "dependencies": {
+    "angular": "angularjs#^1.5.7",
+    "angular-sanitize": "^1.5.7",
+    "angular-route": "^1.5.7",
+    "angular-resource": "^1.5.7",
+    "angular-recaptcha": "^3.0.3",
+    "angular-cookies": "^1.5.7",
+    "angular-translate": "^2.11.0",
+    "angular-dynamic-locale": "^0.1.32",
+    "angular-translate-loader-static-files": "^2.11.0",
+    "angular-translate-storage-cookie": "^2.11.0",
+    "angular-translate-storage-local": "^2.11.0",
+    "bootstrap": "^3.3.6",
+    "angular-bootstrap": "^1.3.3"
+  }
+}

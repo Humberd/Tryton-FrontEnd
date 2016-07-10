@@ -1,15 +1,40 @@
 {
-    "name": "Tryton-FrontEnd",
-    "version": "1.0.0",
-    "keywords": [
-        "util",
-        "functional",
-        "server",
-        "client",
-        "browser"
-    ],
-    "author": "Humberd",
-    "contributors": [
-    ],
-    "dependencies": {}
+  "name": "tryton--front-end",
+  "version": "1.0.0",
+  "keywords": [
+    "util",
+    "functional",
+    "server",
+    "client",
+    "browser"
+  ],
+  "author": "Maciej Sawicki",
+  "contributors": [],
+  "dependencies": {},
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/Humberd/Tryton-FrontEnd.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/Humberd/Tryton-FrontEnd/issues"
+  },
+  "homepage": "https://gitlab.com/Humberd/Tryton-FrontEnd#README",
+  "description": "",
+  "devDependencies": {
+    "event-stream": "^3.3.3",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^2.0.11",
+    "gulp-concat": "^2.6.0",
+    "gulp-flatten": "^0.3.0",
+    "gulp-less": "^3.1.0",
+    "gulp-ng-annotate": "^2.0.0",
+    "gulp-server-livereload": "^1.8.1",
+    "gulp-uglify": "^1.5.4",
+    "run-sequence": "^1.2.2"
+  }
 }

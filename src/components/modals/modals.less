@@ -1,0 +1,79 @@
+a {
+    cursor: pointer;
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+.modal-close-glyphicon {
+    float: right;
+    font-size: 90%;
+    padding: 5px;
+    cursor: pointer;
+    position: absolute;
+    right: 5px;
+}
+
+.modal-custom-content {
+    padding: 5px;
+    overflow: auto;
+}
+
+.modal-custom-body {
+    width: 95%;
+    margin: auto;
+    padding: 10px;
+}
+
+.modal-custom-footer {}
+
+.modal-logo {
+    height: 60px;
+    width: 40px;
+    margin: 0 auto;
+    background: url("http://static-noxia.cursecdn.com/1-0-5969-21264/Skins/Blocks/images/login/small-flame.png") no-repeat;
+}
+
+.modal-form {
+    width: 90%;
+    margin: 10px auto;
+}
+
+.modal-form .modal-form-group:not(:first-of-type) {
+    margin-top: 5px;
+}
+
+.modal-form-submit {
+    margin-top: 7px;
+}
+
+.modal-form-info {
+    margin-top: 15px;
+}
+
+.modal-captcha {
+    width: 300px;
+    margin: 15px auto;
+}
+
+.modal-form-tos {}
+
+form ng-invalid {
+    /*border: 1px solid red;*/
+    background-color: #FA787E;
+}
+
+@media screen and (min-width: 500px) {
+    .modal-login,
+    .modal-register {
+        width: 450px;
+        margin: 100px auto;
+    }
+}
+
+@media (max-width: 500px) {
+    .modal-custom-body {
+        width: 100%;
+        padding: 0;
+    }
+}
