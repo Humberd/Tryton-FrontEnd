@@ -8,6 +8,7 @@ var less = require("gulp-less");
 var cleanCss = require("gulp-clean-css");
 var webserver = require("gulp-server-livereload");
 var flatten = require("gulp-flatten");
+var angularFileSort = require("gulp-angular-filesort");
 
 var dist = "dist/";
 var js = dist + "js";
@@ -35,7 +36,9 @@ var jsLibraries = ["angular/angular.min.js",
     "angular-translate-loader-static-files/angular-translate-loader-static-files.min.js",
     "angular-translate-storage-cookie/angular-translate-storage-cookie.min.js",
     "angular-translate-storage-local/angular-translate-storage-local.min.js",
-    "angular-ui-router/release/angular-ui-router.min.js"
+    "angular-ui-router/release/angular-ui-router.min.js",
+    "angular-permission/dist/angular-permission.min.js",
+    "angular-permission/dist/angular-permission-ui.min.js",
 ];
 
 var cssLibraries = ["bootstrap/dist/css/bootstrap.min.css",
@@ -54,10 +57,10 @@ gulp.task("myScripts", function() {
     }
 
     return es.merge(jsStream)
-        .pipe(concat("app.min.js"))
-        .pipe(ngAnnotate())
-        .on("error", errorHandler)
+        .pipe(angularFileSort()).on("error", errorHandler)
+        .pipe(ngAnnotate()).on("error", errorHandler)
         // .pipe(uglify())
+        .pipe(concat("app.min.js"))
         .pipe(gulp.dest(js));
 });
 

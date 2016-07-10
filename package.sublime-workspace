@@ -1,0 +1,331 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"err",
+				"errorHandler"
+			],
+			[
+				"font",
+				"fontLib"
+			],
+			[
+				"fontLi",
+				"fontLibStream"
+			],
+			[
+				"fontL",
+				"fontLibraries"
+			],
+			[
+				"Tra",
+				"TranslateController"
+			],
+			[
+				"Translat",
+				"TranslateController"
+			],
+			[
+				"userNav",
+				"userNavBarController"
+			],
+			[
+				"jsLi",
+				"jsLibraries"
+			],
+			[
+				"angular-tra",
+				"angular-translate-storage-local"
+			],
+			[
+				"angular-s",
+				"angular-translate-storage-cookie"
+			],
+			[
+				"angular-tr",
+				"angular-translate-loader-static-files"
+			],
+			[
+				"angu",
+				"angular-translate"
+			],
+			[
+				"css",
+				"cssLibraries"
+			],
+			[
+				"de",
+				"dependencyList"
+			],
+			[
+				"scri",
+				"script	<script>"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 104.0,
+		"last_filter": "install",
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"list",
+				"Package Control: List Packages"
+			],
+			[
+				"Package Control: install",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: List Packages"
+			],
+			[
+				"Package Control:",
+				"Package Control: List Packages"
+			],
+			[
+				"Snippet: ",
+				"Snippet: #!/usr/bin/env"
+			],
+			[
+				"Package Control: inst",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 472.0
+	},
+	"console":
+	{
+		"height": 188.0,
+		"history":
+		[
+			"gulp",
+			"install",
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/D/Repositories/Tryton-FrontEnd/src/components/userNavBar/userNavBar.js",
+		"/D/Repositories/Tryton-FrontEnd/src/components/modals/register/register.html",
+		"/D/Repositories/Tryton-FrontEnd/sources.txt",
+		"/D/Repositories/Tryton-FrontEnd/src/components/userNavBar/userNavBar.html",
+		"/D/Repositories/Tryton-FrontEnd/package.json",
+		"/D/Repositories/Tryton-FrontEnd/src/services/Auth.js",
+		"/D/Repositories/Tryton-FrontEnd/src/services/Logger.js",
+		"/D/Repositories/Tryton-FrontEnd/src/components/translate/translateController.js",
+		"/D/Repositories/Tryton-FrontEnd/src/services/Session.js",
+		"/D/Repositories/Tryton-FrontEnd/src/components/modals/login/loginController.js",
+		"/D/Repositories/Tryton-FrontEnd/src/services/Router.js",
+		"/D/Repositories/Tryton-FrontEnd/src/components/modals/register/registerController.js",
+		"/D/Repositories/Tryton-FrontEnd/src/services/Modal.js",
+		"/D/Repositories/Tryton-FrontEnd/bower.json",
+		"/D/Repositories/Tryton-FrontEnd/bower_components/angular-material/angular-material.css",
+		"/D/Repositories/Tryton-FrontEnd/bower_components/angular-material/layouts/angular-material.layouts.css",
+		"/D/Repositories/Tryton-FrontEnd/gulpfile.js",
+		"/C/Users/Sawik/Desktop/Sublime Text Build 3114 x64/Data/Packages/User/Side Bar Folders.sublime-settings",
+		"/D/Repositories/Tryton-FrontEnd/src/index.html",
+		"/D/Repositories/Tryton-FrontEnd/.gitignore",
+		"/D/Repositories/Tryton-FrontEnd/dist/js/app.min.js",
+		"/D/Repositories/Tryton-FrontEnd/dist/index.html",
+		"/D/Repositories/Tryton-FrontEnd/dist/css/app.min.css",
+		"/D/Repositories/Tryton-FrontEnd/src/components/modals/modals.less",
+		"/D/Repositories/Tryton-FrontEnd/public_html/components/controllers/modal/registerController.js",
+		"/D/Repositories/Tryton-FrontEnd/public_html/components/views/modal/register.html",
+		"/D/Repositories/Tryton-FrontEnd/src/components/modals/login/login.html",
+		"/D/Repositories/Tryton-FrontEnd/src/components/userNavBar/userNavBar.less",
+		"/D/Repositories/Test/dist/index.html",
+		"/D/Repositories/Tryton-FrontEnd/dist/jsLib/jsLib.min.js",
+		"/D/Repositories/Test/src/index.html",
+		"/D/Repositories/Test/package.json",
+		"/D/Repositories/Test/dist/js/app.min.js",
+		"/D/Repositories/Test/libs/bootstrap/dist/css/bootstrap.min.css",
+		"/D/Repositories/Test/src/aaa.js",
+		"/D/Repositories/Test/src/components/mycomp.less",
+		"/D/Repositories/Test/dist/css/app.min.css",
+		"/D/Repositories/Test/src/components/mycomp.js",
+		"/D/Repositories/Test/src/components/temp2/temp.js",
+		"/D/Repositories/Test/src/app.js",
+		"/D/Repositories/Test/src/mycomp.less",
+		"/D/Repositories/Test/dist/app.min.js",
+		"/C/Users/Sawik/Desktop/Sublime Text Build 3114 x64/Data/Packages/AngularJS/AngularJS-js-completions.sublime-settings",
+		"/D/Repositories/Test/src/fourth.js",
+		"/D/Repositories/Test/src/third.coffee",
+		"/D/Repositories/Test/.bowerrc",
+		"/D/Repositories/Test/bower.json",
+		"/D/Repositories/Test/dist/all.min.js",
+		"/C/Users/Sawik/Desktop/Sublime Text Build 3114 x64/Data/Packages/User/consoleLog.sublime-snippet",
+		"/C/Users/Sawik/Desktop/Sublime Text Build 3114 x64/Data/Packages/User/console.log",
+		"/D/Repositories/Test/src/third.js",
+		"/D/Repositories/Test/dist/first.js",
+		"/C/Users/Sawik/Desktop/Sublime Text Build 3114 x64/Data/Packages/Default/Default (Windows).sublime-keymap",
+		"/C/Users/Sawik/Desktop/Sublime Text Build 3114 x64/Data/Packages/SideBarFolders/Side Bar Folders.sublime-settings",
+		"/D/Repositories/Test/src/first.js",
+		"/D/Repositories/Test/src/second.js",
+		"/C/Users/Sawik/Desktop/Sublime Text Build 3114 x64/Data/Packages/User/Default (Windows).sublime-keymap",
+		"/C/Users/Sawik/Desktop/Sublime Text Build 3114 x64/Data/Packages/Package Control/Package Control.sublime-settings",
+		"/C/Users/Sawik/Desktop/Sublime Text Build 3114 x64/Data/Packages/HTML-CSS-JS Prettify/Default (Windows).sublime-keymap",
+		"/C/Users/Sawik/Desktop/Sublime Text Build 3114 x64/Data/Packages/User/Package Control.sublime-settings",
+		"/C/Users/Sawik/Desktop/Sublime Text Build 3114 x64/Data/Packages/Emmet/Default (Windows).sublime-keymap",
+		"/C/Users/Sawik/Desktop/Sublime Text Build 3114 x64/Data/Packages/HTML-CSS-JS Prettify/HTMLPrettify.sublime-settings",
+		"/C/Users/Sawik/Desktop/Sublime Text Build 3114 x64/Data/Packages/User/Preferences.sublime-settings",
+		"/C/Users/Sawik/Desktop/Sublime Text Build 3114 x64/Data/Packages/Default/Preferences.sublime-settings"
+	],
+	"find":
+	{
+		"height": 26.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"console",
+			"packag",
+			"line",
+			"ctrl+shift+s",
+			"save",
+			"auto",
+			"format",
+			"save"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 38.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "package.sublime-project",
+	"replace":
+	{
+		"height": 48.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 221.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
