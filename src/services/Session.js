@@ -1,4 +1,4 @@
-angular.module("TrytonApp")
+angular.module("TrytonApp.Session",[])
     .factory("Session", Session)
     .run(SessionRun);
 

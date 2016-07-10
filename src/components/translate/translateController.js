@@ -1,4 +1,4 @@
-angular.module("Translate", ["pascalprecht.translate", "ngSanitize", "ngCookies", "tmh.dynamicLocale", "Logger"])
+angular.module("TrytonApp.Translate", ["pascalprecht.translate", "ngSanitize", "ngCookies", "tmh.dynamicLocale", "TrytonApp.Logger"])
     .config(TranslateConfig)
     .factory("NotExistingTranslationHandler", NotExistingTranslationHandler)
     .config(DynamicLocaleProvider)

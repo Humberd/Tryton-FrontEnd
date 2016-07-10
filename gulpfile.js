@@ -13,17 +13,20 @@ var dist = "dist/";
 var js = dist + "js";
 var css = dist + "css";
 var html = dist + "html";
-var jsLib = dist + "jsLib";
-var cssLib = dist + "cssLib";
-var fontLib = dist + "fonts";
+var jsLib = dist + "lib/js";
+var cssLib = dist + "lib/css";
+var fontLib = dist + "lib/fonts";
 var langs = dist + "langs";
 
 var libPath = "bower_components/";
 
 var jsLibraries = ["angular/angular.min.js",
+    "angular-animate/angular-animate.min.js",
+    "angular-aria/angular-aria.min.js",
     "angular-bootstrap/ui-bootstrap-tpls.min.js",
     "angular-cookies/angular-cookies.min.js",
     "angular-dynamic-locale/dist/tmhDynamicLocale.min.js",
+    "angular-material/angular-material.min.js",
     "angular-recaptcha/release/angular-recaptcha.min.js",
     "angular-resource/angular-resource.min.js",
     "angular-route/angular-route.min.js",
@@ -31,19 +34,29 @@ var jsLibraries = ["angular/angular.min.js",
     "angular-translate/angular-translate.min.js",
     "angular-translate-loader-static-files/angular-translate-loader-static-files.min.js",
     "angular-translate-storage-cookie/angular-translate-storage-cookie.min.js",
-    "angular-translate-storage-local/angular-translate-storage-local.min.js"
+    "angular-translate-storage-local/angular-translate-storage-local.min.js",
+    "angular-ui-router/release/angular-ui-router.min.js"
 ];
 
-var cssLibraries = ["bootstrap/dist/css/bootstrap.min.css"];
+var cssLibraries = ["bootstrap/dist/css/bootstrap.min.css",
+    "angular-material/angular-material.min.css"
+];
 
 var fontLibraries = ["bootstrap/dist/fonts/*"]
 
 gulp.task("myScripts", function() {
     var jsStream = gulp.src(["src/**/*.js", "!src/languages/locals/*.js"]);
 
+    function errorHandler(error) {
+        console.log(error.message);
+
+        this.emit("end");
+    }
+
     return es.merge(jsStream)
         .pipe(concat("app.min.js"))
         .pipe(ngAnnotate())
+        .on("error", errorHandler)
         // .pipe(uglify())
         .pipe(gulp.dest(js));
 });
@@ -79,8 +92,8 @@ gulp.task("libScripts", function() {
     var jsLibStream = gulp.src(jsLibraries);
 
     return jsLibStream
-        .pipe(concat("jsLib.min.js"))
-        .pipe(uglify())
+        .pipe(concat("js.min.js"))
+        // .pipe(uglify())
         .pipe(gulp.dest(jsLib));
 });
 
@@ -92,7 +105,8 @@ gulp.task("libStyles", function() {
     var cssLibStream = gulp.src(cssLibraries);
 
     return cssLibStream
-        .pipe(concat("cssLib.min.css"))
+        .pipe(concat("css.min.css"))
+        // .pipe(cleanCss())
         .pipe(gulp.dest(cssLib));
 });
 
@@ -119,7 +133,7 @@ gulp.task("webserver", function() {
         .pipe(webserver({
             host: "0.0.0.0",
             livereload: true,
-            // fallback: "index.html",
+            fallback: "index.html",
             open: false
         }));
 })

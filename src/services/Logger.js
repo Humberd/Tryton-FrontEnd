@@ -1,4 +1,4 @@
-angular.module("Logger", [])
+angular.module("TrytonApp.Logger", [])
     .provider("Logger", Logger);
 
 function Logger() {

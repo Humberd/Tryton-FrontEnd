@@ -7,11 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="">
     <!--ANGULAR LIB-->
-    <script src="jsLib/jsLib.min.js" type="text/javascript" charset="utf-8"></script>
-    <link rel="stylesheet" href="cssLib/cssLib.min.css">
+    <script src="lib/js/js.min.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" href="lib/css/css.min.css">
     <script>
-    // angular.module("TrytonApp", ["Translate", "Logger", "Route", "ui.bootstrap", "Authentication"]);
-    angular.module("TrytonApp", ["Translate", "Logger", "ui.bootstrap", "Authentication"])
+    angular.module("TrytonApp", ["TrytonApp.Translate", "TrytonApp.Logger", "ui.bootstrap", "TrytonApp.Authentication", "ngMaterial", "TrytonApp.Modal", "TrytonApp.Router", "TrytonApp.Session"])
         .constant('ViewUrl', "html/");
     </script>
     <script src="js/app.min.js" type="text/javascript" charset="utf-8"></script>
@@ -21,7 +20,11 @@
 </head>
 
 <body>
+    <base href="/">
     <div user-nav-bar></div>
+    <button ui-sref="one">One</button>
+    <button ui-sref="two">Two</button>
+    <div ui-view></div>
 </body>
 
 </html>

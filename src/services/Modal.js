@@ -1,4 +1,4 @@
-angular.module("TrytonApp")
+angular.module("TrytonApp.Modal", [])
     .service("Modal", Modal);
 
 function Modal($uibModal, ViewUrl, Logger) {

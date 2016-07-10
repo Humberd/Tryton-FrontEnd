@@ -1,4 +1,4 @@
-angular.module("Authentication", ["vcRecaptcha"])
+angular.module("TrytonApp.Authentication", ["vcRecaptcha"])
     .factory("Auth", Auth);
 
 function Auth(Session, Logger) {

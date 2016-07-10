@@ -1,4 +1,4 @@
-angular.module("Authentication")
+angular.module("TrytonApp.Authentication")
     .controller("loginController", LoginController);
 
 function LoginController($scope, $uibModalInstance, registerModal) {
@@ -9,10 +9,10 @@ function LoginController($scope, $uibModalInstance, registerModal) {
         //TODO walidacja formularza
         //        console.log($scope.login); // wartosci
 
-        if ($scope.login.email.length > 0) {
-            $scope.login.username = $scope.login.email;
-            $uibModalInstance.close($scope.login);
-        }
+        // if ($scope.login.email.length > 0) {
+        //     $scope.login.username = $scope.login.email;
+        //     $uibModalInstance.close($scope.login);
+        // }
     };
     $scope.close = function() {
         $uibModalInstance.dismiss();
