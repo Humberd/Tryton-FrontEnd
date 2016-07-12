@@ -10,7 +10,7 @@
     <script src="lib/js/js.min.js" type="text/javascript" charset="utf-8"></script>
     <link rel="stylesheet" href="lib/css/css.min.css">
     <script>
-    angular.module("TrytonApp", ["TrytonApp.Translate", "TrytonApp.Logger", "ui.bootstrap", "TrytonApp.Authentication", "ngMaterial", "TrytonApp.Modal", "TrytonApp.Router", "TrytonApp.Session"])
+    angular.module("TrytonApp", ["TrytonApp.Translate", "TrytonApp.Logger", "ui.bootstrap", "TrytonApp.Authentication", "ngMaterial", "TrytonApp.Modal", "TrytonApp.Router", "TrytonApp.Session", "TrytonApp.Toasts"])
         .constant('ViewUrl', "html/");
     </script>
     <script src="js/app.min.js" type="text/javascript" charset="utf-8"></script>
@@ -19,14 +19,12 @@
     <script src="https://www.google.com/recaptcha/api.js?onload=vcRecaptchaApiLoaded&render=explicit" async defer></script>
 </head>
 
-<body>
+<body ng-controller="indexController">
     <base href="/">
     <div user-nav-bar></div>
-    <button ui-sref="one">One</button>
-    <button ui-sref="two">Two</button>
-    <div ui-view="viewA"></div>
-    <div ui-view="viewB"></div>
-    <div ui-view></div>
+    {{foo}}
+    <button class="btn btn-primary" ng-click="click()">Click</button>
+    <!-- <exp-toast></exp-toast> -->
 </body>
 
 </html>

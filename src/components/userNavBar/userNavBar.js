@@ -4,7 +4,6 @@ angular.module("TrytonApp")
 
 
 function UserNavBar(ViewUrl) {
-    "ngInject";
     return {
         restrict: "A",
         templateUrl: ViewUrl + "userNavBar.html",
