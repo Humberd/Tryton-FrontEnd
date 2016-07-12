@@ -1,3 +1,37 @@
 #exp-toast {
-	background-color: yellow;
+	position: fixed;
+	background-color: #3C3C3C;
+	color: white;
+	padding: 5px 10px;
+	top: 30px;
+	left: 50%;
+	transform: translateX(-50%);
+	display: flex;
+	.bar {
+		width: 200px;
+		display: flex;
+		margin: 5px 10px;
+		border: 1px solid black;
+		color: black;
+		font-weight: 800;
+		text-align: center;
+		overflow-x: visible;
+		font-size: 10px;
+		& > *:not(:first-child) {
+			border-left: 1px solid darkgray;
+		}
+		.currentExp {
+			background-color: green;
+			width: 60%;
+		}
+		.gainedExp {
+			background-color: yellow;
+
+			width: 20%;
+		}
+		.remainingExp {
+			background-color: grey;
+			width: 20%;
+		}
+	}
 }
