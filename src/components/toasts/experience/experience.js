@@ -7,7 +7,7 @@ function ExpToastFactory($document, $sce, $rootScope, $compile, $timeout) {
     let _toast = angular.element("<exp-toast>");
     let _isDisplayed = false;
     let _configs = {
-        hideDelay: 4000
+        hideDelay: 400000
     };
     let _timeoutPromise;
     return {

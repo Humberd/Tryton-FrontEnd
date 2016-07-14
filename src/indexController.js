@@ -12,4 +12,5 @@ function indexController($scope, Exp, $mdToast) {
     $scope.click = function() {
     	Exp.show();
     }
+    $scope.click();
 }
