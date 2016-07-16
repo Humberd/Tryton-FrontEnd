@@ -1,69 +1,87 @@
+@exp-bar-width: 300px;
+@gained-exp-color: #FFB924;
 #exp-toast {
     position: fixed;
     top: 30px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
     color: white;
-    width: 300px;
-    .exp-bar {
-        display: flex;
+    .left-column {
         background-color: #3C3C3C;
-        padding: 5px 10px;
-        width: 100%;
-        .bar {
-            margin: 5px 10px;
-            border: 1px solid black;
-            color: black;
-            font-weight: 800;
-            text-align: center;
-            overflow-x: visible;
-            font-size: 10px;
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-            & > *:not(: first-child) {
-                border-left: 1px solid darkgray;
-            }
-            .currentExp {
-                background-color: #4EB34E;
-                width: 60%;
-            }
-            .gainedExp {
-                background-color: #FFB924;
-                width: 20%;
-            }
-            .remainingExp {
-                background-color: grey;
-                width: 20%;
-            }
+        padding: 2px 10px 1px 10px;
+        margin-right: 1px;
+        position: absolute;
+        right: @exp-bar-width;
+        .sum-gained-exp {
+            color: @gained-exp-color;
+            font-size: 1.3em;
+            font-weight: 700;
         }
     }
-    .pills-container {
-    	padding-top: 1px;
-    	display: flex;
-    	flex-direction: column;
-        width: 100%;
-    	.exp-pill {
-			background-color: #3C3C3C;
-            padding: 0 10px;
-            /*line-height: 22px;*/
+    .center-column {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: @exp-bar-width;
+        .exp-bar {
             display: flex;
-            flex-direction: row;
-            &:not(:first-child) {
+            background-color: #3C3C3C;
+            padding: 5px 10px;
+            width: 100%;
+            .bar {
+                margin: 5px 10px;
+                border: 1px solid black;
+                color: black;
+                font-weight: 800;
+                text-align: center;
+                overflow-x: visible;
+                font-size: 10px;
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+                & > *:not(:first-child) {
+                    border-left: 1px solid darkgray;
+                }
+                .currentExp {
+                    background-color: #4EB34E;
+                    width: 60%;
+                }
+                .gainedExp {
+                    background-color: #FFB924;
+                    width: 20%;
+                }
+                .remainingExp {
+                    background-color: grey;
+                    width: 20%;
+                }
+            }
+        }
+        .pills-container {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            line-height: 1.1;
+            .exp-pill {
+                background-color: #3C3C3C;
+                padding: 3px 10px;
+                display: flex;
+                flex-direction: row;
                 margin-top: 1px;
+                & > * {
+                    padding-top: 1px;
+                }
+                .gained-exp {
+                    margin-right: 10px;
+                    color: @gained-exp-color;
+                }
+                .name {
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    overflow-x: hidden;
+                }
             }
-            .gained-exp {
-                margin-right: 10px;
-                color: #FFB924;
-            }
-            .name {
-                white-space: nowrap;
-                text-overflow: ellipsis;
-                overflow-x: hidden;
-            }
-    	}
+        }
     }
 }
