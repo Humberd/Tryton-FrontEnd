@@ -47,14 +47,14 @@ var cssLibraries = ["bootstrap/dist/css/bootstrap.min.css",
 
 var fontLibraries = ["bootstrap/dist/fonts/*"]
 
+function errorHandler(error) {
+    console.log(error.message);
+
+    this.emit("end");
+}
+
 gulp.task("myScripts", function() {
     var jsStream = gulp.src(["src/**/*.js", "!src/languages/locals/*.js"]);
-
-    function errorHandler(error) {
-        console.log(error.message);
-
-        this.emit("end");
-    }
 
     return es.merge(jsStream)
         .pipe(angularFileSort()).on("error", errorHandler)
@@ -66,7 +66,7 @@ gulp.task("myScripts", function() {
 
 gulp.task("myStyles", function() {
     var lessStream = gulp.src("src/**/*.less")
-        .pipe(less());
+        .pipe(less()).on("error", errorHandler);
 
     var cssStream = gulp.src("src/**/*.css");
 

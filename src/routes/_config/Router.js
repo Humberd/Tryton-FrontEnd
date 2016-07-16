@@ -1,8 +1,12 @@
-angular.module("TrytonApp.Router", ["ui.router", "permission", "permission.ui"])
-    .config(RouterConfig);
+(function() {
+    "use strict";
 
-function RouterConfig($stateProvider, $urlRouterProvider, $locationProvider) {
+    angular.module("TrytonApp.Router")
+        .config(RouterConfig);
 
-    $locationProvider.html5Mode(true);
+    function RouterConfig($stateProvider, $urlRouterProvider, $locationProvider) {
 
-}
+        $locationProvider.html5Mode(true);
+
+    }
+})();

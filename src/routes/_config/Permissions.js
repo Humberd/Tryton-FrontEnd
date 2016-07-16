@@ -1,6 +1,10 @@
-angular.module("TrytonApp.Router")
-    .run(PermissionsRun);
+(function() {
+    "use strict";
 
-function PermissionsRun(PermissionStore, RoleStore) {
+    angular.module("TrytonApp.Router")
+        .run(PermissionsRun);
 
-}
+    function PermissionsRun(PermissionStore, RoleStore) {
+
+    }
+})();

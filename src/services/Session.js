@@ -1,22 +1,26 @@
-angular.module("TrytonApp.Session",[])
-    .factory("Session", Session)
-    .run(SessionRun);
+(function() {
+    "use strict";
 
-function Session() {
-    var user;
-    return {
-        getUser: function() {
-            return user;
-        },
-        setUser: function(newUser) {
-            user = newUser;
-        },
-        isLogged: function() {
-            return user ? true : false;
-        }
-    };
-}
+    angular.module("TrytonApp.Session", [])
+        .factory("Session", Session)
+        .run(SessionRun);
 
-function SessionRun($rootScope, Session) {
-    $rootScope.Session = Session;
-}
+    function Session() {
+        var user;
+        return {
+            getUser: function() {
+                return user;
+            },
+            setUser: function(newUser) {
+                user = newUser;
+            },
+            isLogged: function() {
+                return user ? true : false;
+            }
+        };
+    }
+
+    function SessionRun($rootScope, Session) {
+        $rootScope.Session = Session;
+    }
+})();
