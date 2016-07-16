@@ -9,6 +9,7 @@ var cleanCss = require("gulp-clean-css");
 var webserver = require("gulp-server-livereload");
 var flatten = require("gulp-flatten");
 var angularFileSort = require("gulp-angular-filesort");
+var sourcemaps = require("gulp-sourcemaps");
 
 var dist = "dist/";
 var js = dist + "js";
@@ -57,10 +58,12 @@ gulp.task("myScripts", function() {
     var jsStream = gulp.src(["src/**/*.js", "!src/languages/locals/*.js"]);
 
     return es.merge(jsStream)
+        .pipe(sourcemaps.init())
         .pipe(angularFileSort()).on("error", errorHandler)
         .pipe(ngAnnotate()).on("error", errorHandler)
-        // .pipe(uglify())
+        // .pipe(uglify()).on("error", errorHandler)
         .pipe(concat("app.min.js"))
+        .pipe(sourcemaps.write("/"))
         .pipe(gulp.dest(js));
 });
 
@@ -95,7 +98,9 @@ gulp.task("libScripts", function() {
     var jsLibStream = gulp.src(jsLibraries);
 
     return jsLibStream
+        .pipe(sourcemaps.init({ loadMaps: true }))
         .pipe(concat("js.min.js"))
+        .pipe(sourcemaps.write('/dev/null', { addComment: false }))
         // .pipe(uglify())
         .pipe(gulp.dest(jsLib));
 });
@@ -108,7 +113,9 @@ gulp.task("libStyles", function() {
     var cssLibStream = gulp.src(cssLibraries);
 
     return cssLibStream
+        .pipe(sourcemaps.init({ loadMaps: true }))
         .pipe(concat("css.min.css"))
+        .pipe(sourcemaps.write('/dev/null', { addComment: false }))
         // .pipe(cleanCss())
         .pipe(gulp.dest(cssLib));
 });

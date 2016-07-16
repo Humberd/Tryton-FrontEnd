@@ -5,19 +5,19 @@
         .factory("Exp", ExpToastFactory);
 
     function ExpToastFactory($document, $sce, $rootScope, $compile, $timeout) {
-        let _body = $document[0].body;
-        let _toast = angular.element("<exp-toast>");
-        let _isDisplayed = false;
-        let _configs = {
+        var _body = $document[0].body;
+        var _toast = angular.element("<exp-toast>");
+        var _isDisplayed = false;
+        var _configs = {
             hideDelay: 400000
         };
-        let _timeoutPromise;
+        var _timeoutPromise;
         return {
             show: function() {
                 if (!_isDisplayed) {
                     _isDisplayed = true;
 
-                    let compiledToast = $compile(_toast)($rootScope.$new());
+                    var compiledToast = $compile(_toast)($rootScope.$new());
                     angular.element(_body).append(compiledToast);
 
                     this._setTimeout();
