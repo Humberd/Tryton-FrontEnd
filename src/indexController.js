@@ -13,7 +13,7 @@
         //     });
         // }
         $scope.click = function() {
-            Exp.addCompletedTask(100);
+            Exp.addCompletedTask(830);
         }
         // $scope.click();
         Exp.show();
