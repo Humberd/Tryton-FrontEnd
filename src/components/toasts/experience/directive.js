@@ -7,7 +7,7 @@
     function ExpToastDirective(ViewUrl) {
         return {
             restrict: "E",
-            templateUrl: ViewUrl + "exp-toast.html",
+            templateUrl: ViewUrl + "expToast.html",
             replace: true,
             link: function(scope, elem, attrs) {
 

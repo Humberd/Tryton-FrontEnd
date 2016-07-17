@@ -1,5 +1,5 @@
 (function() {
 	"use strict";
 
-	angular.module("TrytonApp.Toasts", []);
+	angular.module("TrytonApp.Toasts", ["TrytonApp.Experience"]);
 })();

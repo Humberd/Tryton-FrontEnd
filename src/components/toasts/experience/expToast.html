@@ -1,7 +1,7 @@
 <div id="exp-toast">
-    <div class="left-column">
+    <div class="left-column" ng-show="gainedExp">
         <div class="sum-gained-exp">
-            +400
+            +{{gainedExp}}
         </div>
     </div>
     <div class="center-column">
@@ -15,26 +15,28 @@
                 <div class="remainingExp"></div>
             </div>
             <div class="exp">
-                5000
+                {{totalNeedExp}}
             </div>
         </div>
         <div class="pills-container">
-            <div class="exp-pill">
+            <div class="exp-pill" ng-repeat="pill in scope.pills">
                 <div class="gained-exp">
-                    +200
+                    +{{pill.gainedExp}}
                 </div>
                 <div class="name">
-                    Tutorial completed
+                    {{pill.name}}
                 </div>
             </div>
-            <div class="exp-pill">
+            <!-- <div class="exp-pill">
                 <div class="gained-exp">
                     +200
                 </div>
                 <div class="name">
                     Tutorial completed Tutorial completed Tutorial completed
                 </div>
-            </div>
+            </div> -->
         </div>
+        <pre>{{data | json}}</pre>
+        <pre>{{foo | json}}</pre>
     </div>
 </div>

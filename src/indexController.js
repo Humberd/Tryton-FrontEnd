@@ -13,9 +13,10 @@
         //     });
         // }
         $scope.click = function() {
-            Exp.show();
+            Exp.addCompletedTask(100);
         }
-        $scope.click();
+        // $scope.click();
+        Exp.show();
     }
 
 })();
