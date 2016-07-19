@@ -2,55 +2,57 @@
     "use strict";
 
     angular.module("TrytonApp.Toasts")
-        .factory("Exp", ExpToastFactory);
+        .factory("ExpToast", ExpToastFactory);
 
     function ExpToastFactory($document, $sce, $rootScope, $compile, $timeout, $controller, ExperienceTable, Logger, $q) {
         var _body = $document[0].body;
         var _toast = angular.element("<exp-toast>");
         var _isDisplayed = false;
-        var _configs = {
-            hideDelay: 400000
-        };
-        var toastScopeFields = {
-            currentExp: 500,
-            gainedExp: 0,
-            requiredExp: 5000,
-            pills: [{
-                gainedExp: 200,
-                name: "Completed tutorial."
-            }]
-        };
+        var _isInitialized = false;
+
         var _timeoutPromise;
         var toastScope;
         var toastController;
         return {
-            show: function() {
-                if (!_isDisplayed) {
-                    _isDisplayed = true;
-
-                    this._createScope();
-                    this._bindController();
-                    toastController.init(170);
-                    toastController.addCompletedTask(600);
-                    // toastController.addCompletedTask();
-                    // toastController.addCompletedTask();
-
-                    var compiledToast = $compile(_toast)(toastScope);
-                    angular.element(_body).append(compiledToast);
-
-                    this._setTimeout();
-                } else {
-                    this._cancelTimeout();
-                    this._setTimeout();
+            init: function(exp) {
+                if (_isInitialized) {
+                    Logger.error("ExpToast is already initialized");
+                    return;
                 }
+
+                _isInitialized = true;
+                this._createScope();
+                this._bindController();
+                var self = this;
+                toastController.promise.then(function() {
+                    console.log("end");
+                    self._hide();
+                });
+                toastController.init(exp);
             },
-            hide: function() {
+
+            addTask: function(exp, name) {
+                if (!_isInitialized) {
+                    Logger.error("ExpToast must be initialized");
+                    return;
+                }
+                if (!_isDisplayed) {
+                    this._show();
+                }
+                toastController.addCompletedTask(exp, name);
+            },
+            _show: function() {
+                _isDisplayed = true;
+
+                var compiledToast = $compile(_toast)(toastScope);
+                angular.element(_body).append(compiledToast);
+            },
+            _hide: function() {
                 _toast.remove();
                 this._destroyScope();
+                toastController = null;
                 _isDisplayed = false;
-            },
-            addCompletedTask: function (exp, name) {
-                toastController.addCompletedTask(exp, name);
+                _isInitialized = false;
             },
             _setTimeout: function() {
                 var self = this;

@@ -4,7 +4,7 @@
     angular.module("TrytonApp")
         .controller("indexController", IndexController);
 
-    function IndexController($scope, Exp, $mdToast) {
+    function IndexController($scope, ExpToast, $mdToast) {
         $scope.foo = "";
         // $scope.click = function() {
         //     $mdToast.showSimple({
@@ -13,10 +13,10 @@
         //     });
         // }
         $scope.click = function() {
-            Exp.addCompletedTask(830);
+            ExpToast.addTask(150);
         }
         // $scope.click();
-        Exp.show();
+        ExpToast.init(170);
     }
 
 })();

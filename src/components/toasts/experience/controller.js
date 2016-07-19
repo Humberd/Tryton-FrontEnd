@@ -16,25 +16,14 @@
 
         this.init = init;
         this.addCompletedTask = addCompletedTask;
-
-        var taskQueue = new TaskQueue();
-
-        function updateValues(totalCurrentExp) {
-            $scope.level = ExperienceTable.getLevel(totalCurrentExp);
-            $scope.haveExp = totalCurrentExp - ExperienceTable.getTotalRequiredExp($scope.level);
-            $scope.totalNeedExp = ExperienceTable.getRequiredExp($scope.level + 1);
-            $scope.needExp = $scope.totalNeedExp - $scope.haveExp;
-            console.log("[%s] | [%s] | [%s] | [%s] | [%s]",
-                totalCurrentExp,
-                $scope.level,
-                $scope.haveExp,
-                $scope.needExp,
-                $scope.totalNeedExp);
-        }
+        this.taskQueue = new TaskQueue();
+        var self = this;
+        this.promise = this.taskQueue.promise;
+        ////////////
 
         function init(totalCurrentExp) {
             if (!angular.isNumber(totalCurrentExp) || totalCurrentExp < 0) {
-                throw "TotalCurrentExp must be a positive integer number";
+                throw new TypeError("TotalCurrentExp must be a positive integer number");
             }
             if ($scope.totalCurrentExp) {
                 Logger.error("Exp toast is already initialized");
@@ -46,19 +35,10 @@
 
         function addCompletedTask(input, name) {
             if (!angular.isNumber(input) || input < 0) {
-                throw "CompletedTask exp must be a positive integer number";
+                throw new TypeError("CompletedTask exp must be a positive integer number");
             }
 
-            taskQueue.addPill(input, name);
-            // var a;
-            // while ((a = input - $scope.needExp) > 0) {
-            //     $scope.totalCurrentExp += $scope.needExp;
-
-            //     input = a;
-            //     updateValues($scope.totalCurrentExp);
-            // }
-            // $scope.totalCurrentExp += input;
-            // updateValues($scope.totalCurrentExp);
+            self.taskQueue.addPill(input, name);
         }
 
         function TaskQueue() {
@@ -90,16 +70,21 @@
                 var input = self.pills[0].exp;
 
                 var a;
+                var level = $scope.level + 1;
+                var needExp = $scope.needExp;
                 //sprawdza czy awansowal na nowy level
-                while ((a = input - $scope.needExp) > 0) {
+                while ((a = input - needExp) > 0) {
                     //jesli awansowal, to dopelnia expa do nowego levela
-                    $scope.totalCurrentExp += $scope.needExp;
+                    $scope.totalCurrentExp += needExp;
 
                     //ustawia pozostaly zdobyty exp
                     input = a;
 
                     //wrzuca prosble do kolejki o update wartosci
                     gainedExpQueue.addUpdate($scope.totalCurrentExp, $scope.needExp);
+
+                    level++;
+                    needExp = ExperienceTable.getRequiredExp(level);
                 }
                 //nie awansowal
                 $scope.totalCurrentExp += input;
@@ -107,7 +92,7 @@
                 //nie awansowal
 
                 //jesli wszystkie prosbe o update zakonczyly sie pomyslnie
-                gainedExpQueue.isEnded.then(function () {
+                gainedExpQueue.isEnded.then(function() {
                     //zdejmuje task z kolejki
                     self.pills.shift();
 
@@ -134,10 +119,10 @@
 
             function addUpdate(totalCurrentExp, gainedExp) {
                 var updateObject = {
-                    totalCurrentExp: totalCurrentExp,
-                    gainedExp: gainedExp
-                }
-                //wrzucam prosbe o update wartosci do kolejki
+                        totalCurrentExp: totalCurrentExp,
+                        gainedExp: gainedExp
+                    }
+                    //wrzucam prosbe o update wartosci do kolejki
                 queue.push(updateObject);
 
                 //jesli jestem pierwsza prosba, to rozpoczynam updatowanie
@@ -166,37 +151,17 @@
             }
         };
 
-        // this.setTotalCurrentExp = function(totalCurrentExp) {
-        //     if (!angular.isNumber(totalCurrentExp) || totalCurrentExp < 0) {
-        //         throw "TotalCurrentExp must be a positive integer number";
-        //     }
-        //     $scope.level = ExperienceTable.getLevel(totalCurrentExp);
-        //     $scope.haveExp = totalCurrentExp - ExperienceTable.getTotalRequiredExp($scope.level);
-        //     $scope.totalNeedExp = ExperienceTable.getRequiredExp($scope.level + 1);
-        //     $scope.needExp = $scope.totalNeedExp - $scope.haveExp;
-        //     // print();
-        // }
-
-        // this.addCompletedTask = function(exp, name) {
-        //     if (!angular.isNumber(exp) || exp < 0) {
-        //         throw "CompletedTask exp must be a positive integer number";
-        //     }
-        //     if (exp > 0) {
-        //         //add pill here
-        //         if (exp < $scope.needExp) {
-        //             $scope.needExp -= exp;
-        //             $scope.haveExp += exp;
-        //         } else {
-        //             //add some fancy level up animation here
-        //             $scope.level++;
-        //             $scope.haveExp = ($scope.haveExp + exp) - $scope.totalNeedExp;
-        //             $scope.totalNeedExp = ExperienceTable.getRequiredExp($scope.level + 1);
-        //             $scope.needExp = $scope.totalNeedExp - $scope.haveExp;
-        //             console.log("Level up");
-        //         }
-        //     }
-        //     // print();
-        // }
-
+        function updateValues(totalCurrentExp) {
+            $scope.level = ExperienceTable.getLevel(totalCurrentExp);
+            $scope.haveExp = totalCurrentExp - ExperienceTable.getTotalRequiredExp($scope.level);
+            $scope.totalNeedExp = ExperienceTable.getRequiredExp($scope.level + 1);
+            $scope.needExp = $scope.totalNeedExp - $scope.haveExp;
+            Logger.info("[%s] | [%s] | [%s] | [%s] | [%s]",
+                totalCurrentExp,
+                $scope.level,
+                $scope.haveExp,
+                $scope.needExp,
+                $scope.totalNeedExp);
+        }
     }
 })();
