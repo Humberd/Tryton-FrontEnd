@@ -4,7 +4,7 @@
     angular.module("TrytonApp.Toasts")
         .factory("ExpToast", ExpToastFactory);
 
-    function ExpToastFactory($document, $sce, $rootScope, $compile, $timeout, $controller, ExperienceTable, Logger, $q) {
+    function ExpToastFactory($document, $sce, $rootScope, $compile, $timeout, $controller, ExperienceTable, Logger, $q, Queue) {
         var _body = $document[0].body;
         var _toast = angular.element("<exp-toast>");
         var _isDisplayed = false;
@@ -24,7 +24,7 @@
                 this._createScope();
                 this._bindController();
                 var self = this;
-                toastController.promise.then(function() {
+                toastController.getPromise().then(function() {
                     console.log("end");
                     self._hide();
                 });
@@ -39,7 +39,7 @@
                 if (!_isDisplayed) {
                     this._show();
                 }
-                toastController.addCompletedTask(exp, name);
+                toastController.addTask(exp, name);
             },
             _show: function() {
                 _isDisplayed = true;
@@ -75,7 +75,8 @@
                     ExperienceTable: ExperienceTable,
                     $timeout: $timeout,
                     Logger: Logger,
-                    $q: $q
+                    $q: $q,
+                    Queue: Queue
                 });
             },
         };
