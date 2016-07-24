@@ -86,35 +86,13 @@
                 updateValues(this.items[0].totalCurrentExp);
                 $scope.gainedExp += this.items[0].gainedExp;
 
+                $scope.$broadcast("updateBar", this.items[0].bar);
+
                 var self = this;
 
-
-                //sprawa wygladala tak:
-                //controller byl ladowany przed funkcja link, i w czasie, kiedy funkcja
-                //link NIE byla zaladowana wysylal $broadcast do nikogo, dlatego 
-                //na poczatku sprawdza czy link sie zaladowal czy nie
-                //jesli nie to nasluchuje kiedy sie link zaladuje, wtedy wysle $broadcast
-                //i bedzie kontynuowal kolejke, a nastepnie usunie $watcher
-                //jesli jest zaladowana funkcja link, to bez zmian bedzie kontynuowal kolejke
-                if (!$scope.isLink) {
-                    var linkListener = $scope.$watch("isLink", function(newVal) {
-                        if (newVal) {
-                            continueQueue();
-                            //usuwa $scope.$watch()
-                            linkListener();
-                        }
-                    })
-                } else {
-                    continueQueue();
-                }
-
-                function continueQueue() {
-                    $scope.$broadcast("updateBar", self.items[0].bar);
-
-                    $timeout(function() {
-                        self.finishStep();
-                    }, 2000);
-                }
+                $timeout(function() {
+                    self.finishStep();
+                }, 2000);
             }
         });
 
@@ -139,8 +117,29 @@
                 throw new TypeError("CompletedTask exp must be a positive integer number");
             }
 
-            taskQueue.add(input, name);
-            $scope.haveExpAtStart = $scope.haveExp;
+            if (!$scope.isShown) {
+                // if (!$scope.isShowing) {
+                //     $scope.$broadcast("show");
+                // }
+                $scope.$broadcast("updateBar", {
+                    currentExp: $scope.haveExp,
+                    gainedExp: 0,
+                    remainingExp: $scope.needExp
+                })
+                var listener = $scope.$watch("isShown", function (newVal) {
+                    if (newVal) {
+                        add();
+                        listener();
+                    }
+                })
+            } else {
+                add();
+            }
+
+            function add() {
+                taskQueue.add(input, name);
+                $scope.haveExpAtStart = $scope.haveExp;
+            }
         }
 
         function getPromise() {

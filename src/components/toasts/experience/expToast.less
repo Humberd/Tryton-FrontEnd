@@ -2,12 +2,18 @@
 @gained-exp-color: #FFB924;
 #exp-toast {
     position: fixed;
-    top: 30px;
+    top: 0;
+    opacity: 0;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
     flex-direction: row;
     color: white;
+    transition: all 1s;
+    &.is-visible {
+        opacity: 1;
+        top: 30px;
+    }
     .left-column {
         background-color: #3C3C3C;
         padding: 5px 10px 5px 10px;

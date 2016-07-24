@@ -4,7 +4,7 @@
     angular.module("TrytonApp.Toasts")
         .factory("ExpToast", ExpToastFactory);
 
-    function ExpToastFactory($document, $sce, $rootScope, $compile, $timeout, $controller, ExperienceTable, Logger, $q, Queue) {
+    function ExpToastFactory($document, $sce, $rootScope, $compile, $timeout, $controller, ExperienceTable, Logger, $q, Queue, $animate) {
         var _body = $document[0].body;
         var _toast = angular.element("<exp-toast>");
         var _isDisplayed = false;
@@ -26,6 +26,7 @@
                 var self = this;
                 toastController.getPromise().then(function() {
                     // self._hide();
+                    toastScope.$broadcast("hide");
                 });
                 toastController.init(exp);
             },
@@ -36,15 +37,32 @@
                     return;
                 }
                 if (!_isDisplayed) {
-                    this._show();
+                    this._show().then(function() {
+                        toastController.addTask(exp, name);
+                    });
+                } else {
+                    toastController.addTask(exp, name);
                 }
-                toastController.addTask(exp, name);
             },
             _show: function() {
                 _isDisplayed = true;
 
+                var defer = $q.defer();
+
                 var compiledToast = $compile(_toast)(toastScope);
-                angular.element(_body).append(compiledToast);
+
+                //czeka, az funkcja link sie zaladuje, wtedy dodaje element do DOM,
+                //usuwa linkListener i wykonuje obietnice
+                var linkListener = toastScope.$watch("isLink", function(newVal) {
+                    if (newVal) {
+                        angular.element(_body).append(compiledToast);
+                        toastScope.$broadcast("show");
+                        linkListener();
+                        defer.resolve();
+                    }
+                });
+
+                return defer.promise;
             },
             _hide: function() {
                 _toast.remove();
