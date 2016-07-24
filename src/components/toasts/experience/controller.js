@@ -45,14 +45,15 @@
                     input = a;
 
                     //wrzuca prosble do kolejki o update wartosci
-                    gainedExpQueue.add($scope.totalCurrentExp, $scope.needExp);
+                    gainedExpQueue.add($scope.totalCurrentExp, $scope.needExp, $scope.haveExpAtStart, needExp);
 
                     level++;
                     needExp = ExperienceTable.getRequiredExp(level);
+                    $scope.haveExpAtStart = 0;
                 }
                 //--poczatek--nie awansowal
                 $scope.totalCurrentExp += input;
-                gainedExpQueue.add($scope.totalCurrentExp, input);
+                gainedExpQueue.add($scope.totalCurrentExp, input, $scope.haveExpAtStart, needExp);
                 //--koniec-nie awansowal
 
                 var self = this;
@@ -60,10 +61,6 @@
                 gainedExpQueue.getPromise().then(function() {
                     self.finishStep();
                 });
-
-                function updateBar(have, gained, need) {
-                    $scope.$broadcast("updateBar", have, gained, need);
-                }
             }
         })
         var GainedExpQueue = Queue({
@@ -106,7 +103,7 @@
             }
 
             taskQueue.add(input, name);
-            // self.taskQueue.addPill(input, name);
+            $scope.haveExpAtStart = $scope.haveExp;
         }
 
         function getPromise() {

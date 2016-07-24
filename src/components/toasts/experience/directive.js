@@ -19,7 +19,7 @@
                 remainingExp: angular.element(elem[0].querySelector(".remainingExp"))
             }
 
-            scope.$on("updateBar", function() {
+            scope.$on("updateBar", function(have, gained, need) {
                 resizeBars(scope, bars);
                 console.log("hi");
             });
