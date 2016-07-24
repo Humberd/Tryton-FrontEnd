@@ -19,31 +19,30 @@
                 remainingExp: angular.element(elem[0].querySelector(".remainingExp"))
             }
 
-            scope.$on("updateBar", function(have, gained, need) {
-                resizeBars(scope, bars);
-                console.log("hi");
+            scope.$on("updateBar", function(event, values) {
+                resizeBars(scope, bars, values);
             });
-            // scope.$watchGroup(["haveExpAtStart", "gainedExp", "needExp"], function() {
-            //     resizeBars(scope, bars);
-            // })
+
+            //zmienna informujaca kontroler, ze funkcja link zostala zaladowana
+            scope.isLink = true;
         }
 
-        function resizeBars(scope, bars) {
-            var currentExp = scope.haveExp;
-            var gainedExp = scope.gainedExp;
-            var remainingExp = scope.needExp;
-
-            Logger.info("Curr[%s], Gain[%s], Rem[%s]",
-                currentExp,
-                gainedExp,
-                remainingExp
+        function resizeBars(scope, bars, values) {
+            Logger.info("Bar => Curr[%s], Gain[%s], Rem[%s]",
+                values.currentExp,
+                values.gainedExp,
+                values.remainingExp
             );
 
-            var sum = currentExp + gainedExp + remainingExp;
+            var sum = 0;
+            for (var p in values) {
+                sum += values[p];
+            }
 
-            setWidth(bars.currentExp, ((currentExp / sum) * 100) + "%");
-            setWidth(bars.gainedExp, ((gainedExp / sum) * 100) + "%");
-            setWidth(bars.remainingExp, ((remainingExp / sum) * 100) + "%");
+            //ustawiam dla kazdego baru dlugosc
+            for (var p in bars) {
+                setWidth(bars[p], ((values[p] / sum) * 100) + "%");
+            }
         }
 
         function setWidth(elem, width) {

@@ -10,7 +10,11 @@
         $scope.haveExp;
         $scope.totalNeedExp;
         $scope.needExp;
-        $scope.haveExpAtStart;
+        $scope.bar = {
+            currentExp: 0,
+            gainedExp: 0,
+            remainingExp: 0
+        }
 
         $scope.pills = [];
         $scope.gainedExp = 0;
@@ -44,16 +48,22 @@
                     //ustawia pozostaly zdobyty exp
                     input = a;
 
+                    $scope.bar.gainedExp += needExp;
+                    $scope.bar.remainingExp = 0;
                     //wrzuca prosble do kolejki o update wartosci
-                    gainedExpQueue.add($scope.totalCurrentExp, $scope.needExp, $scope.haveExpAtStart, needExp);
+                    gainedExpQueue.add($scope.totalCurrentExp, needExp, angular.copy($scope.bar));
 
                     level++;
                     needExp = ExperienceTable.getRequiredExp(level);
-                    $scope.haveExpAtStart = 0;
+                    $scope.bar.currentExp = 0;
+                    $scope.bar.gainedExp = 0;
+                    $scope.bar.remainingExp = needExp;
                 }
                 //--poczatek--nie awansowal
                 $scope.totalCurrentExp += input;
-                gainedExpQueue.add($scope.totalCurrentExp, input, $scope.haveExpAtStart, needExp);
+                $scope.bar.gainedExp += input;
+                $scope.bar.remainingExp -= input;
+                gainedExpQueue.add($scope.totalCurrentExp, input, angular.copy($scope.bar));
                 //--koniec-nie awansowal
 
                 var self = this;
@@ -64,10 +74,11 @@
             }
         })
         var GainedExpQueue = Queue({
-            onAddItem: function(totalCurrentExp, gainedExp) {
+            onAddItem: function(totalCurrentExp, gainedExp, bar) {
                 return {
                     totalCurrentExp: totalCurrentExp,
-                    gainedExp: gainedExp
+                    gainedExp: gainedExp,
+                    bar: bar
                 }
             },
             onStep: function() {
@@ -77,9 +88,33 @@
 
                 var self = this;
 
-                $timeout(function() {
-                    self.finishStep();
-                }, 2000);
+
+                //sprawa wygladala tak:
+                //controller byl ladowany przed funkcja link, i w czasie, kiedy funkcja
+                //link NIE byla zaladowana wysylal $broadcast do nikogo, dlatego 
+                //na poczatku sprawdza czy link sie zaladowal czy nie
+                //jesli nie to nasluchuje kiedy sie link zaladuje, wtedy wysle $broadcast
+                //i bedzie kontynuowal kolejke, a nastepnie usunie $watcher
+                //jesli jest zaladowana funkcja link, to bez zmian bedzie kontynuowal kolejke
+                if (!$scope.isLink) {
+                    var linkListener = $scope.$watch("isLink", function(newVal) {
+                        if (newVal) {
+                            continueQueue();
+                            //usuwa $scope.$watch()
+                            linkListener();
+                        }
+                    })
+                } else {
+                    continueQueue();
+                }
+
+                function continueQueue() {
+                    $scope.$broadcast("updateBar", self.items[0].bar);
+
+                    $timeout(function() {
+                        self.finishStep();
+                    }, 2000);
+                }
             }
         });
 
@@ -95,6 +130,8 @@
             }
             $scope.totalCurrentExp = totalCurrentExp;
             updateValues($scope.totalCurrentExp);
+            $scope.bar.currentExp = $scope.haveExp;
+            $scope.bar.remainingExp = $scope.needExp;
         }
 
         function addTask(input, name) {
@@ -115,7 +152,7 @@
             $scope.haveExp = totalCurrentExp - ExperienceTable.getTotalRequiredExp($scope.level);
             $scope.totalNeedExp = ExperienceTable.getRequiredExp($scope.level + 1);
             $scope.needExp = $scope.totalNeedExp - $scope.haveExp;
-            Logger.info("[%s] | [%s] | [%s] | [%s] | [%s]",
+            Logger.info("TotalCurr[%s] | Lvl[%s] | Have[%s] | Need[%s] | TotalNeed[%s]",
                 totalCurrentExp,
                 $scope.level,
                 $scope.haveExp,

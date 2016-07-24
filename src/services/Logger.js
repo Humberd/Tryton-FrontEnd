@@ -51,7 +51,7 @@
                         }
 
                         //zmienna przechowująca nazwę funkcji, która wywołała loggera
-                        var functionName = "functionName";
+                        var functionName = "";
                         // var functionName = params.callee.caller.name; //nie dziala w strict mode
                         //zamieniam obiekt parametrów na tablicę parametrów
                         var params = Array.prototype.slice.call(params);
