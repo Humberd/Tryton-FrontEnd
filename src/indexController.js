@@ -13,10 +13,11 @@
         //     });
         // }
         $scope.click = function() {
-            ExpToast.addTask(150);
+            ExpToast.addTask(20);
         }
         // $scope.click();
         ExpToast.init(170);
+        $scope.click();
     }
 
 })();

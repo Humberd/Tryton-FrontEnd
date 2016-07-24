@@ -18,3 +18,4 @@ http://stackoverflow.com/a/34983109/4256929 12.06.2016
 http://stackoverflow.com/a/33358565 10.07.2016
 http://stackoverflow.com/a/24817446/4256929 10.07.2016
 http://stackoverflow.com/a/15279343/4256929 13.07.2016
+https://stackoverflow.com/questions/17283697/angularjs-how-to-find-using-jqlite#comment46979953_17329630 24.07.2016

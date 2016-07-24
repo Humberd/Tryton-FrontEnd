@@ -10,6 +10,7 @@
         $scope.haveExp;
         $scope.totalNeedExp;
         $scope.needExp;
+        $scope.haveExpAtStart;
 
         $scope.pills = [];
         $scope.gainedExp = 0;
@@ -35,7 +36,6 @@
                 var a;
                 var level = $scope.level + 1;
                 var needExp = $scope.needExp;
-
                 //sprawdza czy awansowal na nowy level
                 while ((a = input - needExp) > 0) {
                     //jesli awansowal, to dopelnia expa do nowego levela
@@ -60,6 +60,10 @@
                 gainedExpQueue.getPromise().then(function() {
                     self.finishStep();
                 });
+
+                function updateBar(have, gained, need) {
+                    $scope.$broadcast("updateBar", have, gained, need);
+                }
             }
         })
         var GainedExpQueue = Queue({
@@ -108,116 +112,6 @@
         function getPromise() {
             return taskQueue.getPromise();
         }
-
-        // function TaskQueue() {
-        //     var self = this;
-        //     var defer = $q.defer()
-        //     this.addPill = addPill;
-        //     this.pills = $scope.pills;
-        //     this.promise = defer.promise;
-
-        //     function addPill(exp, name) {
-        //         var newPill = {
-        //             exp: exp,
-        //             name: name
-        //         };
-
-        //         //dodaje taska do kolejki
-        //         self.pills.push(newPill);
-
-        //         //jesli task jest pierwszym w kolejce, to rozpoczyna updatowanie expa
-        //         if (self.pills.length === 1) {
-        //             startCalculatingExp();
-        //         }
-        //     }
-
-        //     function startCalculatingExp() {
-        //         var gainedExpQueue = new GainedExpQueue();
-
-        //         //ile expa daje aktualny task
-        //         var input = self.pills[0].exp;
-
-        //         var a;
-        //         var level = $scope.level + 1;
-        //         var needExp = $scope.needExp;
-        //         //sprawdza czy awansowal na nowy level
-        //         while ((a = input - needExp) > 0) {
-        //             //jesli awansowal, to dopelnia expa do nowego levela
-        //             $scope.totalCurrentExp += needExp;
-
-        //             //ustawia pozostaly zdobyty exp
-        //             input = a;
-
-        //             //wrzuca prosble do kolejki o update wartosci
-        //             gainedExpQueue.addUpdate($scope.totalCurrentExp, $scope.needExp);
-
-        //             level++;
-        //             needExp = ExperienceTable.getRequiredExp(level);
-        //         }
-        //         //nie awansowal
-        //         $scope.totalCurrentExp += input;
-        //         gainedExpQueue.addUpdate($scope.totalCurrentExp, input);
-        //         //nie awansowal
-
-        //         //jesli wszystkie prosbe o update zakonczyly sie pomyslnie
-        //         gainedExpQueue.isEnded.then(function() {
-        //             //zdejmuje task z kolejki
-        //             self.pills.shift();
-
-        //             //jesli zostaly jakies inne taski w kolejce
-        //             if (self.pills.length > 0) {
-        //                 startCalculatingExp();
-        //             } else {
-        //                 //wysylam info o pomyslnym zupdatowaniu wszystkich taskow
-        //                 defer.resolve();
-        //             }
-        //         });
-
-        //     }
-        // };
-
-        // function GainedExpQueue() {
-        //     var defer = $q.defer();
-        //     this.addUpdate = addUpdate;
-        //     this.timeout = 2000;
-        //     this.isEnded = defer.promise;
-
-        //     var self = this;
-        //     var queue = [];
-
-        //     function addUpdate(totalCurrentExp, gainedExp) {
-        //         var updateObject = {
-        //                 totalCurrentExp: totalCurrentExp,
-        //                 gainedExp: gainedExp
-        //             }
-        //             //wrzucam prosbe o update wartosci do kolejki
-        //         queue.push(updateObject);
-
-        //         //jesli jestem pierwsza prosba, to rozpoczynam updatowanie
-        //         if (queue.length === 1) {
-        //             update();
-        //         }
-        //     }
-
-        //     function update() {
-        //         //updatuje wszystkie wartosci
-        //         updateValues(queue[0].totalCurrentExp);
-        //         $scope.gainedExp += queue[0].gainedExp;
-
-        //         $timeout(function() {
-        //             //po kilku sekundach wyrzucam z kolejki aktualna prosbe
-        //             queue.splice(0, 1);
-
-        //             //jesli sa jeszcze jakies inne, to kontynuuje updatowanie
-        //             if (queue.length > 0) {
-        //                 update();
-        //             } else {
-        //                 //jesli nie ma, to wysylam wiadomosc do taska, ze cale updatowanie przebieglo pomyslnie
-        //                 defer.resolve();
-        //             }
-        //         }, self.timeout);
-        //     }
-        // };
 
         function updateValues(totalCurrentExp) {
             $scope.level = ExperienceTable.getLevel(totalCurrentExp);

@@ -25,8 +25,7 @@
                 this._bindController();
                 var self = this;
                 toastController.getPromise().then(function() {
-                    console.log("end");
-                    self._hide();
+                    // self._hide();
                 });
                 toastController.init(exp);
             },
