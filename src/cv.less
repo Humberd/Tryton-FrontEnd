@@ -1,0 +1,175 @@
+@nice-grey: #494E5C;
+.page {
+    padding: 20px;
+    height: 29.7cm;
+    width: 21cm;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    .header {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 10px;
+        .name {
+            font-size: 40px;
+            color: @nice-grey;
+            font-weight: bold;
+        }
+        .position {
+            // font-weight: bold;
+            font-size: 16px;
+            color: #656565;
+        }
+    }
+    .body {
+        display: flex;
+        flex-direction: row;
+        .left-panel {
+            display: flex;
+            flex-direction: column;
+            width: 5.6cm;
+            min-width: 5.6cm;
+            margin-right: 15px;
+            .photo {
+                width: 100%;
+                height: 7cm;
+                margin-bottom: 3px;
+                text-indent: -9999px;
+                white-space: nowrap;
+                background-image: url("https://i.imgur.com/mk9LnY8.jpeg");
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: 100%, 100%;
+            }
+            .personal-data {
+                .block-content {
+                    .item {
+                        flex-direction: column;
+                        .name {
+                            font-weight: bold;
+                        }
+                    }
+                }
+            }
+        }
+        .center-panel {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            .experience,
+            .education {
+                .block-content {
+                    table {
+                        tr {
+                            td {
+                                padding: 3px 8px 8px 8px;
+                                vertical-align: top;
+                                line-height: 24px;
+                                ul {
+                                    font-size: 13px;
+                                    padding-left: 15px;
+                                }
+                            }
+                            td:first-child {
+                                width: 100px;
+                                font-weight: bold;
+                            }
+                        }
+                        .tab-header {
+                            font-weight: bold;
+                        }
+                    }
+                }
+            }
+            .applications {
+                .block-content {
+                    ul {
+                        li {
+                            margin: 7px 0;
+                            .app-name {
+                                font-weight: bold;
+                            }
+                            .description {
+                                font-size: 13px;
+                            }
+                        }
+                    }
+                }
+            }
+            .interests {
+                .block-content {
+                    text-align: center;
+                }
+            }
+            .block:first-child {
+                .head {
+                    margin-top: unset;
+                }
+            }
+        }
+        .block {
+            .head {
+                display: flex;
+                flex-direction: row;
+                align-items: baseline;
+                border-bottom: 2px solid #CBCBCB;
+                padding-bottom: 5px;
+                margin: 5px 0;
+                .glyphicon,
+                .fa {
+                    font-size: 13px;
+                    background-color: @nice-grey;
+                    color: white;
+                    border-radius: 50%;
+                    height: 28px;
+                    width: 28px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+                .fa {
+                    font-size: 15px;
+                    &.down {
+                        padding-top: 1px;
+                    }
+                }
+                .glyphicon-education {
+                    font-size: 16px;
+                }
+                .block-name {
+                    margin-left: 5px;
+                    color: @nice-grey;
+                    font-weight: 700;
+                    font-size: 15px;
+                    letter-spacing: 1px;
+                }
+            }
+            .block-content {
+                .item {
+                    display: flex;
+                    flex-direction: row;
+                    line-height: 22px;
+                    font-size: 13px;
+                    margin: 8px 0;
+                    .name {
+                        letter-spacing: 0.3px;
+                    }
+                    .level {
+                        margin-left: 3px;
+                        font-size: 0.9em;
+                    }
+                }
+            }
+        }
+    }
+    .footer {
+        height: 35px;
+        background-color: #555B6D;
+        color: white;
+        text-align: center;
+        font-size: 10px;
+        display: flex;
+        align-items: center;
+        margin: auto -20px -20px -20px;
+    }
+}

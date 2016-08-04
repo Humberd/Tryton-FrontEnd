@@ -68,10 +68,15 @@ gulp.task("myScripts", function() {
 });
 
 gulp.task("myStyles", function() {
-    var lessStream = gulp.src("src/**/*.less")
+    var lessStream = gulp.src(["src/**/*.less", "!src/cv.less"])
         .pipe(less()).on("error", errorHandler);
 
     var cssStream = gulp.src("src/**/*.css");
+
+    var cvStream = gulp.src("src/cv.less");
+    cvStream.pipe(less()).on("error", errorHandler)
+        .pipe(gulp.dest(dist));
+
 
     return es.merge(lessStream, cssStream)
         .pipe(concat("app.min.css"))
@@ -84,7 +89,10 @@ gulp.task("myViews", function() {
 
     indexStream.pipe(gulp.dest(dist));
 
-    var htmlStream = gulp.src(["src/**/*.html", "!src/index.html"]);
+    var htmlStream = gulp.src(["src/**/*.html", "!src/index.html", "!src/cv.html"]);
+
+    var cvStream = gulp.src("src/cv.html");
+    cvStream.pipe(gulp.dest(dist))
 
     return htmlStream
         .pipe(flatten())
@@ -143,7 +151,7 @@ gulp.task("webserver", function() {
         .pipe(webserver({
             host: "0.0.0.0",
             livereload: true,
-            fallback: "index.html",
+            // fallback: "index.html",
             open: false
         }));
 })
