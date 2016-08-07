@@ -29,7 +29,7 @@
             }
         };
         //poziom, na jakim obecnie znajduje się Logger
-        var level = levels.debug;
+        var level = levels.info;
 
         //true - wyświetla wiadomości TYLKO z wybranego poziomu
         //false - wyświetla wiadomości z wybranego poziomu i wyżej

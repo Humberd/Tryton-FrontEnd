@@ -40,10 +40,13 @@ var jsLibraries = ["angular/angular.min.js",
     "angular-ui-router/release/angular-ui-router.min.js",
     "angular-permission/dist/angular-permission.min.js",
     "angular-permission/dist/angular-permission-ui.min.js",
+    "odometer/odometer.min.js",
+    "angular-odometer-js/dist/angular-odometer.min.js",
 ];
 
 var cssLibraries = ["bootstrap/dist/css/bootstrap.min.css",
-    "angular-material/angular-material.min.css"
+    "angular-material/angular-material.min.css",
+    "odometer/themes/odometer-theme-default.css",
 ];
 
 var fontLibraries = ["bootstrap/dist/fonts/*"]
@@ -68,15 +71,10 @@ gulp.task("myScripts", function() {
 });
 
 gulp.task("myStyles", function() {
-    var lessStream = gulp.src(["src/**/*.less", "!src/cv.less"])
+    var lessStream = gulp.src(["src/**/*.less"])
         .pipe(less()).on("error", errorHandler);
 
     var cssStream = gulp.src("src/**/*.css");
-
-    var cvStream = gulp.src("src/cv.less");
-    cvStream.pipe(less()).on("error", errorHandler)
-        .pipe(gulp.dest(dist));
-
 
     return es.merge(lessStream, cssStream)
         .pipe(concat("app.min.css"))
@@ -89,10 +87,7 @@ gulp.task("myViews", function() {
 
     indexStream.pipe(gulp.dest(dist));
 
-    var htmlStream = gulp.src(["src/**/*.html", "!src/index.html", "!src/cv.html"]);
-
-    var cvStream = gulp.src("src/cv.html");
-    cvStream.pipe(gulp.dest(dist))
+    var htmlStream = gulp.src(["src/**/*.html", "!src/index.html"]);
 
     return htmlStream
         .pipe(flatten())

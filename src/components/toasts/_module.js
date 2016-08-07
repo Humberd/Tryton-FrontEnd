@@ -1,5 +1,5 @@
 (function() {
 	"use strict";
 
-	angular.module("TrytonApp.Toasts", ["TrytonApp.Experience"]);
+	angular.module("TrytonApp.Toasts", ["TrytonApp.Experience","ui.odometer"]);
 })();

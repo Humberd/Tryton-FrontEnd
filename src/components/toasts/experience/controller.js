@@ -22,7 +22,7 @@
         this.init = init;
         this.addTask = addTask;
         this.getPromise = getPromise;
-        this.isInitialized = function () {
+        this.isInitialized = function() {
             return !!$scope.totalCurrentExp;
         }
 
@@ -89,13 +89,14 @@
                 updateValues(this.items[0].totalCurrentExp);
                 $scope.gainedExp += this.items[0].gainedExp;
 
-                $scope.$broadcast("updateBar", this.items[0].bar);
+                //wywoluje metode z linku, zeby odswiezyc bar
+                $scope.updateBar(this.items[0].bar);
 
                 var self = this;
 
                 $timeout(function() {
                     self.finishStep();
-                }, 2000);
+                }, 3000);
             }
         });
 
@@ -121,18 +122,15 @@
             }
 
             if (!$scope.isShown) {
-                // if (!$scope.isShowing) {
-                //     $scope.$broadcast("show");
-                // }
-                $scope.$broadcast("updateBar", {
+                $scope.updateBar({
                     currentExp: $scope.haveExp,
                     gainedExp: 0,
                     remainingExp: $scope.needExp
-                })
-                var listener = $scope.$watch("isShown", function (newVal) {
+                });
+                var listener = $scope.$watch("isShown", function(newVal) {
                     if (newVal) {
-                        add();
                         listener();
+                        add();
                     }
                 })
             } else {

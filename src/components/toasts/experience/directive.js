@@ -113,14 +113,16 @@
                 remainingExp: angular.element(elem[0].querySelector(".remainingExp"))
             }
 
-            scope.$on("updateBar", function(event, values) {
+            scope.updateBar = function(values) {
                 resizeBars(scope, bars, values);
-            });
+            }
 
             Logger.debug("expToast link -- Setting isLink to true");
             //zmienna informujaca kontroler, ze funkcja link zostala zaladowana
             scope.isLink = true;
         }
+
+        var previouslyGainedExp = 0;
 
         function resizeBars(scope, bars, values) {
             Logger.info("Bar => Curr[%s], Gain[%s], Rem[%s]",
@@ -129,25 +131,38 @@
                 values.remainingExp
             );
 
+            if (values.currentExp === 0) {
+                setWidth(bars.currentExp, "0%", false);
+                setWidth(bars.gainedExp, "0%", false);
+                setWidth(bars.remainingExp, "100%", false);
+            }
+
             var sum = 0;
             for (var p in values) {
                 sum += values[p];
             }
 
-            //ustawiam dla kazdego baru dlugosc
-            for (var p in bars) {
-                setWidth(bars[p], ((values[p] / sum) * 100) + "%");
-            }
+            $timeout(function() {
+                //ustawiam dla kazdego baru dlugosc
+                for (var p in bars) {
+                    setWidth(bars[p], ((values[p] / sum) * 100) + "%", true);
+                }
+                previouslyGainedExp = values.gainedExp;
+            }, 0)
         }
 
-        function setWidth(elem, width) {
+        function setWidth(elem, width, makeTransition) {
             if (angular.isNumber(width)) {
                 width += "px";
+            }
+            if (makeTransition) {
+                elem.addClass("transition");
+            } else {
+                elem.removeClass("transition");
             }
             elem.css({
                 width: width
             })
         }
     }
-
 })();

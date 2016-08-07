@@ -22,6 +22,13 @@
         right: @exp-bar-width;
         .sum-gained-exp {
             color: @gained-exp-color;
+            display: flex;
+            flex-direction: row;
+            align-items: baseline;
+            .odometer-inside {
+                display: flex;
+                flex-direction: row;
+            }
             // font-size: 1.3em;
             // font-weight: 500;
         }
@@ -49,6 +56,9 @@
                 width: 100%;
                 & > *:not(:first-child) {
                     border-left: 1px solid darkgray;
+                }
+                .transition {
+                    transition: all 1500ms cubic-bezier(0.090, 1.030, 0.270, 0.865);
                 }
                 .currentExp {
                     background-color: #4EB34E;
