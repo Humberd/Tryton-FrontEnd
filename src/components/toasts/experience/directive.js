@@ -17,6 +17,7 @@
             scope.isShowing = false;
             scope.isHidden = true;
             scope.isHiding = false;
+            scope.denyHiding = false;
             // animateShow().then(function() {
             //     console.log("done");
             // });
@@ -122,7 +123,7 @@
             scope.isLink = true;
         }
 
-        var previouslyGainedExp = 0;
+        var previouslyRemainingExp = 0;
 
         function resizeBars(scope, bars, values) {
             Logger.info("Bar => Curr[%s], Gain[%s], Rem[%s]",
@@ -131,7 +132,7 @@
                 values.remainingExp
             );
 
-            if (values.currentExp === 0) {
+            if (previouslyRemainingExp === 0) {
                 setWidth(bars.currentExp, "0%", false);
                 setWidth(bars.gainedExp, "0%", false);
                 setWidth(bars.remainingExp, "100%", false);
@@ -147,7 +148,7 @@
                 for (var p in bars) {
                     setWidth(bars[p], ((values[p] / sum) * 100) + "%", true);
                 }
-                previouslyGainedExp = values.gainedExp;
+                previouslyRemainingExp = values.remainingExp;
             }, 0)
         }
 

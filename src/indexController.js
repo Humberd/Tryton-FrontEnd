@@ -6,7 +6,7 @@
 
     function IndexController($scope, ExpToast, $mdToast) {
         $scope.click = function() {
-            ExpToast.addTask(500);
+            ExpToast.addTask(20);
         }
     }
 

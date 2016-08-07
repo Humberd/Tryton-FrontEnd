@@ -133,6 +133,14 @@
                         add();
                     }
                 })
+            } else if ($scope.isHiding) {
+                $scope.denyHiding = true;
+                // var listener = $scope.$watch("isHidden", function(newVal) {
+                //     if (newVal) {
+                //         listener();
+                //         addTask
+                //     }
+                // })
             } else {
                 add();
             }

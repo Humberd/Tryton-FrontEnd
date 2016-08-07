@@ -98,6 +98,26 @@
                     overflow-x: hidden;
                     line-height: 1;
                 }
+                &.ng-enter {
+                    transition: all 750ms linear;
+                    bottom: -30px;
+                    opacity: 0;
+                }
+                &.ng-enter-active {
+                    bottom: 0;
+                    opacity: 1;
+                }
+                &.ng-leave {
+                    transition: all 200ms linear;
+                    height: 22px;
+                    opacity: 1;
+                }
+                &.ng-leave-active {
+                    height: 0;
+                    opacity: 0;
+                    padding-top: 0;
+                    padding-bottom: 0;
+                }
             }
         }
     }
