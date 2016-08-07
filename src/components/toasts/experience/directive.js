@@ -21,7 +21,7 @@
             //     console.log("done");
             // });
 
-            scope.$on("show", function () {
+            scope.show = function() {
                 if (scope.isShown) {
                     Logger.warning("Exp Bar is already visibale -- cannot Show");
                     return;
@@ -41,18 +41,18 @@
 
 
                 scope.isShowing = true;
-                animateShow().then(function () {
+                return animateShow().then(function() {
                     scope.isShown = true;
                     scope.isHidden = false;
-                    Logger.info("Exp Bar show animated successfully");
-                }, function () {
-                    Logger.error("Error while showing Exp Bar")
-                }).finally(function () {
+                    Logger.debug("expToast link show() -- Exp Bar show animated successfully");
+                }, function() {
+                    Logger.error("expToast link show() -- Error while showing Exp Bar")
+                }).finally(function() {
                     scope.isShowing = false;
                 });
-            });
+            };
 
-            scope.$on("hide", function () {
+            scope.hide = function() {
                 if (scope.isHidden) {
                     Logger.warning("Exp Bar is already hidden -- cannot Hide");
                     return;
@@ -70,16 +70,16 @@
                 }
 
                 scope.isHiding = true;
-                animateHide().then(function () {
+                return animateHide().then(function() {
                     scope.isHidden = true;
                     scope.isShown = false;
-                    Logger.info("Exp Bar hide animated successfully");
-                }, function () {
-                    Logger.error("Error while hiding Exp Bar");
-                }).finally(function () {
+                    Logger.debug("expToast link hide() -- Exp Bar hide animated successfully");
+                }, function() {
+                    Logger.error("expToast link hide() -- Error while hiding Exp Bar");
+                }).finally(function() {
                     scope.isHiding = false;
                 });
-            });
+            };
 
             function animateShow() {
                 var defer = $q.defer();
@@ -117,6 +117,7 @@
                 resizeBars(scope, bars, values);
             });
 
+            Logger.debug("expToast link -- Setting isLink to true");
             //zmienna informujaca kontroler, ze funkcja link zostala zaladowana
             scope.isLink = true;
         }

@@ -16,7 +16,7 @@
             ExpToast.addTask(200);
         }
         // $scope.click();
-        ExpToast.init(170);
+        // ExpToast.init(170);
     }
 
 })();

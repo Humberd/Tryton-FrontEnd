@@ -22,6 +22,9 @@
         this.init = init;
         this.addTask = addTask;
         this.getPromise = getPromise;
+        this.isInitialized = function () {
+            return !!$scope.totalCurrentExp;
+        }
 
         var TaskQueue = Queue({
             items: $scope.pills,
