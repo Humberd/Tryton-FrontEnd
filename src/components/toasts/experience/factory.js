@@ -57,11 +57,10 @@
                     if (newVal) {
                         linkListener();
                         angular.element(_body).append(compiledToast);
-                        toastScope.show().then(function() {
-                            defer.resolve();
+                        toastScope.show();
+                        defer.resolve();
 
-                            Logger.debug("ExpToastFactory _show() -- Showed Exp Bar component");
-                        });
+                        Logger.debug("ExpToastFactory _show() -- Showed Exp Bar component");
 
                     }
                 });
