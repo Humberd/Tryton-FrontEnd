@@ -19,6 +19,7 @@ var jsLib = dist + "lib/js";
 var cssLib = dist + "lib/css";
 var fontLib = dist + "lib/fonts";
 var langs = dist + "langs";
+var flags = dist + "lib/flags";
 
 var libPath = "bower_components/";
 
@@ -47,9 +48,10 @@ var jsLibraries = ["angular/angular.min.js",
 var cssLibraries = ["bootstrap/dist/css/bootstrap.min.css",
     "angular-material/angular-material.min.css",
     "odometer/themes/odometer-theme-default.css",
+    "flag-icon-css/css/flag-icon.min.css",
 ];
 
-var fontLibraries = ["bootstrap/dist/fonts/*"]
+var fontLibraries = ["bootstrap/dist/fonts/*"];
 
 function errorHandler(error) {
     console.log(error.message);
@@ -141,6 +143,13 @@ gulp.task("langs", function() {
         .pipe(gulp.dest(langs));
 });
 
+gulp.task("flags", function() {
+    var flagsStream = gulp.src(libPath + "flag-icon-css/flags/**");
+
+    return flagsStream
+        .pipe(gulp.dest(flags));
+})
+
 gulp.task("webserver", function() {
     return gulp.src(dist)
         .pipe(webserver({
@@ -159,5 +168,5 @@ gulp.task("watcher", function() {
 
 gulp.task("default", function() {
     return runSequence("libScripts", "libStyles", "libFonts",
-        "myScripts", "myStyles", "myViews", "langs", "watcher", "webserver");
+        "myScripts", "myStyles", "myViews", "langs","flags", "watcher", "webserver");
 })

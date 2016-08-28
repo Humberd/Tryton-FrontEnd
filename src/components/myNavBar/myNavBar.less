@@ -1,0 +1,92 @@
+@my-nav-bar-bgc: #4C4C4C;
+@my-nav-bar-content-transition: max-height 0.09s linear;
+.noselect() {
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Chrome/Safari/Opera */
+    -khtml-user-select: none;
+    /* Konqueror */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently not supported by any browser */
+}
+
+.selectedPill() {
+    background-color: lighten(@my-nav-bar-bgc, 10%);
+}
+
+#my-nav-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: @my-nav-bar-bgc;
+    color: #C0C0C0;
+    .noselect();
+    &>.my-nav-bar-column {
+        display: flex;
+        flex-direction: row;
+        &>.my-nav-bar-column-item {
+            display: flex;
+            flex-direction: column;
+            padding: 20px 30px;
+            position: relative;
+            cursor: pointer;
+            &.short {
+                padding: 20px 10px;
+            }
+            &.expanded {
+            	.selectedPill();
+            }
+            &>.my-nav-bar-pill {
+                display: flex;
+                flex-direction: row;
+                &>.my-nav-bar-column-item-icon {
+                    margin-right: 10px;
+                }
+            }
+            &>.my-nav-bar-column-item-content {
+                visibility: hidden;
+                max-height: 0;
+                position: absolute;
+                top: 100%;
+                background-color: @my-nav-bar-bgc;
+                min-width: 160px;
+                z-index: 10000;
+                left: 0;
+                transition: @my-nav-bar-content-transition;
+                overflow: hidden;
+                &.show {
+                    visibility: visible;
+                    max-height: 300px;
+                    // transition: @my-nav-bar-content-transition;
+                }
+                &>.items {
+                    padding: 5px 0;
+                    &>.item {
+                        padding: 4px 10px;
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        &.selected {
+                            background-color: #939393;
+                            color: black;
+                        }
+                        &:not(.selected):hover {
+                        	.selectedPill();
+                        }
+                        &>.icon {
+                            margin-right: 5px;
+                        }
+                    }
+                }
+            }
+            &:hover {
+            	.selectedPill();
+            }
+        }
+    }
+}
