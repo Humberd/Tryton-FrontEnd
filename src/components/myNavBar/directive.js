@@ -41,7 +41,7 @@
 
                     angularItem.on("click", function(event) {
                         event.stopPropagation();
-                    })
+                    });
                 });
 
                 $document.on("click", function() {
@@ -51,9 +51,17 @@
                     }
                 })
 
+                $scope.foldOnClick = function() {
+                    if (selectedPill) {
+                        hide(selectedPill);
+                        selectedPill = null;
+                    }
+                }
+
                 function findContentPills() {
                     return document.querySelectorAll("#my-nav-bar .my-nav-bar-column-item-content");
                 }
+
 
                 function hide(item) {
                     item.removeClass("show");
@@ -118,9 +126,9 @@
                 $scope.selectedGameItem;
 
                 $scope.$watch("selectedGame", function(newVal, oldVal) {
-                	if (angular.isString(newVal)) {
-                		$scope.selectedGameItem = Supported.games.get(newVal);
-                	}
+                    if (angular.isString(newVal)) {
+                        $scope.selectedGameItem = Supported.games.get(newVal);
+                    }
                 })
 
                 $scope.isSelectedGame = function(shortName) {
@@ -129,7 +137,7 @@
                     }
                 }
                 $scope.selectGame = function(shortName) {
-                	$scope.selectedGame = shortName.toLowerCase();
+                    $scope.selectedGame = shortName.toLowerCase();
                 }
             }
         }
