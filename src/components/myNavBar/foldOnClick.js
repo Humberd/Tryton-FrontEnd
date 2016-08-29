@@ -11,7 +11,9 @@
             link: function(scope, elem, attrs) {
                 if (angular.isFunction(scope.foldOnClick)) {
                     elem.on("click", function(event) {
-                    	scope.foldOnClick();
+                        if (!elem.hasClass("selected")) {
+                            scope.foldOnClick();
+                        }
                     });
                 }
             }
