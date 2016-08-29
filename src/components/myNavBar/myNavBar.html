@@ -32,7 +32,7 @@
         <div class="my-nav-bar-column-item short">
             <div class="my-nav-bar-pill">
                 <div class="my-nav-bar-column-item-icon">
-                    <span class="flag-icon flag-icon-pl"></span>
+                    <div class="flag-icon" bcg-image="selectedGameItem.iconUrl"></div>
                 </div>
                 <div class="my-nav-bar-column-item-name">
                     {{selectedGameItem.shortName}}
@@ -40,9 +40,9 @@
             </div>
             <div class="my-nav-bar-column-item-content">
                 <div class="items">
-                    <div class="item" ng-repeat="game in availableGames | filter:{isAvailable: true} |orderBy:'name'" ng-class="isSelectedGame(game.shortName)" ng-click="selectGame(game.shortName)">
+                    <div class="item" ng-repeat="game in availableGames | filter:{isAvailable: true} |orderBy:'name'" ng-class="isSelectedGame(game.shortName)" ng-click="selectGame(game.shortName)" fold-on-click>
                         <div class="icon">
-                            <div class="flag-icon flag-icon-{{::game.iconUrl}}"></div>
+                            <div class="flag-icon" bcg-image="::game.iconUrl"></div>
                         </div>
                         <div class="name">
                             {{::game.name}}
@@ -62,7 +62,7 @@
             </div>
             <div class="my-nav-bar-column-item-content">
                 <div class="items">
-                    <div class="item" ng-repeat="lang in availableLanguages | filter:{isAvailable: true} |orderBy:'name'" ng-class="isSelectedLang(lang.shortName)" ng-click="selectLang(lang.shortName)">
+                    <div class="item" ng-repeat="lang in availableLanguages | filter:{isAvailable: true} |orderBy:'name'" ng-class="isSelectedLang(lang.shortName)" ng-click="selectLang(lang.shortName)" fold-on-click>
                         <div class="icon">
                             <div class="flag-icon flag-icon-{{::lang.iconUrl}}"></div>
                         </div>
