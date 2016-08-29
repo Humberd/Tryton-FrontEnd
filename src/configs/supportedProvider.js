@@ -4,7 +4,7 @@
     angular.module("TrytonApp.Configs")
         .provider("Supported", Supported);
 
-    function Supported() {
+    function Supported(GamesIconsUrl) {
         function Item(name, shortName, isAvailable, iconUrl) {
             this.name = name;
             this.shortName = shortName;
@@ -50,8 +50,8 @@
         return {
             "games": {
                 add: function(name, shortName, isAvailable, iconUrl) {
-                    var defaultUrl = "/";
-                    var icon = iconUrl ? iconUrl : defaultUrl + shortName;
+                    var defaultUrl = GamesIconsUrl;
+                    var icon = iconUrl ? defaultUrl + iconUrl : "";
                     var item = new Item(name, shortName, isAvailable, icon);
                     items.add("games", item);
                 },
