@@ -2,9 +2,6 @@
     <div class="my-nav-bar-column">
         <div class="my-nav-bar-column-item">
             <div class="my-nav-bar-pill">
-                <div class="my-nav-bar-column-item-icon">
-                    <span class="glyphicon glyphicon-user"></span>
-                </div>
                 <div class="my-nav-bar-column-item-name">
                     Tryton
                 </div>
@@ -13,7 +10,7 @@
         <div class="my-nav-bar-column-item">
             <div class="my-nav-bar-pill">
                 <div class="my-nav-bar-column-item-icon">
-                    <span class="glyphicon glyphicon-user"></span>
+                    <i class="material-icons">dashboard</i>
                 </div>
                 <div class="my-nav-bar-column-item-name">
                     Dashboard
@@ -23,7 +20,7 @@
         <div class="my-nav-bar-column-item">
             <div class="my-nav-bar-pill">
                 <div class="my-nav-bar-column-item-icon">
-                    <span class="glyphicon glyphicon-user"></span>
+                    <div class="glyphicon glyphicon-book"></div>
                 </div>
                 <div class="my-nav-bar-column-item-name">
                     Learn More
@@ -38,54 +35,39 @@
                     <span class="flag-icon flag-icon-pl"></span>
                 </div>
                 <div class="my-nav-bar-column-item-name">
-                    LoL
+                    {{selectedGameItem.shortName}}
                 </div>
             </div>
             <div class="my-nav-bar-column-item-content">
-                dupa
+                <div class="items">
+                    <div class="item" ng-repeat="game in availableGames | filter:{isAvailable: true} |orderBy:'name'" ng-class="isSelectedGame(game.shortName)" ng-click="selectGame(game.shortName)">
+                        <div class="icon">
+                            <div class="flag-icon flag-icon-{{::game.iconUrl}}"></div>
+                        </div>
+                        <div class="name">
+                            {{::game.name}}
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="my-nav-bar-column-item short">
             <div class="my-nav-bar-pill">
                 <div class="my-nav-bar-column-item-icon">
-                    <span class="flag-icon flag-icon-pl"></span>
+                    <div class="flag-icon flag-icon-{{selectedLanguageItem.iconUrl}}"></div>
                 </div>
                 <div class="my-nav-bar-column-item-name">
-                    PL
+                    {{selectedLanguageItem.shortName | uppercase}}
                 </div>
             </div>
             <div class="my-nav-bar-column-item-content">
                 <div class="items">
-                    <div class="item selected">
+                    <div class="item" ng-repeat="lang in availableLanguages | filter:{isAvailable: true} |orderBy:'name'" ng-class="isSelectedLang(lang.shortName)" ng-click="selectLang(lang.shortName)">
                         <div class="icon">
-                            <div class="flag-icon flag-icon-de"></div>
+                            <div class="flag-icon flag-icon-{{::lang.iconUrl}}"></div>
                         </div>
                         <div class="name">
-                            Deutch
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="icon">
-                            <div class="flag-icon flag-icon-de"></div>
-                        </div>
-                        <div class="name">
-                            Deutch
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="icon">
-                            <div class="flag-icon flag-icon-de"></div>
-                        </div>
-                        <div class="name">
-                            Deutch
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="icon">
-                            <div class="flag-icon flag-icon-de"></div>
-                        </div>
-                        <div class="name">
-                            Deutch
+                            {{::lang.name}}
                         </div>
                     </div>
                 </div>

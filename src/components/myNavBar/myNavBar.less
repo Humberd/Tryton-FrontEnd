@@ -32,11 +32,12 @@
         &>.my-nav-bar-column-item {
             display: flex;
             flex-direction: column;
-            padding: 20px 30px;
+            padding: 10px 30px;
+            line-height: 40px;
             position: relative;
             cursor: pointer;
             &.short {
-                padding: 20px 10px;
+                padding: 10px 10px;
             }
             &.expanded {
             	.selectedPill();
@@ -44,8 +45,12 @@
             &>.my-nav-bar-pill {
                 display: flex;
                 flex-direction: row;
+                white-space: nowrap;
                 &>.my-nav-bar-column-item-icon {
                     margin-right: 10px;
+                    &>.material-icons {
+                    	vertical-align: middle;
+                    }
                 }
             }
             &>.my-nav-bar-column-item-content {
@@ -71,15 +76,22 @@
                         display: flex;
                         flex-direction: row;
                         align-items: center;
+                        &:focus {
+                        	outline: none;
+                        }
                         &.selected {
                             background-color: #939393;
                             color: black;
+                            cursor: context-menu;
                         }
                         &:not(.selected):hover {
                         	.selectedPill();
                         }
                         &>.icon {
                             margin-right: 5px;
+                        }
+                        &>.name {
+                        	white-space: nowrap;
                         }
                     }
                 }

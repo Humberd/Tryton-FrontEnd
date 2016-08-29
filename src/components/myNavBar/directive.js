@@ -4,7 +4,7 @@
     angular.module("TrytonApp")
         .directive("myNavBar", MyNavBar);
 
-    function MyNavBar(ViewUrl, Modal, Auth, Logger, $translate, $document) {
+    function MyNavBar(ViewUrl, Modal, Auth, Logger, $translate, $document, Supported) {
         return {
             restrict: "E",
             templateUrl: ViewUrl + "myNavBar.html",
@@ -24,8 +24,7 @@
                         array.forEach(function(notItem, index2) {
                             if (index2 !== index) {
                                 var notItemAngular = angular.element(notItem);
-                                notItemAngular.removeClass("show");
-                                notItemAngular.parent().removeClass("expanded");
+                                hide(notItemAngular);
                             }
                         });
 
@@ -46,15 +45,19 @@
                 });
 
                 $document.on("click", function() {
-                	if (selectedPill) {
-                		selectedPill.removeClass("show");
-                		selectedPill.parent().removeClass("expanded");
-                		selectedPill = null;
-                	}
+                    if (selectedPill) {
+                        hide(selectedPill);
+                        selectedPill = null;
+                    }
                 })
 
                 function findContentPills() {
                     return document.querySelectorAll("#my-nav-bar .my-nav-bar-column-item-content");
+                }
+
+                function hide(item) {
+                    item.removeClass("show");
+                    item.parent().removeClass("expanded");
                 }
 
                 /////ng-click()//////////
@@ -87,13 +90,47 @@
                 $scope.logout = function logout() {
                     Auth.logout();
                 };
-                // $scope.selectedLanguage = $translate.proposedLanguage() || $translate.use();
+                /////////////////lang functions//////////
+                $scope.availableLanguages = Supported.languages.getAll();
+                $scope.selectedLanguage = $translate.proposedLanguage() || $translate.use();
+                $scope.selectedLanguageItem;
 
-                // $scope.$watch("selectedLanguage", function(newVal, oldVal) {
-                //     if (angular.isString(newVal) && newVal !== oldVal) {
-                //         $translate.use(newVal);
-                //     }
-                // });
+                $scope.$watch("selectedLanguage", function(newVal, oldVal) {
+                    if (angular.isString(newVal)) {
+                        $scope.selectedLanguageItem = Supported.languages.get(newVal);
+                        if (newVal !== oldVal) {
+                            $translate.use(newVal);
+                        }
+                    }
+                });
+                $scope.isSelectedLang = function(shortName) {
+                    if (shortName.toLowerCase() === $scope.selectedLanguage.toLowerCase()) {
+                        return "selected";
+                    }
+                }
+                $scope.selectLang = function(shortName) {
+                    $scope.selectedLanguage = shortName.toLowerCase();
+                }
+
+                ////////////games functions//////////////
+                $scope.availableGames = Supported.games.getAll();
+                $scope.selectedGame = "lol"
+                $scope.selectedGameItem;
+
+                $scope.$watch("selectedGame", function(newVal, oldVal) {
+                	if (angular.isString(newVal)) {
+                		$scope.selectedGameItem = Supported.games.get(newVal);
+                	}
+                })
+
+                $scope.isSelectedGame = function(shortName) {
+                    if (shortName.toLowerCase() === $scope.selectedGame.toLowerCase()) {
+                        return "selected";
+                    }
+                }
+                $scope.selectGame = function(shortName) {
+                	$scope.selectedGame = shortName.toLowerCase();
+                }
             }
         }
     }

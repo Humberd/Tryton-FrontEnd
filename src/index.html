@@ -10,11 +10,12 @@
     <script src="lib/js/js.min.js" type="text/javascript" charset="utf-8"></script>
     <link rel="stylesheet" href="lib/css/css.min.css">
     <script>
-    angular.module("TrytonApp", ["TrytonApp.Translate", "TrytonApp.Logger", "ui.bootstrap", "TrytonApp.Authentication", "ngMaterial", "TrytonApp.Modal", "TrytonApp.Router", "TrytonApp.Session", "TrytonApp.Toasts", "ngAnimate"])
+    angular.module("TrytonApp", ["TrytonApp.Translate", "TrytonApp.Logger", "ui.bootstrap", "TrytonApp.Authentication", "ngMaterial", "TrytonApp.Modal", "TrytonApp.Router", "TrytonApp.Session", "TrytonApp.Toasts", "ngAnimate", "TrytonApp.Configs"])
         .constant('ViewUrl', "html/");
     </script>
     <script src="js/app.min.js" type="text/javascript" charset="utf-8"></script>
     <link rel="stylesheet" href="css/app.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--JS-->
     <script src="https://www.google.com/recaptcha/api.js?onload=vcRecaptchaApiLoaded&render=explicit" async defer></script>
 </head>
@@ -25,6 +26,6 @@
     <!-- <div user-nav-bar></div> -->
     <button class="btn btn-primary" ng-click="click()">Click</button>
     <!-- <exp-toast></exp-toast> -->
-s</body>
+</body>
 
 </html>
