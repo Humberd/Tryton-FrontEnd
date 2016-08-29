@@ -20,8 +20,10 @@ var cssLib = dist + "lib/css";
 var fontLib = dist + "lib/fonts";
 var langs = dist + "langs";
 var flags = dist + "lib/flags";
+var res = dist + "resources";
 
 var libPath = "bower_components/";
+var resPath = "resources/";
 
 var jsLibraries = ["angular/angular.min.js",
     "angular-animate/angular-animate.min.js",
@@ -148,6 +150,13 @@ gulp.task("flags", function() {
 
     return flagsStream
         .pipe(gulp.dest(flags));
+});
+
+gulp.task("resources", function() {
+    var resStream = gulp.src(resPath + "/**");
+
+    return resStream
+        .pipe(gulp.dest(res));
 })
 
 gulp.task("webserver", function() {
@@ -168,5 +177,5 @@ gulp.task("watcher", function() {
 
 gulp.task("default", function() {
     return runSequence("libScripts", "libStyles", "libFonts",
-        "myScripts", "myStyles", "myViews", "langs","flags", "watcher", "webserver");
+        "myScripts", "myStyles", "myViews", "langs", "flags", "resources", "watcher", "webserver");
 })
