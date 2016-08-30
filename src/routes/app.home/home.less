@@ -1,0 +1,38 @@
+@slides-height: 80vh;
+#home {
+    .slides {
+        height: @slides-height;
+        .slide-image {
+            height: @slides-height;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        .carousel-caption {
+            top: 0;
+            padding-top: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .headline {
+                font-size: 5em;
+                letter-spacing: 3px;
+                padding-top: 5vh;
+                white-space: nowrap;
+            }
+            .description {
+                font-size: 2em;
+                letter-spacing: 1px;
+                padding-top: 5vh;
+            }
+            .buttons {
+            	display: flex;
+            	flex-direction: row;
+            	justify-content: space-between;
+            	width: 300px;
+            	margin-top: 13vh;
+
+            }
+        }
+    }
+}

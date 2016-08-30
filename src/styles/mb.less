@@ -1,0 +1,44 @@
+@mb-fill-default-color-normal: #177FB0;
+@mb-fill-default-color-hover: darken(@mb-fill-default-color-normal, 8%);
+@mb-text-color: #FFFFFF;
+@mb-trans-default-color-hover: rgba(0, 0, 0, 0.1);
+button,
+a {
+    &.mb {
+        display: inline-block;
+    	padding: 10px 20px;
+        font-size: 15px;
+        text-align: center;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: none;
+        color: @mb-text-color;
+        border: none;
+        border-radius: 2px;
+        outline: none;
+        transition: background-color .1s;
+        text-shadow: 0 1px 2px rgba(0,0,0,.6);
+        line-height: 1.4em;
+        white-space: nowrap;
+        min-height: 44px;
+        &.mb-fill {
+            background-color: @mb-fill-default-color-normal;
+            border: 1px solid @mb-fill-default-color-normal;
+            &:hover {
+                background-color: @mb-fill-default-color-hover;
+                border: 1px solid @mb-fill-default-color-hover;
+            }
+        }
+        &.mb-trans {
+            background-color: transparent;
+            border: 1px solid @mb-text-color;
+            &:hover {
+                background-color: @mb-trans-default-color-hover;
+            }
+        }
+        &.mb-small {
+            padding: 7px 15px;
+            font-size: 12px;
+        }
+    }
+}

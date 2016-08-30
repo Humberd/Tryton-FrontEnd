@@ -5,8 +5,6 @@
         .config(RouterConfig);
 
     function RouterConfig($stateProvider, $urlRouterProvider, $locationProvider) {
-
         $locationProvider.html5Mode(true);
-
     }
 })();
