@@ -7,7 +7,8 @@
     function HomeConfig($stateProvider, $urlRouterProvider, ViewUrl) {
         $stateProvider.state("app.home", {
         	url: "/",
-            templateUrl: ViewUrl + "home.html"
+            templateUrl: ViewUrl + "home.html",
+            controller: "AppHomeController"
         });
 
         $urlRouterProvider.when("/home", function ($state) {
