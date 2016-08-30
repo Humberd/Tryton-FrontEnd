@@ -10,7 +10,7 @@
     <script src="lib/js/js.min.js" type="text/javascript" charset="utf-8"></script>
     <link rel="stylesheet" href="lib/css/css.min.css">
     <script>
-    angular.module("TrytonApp", ["TrytonApp.Translate", "TrytonApp.Logger", "ui.bootstrap", "TrytonApp.Authentication", "ngMaterial", "TrytonApp.Modal", "TrytonApp.Router", "TrytonApp.Session", "TrytonApp.Toasts", "ngAnimate", "TrytonApp.Configs", "TrytonApp.Directives"]);
+    angular.module("TrytonApp", ["TrytonApp.Configs", "TrytonApp.Translate", "TrytonApp.Logger", "ui.bootstrap", "TrytonApp.Authentication", "ngMaterial", "TrytonApp.Modal", "TrytonApp.Router", "TrytonApp.Session", "TrytonApp.Toasts", "ngAnimate", "TrytonApp.Directives"]);
     </script>
     <script src="js/app.min.js" type="text/javascript" charset="utf-8"></script>
     <link rel="stylesheet" href="css/app.min.css">
@@ -21,10 +21,12 @@
 
 <body>
     <base href="/">
-    <my-nav-bar></my-nav-bar>
-    <!-- <div user-nav-bar></div> -->
-    <button class="btn btn-primary" ng-click="click()">Click</button>
-    <!-- <exp-toast></exp-toast> -->
+    <!-- <my-nav-bar></my-nav-bar> -->
+    <section ui-view></section>
+    <!-- <section>
+        <section ui-view="nav-bar"></section>
+    </section> -->
+    <!-- <button class="btn btn-primary" ng-click="click()">Click</button> -->
 </body>
 
 </html>
