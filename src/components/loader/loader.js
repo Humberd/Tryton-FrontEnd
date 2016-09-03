@@ -70,41 +70,6 @@
                         angularErrorTemplate.remove();
                     }
                 }
-
-                // this.startLoading = function() {
-                //     if (isLoading) {
-                //         return;
-                //     }
-                //     isLoading = true;
-
-                //     self.unsetErrorState();
-                //     angularTemplate = angular.element($compile(template)($scope));
-
-                //     self.selectedElement.append(angularTemplate);
-                // }
-                // this.stopLoading = function() {
-                //     if (angularTemplate) {
-                //         isLoading = false;
-                //         angularTemplate.remove();
-                //     }
-                // }
-                // this.setErrorState = function() {
-                //     if(isError) {
-                //         return;
-                //     }
-                //     isError = true;
-
-                //     self.stopLoading();
-                //     angularErrorTemplate = angular.element($compile(errorTemplate)($scope));
-
-                //     self.selectedElement.append(angularErrorTemplate);
-                // }
-                // this.unsetErrorState = function() {
-                //     if (angularErrorTemplate) {
-                //         isError = false;
-                //         angularErrorTemplate.remove();
-                //     }
-                // }
             }
         }
     }
