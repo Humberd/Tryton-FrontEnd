@@ -4,7 +4,12 @@
 	angular.module("TrytonApp.Router.App.Home")
 		.controller("AppHomeController", AppHomeController);
 
-	function AppHomeController($scope) {
-		$scope.dupa = "foo"
+	function AppHomeController($scope, Loader, $interval) {
+		$scope.dupa = "foo";
+		$scope.flag = true;
+		Loader.watchLoading("home.slides", "flag", $scope);
+		$interval(function () {
+			$scope.flag = !$scope.flag;
+		}, 1000);
 	}
 })();

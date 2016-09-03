@@ -13,9 +13,6 @@
         		console.log("finished");
         	}, 2000);
         }
-        // $interval(function () {
-        // 	Loader.startLoading("uno");
-        // }, 10);
     }
 
 })();
