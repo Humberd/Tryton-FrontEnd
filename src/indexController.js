@@ -4,7 +4,7 @@
     angular.module("TrytonApp")
         .controller("indexController", IndexController);
 
-    function IndexController($scope, ExpToast, $mdToast, $state, $timeout, Loader) {
+    function IndexController($scope, ExpToast, $mdToast, $state, $timeout, Loader, $interval) {
         $scope.click = function() {
             ExpToast.addTask(20);
         }
@@ -13,6 +13,9 @@
         		console.log("finished");
         	}, 2000);
         }
+        // $interval(function () {
+        // 	Loader.startLoading("uno");
+        // }, 10);
     }
 
 })();

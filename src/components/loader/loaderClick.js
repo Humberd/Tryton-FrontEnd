@@ -4,34 +4,32 @@
     angular.module("TrytonApp.Loader")
         .directive("loaderClick", LoaderClickDirective)
 
-    function LoaderClickDirective($timeout, $parse) {
+    function LoaderClickDirective($timeout, $parse, Loader) {
         return {
             restrict: "EA",
-            require: "^loader",
             priority: -5,
             compile: function() {
                 return {
-                    post: function(scope, elem, attrs, ctrl) {
-                        //daje znac loaderowi, ktory loader ma uzywac
-                        ctrl.selectElement(attrs.loaderClick);
+                    post: function(scope, elem, attrs) {
+                        var loaderName = attrs.loaderClick;
 
                         elem.on("click", function(event) {
                             //jesli obok jest dyrektywa ng-click, to zatrzymuje jej działanie
                             stopInvoke(event);
 
                             //jesli wybrany loader jest w trakcie ladowania, to nie laduje ponownie
-                            if (ctrl.isLoadingState()) {
+                            if (Loader.isLoading(loaderName)) {
                                 return;
                             }
 
-                            ctrl.startLoading();
+                            Loader.startLoading(loaderName);
                             try {
                                 //odpala funkcję zdefiniowaną w ng-click
                                 //musi byc promisem
                                 resumeInvoke().then(function() {
-                                    ctrl.stopLoading();
+                                    Loader.stopLoading(loaderName);
                                 }, function() {
-                                    ctrl.setErrorState();
+                                    Loader.setErrorState(loaderName);
                                 })
                             } catch (err) {
                                 throw new "ng click must return promise";

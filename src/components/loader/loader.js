@@ -11,79 +11,100 @@
             compile: function() {
                 return {
                     pre: function(scope, elem, attrs, ctrl) {
+                        //wrzuca do serwisu dane dotyczące tego loadera: 
+                        //nazwa, element html, controller
                         Loader.put(attrs.loader, elem, ctrl);
 
+                        //wysyla controllerowi ten element html, zeby mogl go uzywać
                         ctrl.setThisElement(elem);
                     },
                 }
             },
             controller: function($compile, $scope) {
                 var self = this;
-                var template = "<loader-templates-loading></loader-templates-loading>";
-                var errorTemplate = "<loader-templates-error></loader-templates-error>";
                 var angularTemplate;
                 var angularErrorTemplate;
-
+                var thisElem;
                 this.setThisElement = function(elem) {
-                    self.thisElem = elem;
-                }
-                this.selectElement = function(loaderName) {
-                    self.selectedElement;
-
-                    if (angular.isString(loaderName)) {
-                        self.selectedElement = Loader.get(loaderName);
-                    } else {
-                        console.log(self.thisElem);
-                        self.selectedElement = self.thisElem;
-                    }
+                    thisElem = elem;
                 }
 
                 //////////////////
                 var isLoading = false;
                 var isError = false;
-                this.startLoading = function() {
-                    if (isLoading) {
-                        return;
-                    }
-                    isLoading = true;
-
-                    self.unsetErrorState();
-                    angularTemplate = angular.element($compile(template)($scope));
-
-                    self.selectedElement.append(angularTemplate);
+                this.isLoading = function () {
+                    return isLoading;
                 }
-                this.stopLoading = function() {
+                this.isError = function () {
+                    return isError;
+                }
+                this.setLoading = function (bool) {
+                    isLoading = !!bool;
+                }
+                this.setError = function (bool) {
+                    isError = !!bool;
+                }
+
+                /////////////
+                this.startLoading = function (template) {
+                    this.setLoading(true);
+                    this.unsetErrorState();
+                    angularTemplate = angular.element($compile(template)($scope));
+                    thisElem.append(angularTemplate);
+                }
+                this.stopLoading = function () {
                     if (angularTemplate) {
-                        isLoading = false;
+                        this.setLoading(false);
                         angularTemplate.remove();
                     }
                 }
-                this.setErrorState = function() {
-                    if(isError) {
-                        return;
-                    }
-                    isError = true;
-
-                    self.stopLoading();
+                this.setErrorState = function (errorTemplate) {
+                    this.setError(true);
+                    this.stopLoading();
                     angularErrorTemplate = angular.element($compile(errorTemplate)($scope));
-
-                    self.selectedElement.append(angularErrorTemplate);
+                    thisElem.append(angularErrorTemplate);
                 }
-                this.unsetErrorState = function() {
-                    if (angularErrorTemplate) {
-                        isError = false;
+                this.unsetErrorState = function () {
+                    if(angularErrorTemplate) {
+                        this.setError(false);
                         angularErrorTemplate.remove();
                     }
                 }
 
-                /////////////
-                this.isErrorState = function () {
-                    return isError;
-                }
-                this.isLoadingState = function () {
-                    return isLoading;
-                }
+                // this.startLoading = function() {
+                //     if (isLoading) {
+                //         return;
+                //     }
+                //     isLoading = true;
 
+                //     self.unsetErrorState();
+                //     angularTemplate = angular.element($compile(template)($scope));
+
+                //     self.selectedElement.append(angularTemplate);
+                // }
+                // this.stopLoading = function() {
+                //     if (angularTemplate) {
+                //         isLoading = false;
+                //         angularTemplate.remove();
+                //     }
+                // }
+                // this.setErrorState = function() {
+                //     if(isError) {
+                //         return;
+                //     }
+                //     isError = true;
+
+                //     self.stopLoading();
+                //     angularErrorTemplate = angular.element($compile(errorTemplate)($scope));
+
+                //     self.selectedElement.append(angularErrorTemplate);
+                // }
+                // this.unsetErrorState = function() {
+                //     if (angularErrorTemplate) {
+                //         isError = false;
+                //         angularErrorTemplate.remove();
+                //     }
+                // }
             }
         }
     }
