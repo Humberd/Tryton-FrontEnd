@@ -23,6 +23,9 @@
                 controller: ctrl
             };
         }
+        this.remove = function (loaderName) {
+            list[loaderName] = undefined;
+        }
         this.getElement = function(loaderName) {
             return list[loaderName].element;
         }
