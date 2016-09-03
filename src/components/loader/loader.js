@@ -5,7 +5,6 @@
         .directive("loader", LoaderDirective)
 
     function LoaderDirective(Loader) {
-        var list = {};
         return {
             restrict: "A",
             require: "loader",
