@@ -10,6 +10,7 @@ var webserver = require("gulp-server-livereload");
 var flatten = require("gulp-flatten");
 var angularFileSort = require("gulp-angular-filesort");
 var sourcemaps = require("gulp-sourcemaps");
+var karma = require("gulp-karma");
 
 var dist = "dist/";
 var js = dist + "js";
@@ -174,6 +175,22 @@ gulp.task("watcher", function() {
     gulp.watch("src/**/*.{less, css}", ["myStyles"])
     gulp.watch("src/**/*.html", ["myViews"]);
 });
+
+gulp.task("test", function () {
+    return gulp.src("./foobar")
+        .pipe(karma({
+            configFile: "karma.conf.js",
+            action: "run"
+        }))
+        .on("error", function (err) {
+            console.log(err);
+            this.emit("end");
+        })
+})
+
+gulp.task("autotest", function () {
+    return gulp.watch(["src/**.js", "test/**.js"], ["test"]);
+})
 
 gulp.task("default", function() {
     return runSequence("libScripts", "libStyles", "libFonts",

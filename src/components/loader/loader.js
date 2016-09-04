@@ -14,7 +14,7 @@
                         var loaderName = attrs.loader;
                         //wrzuca do serwisu dane dotyczące tego loadera: 
                         //nazwa, element html, controller
-                        Loader.put(loaderName, elem, ctrl);
+                        Loader.put(loaderName, ctrl);
 
                         //wysyla controllerowi ten element html, zeby mogl go uzywać
                         ctrl.setThisElement(elem);

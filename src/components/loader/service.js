@@ -8,7 +8,7 @@
         var self = this;
         var list = {};
 
-        this.put = function(loaderName, elem, ctrl) {
+        this.put = function(loaderName, ctrl) {
             if (!angular.isString(loaderName) || loaderName.length === 0) {
                 Logger.error("Name of the Loader cannot be empty");
                 return;
@@ -19,15 +19,11 @@
             }
 
             list[loaderName] = {
-                element: elem,
                 controller: ctrl
             };
         }
         this.remove = function(loaderName) {
             list[loaderName] = undefined;
-        }
-        this.getElement = function(loaderName) {
-            return list[loaderName].element;
         }
         this.getController = function(loaderName) {
             return list[loaderName].controller;
