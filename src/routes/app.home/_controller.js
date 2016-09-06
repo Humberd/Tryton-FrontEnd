@@ -7,7 +7,8 @@
 	function AppHomeController($scope, Loader, $interval) {
 		$scope.dupa = "foo";
 		$scope.flag = true;
-		Loader.watchLoading("home.slides", "flag", $scope);
+		// Loader.startLoading("home.slides");
+		Loader.watchLoadingEventually("home.slides", "flag", $scope);
 		$interval(function () {
 			$scope.flag = !$scope.flag;
 		}, 1000);
