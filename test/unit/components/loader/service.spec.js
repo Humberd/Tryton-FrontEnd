@@ -26,6 +26,16 @@ describe("Testing Loader Service", function() {
         element = angular.element("<div loader='testLoader'></div>");
     });
 
+    function expectLoadTpl() {
+    	$httpBackend.expectGET("html/loaderLoading.html").respond(200, "");
+    }
+    function expectErrorTpl() {
+    	$httpBackend.expectGET("html/loaderError.html").respond(200, "");
+    }
+    function flush() {
+    	$httpBackend.flush();
+    }
+
 
     it('should be Loader defined', function() {
         expect(Loader).toBeDefined();
@@ -86,16 +96,17 @@ describe("Testing Loader Service", function() {
     });
 
     it('should start loading', function() {
-    	$httpBackend.expectGET("html/loaderLoading.html").respond(200);
+    	expectLoadTpl();
         $compile(element)($scope);
 
         expect(Loader.isLoading("testLoader")).toBeFalsy();
         Loader.startLoading("testLoader");
         expect(Loader.isLoading("testLoader")).toBeTruthy();
+        flush();
     });
 
     it('should stop loading', function() {
-    	$httpBackend.expectGET("html/loaderLoading.html").respond(200);
+    	expectLoadTpl();
         $compile(element)($scope);
 
         expect(Loader.isLoading("testLoader")).toBeFalsy();
@@ -103,19 +114,21 @@ describe("Testing Loader Service", function() {
         expect(Loader.isLoading("testLoader")).toBeTruthy();
         Loader.stopLoading("testLoader");
         expect(Loader.isLoading("testLoader")).toBeFalsy();
+        flush();
     });
 
     it('should set error state', function() {
-    	$httpBackend.expectGET("html/loaderError.html").respond(200);
+    	expectErrorTpl();
         $compile(element)($scope);
 
         expect(Loader.isError("testLoader")).toBeFalsy();
         Loader.setErrorState("testLoader");
         expect(Loader.isError("testLoader")).toBeTruthy();
+        flush();
     });
 
     it('should unset error state', function() {
-    	$httpBackend.expectGET("html/loaderError.html").respond(200);
+    	expectErrorTpl();
         $compile(element)($scope);
 
         expect(Loader.isError("testLoader")).toBeFalsy();
@@ -123,11 +136,12 @@ describe("Testing Loader Service", function() {
         expect(Loader.isError("testLoader")).toBeTruthy();
         Loader.unsetErrorState("testLoader");
         expect(Loader.isError("testLoader")).toBeFalsy();
+        flush();
     });
 
     it('should unset error state when starting loading', function() {
-    	$httpBackend.expectGET("html/loaderLoading.html").respond(200);
-    	$httpBackend.expectGET("html/loaderError.html").respond(200);
+    	expectErrorTpl();
+    	expectLoadTpl();
         $compile(element)($scope);
 
         expect(Loader.isLoading("testLoader")).toBeFalsy();
@@ -142,11 +156,12 @@ describe("Testing Loader Service", function() {
 
         expect(Loader.isLoading("testLoader")).toBeTruthy();
         expect(Loader.isError("testLoader")).toBeFalsy();
+        flush();
     });
 
     it('should stop loading when setting error state', function() {
-    	$httpBackend.expectGET("html/loaderLoading.html").respond(200);
-    	$httpBackend.expectGET("html/loaderError.html").respond(200);
+    	expectLoadTpl();
+    	expectErrorTpl();
         $compile(element)($scope);
 
         expect(Loader.isLoading("testLoader")).toBeFalsy();
@@ -161,10 +176,11 @@ describe("Testing Loader Service", function() {
 
         expect(Loader.isLoading("testLoader")).toBeFalsy();
         expect(Loader.isError("testLoader")).toBeTruthy();
+        flush();
     });
 
     it('should watch variable to trigger loading', function() {
-    	$httpBackend.expectGET("html/loaderLoading.html").respond(200);
+        expectLoadTpl();
         $compile(element)($scope);
 
         $scope.toggler = false;
@@ -173,10 +189,77 @@ describe("Testing Loader Service", function() {
         $scope.toggler = true;
         $scope.$digest();
         expect(Loader.isLoading("testLoader")).toBeTruthy();
+        flush();
+    });
+
+    it('should not start loading before element compiles', function() {
+    	expect(function () {
+    		Loader.startLoading("testLoader");
+    	}).toThrow();
+    	$compile(element)($scope);
+    });
+
+    it('should immediately start loading if I call start loading eventually', function() {
+    	expectLoadTpl();
+        $compile(element)($scope);
+
+        Loader.startLoadingEventually("testLoader");
+        expect(Loader.isLoading("testLoader")).toBeTruthy();
+        flush();
+    });
+
+    it('should wait for loader to start loading till its is loaded', function() {
+    	expectLoadTpl();
+
+    	Loader.startLoadingEventually("testLoader");
+    	expect(function () {
+    		Loader.isLoading("testLoader");
+    	}).toThrow();
+    	expect(Loader.isPending("testLoader")).toBeTruthy();
+
+    	$compile(element)($scope);
+    	expect(Loader.isPending("testLoader")).toBeFalsy();
+    	expect(Loader.isLoading("testLoader")).toBeTruthy();
+    	flush();
+    });
+
+    it('should wait for loader to start watching till its loaded', function() {
+    	expectLoadTpl();
+
+    	Loader.watchLoadingEventually("testLoader", "foo", $scope);
+    	expect(function () {
+    		Loader.isLoading("testLoader");
+    	}).toThrow();
+    	expect(Loader.isPending("testLoader")).toBeTruthy();
+
+    	$compile(element)($scope);
+    	expect(Loader.isPending("testLoader")).toBeFalsy();
+    	expect(Loader.isLoading("testLoader")).toBeFalsy();
+
+    	$scope.foo = true;
+
+    	$scope.$digest();
+    	expect(Loader.isLoading("testLoader")).toBeTruthy();
+    	flush();
+    });
+
+    it('should wait for loader to set error state till its loaded', function() {
+    	expectErrorTpl();
+
+    	Loader.setErrorStateEventually("testLoader");
+    	expect(function () {
+    		Loader.isError("testLoader");
+    	}).toThrow();
+    	expect(Loader.isPending("testLoader")).toBeTruthy();
+
+    	$compile(element)($scope);
+    	expect(Loader.isPending("testLoader")).toBeFalsy();
+    	expect(Loader.isError("testLoader")).toBeTruthy();
+    	flush();
     });
 
     afterEach(function() {
-        // $httpBackend.verifyNoOutstandingExpectation();
-        // $httpBackend.verifyNoOutstandingRequest();
+        $httpBackend.verifyNoOutstandingExpectation();
+        $httpBackend.verifyNoOutstandingRequest();
     });
 });
