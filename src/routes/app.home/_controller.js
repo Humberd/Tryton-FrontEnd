@@ -8,7 +8,7 @@
 		$scope.dupa = "foo";
 		$scope.flag = true;
 		// Loader.startLoading("home.slides");
-		Loader.watchLoading("home.slides", "flag", $scope);
+		Loader.watchLoadingEventually("home.slides", "flag", $scope);
 		$interval(function () {
 			$scope.flag = !$scope.flag;
 		}, 1000);
