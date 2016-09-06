@@ -7,6 +7,7 @@
     function LoaderService(Logger, $q, $rootScope) {
         var self = this;
         var list = {};
+        var pending = {};
 
         this.put = function(loaderName, ctrl) {
             if (!angular.isString(loaderName) || loaderName.length === 0) {
@@ -21,6 +22,7 @@
             list[loaderName] = {
                 controller: ctrl
             };
+            this.checkPending(loaderName);
         }
         this.remove = function(loaderName) {
             list[loaderName] = undefined;
@@ -37,6 +39,15 @@
         }
         this.isError = function(loaderName) {
             return this.getController(loaderName).isError();
+        }
+        this.isPending = function(loaderName) {
+            return angular.isFunction(pending[loaderName]);
+        }
+        this.checkPending = function(loaderName) {
+            if (this.isPending(loaderName)) {
+                pending[loaderName].call(this);
+                pending[loaderName] = undefined;
+            }
         }
 
         ///////////////////
@@ -58,6 +69,9 @@
                     controller.setErrorState();
                 });
             }
+        }
+        this.startLoadingEventually = function(loaderName, promise) {
+            eventually.call(this, "startLoading", arguments);
         }
         this.stopLoading = function(loaderName) {
             var controller = this.getController(loaderName);
@@ -82,6 +96,10 @@
                 }
             });
         }
+        this.watchLoadingEventually = function(loaderName, expression, scope) {
+            eventually.call(this, "watchLoading", arguments);
+
+        }
         this.setErrorState = function(loaderName) {
             var controller = this.getController(loaderName);
 
@@ -91,10 +109,25 @@
 
             controller.setErrorState(errorTemplate);
         }
+        this.setErrorStateEventually = function(loaderName) {
+            eventually.call(this, "setErrorState", arguments);
+        }
         this.unsetErrorState = function(loaderName) {
             var controller = this.getController(loaderName);
 
             controller.unsetErrorState();
+        }
+
+        /////////////
+        function eventually(method, args) {
+            try {
+                this[method].apply(this, args);
+            } catch (err) {
+                var thisArguments = args;
+                pending[args[0]] = function() {
+                    this[method].apply(this, thisArguments);
+                }
+            }
         }
     }
 })();
