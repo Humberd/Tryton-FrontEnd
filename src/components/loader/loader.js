@@ -13,8 +13,11 @@
                     pre: function(scope, elem, attrs, ctrl) {
                         var loaderName = attrs.loader;
 
-                        //wysyla controllerowi ten element html, zeby mogl go uzywać
-                        ctrl.setThisElement(elem);
+                        elem.addClass("loader-base");
+                        var wrapper = angular.element("<div></div>");
+                        wrapper.addClass("loader-wrapper");
+                        elem.append(wrapper);
+                        ctrl.setWrapper(wrapper);
 
                         //wrzuca do serwisu dane dotyczące tego loadera: 
                         //nazwa, element html, controller
@@ -23,16 +26,16 @@
                         scope.$on("$destroy", function() {
                             Loader.remove(loaderName);
                         })
-                    },
+                    }
                 }
             },
             controller: function($compile, $scope) {
                 var self = this;
                 var angularTemplate;
                 var angularErrorTemplate;
-                var thisElem;
-                this.setThisElement = function(elem) {
-                    thisElem = elem;
+                var wrapper;
+                this.setWrapper = function(elem) {
+                    wrapper = elem;
                 }
 
                 //////////////////
@@ -56,25 +59,35 @@
                     this.setLoading(true);
                     this.unsetErrorState();
                     angularTemplate = angular.element($compile(template)($scope));
-                    thisElem.append(angularTemplate);
+                    wrapper.append(angularTemplate);
+                    showWrapper();
                 }
                 this.stopLoading = function() {
                     if (angularTemplate) {
                         this.setLoading(false);
                         angularTemplate.remove();
+                        hideWrapper();
                     }
                 }
                 this.setErrorState = function(errorTemplate) {
                     this.setError(true);
                     this.stopLoading();
                     angularErrorTemplate = angular.element($compile(errorTemplate)($scope));
-                    thisElem.append(angularErrorTemplate);
+                    wrapper.append(angularErrorTemplate);
+                    showWrapper();
                 }
                 this.unsetErrorState = function() {
                     if (angularErrorTemplate) {
                         this.setError(false);
                         angularErrorTemplate.remove();
+                        hideWrapper();
                     }
+                }
+                function showWrapper() {
+                    wrapper.removeClass("loader-hide");
+                }
+                function hideWrapper() {
+                    wrapper.addClass("loader-hide");
                 }
             }
         }
