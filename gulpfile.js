@@ -76,12 +76,18 @@ gulp.task("myScripts", function() {
 });
 
 gulp.task("myStyles", function() {
-    var lessStream = gulp.src(["src/**/*.less"])
+    var lessStream = gulp.src(["src/**/*.less", "!src/configs/_constants.less"]);
+    var lessConstantsStream = gulp.src(["src/configs/_constants.less"]);
+
+    var lessParsedStream = es.merge(lessConstantsStream, lessStream)
+        .pipe(concat("none"))
         .pipe(less()).on("error", errorHandler);
+
+    // .pipe(less()).on("error", errorHandler);
 
     var cssStream = gulp.src("src/**/*.css");
 
-    return es.merge(lessStream, cssStream)
+    return es.merge(lessParsedStream, cssStream)
         .pipe(concat("app.min.css"))
         // .pipe(cleanCss())
         .pipe(gulp.dest(css));
@@ -174,9 +180,10 @@ gulp.task("watcher", function() {
     gulp.watch("src/**/*.js", ["myScripts"])
     gulp.watch("src/**/*.{less, css}", ["myStyles"])
     gulp.watch("src/**/*.html", ["myViews"]);
+    gulp.watch(resPath + "/**", ["resources"]);
 });
 
-gulp.task("test", function (done) {
+gulp.task("test", function(done) {
     return new karma.Server({
         configFile: __dirname + "/karma.conf.js",
     }, done).start();
