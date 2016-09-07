@@ -14,6 +14,8 @@
                         var loaderName = attrs.loader;
 
                         elem.addClass("loader-base");
+
+                        //tworze wrapper, w ktorym bedzie siedziec error albo loading
                         var wrapper = angular.element("<div></div>");
                         wrapper.addClass("loader-wrapper");
                         wrapper.addClass("loader-hide");
@@ -24,6 +26,7 @@
                         //nazwa, element html, controller
                         Loader.put(loaderName, ctrl);
 
+                        //przy usunieciu loadera usuwam go z listy dostepnych loaderow
                         scope.$on("$destroy", function() {
                             Loader.remove(loaderName);
                         })
