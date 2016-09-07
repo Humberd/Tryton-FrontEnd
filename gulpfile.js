@@ -191,5 +191,6 @@ gulp.task("test", function(done) {
 
 gulp.task("default", function() {
     return runSequence("libScripts", "libStyles", "libFonts",
-        "myScripts", "myStyles", "myViews", "langs", "flags", "resources", "watcher", "webserver");
+        "myScripts", "myStyles", "myViews", "langs", "flags",
+         "resources", "watcher", "webserver");
 })
