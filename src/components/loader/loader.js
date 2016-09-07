@@ -16,6 +16,7 @@
                         elem.addClass("loader-base");
                         var wrapper = angular.element("<div></div>");
                         wrapper.addClass("loader-wrapper");
+                        wrapper.addClass("loader-hide");
                         elem.append(wrapper);
                         ctrl.setWrapper(wrapper);
 
