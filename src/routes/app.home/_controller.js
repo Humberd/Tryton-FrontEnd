@@ -11,6 +11,7 @@
 		Loader.watchLoadingEventually("home.slides", "flag", $scope);
 		$interval(function () {
 			$scope.flag = !$scope.flag;
-		}, 1000);
+		}, 3000);
+		// Loader.startLoadingEventually("home.slides");
 	}
 })();
