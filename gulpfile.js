@@ -41,7 +41,7 @@ var jsLibraries = ["angular/angular.min.js",
     "angular-translate-loader-static-files/angular-translate-loader-static-files.min.js",
     "angular-translate-storage-cookie/angular-translate-storage-cookie.min.js",
     "angular-translate-storage-local/angular-translate-storage-local.min.js",
-    "angular-ui-router/release/angular-ui-router.min.js",
+    "angular-ui-router/release/angular-ui-router.js",
     "angular-permission/dist/angular-permission.min.js",
     "angular-permission/dist/angular-permission-ui.min.js",
     "odometer/odometer.min.js",
@@ -191,5 +191,6 @@ gulp.task("test", function(done) {
 
 gulp.task("default", function() {
     return runSequence("libScripts", "libStyles", "libFonts",
-        "myScripts", "myStyles", "myViews", "langs", "flags", "resources", "watcher", "webserver");
+        "myScripts", "myStyles", "myViews", "langs", "flags",
+         "resources", "watcher", "webserver");
 })

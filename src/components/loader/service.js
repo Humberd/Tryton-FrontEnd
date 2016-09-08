@@ -57,6 +57,7 @@
         this.startLoading = function(loaderName, promise) {
             var controller = this.getController(loaderName);
 
+            //jesli loader jest w trakcie ladowania, to nie bede go rozpoczynal od nowa
             if (controller.isLoading()) {
                 return;
             }
