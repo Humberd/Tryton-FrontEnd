@@ -4,11 +4,10 @@
     angular.module("TrytonApp.Router.App._games")
         .run(AppGamesRun)
 
-    function AppGamesRun($rootScope, $state) {
+    function AppGamesRun($rootScope, $state, SelectedGame, Supported) {
         $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams) {
             var _gamesState = "app._games";
             var requestedState = toState.$$state();
-            var currentGame = "lol";
 
             //jesli toState jest dzieckiem app._games
             if (includes(requestedState, _gamesState)) {
@@ -37,16 +36,16 @@
 
             function setParamToCurrentGame() {
                 event.preventDefault();
-                $state.go(toState.name, { game: currentGame });
+                $state.go(toState.name, { game: SelectedGame.get() });
             }
             //TODO(): zmienic jak bedzie dodany serwis odpowiadajacy
             // za przechowywanie wybranej gry
             function checkIfTheGameExists(name) {
-                return true;
+                return Supported.games.get(name);
             }
 
             function changeCurrentGame(name) {
-
+                SelectedGame.set(name);
             }
         })
     }
