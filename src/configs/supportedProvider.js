@@ -35,6 +35,9 @@
                         if (item.shortName.toLowerCase() === phrase) {
                             return item;
                         }
+                        if(item.simpleShortName.toLowerCase() === phrase) {
+                            return item;
+                        }
                     });
 
                     return angular.copy(foundItem);
@@ -56,12 +59,6 @@
                     var item = new Item(configs.name, configs.shortName, configs.isAvailable, icon, configs.simpleShortName);
                     items.add("games", item);
                 },
-                // add: function(name, shortName, isAvailable, iconUrl) {
-                //     var defaultUrl = GamesIconsUrl;
-                //     var icon = iconUrl ? defaultUrl + iconUrl : "";
-                //     var item = new Item(name, shortName, isAvailable, icon);
-                //     items.add("games", item);
-                // },
                 get: function(phrase) {
                     return items.get("games", phrase);
                 },
@@ -76,12 +73,6 @@
                     var item = new Item(configs.name, configs.shortName, configs.isAvailable, icon, configs.simpleShortName);
                     items.add("languages", item);
                 },
-                // add: function(name, shortName, isAvailable, iconUrl) {
-                //     var defaultUrl = "/";
-                //     var icon = iconUrl ? iconUrl : defaultUrl + shortName;
-                //     var item = new Item(name, shortName, isAvailable, icon);
-                //     items.add("languages", item);
-                // },
                 get: function(phrase) {
                     return items.get("languages", phrase);
                 },
