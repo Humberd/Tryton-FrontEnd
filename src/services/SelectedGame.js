@@ -5,7 +5,7 @@
         .factory("SelectedGame", SelectedGameFactory);
 
     function SelectedGameFactory() {
-        var selectedGame = null;
+        var selectedGame = "lol";
         var interf = {
             get: function() {
                 return selectedGame;
@@ -17,7 +17,7 @@
                 if (gameName.length === 0) {
                     throw "Game name cannot by empty";
                 }
-                selectedGame = gameName;
+                selectedGame = gameName.toLowerCase();
             },
             is: function(compareName) {
                 return compareName === selectedGame;

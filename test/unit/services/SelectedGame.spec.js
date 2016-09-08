@@ -31,6 +31,10 @@ describe('SelectedGame', function() {
     			SelectedGame.set("");
     		}).toThrow();
     	});
+    	it('should set the game name with lower case', function() {
+    		SelectedGame.set("LoL");
+    		expect(SelectedGame.get()).toBe("lol");
+    	});
     });
     describe('.is()', function() {
     	it('should check the equality of the strings', function() {
