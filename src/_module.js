@@ -5,6 +5,7 @@
         "TrytonApp.Translate", "TrytonApp.Loader", "TrytonApp.Logger",
         "ui.bootstrap", "TrytonApp.Authentication", "ngMaterial",
         "TrytonApp.Modal", "TrytonApp.Router", "TrytonApp.Session",
-        "TrytonApp.Toasts", "ngAnimate", "TrytonApp.Directives"
+        "TrytonApp.Toasts", "ngAnimate", "TrytonApp.Directives",
+        "TrytonApp.SelectedGame"
     ]);
 })();
