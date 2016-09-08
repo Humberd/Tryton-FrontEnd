@@ -20,7 +20,7 @@
                 selectedGame = gameName.toLowerCase();
             },
             is: function(compareName) {
-                return compareName === selectedGame;
+                return compareName.toLowerCase() === selectedGame;
             }
         };
         return interf;
