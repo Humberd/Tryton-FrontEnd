@@ -5,11 +5,12 @@
         .provider("Supported", Supported);
 
     function Supported(GamesIconsUrl) {
-        function Item(name, shortName, isAvailable, iconUrl) {
+        function Item(name, shortName, isAvailable, iconUrl, simpleShortName) {
             this.name = name;
             this.shortName = shortName;
             this.isAvailable = isAvailable;
             this.iconUrl = iconUrl;
+            this.simpleShortName = simpleShortName;
         }
 
         var items = (function() {
@@ -49,12 +50,18 @@
 
         return {
             "games": {
-                add: function(name, shortName, isAvailable, iconUrl) {
+                add: function(configs) {
                     var defaultUrl = GamesIconsUrl;
-                    var icon = iconUrl ? defaultUrl + iconUrl : "";
-                    var item = new Item(name, shortName, isAvailable, icon);
+                    var icon = configs.iconUrl ? defaultUrl + configs.iconUrl : "";
+                    var item = new Item(configs.name, configs.shortName, configs.isAvailable, icon, configs.simpleShortName);
                     items.add("games", item);
                 },
+                // add: function(name, shortName, isAvailable, iconUrl) {
+                //     var defaultUrl = GamesIconsUrl;
+                //     var icon = iconUrl ? defaultUrl + iconUrl : "";
+                //     var item = new Item(name, shortName, isAvailable, icon);
+                //     items.add("games", item);
+                // },
                 get: function(phrase) {
                     return items.get("games", phrase);
                 },
@@ -63,12 +70,18 @@
                 }
             },
             "languages": {
-                add: function(name, shortName, isAvailable, iconUrl) {
+                add: function(configs) {
                     var defaultUrl = "/";
-                    var icon = iconUrl ? iconUrl : defaultUrl + shortName;
-                    var item = new Item(name, shortName, isAvailable, icon);
+                    var icon = configs.iconUrl ? configs.iconUrl : defaultUrl + configs.shortName;
+                    var item = new Item(configs.name, configs.shortName, configs.isAvailable, icon, configs.simpleShortName);
                     items.add("languages", item);
                 },
+                // add: function(name, shortName, isAvailable, iconUrl) {
+                //     var defaultUrl = "/";
+                //     var icon = iconUrl ? iconUrl : defaultUrl + shortName;
+                //     var item = new Item(name, shortName, isAvailable, icon);
+                //     items.add("languages", item);
+                // },
                 get: function(phrase) {
                     return items.get("languages", phrase);
                 },
