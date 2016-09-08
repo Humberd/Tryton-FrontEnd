@@ -132,13 +132,13 @@
                     }
                 })
 
-                $scope.isSelectedGame = function(shortName) {
-                    if (shortName.toLowerCase() === $scope.selectedGame.toLowerCase()) {
+                $scope.isSelectedGame = function(simpleShortName) {
+                    if (simpleShortName.toLowerCase() === $scope.selectedGame.toLowerCase()) {
                         return "selected";
                     }
                 }
-                $scope.selectGame = function(shortName) {
-                    SelectedGame.set(shortName);
+                $scope.selectGame = function(simpleShortName) {
+                    SelectedGame.set(simpleShortName);
                     $scope.selectedGame = SelectedGame.get();
                 }
             }

@@ -21,7 +21,5 @@
         }
         SupportedProvider.games.add(lol);
         SupportedProvider.games.add(csgo);
-        // SupportedProvider.games.add("League of Legends", "LoL", true, "lol.png");
-        // SupportedProvider.games.add("Counter Strike: Global Offensive", "CS:GO",  true, "csgo.png");
     }
 })();
