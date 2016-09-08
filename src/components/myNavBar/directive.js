@@ -4,7 +4,8 @@
     angular.module("TrytonApp")
         .directive("myNavBar", MyNavBar);
 
-    function MyNavBar(ViewUrl, Modal, Auth, Logger, $translate, $document, Supported) {
+    function MyNavBar(ViewUrl, Modal, Auth, Logger, $translate,
+        $document, Supported, SelectedGame) {
         return {
             restrict: "E",
             templateUrl: ViewUrl + "myNavBar.html",
@@ -122,7 +123,7 @@
 
                 ////////////games functions//////////////
                 $scope.availableGames = Supported.games.getAll();
-                $scope.selectedGame = "lol"
+                $scope.selectedGame = SelectedGame.get();
                 $scope.selectedGameItem;
 
                 $scope.$watch("selectedGame", function(newVal, oldVal) {
@@ -137,7 +138,8 @@
                     }
                 }
                 $scope.selectGame = function(shortName) {
-                    $scope.selectedGame = shortName.toLowerCase();
+                    SelectedGame.set(shortName);
+                    $scope.selectedGame = SelectedGame.get();
                 }
             }
         }
