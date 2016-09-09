@@ -4,8 +4,8 @@
     angular.module("TrytonApp.SelectedGame", [])
         .factory("SelectedGame", SelectedGameFactory);
 
-    function SelectedGameFactory(Supported, Logger, $rootScope) {
-        var selectedGame = "lol";
+    function SelectedGameFactory(Supported, Logger, $rootScope, DefaultSelectedGame) {
+        var selectedGame;
         var interf = {
             get: function() {
                 return selectedGame;
@@ -39,6 +39,9 @@
                 return compareName.toLowerCase() === selectedGame;
             }
         };
+        (function initDefaultGame() {
+            interf.set(DefaultSelectedGame);
+        })();
         return interf;
     }
 })();
