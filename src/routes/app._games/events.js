@@ -5,6 +5,13 @@
         .run(AppGamesRun)
 
     function AppGamesRun($rootScope, $state, SelectedGame, Supported) {
+        $rootScope.$on("SelectedNewGame", function(event, gameName) {
+            //jesli obecny stan dziedziczyz z app._games
+            //czyli jesli ten state jest inny w odroznieniu od wybranej gry
+            if ($state.includes("app._games")) {
+                $state.go($state.current.name, {game: gameName})
+            }
+        });
         $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams) {
             var _gamesState = "app._games";
             var requestedState = toState.$$state();
@@ -38,8 +45,7 @@
                 event.preventDefault();
                 $state.go(toState.name, { game: SelectedGame.get() });
             }
-            //TODO(): zmienic jak bedzie dodany serwis odpowiadajacy
-            // za przechowywanie wybranej gry
+
             function checkIfTheGameExists(name) {
                 return Supported.games.get(name);
             }
@@ -47,6 +53,6 @@
             function changeCurrentGame(name) {
                 SelectedGame.set(name);
             }
-        })
+        });
     }
 })();
