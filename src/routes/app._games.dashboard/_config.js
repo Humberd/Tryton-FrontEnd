@@ -5,8 +5,7 @@
         .config(AppGamesDashboardConfig);
 
     function AppGamesDashboardConfig($stateProvider) {
-    	$stateProvider.state("dashboard", {
-    		parent: "app._games",
+    	$stateProvider.state("app._games.dashboard", {
     		url: "/:game/dashboard",
     		template: "<div>dashboard</div>"
     	})
