@@ -18,6 +18,7 @@ describe('SelectedGame', function() {
     }
 
     beforeEach(function() {
+        module("TrytonApp.Storage");
         module("TrytonApp.SelectedGame");
         module("TrytonApp.Configs", function(SupportedProvider) {
             SupportedProvider.games.add(tf2);
@@ -68,7 +69,9 @@ describe('SelectedGame', function() {
             }).toThrow("Game: cod is not currently available");
         });
         it('should set the game to simpleShortName', function() {
+            console.log(tf2.name);
             selectedGame.set(tf2.name);
+            console.log(selectedGame.get());
             expect(selectedGame.get()).toBe(tf2.simpleShortName);
         });
         it('should broadcast message with new selected game on change', function() {

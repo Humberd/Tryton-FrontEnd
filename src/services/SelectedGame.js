@@ -21,10 +21,10 @@
                 }
 
                 //sprawdza czy mam taka gre we wspieranych
-                checkIfSupported(gameName);
+                var game = checkIfSupported(gameName);
 
                 var oldGame = selectedGame;
-                selectedGame = gameName;
+                selectedGame = game.simpleShortName;
                 Storage.setSelectedGame(selectedGame);
 
                 if (oldGame !== selectedGame) {
@@ -46,6 +46,7 @@
             if (!game.isAvailable) {
                 throw "Game: " + gameName + " is not currently available";
             }
+            return game;
         }
 
         (function initDefaultGame() {
