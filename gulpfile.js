@@ -46,6 +46,7 @@ var jsLibraries = ["angular/angular.min.js",
     "angular-permission/dist/angular-permission-ui.min.js",
     "odometer/odometer.min.js",
     "angular-odometer-js/dist/angular-odometer.min.js",
+    "ngstorage/ngStorage.min.js",
 ];
 
 var cssLibraries = ["bootstrap/dist/css/bootstrap.min.css",

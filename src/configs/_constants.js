@@ -6,5 +6,6 @@
         .constant("GamesIconsUrl", "resources/gamesIcons/")
         .constant("ApiUrl", "http://www.example.com/")
 
-    .constant("DefaultSelectedGame", "lol");
+    .constant("DefaultSelectedGame", "lol")
+    .constant("SelectedGameStorageKey", "selectedGame")
 })();

@@ -4,7 +4,9 @@
     angular.module("TrytonApp.SelectedGame", [])
         .factory("SelectedGame", SelectedGameFactory);
 
-    function SelectedGameFactory(Supported, Logger, $rootScope, DefaultSelectedGame) {
+    function SelectedGameFactory(Supported, Logger, $rootScope,
+        DefaultSelectedGame, Storage, $timeout) {
+
         var selectedGame;
         var interf = {
             get: function() {
@@ -19,17 +21,12 @@
                 }
 
                 //sprawdza czy mam taka gre we wspieranych
-                var game = Supported.games.get(gameName);
-
-                if (!game) {
-                    throw "Game with this name: " + gameName + " doesn't exist";
-                }
-                if (!game.isAvailable) {
-                    throw "Game: " + gameName + " is not currently available";
-                }
+                checkIfSupported(gameName);
 
                 var oldGame = selectedGame;
-                selectedGame = game.simpleShortName;
+                selectedGame = gameName;
+                Storage.setSelectedGame(selectedGame);
+
                 if (oldGame !== selectedGame) {
                     Logger.info("Successfully changed game to [%s]", selectedGame);
                     $rootScope.$broadcast("SelectedNewGame", selectedGame);
@@ -39,8 +36,31 @@
                 return compareName.toLowerCase() === selectedGame;
             }
         };
+
+        function checkIfSupported(gameName) {
+            var game = Supported.games.get(gameName);
+
+            if (!game) {
+                throw "Game with this name: " + gameName + " doesn't exist";
+            }
+            if (!game.isAvailable) {
+                throw "Game: " + gameName + " is not currently available";
+            }
+        }
+
         (function initDefaultGame() {
-            interf.set(DefaultSelectedGame);
+            var storageGame = Storage.getSelectedGame();
+
+            if (!angular.isString(storageGame)) {
+                interf.set(DefaultSelectedGame);
+            } else {
+                try {
+                    checkIfSupported(storageGame);
+                    interf.set(storageGame);
+                } catch (err) {
+                    interf.set(DefaultSelectedGame);
+                }
+            }
         })();
         return interf;
     }

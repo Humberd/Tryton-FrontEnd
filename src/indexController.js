@@ -4,7 +4,8 @@
     angular.module("TrytonApp")
         .controller("indexController", IndexController);
 
-    function IndexController($scope, ExpToast, $mdToast, $state, $timeout, Loader, $interval) {
+    function IndexController($scope, ExpToast, $mdToast, $state, $timeout, 
+        Loader, $interval) {
         $scope.click = function() {
             ExpToast.addTask(20);
         }
