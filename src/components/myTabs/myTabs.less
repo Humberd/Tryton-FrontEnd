@@ -1,0 +1,58 @@
+@my-tab-names-radius: 3px;
+my-tabs {
+    display: flex;
+    flex-direction: column;
+    my-tab-names {
+        display: flex;
+        flex-direction: row;
+        align-self: flex-start;
+        color: @global-color;
+        background-color: @global-background-color;
+        border: @global-border;
+        border-top-left-radius: @my-tab-names-radius;
+        border-top-right-radius: @my-tab-names-radius;
+        line-height: 2.4em;
+        font-size: 1.5em;
+        letter-spacing: 0.3px;
+        .noselect();
+        my-tab-name {
+            padding: 0 30px;
+            cursor: pointer;
+            &.selected {
+                background-color: lighten(@global-background-color, 10%);
+                // cursor: default;
+            }
+            &:hover {
+                background-color: lighten(@global-background-color, 5%);
+            }
+            &:first-child {
+                border-top-left-radius: @my-tab-names-radius;
+            }
+            &:last-child {
+                border-top-right-radius: @my-tab-names-radius;
+            }
+        }
+        &.my-small {
+            font-size: 1.2em;
+            my-tab-name {
+                padding: 0 25px;
+            }
+        }
+    }
+    my-tab-bodies {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: flex-start;
+        justify-content: flex-start;
+        my-tab-body {
+            width: 0;
+            height: 0;
+            overflow: hidden;
+            &.showContent {
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+}

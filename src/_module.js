@@ -6,6 +6,6 @@
         "ui.bootstrap", "TrytonApp.Authentication", "ngMaterial",
         "TrytonApp.Modal", "TrytonApp.Router", "TrytonApp.Session",
         "TrytonApp.Toasts", "ngAnimate", "TrytonApp.Directives",
-        "TrytonApp.SelectedGame"
+        "TrytonApp.SelectedGame", "TrytonApp.MyTabs"
     ]);
 })();
