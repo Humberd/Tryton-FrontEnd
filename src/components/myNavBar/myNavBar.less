@@ -1,4 +1,4 @@
-@my-nav-bar-bgc: #4C4C4C;
+@my-nav-bar-bgc: @global-background-color;
 @my-nav-bar-content-transition: max-height 0.09s linear;
 .noselect() {
     -webkit-touch-callout: none;
@@ -24,6 +24,7 @@
     flex-direction: row;
     justify-content: space-between;
     background-color: @my-nav-bar-bgc;
+    border-bottom: @global-border;
     color: #C0C0C0;
     .noselect();
     &>.my-nav-bar-column {
