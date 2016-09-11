@@ -14,6 +14,7 @@
                     for (var t = 0; t < tabNames.length; t++) {
                         takeCare(tabNames[t]);
                     }
+                    checkFirstSelect();
                     addEvents();
                 })();
 
@@ -43,6 +44,22 @@
                             }
                         })
                     })
+                }
+
+                function checkFirstSelect() {
+                	var tabs = map.keys();
+
+                	while (true) {
+                		var tab = tabs.next();
+                		if (tab.done) {
+                			break;
+                		}
+                		if (angular.isString(tab.value.attr("select"))) {
+                			selectTab(tab.value);
+                			showBody(map.get(tab.value))
+                			break;
+                		}
+                	}
                 }
 
                 function selectTabProcess(selectedTab) {
