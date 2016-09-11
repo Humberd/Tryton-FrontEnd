@@ -1,6 +1,7 @@
 describe('SelectedGame', function() {
     var selectedGame;
     var $rootScope;
+    var $injector;
 
     var tf2 = {
         name: "Team Fortress 2",
@@ -18,19 +19,21 @@ describe('SelectedGame', function() {
     }
 
     beforeEach(function() {
+        module("ui.router");
         module("TrytonApp.Storage");
         module("TrytonApp.SelectedGame");
-        module("TrytonApp.Configs", function(SupportedProvider) {
+        module("TrytonApp.Configs", function(SupportedProvider, $provide) {
             SupportedProvider.games.add(tf2);
             SupportedProvider.games.add(cod);
+            $provide.constant("RawApiUrl", "http://www.google.com/:game/");
         });
     });
 
     beforeEach(function() {
         inject(function(_$injector_) {
+            $injector = _$injector_;
             selectedGame = _$injector_.get("SelectedGame");
             $rootScope = _$injector_.get("$rootScope");
-            spyOn($rootScope, '$broadcast');
         })
     });
 
@@ -38,6 +41,7 @@ describe('SelectedGame', function() {
         it('should return selectedGame', function() {
             selectedGame.set("tf2");
             expect(selectedGame.get()).toBe("tf2");
+            $rootScope.$digest();
         });
     });
 
@@ -71,12 +75,6 @@ describe('SelectedGame', function() {
         it('should set the game to simpleShortName', function() {
             selectedGame.set(tf2.name);
             expect(selectedGame.get()).toBe(tf2.simpleShortName);
-        });
-        it('should broadcast message with new selected game on change', function() {
-            selectedGame.set("tf2");
-            //TODO: remove when bug resolved
-            // https://github.com/jasmine/jasmine/issues/1188
-            // expect($rootScope.$broadcast).toHaveBeenCalledWith("SelectedNewGame", "tf2");
         });
     });
 
