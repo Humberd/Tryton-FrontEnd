@@ -4,7 +4,7 @@
     angular.module("TrytonApp.Configs")
         .constant("ViewUrl", "html/")
         .constant("GamesIconsUrl", "resources/gamesIcons/")
-        .constant("ApiUrl", "http://www.example.com/")
+        .constant("RawApiUrl", "http://www.example.com/:game/")
 
     .constant("DefaultSelectedGame", "lol")
     .constant("SelectedGameStorageKey", "selectedGame")

@@ -5,7 +5,7 @@
         .factory("SelectedGame", SelectedGameFactory);
 
     function SelectedGameFactory(Supported, Logger, $rootScope,
-        DefaultSelectedGame, Storage, $timeout) {
+        DefaultSelectedGame, Storage, $urlMatcherFactory, RawApiUrl, ApiUrl) {
 
         var selectedGame;
         var interf = {
@@ -13,6 +13,9 @@
                 return selectedGame;
             },
             set: function(gameName) {
+                if (gameName === selectedGame) {
+                    return;
+                }
                 if (!angular.isString(gameName)) {
                     throw "Game name must be a string";
                 }
@@ -26,6 +29,7 @@
                 var oldGame = selectedGame;
                 selectedGame = game.simpleShortName;
                 Storage.setSelectedGame(selectedGame);
+                setApiUrl(selectedGame);
 
                 if (oldGame !== selectedGame) {
                     Logger.info("Successfully changed game to [%s]", selectedGame);
@@ -36,6 +40,11 @@
                 return compareName.toLowerCase() === selectedGame;
             }
         };
+
+        function setApiUrl(gameName) {
+            var rawUrl = $urlMatcherFactory.compile(RawApiUrl);
+            ApiUrl = rawUrl.format({game: gameName});
+        }
 
         function checkIfSupported(gameName) {
             var game = Supported.games.get(gameName);
