@@ -26,7 +26,7 @@ my-tabs {
                 border-bottom-color: @my-tab-name-background-color-selected;
                 // cursor: default;
             }
-            &:hover {
+            &:not(.selected):hover {
                 background-color: lighten(@global-background-color, 5%);
             }
             &:first-child {
