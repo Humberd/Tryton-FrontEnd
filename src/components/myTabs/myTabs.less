@@ -7,6 +7,8 @@ my-tabs {
         display: flex;
         flex-direction: row;
         align-self: stretch;
+        justify-content: flex-start;
+        align-items: flex-end;
         color: @global-color;
         border-bottom: 3px solid @my-tab-name-background-color-selected;
         line-height: 2.4em;
@@ -43,13 +45,13 @@ my-tabs {
             }
         }
         &.my-left {
-            align-self: flex-start;
+            justify-content: flex-start;
         }
         &.my-center {
-            align-self: center;
+            justify-content: center;
         }
         &.my-right {
-            align-self: flex-end;
+            justify-content: flex-end;
         }
     }
     my-tab-bodies {
