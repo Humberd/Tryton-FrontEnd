@@ -9,11 +9,13 @@ my-tabs {
         align-self: stretch;
         justify-content: flex-start;
         align-items: flex-end;
+        text-align: center;
         color: @global-color;
         border-bottom: 3px solid @my-tab-name-background-color-selected;
         line-height: 2.4em;
         font-size: 1.5em;
         letter-spacing: 0.3px;
+        padding: 0 10px;
         .noselect();
         my-tab-name {
             padding: 0 30px;
@@ -24,7 +26,9 @@ my-tabs {
             &.selected {
                 background-color: @my-tab-name-background-color-selected;
                 border-bottom-color: @my-tab-name-background-color-selected;
-                // cursor: default;
+            }
+            &.stretch {
+                flex-grow: 1;
             }
             &:not(.selected):hover {
                 background-color: lighten(@global-background-color, 5%);
@@ -37,6 +41,18 @@ my-tabs {
                 border-right: @global-border;
                 border-top-right-radius: @my-tab-names-radius;
             }
+        }
+        &.flex-start {
+            justify-content: flex-start;
+        }
+        &.center {
+            justify-content: center;
+        }
+        &.flex-end {
+            justify-content: flex-end;
+        }
+        &.space-around {
+            justify-content: space-around;
         }
         &.my-small {
             font-size: 1.2em;
