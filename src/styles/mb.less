@@ -1,5 +1,9 @@
-@mb-fill-default-color-normal: #177FB0;
-@mb-fill-default-color-hover: darken(@mb-fill-default-color-normal, 8%);
+.mb-fill("blue", #177FB0);
+.mb-fill("orange", #fd8f00);
+.mb-fill("yellow", #dab800);
+.mb-fill("red", #b10808);
+.mb-fill("green", #018e01);
+
 @mb-text-color: #FFFFFF;
 @mb-trans-default-color-hover: rgba(0, 0, 0, 0.1);
 button,
@@ -21,14 +25,6 @@ a {
         line-height: 1.4em;
         white-space: nowrap;
         min-height: 44px;
-        &.mb-fill {
-            background-color: @mb-fill-default-color-normal;
-            border: 1px solid @mb-fill-default-color-normal;
-            &:hover {
-                background-color: @mb-fill-default-color-hover;
-                border: 1px solid @mb-fill-default-color-hover;
-            }
-        }
         &.mb-trans {
             background-color: transparent;
             border: 1px solid @mb-text-color;
@@ -39,6 +35,24 @@ a {
         &.mb-small {
             padding: 7px 15px;
             font-size: 12px;
+        }
+    }
+}
+
+.mb-fill(@name, @color) {
+    @darkenRate: 8%;
+    @parsedName: ~"@{name}";
+    button,
+    a {
+        &.mb {
+            &.mb-fill-@{parsedName} { 
+                background-color: @color;
+                border: 1px solid @color;
+                &:hover {
+                    background-color: darken(@color, @darkenRate);
+                    border: 1px solid darken(@color, @darkenRate);
+                }
+            }
         }
     }
 }
