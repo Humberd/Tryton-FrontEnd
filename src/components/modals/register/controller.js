@@ -4,10 +4,11 @@
     angular.module("TrytonApp.Modal")
         .controller("registerController", RegisterController);
 
-    function RegisterController($scope, $uibModalInstance, loginModal) {
+    function RegisterController($scope, $uibModalInstance, loginModal, RecaptchaKey) {
         $scope.register = {
             username: ""
         };
+        $scope.recaptchaKey = RecaptchaKey;
         $scope.submit = function(registerForm) {
             //TODO validacja formularza
             //        console.log($scope.register); // wartosci

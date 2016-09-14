@@ -30,7 +30,7 @@
                     </span>
                     <input class="form-control" placeholder="{{ 'REPEAT-PASSWORD' | translate}}" type="password" tabindex="4" autofocus ng-model="register.repeatPassword" name="repeatPassword" />
                 </div>
-                <div vc-recaptcha key="'6LeeVyITAAAAAOE0WyhwnMVRU2_q5UyR7kaqqsfe'" class="modal-captcha" ng-model="register.captcha" name="captcha"></div>
+                <div vc-recaptcha key="recaptchaKey" class="modal-captcha" ng-model="register.captcha" name="captcha"></div>
                 <div class="modal-form-tos">
                     <span>{{ "MODALS.REGISTER.ACCEPT-TOS" | translate}}</span>
                     <a>{{ "TOS" |translate}}</a>
