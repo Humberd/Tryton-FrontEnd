@@ -4,7 +4,7 @@
     angular.module("TrytonApp.Modal")
         .controller("registerController", RegisterController);
 
-    function RegisterController($scope, $uibModalInstance, loginModal, RecaptchaKey) {
+    function RegisterController($scope, loginModal, RecaptchaKey, $mdDialog) {
         $scope.recaptchaKey = RecaptchaKey;
         $scope.register = {
             username: ""
@@ -19,7 +19,7 @@
             // }
         };
         $scope.close = function() {
-            $uibModalInstance.dismiss();
+            $mdDialog.cancel();
         };
         $scope.switchToLoginModal = function() {
             $scope.close();

@@ -4,7 +4,7 @@
     angular.module("TrytonApp.Modal")
         .controller("loginController", LoginController);
 
-    function LoginController($scope, $uibModalInstance, registerModal) {
+    function LoginController($scope, registerModal, $mdDialog) {
         $scope.login = {
             email: ""
         };
@@ -18,7 +18,7 @@
             // }
         };
         $scope.close = function() {
-            $uibModalInstance.dismiss();
+            $mdDialog.cancel();
         };
         $scope.switchToRegisterModal = function() {
             $scope.close();
