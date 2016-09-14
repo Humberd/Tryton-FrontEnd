@@ -5,7 +5,14 @@
         .service("Modal", Modal);
 
     function Modal($uibModal, ViewUrl, Logger, $mdDialog) {
-        return function ModalFunction(htmlFile, controller, resolvers) {
+        this.show = {};
+        var modals = {
+            "login.html": "loginController",
+            "register.html": "registerController"
+        }
+        parseModalsToShowMethods.call(this);
+
+        function ModalFunction(htmlFile, controller, resolvers) {
             if (!angular.isString(htmlFile)) {
                 Logger.warning("[%o] must be a 'htmlFile' string value, but instead is [%s]", htmlFile, typeof(htmlFile));
                 return;
@@ -24,5 +31,18 @@
                 resolve: resolvers
             });
         };
+
+        function parseModalsToShowMethods() {
+            var show = this.show;
+            for (var m in modals) {
+                var keyNoExtension = m.split(".")[0];
+                setMethod(keyNoExtension, m, modals[m]);
+            }
+            function setMethod(key, htmlFile, controller) {
+                show[key] = function (resolvers) {
+                    return ModalFunction(htmlFile, controller, resolvers);
+                }
+            }
+        }
     }
 })();

@@ -76,7 +76,8 @@
                             return $scope.openRegisterModal;
                         }
                     };
-                    Modal("login.html", "loginController", resolver)
+                    Modal.show.login(resolver)
+                    // Modal("login.html", "loginController", resolver)
                         .then(function(result) {
                             Auth.login(result);
                         }, function(reason) {
@@ -89,7 +90,8 @@
                             return $scope.openLoginModal;
                         }
                     };
-                    Modal("register.html", "registerController", resolver)
+                    Modal.show.register(resolver)
+                    // Modal("register.html", "registerController", resolver)
                         .then(function(result) {
                             Auth.register(result);
                         }, function(reason) {
