@@ -25,8 +25,5 @@
             $scope.close();
             loginModal();
         };
-        $scope.setCaptchaReady = function () {
-            $scope.captchaReady = true;
-        }
     }
 })();
