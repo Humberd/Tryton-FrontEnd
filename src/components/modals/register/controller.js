@@ -5,10 +5,10 @@
         .controller("registerController", RegisterController);
 
     function RegisterController($scope, $uibModalInstance, loginModal, RecaptchaKey) {
+        $scope.recaptchaKey = RecaptchaKey;
         $scope.register = {
             username: ""
         };
-        $scope.recaptchaKey = RecaptchaKey;
         $scope.submit = function(registerForm) {
             //TODO validacja formularza
             //        console.log($scope.register); // wartosci
@@ -25,5 +25,8 @@
             $scope.close();
             loginModal();
         };
+        $scope.setCaptchaReady = function () {
+            $scope.captchaReady = true;
+        }
     }
 })();
