@@ -77,7 +77,6 @@
                         }
                     };
                     Modal.show.login(resolver)
-                    // Modal("login.html", "loginController", resolver)
                         .then(function(result) {
                             Auth.login(result);
                         }, function(reason) {
@@ -91,7 +90,6 @@
                         }
                     };
                     Modal.show.register(resolver)
-                    // Modal("register.html", "registerController", resolver)
                         .then(function(result) {
                             Auth.register(result);
                         }, function(reason) {

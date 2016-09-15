@@ -1,14 +1,15 @@
 (function() {
     "use strict";
 
-    angular.module("TrytonApp.Modal", [])
+    angular.module("TrytonApp.Modal")
         .service("Modal", Modal);
 
     function Modal($uibModal, ViewUrl, Logger, $mdDialog) {
         this.show = {};
         var modals = {
             "login.html": "loginController",
-            "register.html": "registerController"
+            "register.html": "registerController",
+            "newTask.html": "newTaskController"
         }
         parseModalsToShowMethods.call(this);
 
