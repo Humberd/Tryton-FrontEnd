@@ -1,0 +1,109 @@
+<div id="new-task-wrapper">
+    <div class="modal-custom-content">
+        <div class="modal-close-glyphicon" ng-click="close()">
+            <span class="glyphicon glyphicon-remove"></span>
+        </div>
+        <div class="modal-custom-body">
+            <div id="new-task">
+                <div class="header">
+                    <div class="task-name">Penta kill</div>
+                </div>
+                <md-divider></md-divider>
+                <div class="info">
+                    <div class="task-desc">
+                        Kill 5 people in a short amount of time.
+                    </div>
+                    <div class="task-difficulty">
+                        <div class="field">
+                            <div class="field-desc">Difficulty</div>
+                            <div class="field-value">
+                                <div class="glyphicon glyphicon-star"></div>
+                                <div class="glyphicon glyphicon-star"></div>
+                                <div class="glyphicon glyphicon-star"></div>
+                                <div class="glyphicon glyphicon-star"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="task-base-points">
+                        <div class="field">
+                            <div class="field-desc">Base points</div>
+                            <div class="field-value">60 points</div>
+                        </div>
+                    </div>
+                </div>
+                <md-divider></md-divider>
+                <div class="settings">
+                    <div class="preview">
+                        <div class="times" ng-click="selectTimes()" ng-class="{'selected': isSelectedTimes()}">
+                            {{printTimes()}}
+                        </div>
+                        <div class="restrict" ng-click="selectRestrict()" ng-class="{'selected': isSelectedRestrict()}">
+                            {{printRestrict()}}
+                        </div>
+                        <div class="timeout" ng-click="selectTimeout()" ng-class="{'selected': isSelectedTimeout()}">
+                            {{printTimeout()}}
+                        </div>
+                    </div>
+                    <div class="inputs">
+                        <div class="times" ng-show="isSelectedTimes()">
+                            <md-input-container>
+                                <input type="number" min="{{options.times.min}}" max="{{options.times.max}}" ng-model="values.times" aria-label="Select how many times">
+                            </md-input-container>
+                        </div>
+                        <div class="restrict" ng-show="isSelectedRestrict()">
+                            <md-select ng-model="values.restrict" aria-label="Select restrictions">
+                                <md-option ng-value="key" ng-repeat="(key, value) in options.restrict">
+                                    {{value.text}}
+                                </md-option>
+                            </md-select>
+                        </div>
+                        <div class="timeout" ng-show="isSelectedTimeout()">
+                            <div class="value-chooser">
+                                <div class="hours" ng-show="isHoursSelected()">
+                                    <md-input-container>
+                                        <input type="number" min="{{options.timeout.hours.min}}" max="{{options.timeout.hours.max}}" ng-model="values.timeout.values.hours" aria-label="Timeout hours select">
+                                    </md-input-container>
+                                </div>
+                                <div class="won" ng-show="isWonSelected()">
+                                    <md-input-container>
+                                        <input type="number" max="{{options.timeout.won.max}}" ng-model="values.timeout.values.won" aria-label="Timeout won matches select">
+                                    </md-input-container>
+                                </div>
+                                <div class="player" ng-show="isPlayedSelected()">
+                                    <md-input-container>
+                                        <input type="number" max="{{options.timeout.played.max}}" ng-model="values.timeout.values.played" aria-label="Timeout played matches select">
+                                    </md-input-container>
+                                </div>
+                                <div class="date" ng-show="isDateSelected()">
+                                </div>
+                            </div>
+                            <div class="type-chooser">
+                                <md-select ng-model="values.timeout.type" aria-label="Select Timeout Value">
+                                    <md-option ng-value="key" ng-repeat="(key, value) in options.timeout">
+                                        {{value.text}}
+                                    </md-option>
+                                </md-select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <md-divider></md-divider>
+                <div class="footer">
+                    <div class="total">
+                        <div class="field">
+                            <div class="field-desc">Total</div>
+                            <div class="field-value">96 points</div>
+                        </div>
+                    </div>
+                    <div class="multiplier">
+                        <div class="field">
+                            <div class="field-desc">Multiplier</div>
+                            <div class="field-value positive">+60%</div>
+                        </div>
+                    </div>
+                    <button class="create-button mb mb-fill-green mb-small">CREATE</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
