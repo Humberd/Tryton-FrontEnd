@@ -9,7 +9,8 @@
         var modals = {
             "login.html": "loginController",
             "register.html": "registerController",
-            "newTask.html": "newTaskController"
+            "newTask.html": "newTaskController",
+            "confirm.html": "confirmController"
         }
         parseModalsToShowMethods.call(this);
 
@@ -29,7 +30,8 @@
                 clickOutsideToClose: true,
                 escapeToClose: true,
                 controller: controller,
-                resolve: resolvers
+                locals: resolvers,
+                bindToController: true
             });
         };
 
