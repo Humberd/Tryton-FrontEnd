@@ -5,6 +5,6 @@
 		.controller("LolController", LolController);
 
 	function LolController($scope, Modal) {
-		// Modal.show.newTask();
+		Modal.show.newTask();
 	}
 })();
