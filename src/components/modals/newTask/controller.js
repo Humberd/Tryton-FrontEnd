@@ -4,7 +4,7 @@
     angular.module("TrytonApp.Modal")
         .controller("newTaskController", NewTaskController);
 
-    function NewTaskController($scope, $filter) {
+    function NewTaskController($scope, $filter, $mdDialog) {
         $scope.options = {
             times: {
                 min: 1,
@@ -128,5 +128,10 @@
                 return result;
             }
         })();
+
+        console.log(this);
+        $scope.close = function () {
+            $mdDialog.cancel();
+        }
     }
 })();

@@ -33,58 +33,71 @@
                 </div>
                 <md-divider></md-divider>
                 <div class="settings">
-                    <div class="preview">
-                        <div class="times" ng-click="selectTimes()" ng-class="{'selected': isSelectedTimes()}">
-                            {{printTimes()}}
-                        </div>
-                        <div class="restrict" ng-click="selectRestrict()" ng-class="{'selected': isSelectedRestrict()}">
-                            {{printRestrict()}}
-                        </div>
-                        <div class="timeout" ng-click="selectTimeout()" ng-class="{'selected': isSelectedTimeout()}">
-                            {{printTimeout()}}
+                <div class="title">Settings</div>
+                    <div class="setting">
+                        <div class="inputs">
+                            <div class="input">
+                                <md-input-container>
+                                    <input type="number" min="{{options.times.min}}" max="{{options.times.max}}" ng-model="values.times" aria-label="Select how many times" placeholder="Number of times" required>
+                                </md-input-container>
+                            </div>
                         </div>
                     </div>
-                    <div class="inputs">
-                        <div class="times" ng-show="isSelectedTimes()">
-                            <md-input-container>
-                                <input type="number" min="{{options.times.min}}" max="{{options.times.max}}" ng-model="values.times" aria-label="Select how many times">
-                            </md-input-container>
+                    <div class="setting">
+                        <div class="inputs">
+                            <div class="input">
+                                <md-input-container>
+                                    <label>Restrict execution</label>
+                                    <md-select ng-model="values.restrict" aria-label="Select restrictions">
+                                        <md-option ng-value="key" ng-repeat="(key, value) in options.restrict">
+                                            {{value.text}}
+                                        </md-option>
+                                    </md-select>
+                                </md-input-container>
+                            </div>
                         </div>
-                        <div class="restrict" ng-show="isSelectedRestrict()">
-                            <md-select ng-model="values.restrict" aria-label="Select restrictions">
-                                <md-option ng-value="key" ng-repeat="(key, value) in options.restrict">
-                                    {{value.text}}
-                                </md-option>
-                            </md-select>
-                        </div>
-                        <div class="timeout" ng-show="isSelectedTimeout()">
-                            <div class="value-chooser">
+                    </div>
+                    <div class="setting">
+                        <div class="inputs">
+                            <div class="input">
+                                <md-input-container>
+                                    <label>Timeout</label>
+                                    <md-select ng-model="values.timeout.type" aria-label="Select Timeout Value">
+                                        <md-option ng-value="key" ng-repeat="(key, value) in options.timeout">
+                                            {{value.text}}
+                                        </md-option>
+                                    </md-select>
+                                </md-input-container>
+                            </div>
+                            <div class="input">
                                 <div class="hours" ng-show="isHoursSelected()">
                                     <md-input-container>
-                                        <input type="number" min="{{options.timeout.hours.min}}" max="{{options.timeout.hours.max}}" ng-model="values.timeout.values.hours" aria-label="Timeout hours select">
+                                        <input type="number" min="{{options.timeout.hours.min}}" max="{{options.timeout.hours.max}}" ng-model="values.timeout.values.hours" aria-label="Timeout hours select" placeholder="Number of hours" required>
                                     </md-input-container>
                                 </div>
                                 <div class="won" ng-show="isWonSelected()">
                                     <md-input-container>
-                                        <input type="number" max="{{options.timeout.won.max}}" ng-model="values.timeout.values.won" aria-label="Timeout won matches select">
+                                        <input type="number" max="{{options.timeout.won.max}}" ng-model="values.timeout.values.won" aria-label="Timeout won matches select" placeholder="Number of won matches" required>
                                     </md-input-container>
                                 </div>
                                 <div class="player" ng-show="isPlayedSelected()">
                                     <md-input-container>
-                                        <input type="number" max="{{options.timeout.played.max}}" ng-model="values.timeout.values.played" aria-label="Timeout played matches select">
+                                        <input type="number" max="{{options.timeout.played.max}}" ng-model="values.timeout.values.played" aria-label="Timeout played matches select" placeholder="Number of played matches" required>
                                     </md-input-container>
                                 </div>
                                 <div class="date" ng-show="isDateSelected()">
                                 </div>
                             </div>
-                            <div class="type-chooser">
-                                <md-select ng-model="values.timeout.type" aria-label="Select Timeout Value">
-                                    <md-option ng-value="key" ng-repeat="(key, value) in options.timeout">
-                                        {{value.text}}
-                                    </md-option>
-                                </md-select>
-                            </div>
                         </div>
+                    </div>
+                </div>
+                <md-divider></md-divider>
+                <div class="summary">
+                    <div class="title">
+                        Summary
+                    </div>
+                    <div class="value">
+                        {{printTimes()}}, {{printRestrict()}}, {{printTimeout()}}
                     </div>
                 </div>
                 <md-divider></md-divider>

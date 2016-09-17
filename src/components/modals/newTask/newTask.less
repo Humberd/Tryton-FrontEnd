@@ -15,6 +15,15 @@
             font-size: 1.8em;
         }
     }
+    .title {
+        text-align: center;
+        font-size: 1.2em;
+        font-weight: bold;
+        letter-spacing: 1px;
+        font-style: italic;
+        margin-top: 5px;
+        margin-bottom: 10px;
+    }
     .info {
         display: flex;
         flex-direction: column;
@@ -34,13 +43,13 @@
         align-items: center;
         margin-top: 10px;
         .total {
-        	.field-value {
-        		font-weight: bold;
-        	}
+            .field-value {
+                font-weight: bold;
+            }
         }
         .multiplier {
             .positive {
-            	font-weight: bold;
+                font-weight: bold;
                 color: #168500;
             }
         }
@@ -59,40 +68,39 @@
     .settings {
         display: flex;
         flex-direction: column;
-        margin-top: 5px;
-        margin-bottom: 10px;
-        .preview {
+        .setting {
             display: flex;
-            flex-direction: row;
-            justify-content: space-around;
-            font-size: 1.05em;
-            >* {
-                border-bottom: 2px solid rgba(0, 0, 0, 0);
-                &:hover {
-                    cursor: pointer;
-                    border-bottom: 1px solid rgba(0, 0, 0, 1);
-                }
-                &.selected {
-                	border-bottom: 2px solid rgba(0, 0, 0, 1);
+            flex-direction: column;
+            margin: 5px 0;
+            .inputs {
+                display: flex;
+                flex-direction: column;
+                md-input-container {
+                    margin-bottom: 0;
+                    min-width: 50%;
+                    input {
+                        width: 100%;
+                    }
+                    md-select {
+                        margin-bottom: 0;
+                    }
+                    .md-errors-spacer {
+                        display: none;
+                    }
+                    label {
+                        margin-bottom: 0;
+                        font-weight: 700;
+                    }
                 }
             }
         }
-        .inputs {
-        	height: 52px;
-        	.timeout {
-        		display: flex;
-        		flex-direction: row;
-        		justify-content: space-between;
-        		>* {
-        			width: 49%;
-        		}
-        	}
-            md-input-container {
-                margin-bottom: 0;
-                .md-errors-spacer {
-                    display: none;
-                }
-            }
+    }
+    .summary {
+        .value {
+            text-align: center;
+            font-size: 1.05em;
+            padding: 10px 5px;
+            padding-top: 0;
         }
     }
 }
