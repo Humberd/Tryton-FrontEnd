@@ -3,7 +3,15 @@
 
     angular.module("TrytonApp.Loader")
         .directive("loaderClick", LoaderClickDirective)
-
+    /**
+     * Before invoking the function inside ng-click it will start Loader
+     * which name is defined as param.
+     * After the promise is resolved it will stop the Loader
+     *
+     * <button loader-click="myLoader" ng-click="foo()">Delete</button>
+     *
+     * @param {string} loader-click - name of the loader
+     */
     function LoaderClickDirective($timeout, $parse, Loader) {
         return {
             restrict: "EA",

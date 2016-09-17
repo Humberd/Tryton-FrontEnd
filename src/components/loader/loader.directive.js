@@ -3,7 +3,12 @@
 
     angular.module("TrytonApp.Loader")
         .directive("loader", LoaderDirective)
-
+    /**
+     * <div loader="myLoader">
+     *      **Some content**
+     * </div>
+     * @param {string} loader - define the name of the loader for this component
+     */
     function LoaderDirective(Loader) {
         return {
             restrict: "A",
