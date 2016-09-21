@@ -1,7 +1,7 @@
 (function() {
     "use strict";
 
-    angular.module("TrytonApp.Modal")
+    angular.module("TrytonApp.Router.App._games.Dashboard")
         .controller("newTaskController", NewTaskController);
 
     function NewTaskController($scope, $filter, $mdDialog) {
@@ -129,7 +129,6 @@
             }
         })();
 
-        console.log(this);
         $scope.close = function () {
             $mdDialog.cancel();
         }

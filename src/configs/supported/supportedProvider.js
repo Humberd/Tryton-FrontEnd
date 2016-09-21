@@ -24,7 +24,7 @@
                 } else {
                     console.warn("%s is not an instance of Item", item);
                 }
-            }
+            };
             ItemsList.prototype.get = function(listName, phrase) {
                 try {
                     phrase = phrase.toLowerCase();
@@ -44,10 +44,10 @@
                 } catch (err) {
                     return undefined;
                 }
-            }
+            };
             ItemsList.prototype.getAll = function(listName) {
                 return angular.copy(this[listName]);
-            }
+            };
             return new ItemsList();
         })();
 

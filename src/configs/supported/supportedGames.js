@@ -11,14 +11,14 @@
             simpleShortName: "lol",
             isAvailable: true,
             iconUrl: "lol.png"
-        }
+        };
         var csgo = {
             name: "Counter String: Global Offensive",
             shortName: "CS:GO",
             simpleShortName: "csgo",
             isAvailable: true,
             iconUrl: "csgo.png"
-        }
+        };
         SupportedProvider.games.add(lol);
         SupportedProvider.games.add(csgo);
     }

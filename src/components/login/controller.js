@@ -1,10 +1,11 @@
 (function() {
     "use strict";
 
-    angular.module("TrytonApp.Modal")
+    angular.module("TrytonApp.Login")
         .controller("loginController", LoginController);
 
-    function LoginController($scope, registerModal, $mdDialog) {
+    function LoginController($scope, $mdDialog) {
+        var self = this;
         $scope.login = {
             email: ""
         };
@@ -22,7 +23,7 @@
         };
         $scope.switchToRegisterModal = function() {
             $scope.close();
-            registerModal();
+            self.registerModal()();
         };
     }
 })();

@@ -1,8 +1,8 @@
 (function() {
 	"use strict";
 
-	angular.module("TrytonApp.Modal")
-		.controller("confirmController", ConfirmController)
+	angular.module("TrytonApp.Confirm")
+		.controller("confirmController", ConfirmController);
 
 	function ConfirmController($scope, $mdDialog) {
 		var self = this;
@@ -27,7 +27,7 @@
 
 		$scope.okClick = function () {
 			$mdDialog.hide();
-		}
+		};
 		$scope.cancelClick = function () {
 			$mdDialog.cancel();
 		}

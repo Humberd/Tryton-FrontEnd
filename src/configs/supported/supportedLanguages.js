@@ -11,21 +11,21 @@
     		simpleShortName: "pl",
     		isAvailable: true,
     		iconUrl: "pl"
-    	}
+    	};
     	var gb = {
     		name: "English",
     		shortName: "EN",
     		simpleShortName: "en",
     		isAvailable: true,
-    		iconUrl: "gb",
-    	}
+    		iconUrl: "gb"
+    	};
     	var fr = {
     		name: "Français",
     		shortName: "FR",
     		simpleShortName: "fr",
     		isAvailable: false,
     		iconUrl: "fr"
-    	}
+    	};
         SupportedProvider.languages.add(pl);
         SupportedProvider.languages.add(gb);
         SupportedProvider.languages.add(fr);

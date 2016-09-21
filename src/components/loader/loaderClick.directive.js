@@ -40,7 +40,7 @@
                                     Loader.setErrorState(loaderName);
                                 })
                             } catch (err) {
-                                throw new "ng click must return promise";
+                                throw "ng click must return promise";
                             }
                         });
 

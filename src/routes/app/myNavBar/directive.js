@@ -1,7 +1,7 @@
 (function() {
     "use strict";
 
-    angular.module("TrytonApp")
+    angular.module("TrytonApp.Router.App")
         .directive("myNavBar", MyNavBar);
 
     function MyNavBar(ViewUrl, Modal, Auth, Logger, $translate,
@@ -76,7 +76,7 @@
                             return $scope.openRegisterModal;
                         }
                     };
-                    Modal.show.login(resolver)
+                    Modal.login(resolver)
                         .then(function(result) {
                             Auth.login(result);
                         }, function(reason) {
@@ -89,7 +89,7 @@
                             return $scope.openLoginModal;
                         }
                     };
-                    Modal.show.register(resolver)
+                    Modal.register(resolver)
                         .then(function(result) {
                             Auth.register(result);
                         }, function(reason) {

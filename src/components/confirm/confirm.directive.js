@@ -1,7 +1,7 @@
 (function() {
     "use strict";
 
-    angular.module("TrytonApp.Modal")
+    angular.module("TrytonApp.Confirm")
         .directive("confirm", ConfirmDirective);
 
 	/**
@@ -23,15 +23,15 @@
                         var params = {
                             title: attrs.confirmTitle,
                             description: attrs.confirmDesc
-                        }
-                        Modal.show.confirm(params)
+                        };
+                        Modal.confirm(params)
                             .then(function() {
                             	resumeInvoke()
                             })
                     } catch (err) {
                     	Logger.error(err);
                     }
-                })
+                });
 
                 function stopInvoke(event) {
                     event.stopImmediatePropagation();

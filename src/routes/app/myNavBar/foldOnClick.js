@@ -1,7 +1,7 @@
 (function() {
     "use strict";
 
-    angular.module("TrytonApp")
+    angular.module("TrytonApp.Router.App")
         .directive("foldOnClick", FoldOnClick);
 
     function FoldOnClick() {

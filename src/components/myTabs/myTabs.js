@@ -88,7 +88,7 @@
                         left: "flex-start",
                         center: "center",
                         right: "flex-end",
-                        stretch: "space-around",
+                        stretch: "space-around"
                     };
 
                     var position = attrs.position;
@@ -157,7 +157,7 @@
                     return tab.hasClass("selected");
                 }
             }
-        }
+        };
 
         return myTabs;
     }

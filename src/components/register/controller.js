@@ -1,10 +1,11 @@
 (function() {
     "use strict";
 
-    angular.module("TrytonApp.Modal")
+    angular.module("TrytonApp.Register")
         .controller("registerController", RegisterController);
 
-    function RegisterController($scope, loginModal, RecaptchaKey, $mdDialog) {
+    function RegisterController($scope, RecaptchaKey, $mdDialog) {
+        var self = this;
         $scope.recaptchaKey = RecaptchaKey;
         $scope.register = {
             username: ""
@@ -23,7 +24,7 @@
         };
         $scope.switchToLoginModal = function() {
             $scope.close();
-            loginModal();
+            self.loginModal()();
         };
     }
 })();
