@@ -86,6 +86,35 @@
                         </div>
                     </div>
                     <div class="side-panel">
+                        <div class="header">
+                            <div class="title">
+                                Tasks List
+                            </div>
+                        </div>
+                        <div class="tasks-list">
+                            <div class="task" ng-repeat="task in tasksList">
+                                <div class="task-icon" bcg-image="task.image"></div>
+                                <div class="task-content">
+                                    <div class="task-name">
+                                        {{task.name}}
+                                    </div>
+                                    <div class="task-details">
+                                        <div class="task-difficulty">
+                                            <div class="glyphicon glyphicon-star-empty"></div>
+                                            <div class="glyphicon glyphicon-star-empty"></div>
+                                            <div class="glyphicon glyphicon-star-empty"></div>
+                                            <div class="glyphicon glyphicon-star-empty"></div>
+                                        </div>
+                                        <div class="task-exp">
+                                            {{task.baseExp}} exp
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="add-button">
+                                    <i class="material-icons">add</i>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </my-tab-body>

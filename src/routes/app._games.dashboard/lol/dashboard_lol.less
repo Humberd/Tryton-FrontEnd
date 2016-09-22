@@ -1,95 +1,151 @@
 #dashboard {
-    margin-top: 10px;
-    #panel {
-        display: flex;
-        flex-direction: row;
-        .center-panel {
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            .head-bar {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                min-height: 60px;
-                border-bottom: 1px solid grey;
-                .save-button {
-                    margin-right: 15px;
-                }
-            }
-            .task-list {
-                display: flex;
-                flex-direction: column;
-                .task {
-                    display: flex;
-                    flex-direction: row;
-                    flex-wrap: nowrap;
-                    justify-content: space-between;
-                    align-items: center;
-                    padding: 5px 20px;
-                    border-bottom: 1px solid grey;
-                    .left-side {
-                        display: flex;
-                        flex-direction: row;
-                        align-items: center;
-                    }
-                    .right-side {
-                        display: flex;
-                        flex-direction: row;
-                    }
-                    .task-icon {
-                        height: 35px;
-                        width: 35px;
-                        background-size: 100% 100%;
-                        margin-right: 20px;
-                    }
-                    .task-info {
-                        display: flex;
-                        flex-direction: column;
-                        width: 300px;
-                        align-items: flex-start;
-                        .info-name {
+	margin-top: 10px;
+	#panel {
+		display: flex;
+		flex-direction: row;
+		.center-panel {
+			flex-grow: 1;
+			display: flex;
+			flex-direction: column;
+			.head-bar {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				min-height: 60px;
+				border-bottom: 1px solid grey;
+				.save-button {
+					margin-right: 15px;
+				}
+			}
+			.task-list {
+				display: flex;
+				flex-direction: column;
+				.task {
+					display: flex;
+					flex-direction: row;
+					flex-wrap: nowrap;
+					justify-content: space-between;
+					align-items: center;
+					padding: 5px 20px;
+					border-bottom: 1px solid grey;
+					.left-side {
+						display: flex;
+						flex-direction: row;
+						align-items: center;
+					}
+					.right-side {
+						display: flex;
+						flex-direction: row;
+					}
+					.task-icon {
+						height: 35px;
+						width: 35px;
+						background-size: 100% 100%;
+						margin-right: 20px;
+					}
+					.task-info {
+						display: flex;
+						flex-direction: column;
+						width: 300px;
+						align-items: flex-start;
+						.info-name {
 							font-size: 2em;
 							line-height: 1.1em;
 							letter-spacing: 0.5px;
 							width: 100%;
 							.dots();
-                        }
-                        .info-ago {
+						}
+						.info-ago {
 							font-style: italic;
-                        }
-                    }
-                    .task-progress {
-                        display: flex;
-                        flex-direction: column;
-                        align-items: center;
-                        width: 150px;
-                        font-size: 1.2em;
-                    }
-                    .task-left {
-                    	display: flex;
-                        flex-direction: column;
-                        align-items: center;
-                    	width: 150px;
-                    	font-size: 1.2em;
-                    }
-                    .task-points {
-                    	display: flex;
-                        flex-direction: column;
-                        align-items: flex-end;
-                        width: 120px;
-                    	font-size: 1.8em;
-                    }
-                    &:hover {
-                        cursor: pointer;
-                    }
-                }
-            }
-        }
-        .side-panel {
-            width: 300px;
-            height: 80vh;
-            border-left: 1px solid grey;
-        }
-    }
+						}
+					}
+					.task-progress {
+						display: flex;
+						flex-direction: column;
+						align-items: center;
+						width: 150px;
+						font-size: 1.2em;
+					}
+					.task-left {
+						display: flex;
+						flex-direction: column;
+						align-items: center;
+						width: 150px;
+						font-size: 1.2em;
+					}
+					.task-points {
+						display: flex;
+						flex-direction: column;
+						align-items: flex-end;
+						width: 120px;
+						font-size: 1.8em;
+					}
+					&:hover {
+						cursor: pointer;
+					}
+				}
+			}
+		}
+		.side-panel {
+			width: 300px;
+			height: 80vh;
+			border-left: 1px solid grey;
+			.header {
+				padding: 10px;
+				.title {
+					font-size: 1.8em;
+					padding-bottom: 5px;
+					border-bottom: 2px solid lighten(@global-background-color, 10%);
+				}
+			}
+			.tasks-list {
+				display: flex;
+				flex-direction: column;
+				white-space: nowrap;
+				.task {
+					display: flex;
+					flex-direction: row;
+					align-items: center;
+
+					padding: 5px 0;
+					.task-icon {
+						min-height: 35px;
+						min-width: 35px;
+						background-size: 100% 100%;
+						border-radius: 50%;
+						margin: 0 10px;
+					}
+					.task-content {
+						flex-grow: 1;
+						display: flex;
+						flex-direction: column;
+
+						margin-right: 5px;
+						.task-name {
+							font-size: 1.3em;
+							//TODO naprawic dotty
+							.dots();
+						}
+						.task-details {
+							display: flex;
+							flex-direction: row;
+							justify-content: space-between;
+						}
+					}
+					.add-button {
+						align-self: stretch;
+						display: flex;
+						align-items: center;
+						.noselect();
+						cursor: pointer;
+						padding: 0 20px;
+						transition: .1s all linear;
+						&:hover {
+							background-color: lighten(@global-background-color, 3%);
+						}
+					}
+				}
+			}
+		}
+	}
 }

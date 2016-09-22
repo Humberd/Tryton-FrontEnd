@@ -36,7 +36,7 @@
                     prefix: "within",
                     text: "won matches",
                     multiplier: 0,
-                    max: 100,
+                    max: 100
                 },
                 played: {
                     prefix: "within",
