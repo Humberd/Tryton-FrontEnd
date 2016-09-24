@@ -5,12 +5,6 @@
         .directive("expToast", ExpToastDirective);
 
     function ExpToastDirective(ViewUrl, Logger, $animate, $timeout, $q) {
-        return {
-            restrict: "E",
-            templateUrl: ViewUrl + "expToast.html",
-            replace: true,
-            link: link
-        }
 
         function link(scope, elem, attrs) {
             scope.isShown = false;
@@ -112,11 +106,11 @@
                 currentExp: angular.element(elem[0].querySelector(".currentExp")),
                 gainedExp: angular.element(elem[0].querySelector(".gainedExp")),
                 remainingExp: angular.element(elem[0].querySelector(".remainingExp"))
-            }
+            };
 
             scope.updateBar = function(values) {
                 resizeBars(scope, bars, values);
-            }
+            };
 
             Logger.debug("expToast link -- Setting isLink to true");
             //zmienna informujaca kontroler, ze funkcja link zostala zaladowana
@@ -149,7 +143,7 @@
                     setWidth(bars[p], ((values[p] / sum) * 100) + "%", true);
                 }
                 previouslyRemainingExp = values.remainingExp;
-            }, 0)
+            }, 0);
         }
 
         function setWidth(elem, width, makeTransition) {
@@ -163,7 +157,14 @@
             }
             elem.css({
                 width: width
-            })
+            });
         }
+
+        return {
+            restrict: "E",
+            templateUrl: ViewUrl + "expToast.html",
+            replace: true,
+            link: link
+        };
     }
 })();
