@@ -12,7 +12,9 @@ var angularFileSort = require("gulp-angular-filesort");
 var sourcemaps = require("gulp-sourcemaps");
 var karma = require("karma");
 var ts = require("gulp-typescript");
-var webpack = require("webpack-stream");
+var gulpWebpack = require("webpack-stream");
+var webpack = require("webpack");
+var ngAnnotateWebpack = require("ng-annotate-webpack-plugin");
 
 var dist = "dist/";
 var js = dist + "js";
@@ -28,185 +30,215 @@ var res = dist + "resources";
 var libPath = "bower_components/";
 var resPath = "resources/";
 
-var jsLibraries = ["angular/angular.min.js",
-    "angular-animate/angular-animate.min.js",
-    "angular-aria/angular-aria.min.js",
-    "angular-bootstrap/ui-bootstrap-tpls.min.js",
-    "angular-cookies/angular-cookies.min.js",
-    "angular-dynamic-locale/dist/tmhDynamicLocale.min.js",
-    "angular-material/angular-material.min.js",
-    "angular-recaptcha/release/angular-recaptcha.min.js",
-    "angular-resource/angular-resource.min.js",
-    "angular-route/angular-route.min.js",
-    "angular-sanitize/angular-sanitize.min.js",
-    "angular-translate/angular-translate.min.js",
-    "angular-translate-loader-static-files/angular-translate-loader-static-files.min.js",
-    "angular-translate-storage-cookie/angular-translate-storage-cookie.min.js",
-    "angular-translate-storage-local/angular-translate-storage-local.min.js",
-    "angular-ui-router/release/angular-ui-router.js",
-    "angular-permission/dist/angular-permission.min.js",
-    "angular-permission/dist/angular-permission-ui.min.js",
-    "odometer/odometer.min.js",
-    "angular-odometer-js/dist/angular-odometer.min.js",
-    "ngstorage/ngStorage.min.js",
-    "moment/min/moment-with-locales.js"
+var jsLibraries = ["angular/angular.js",
+	"angular-animate/angular-animate.min.js",
+	"angular-aria/angular-aria.min.js",
+	"angular-bootstrap/ui-bootstrap-tpls.min.js",
+	"angular-cookies/angular-cookies.min.js",
+	"angular-dynamic-locale/dist/tmhDynamicLocale.min.js",
+	"angular-material/angular-material.min.js",
+	"angular-recaptcha/release/angular-recaptcha.min.js",
+	"angular-resource/angular-resource.min.js",
+	"angular-route/angular-route.min.js",
+	"angular-sanitize/angular-sanitize.min.js",
+	"angular-translate/angular-translate.min.js",
+	"angular-translate-loader-static-files/angular-translate-loader-static-files.min.js",
+	"angular-translate-storage-cookie/angular-translate-storage-cookie.min.js",
+	"angular-translate-storage-local/angular-translate-storage-local.min.js",
+	"angular-ui-router/release/angular-ui-router.js",
+	"angular-permission/dist/angular-permission.min.js",
+	"angular-permission/dist/angular-permission-ui.min.js",
+	"odometer/odometer.min.js",
+	"angular-odometer-js/dist/angular-odometer.min.js",
+	"ngstorage/ngStorage.min.js",
+	"moment/min/moment-with-locales.js"
 ];
 
 var cssLibraries = ["bootstrap/dist/css/bootstrap.min.css",
-    "angular-material/angular-material.min.css",
-    "odometer/themes/odometer-theme-default.css",
-    "flag-icon-css/css/flag-icon.min.css"
+	"angular-material/angular-material.min.css",
+	"odometer/themes/odometer-theme-default.css",
+	"flag-icon-css/css/flag-icon.min.css"
 ];
 
 var fontLibraries = ["bootstrap/dist/fonts/*"];
 
 function errorHandler(error) {
-    console.log(error.message);
+	console.log(error.message);
 
-    this.emit("end");
+	this.emit("end");
 }
 
-gulp.task("myJS", function () {
-    var jsStream = gulp.src(["src/**/*.js", "!src/languages/locals/*.js"]);
 
-    return es.merge(jsStream)
-        .pipe(sourcemaps.init())
-        .pipe(angularFileSort()).on("error", errorHandler)
-        .pipe(ngAnnotate()).on("error", errorHandler)
-        .pipe(webpack())
-        // .pipe(uglify()).on("error", errorHandler)
-        .pipe(concat("app.min.js"))
-        .pipe(sourcemaps.write("/"))
-        .pipe(gulp.dest(js));
+gulp.task("myJS", function () {
+	var jsStream = gulp.src(["src/**/*.js", "!src/languages/locals/*.js"]);
+
+	jsStream.pipe(angularFileSort()).on("error", errorHandler)
+		// .pipe(ngAnnotate()).on("error", errorHandler)
+		.pipe(gulpWebpack({
+			devtool: "source-map",
+			output: {
+				filename: "app.min.js"
+			},
+			plugins: [
+				new ngAnnotateWebpack({
+					add: true,
+					sourcemap: true
+				}),
+				new webpack.optimize.UglifyJsPlugin({
+					beautify : true,
+					mangle   : true
+				})
+			]
+		})).on("error", errorHandler)
+		.pipe(gulp.dest(js));
+
+	// es.merge(jsStream)
+	// 	.pipe(sourcemaps.init())
+	// 	.pipe(angularFileSort()).on("error", errorHandler)
+	// 	.pipe(ngAnnotate()).on("error", errorHandler)
+	// 	// .pipe(webpack()).on("error", errorHandler)
+	// 	.pipe(concat("app.min.js"))
+	// 	.pipe(uglify()).on("error", errorHandler)
+	// 	.pipe(sourcemaps.write("/"))
+	// 	.pipe(gulp.dest(js));
+
+	// es.merge(jsStream)
+	// 	.pipe(angularFileSort()).on("error", errorHandler)
+	// 	.pipe(ngAnnotate()).on("error", errorHandler)
+	// 	.pipe(webpack()).on("error", errorHandler)
+	// // .pipe(uglify()).on("error", errorHandler)
+	// 	.pipe(concat("app.min.js"))
+	// 	.pipe(gulp.dest(js));
+
 });
 
 gulp.task("myTS", function () {
-    var tsStream = gulp.src(["src/**/*.ts", "!typedefs/*"]);
+	var tsStream = gulp.src(["src/**/*.ts", "!typedefs/*"]);
 
-    return tsStream
-        .pipe(ts({
-            target: "ES5",
-            module: "commonjs"
-        })).pipe(gulp.dest("src/transpiledTS"));
+	return tsStream
+		.pipe(ts({
+			target: "ES5",
+			module: "commonjs"
+		})).pipe(gulp.dest("src/transpiledTS"));
 });
 
-gulp.task("myStyles", function() {
-    var lessStream = gulp.src(["src/**/*.less", "!src/configs/_constants.less"]);
-    var lessConstantsStream = gulp.src(["src/configs/_constants.less"]);
+gulp.task("myStyles", function () {
+	var lessStream = gulp.src(["src/**/*.less", "!src/configs/_constants.less"]);
+	var lessConstantsStream = gulp.src(["src/configs/_constants.less"]);
 
-    var lessParsedStream = es.merge(lessConstantsStream, lessStream)
-        .pipe(concat("none"))
-        .pipe(less()).on("error", errorHandler);
+	var lessParsedStream = es.merge(lessConstantsStream, lessStream)
+		.pipe(concat("none"))
+		.pipe(less()).on("error", errorHandler);
 
-    // .pipe(less()).on("error", errorHandler);
+	// .pipe(less()).on("error", errorHandler);
 
-    var cssStream = gulp.src("src/**/*.css");
+	var cssStream = gulp.src("src/**/*.css");
 
-    return es.merge(lessParsedStream, cssStream)
-        .pipe(concat("app.min.css"))
-        // .pipe(cleanCss())
-        .pipe(gulp.dest(css));
+	return es.merge(lessParsedStream, cssStream)
+		.pipe(concat("app.min.css"))
+		// .pipe(cleanCss())
+		.pipe(gulp.dest(css));
 });
 
-gulp.task("myViews", function() {
-    var indexStream = gulp.src("src/index.html");
+gulp.task("myViews", function () {
+	var indexStream = gulp.src("src/index.html");
 
-    indexStream.pipe(gulp.dest(dist));
+	indexStream.pipe(gulp.dest(dist));
 
-    var htmlStream = gulp.src(["src/**/*.html", "!src/index.html"]);
+	var htmlStream = gulp.src(["src/**/*.html", "!src/index.html"]);
 
-    return htmlStream
-        .pipe(flatten())
-        .pipe(gulp.dest(html));
+	return htmlStream
+		.pipe(flatten())
+		.pipe(gulp.dest(html));
 });
 
-gulp.task("libScripts", function() {
-    jsLibraries = jsLibraries.map(function(lib) {
-        return libPath + lib;
-    });
-    var jsLibStream = gulp.src(jsLibraries);
+gulp.task("libScripts", function () {
+	jsLibraries = jsLibraries.map(function (lib) {
+		return libPath + lib;
+	});
+	var jsLibStream = gulp.src(jsLibraries);
 
-    return jsLibStream
-        .pipe(sourcemaps.init({ loadMaps: true }))
-        .pipe(concat("js.min.js"))
-        .pipe(sourcemaps.write('/dev/null', { addComment: false }))
-        // .pipe(uglify())
-        .pipe(gulp.dest(jsLib));
+	return jsLibStream
+		.pipe(sourcemaps.init({loadMaps: true}))
+		.pipe(concat("js.min.js"))
+		.pipe(sourcemaps.write('/dev/null', {addComment: false}))
+		// .pipe(uglify())
+		.pipe(gulp.dest(jsLib));
 });
 
-gulp.task("libStyles", function() {
-    cssLibraries = cssLibraries.map(function(lib) {
-        return libPath + lib;
-    });
+gulp.task("libStyles", function () {
+	cssLibraries = cssLibraries.map(function (lib) {
+		return libPath + lib;
+	});
 
-    var cssLibStream = gulp.src(cssLibraries);
+	var cssLibStream = gulp.src(cssLibraries);
 
-    return cssLibStream
-        .pipe(sourcemaps.init({ loadMaps: true }))
-        .pipe(concat("css.min.css"))
-        .pipe(sourcemaps.write('/dev/null', { addComment: false }))
-        // .pipe(cleanCss())
-        .pipe(gulp.dest(cssLib));
+	return cssLibStream
+		.pipe(sourcemaps.init({loadMaps: true}))
+		.pipe(concat("css.min.css"))
+		.pipe(sourcemaps.write('/dev/null', {addComment: false}))
+		// .pipe(cleanCss())
+		.pipe(gulp.dest(cssLib));
 });
 
-gulp.task("libFonts", function() {
-    fontLibraries = fontLibraries.map(function(lib) {
-        return libPath + lib;
-    });
+gulp.task("libFonts", function () {
+	fontLibraries = fontLibraries.map(function (lib) {
+		return libPath + lib;
+	});
 
-    var fontLibStream = gulp.src(fontLibraries);
+	var fontLibStream = gulp.src(fontLibraries);
 
-    return fontLibStream
-        .pipe(gulp.dest(fontLib));
+	return fontLibStream
+		.pipe(gulp.dest(fontLib));
 });
 
-gulp.task("langs", function() {
-    var langsStream = gulp.src("src/languages/**");
+gulp.task("langs", function () {
+	var langsStream = gulp.src("src/languages/**");
 
-    return langsStream
-        .pipe(gulp.dest(langs));
+	return langsStream
+		.pipe(gulp.dest(langs));
 });
 
-gulp.task("flags", function() {
-    var flagsStream = gulp.src(libPath + "flag-icon-css/flags/**");
+gulp.task("flags", function () {
+	var flagsStream = gulp.src(libPath + "flag-icon-css/flags/**");
 
-    return flagsStream
-        .pipe(gulp.dest(flags));
+	return flagsStream
+		.pipe(gulp.dest(flags));
 });
 
-gulp.task("resources", function() {
-    var resStream = gulp.src(resPath + "/**");
+gulp.task("resources", function () {
+	var resStream = gulp.src(resPath + "/**");
 
-    return resStream
-        .pipe(gulp.dest(res));
+	return resStream
+		.pipe(gulp.dest(res));
 });
 
-gulp.task("webserver", function() {
-    return gulp.src(dist)
-        .pipe(webserver({
-            host: "0.0.0.0",
-            livereload: true,
-            fallback: "index.html",
-            open: false
-        }));
+gulp.task("webserver", function () {
+	return gulp.src(dist)
+		.pipe(webserver({
+			host: "0.0.0.0",
+			livereload: true,
+			fallback: "index.html",
+			open: false
+		}));
 });
 
-gulp.task("watcher", function() {
-    gulp.watch(["src/**/*.js"], ["myJS"]);
-    gulp.watch("src/**/*.ts", ["myTS"]);
-    gulp.watch("src/**/*.{less,css}", ["myStyles"]);
-    gulp.watch("src/**/*.html", ["myViews"]);
-    gulp.watch(resPath + "/**", ["resources"]);
+gulp.task("watcher", function () {
+	gulp.watch(["src/**/*.js"], ["myJS"]);
+	gulp.watch("src/**/*.ts", ["myTS"]);
+	gulp.watch("src/**/*.{less,css}", ["myStyles"]);
+	gulp.watch("src/**/*.html", ["myViews"]);
+	gulp.watch(resPath + "/**", ["resources"]);
 });
 
-gulp.task("test", function(done) {
-    return new karma.Server({
-        configFile: __dirname + "/karma.conf.js"
-    }, done).start();
+gulp.task("test", function (done) {
+	return new karma.Server({
+		configFile: __dirname + "/karma.conf.js"
+	}, done).start();
 });
 
-gulp.task("default", function() {
-    return runSequence("libScripts", "libStyles", "libFonts",
-        "myTS", "myJS", "myStyles", "myViews", "langs", "flags",
-         "resources", "watcher", "webserver");
+gulp.task("default", function () {
+	return runSequence("libScripts", "libStyles", "libFonts",
+		"myTS", "myJS", "myStyles", "myViews", "langs", "flags",
+		"resources", "watcher", "webserver");
 });
