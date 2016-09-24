@@ -41,11 +41,14 @@
     "gulp-ng-annotate": "^2.0.0",
     "gulp-server-livereload": "^1.8.1",
     "gulp-sourcemaps": "^1.6.0",
+    "gulp-typescript": "^3.0.0",
     "gulp-uglify": "^1.5.4",
     "jasmine": "^2.5.0",
     "karma": "^1.2.0",
     "karma-jasmine": "^1.0.2",
     "karma-phantomjs-launcher": "^1.0.2",
-    "run-sequence": "^1.2.2"
+    "run-sequence": "^1.2.2",
+    "typescript": "^2.0.3",
+    "webpack-stream": "^3.2.0"
   }
 }

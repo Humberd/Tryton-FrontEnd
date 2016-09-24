@@ -1,5 +1,8 @@
 {
 	"globals": {
-		"angular": false
+		"angular": false,
+		"exports": false,
+		"console": false,
+		"require": false
 	}
 }

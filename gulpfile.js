@@ -11,6 +11,8 @@ var flatten = require("gulp-flatten");
 var angularFileSort = require("gulp-angular-filesort");
 var sourcemaps = require("gulp-sourcemaps");
 var karma = require("karma");
+var ts = require("gulp-typescript");
+var webpack = require("webpack-stream");
 
 var dist = "dist/";
 var js = dist + "js";
@@ -47,13 +49,13 @@ var jsLibraries = ["angular/angular.min.js",
     "odometer/odometer.min.js",
     "angular-odometer-js/dist/angular-odometer.min.js",
     "ngstorage/ngStorage.min.js",
-    "moment/min/moment-with-locales.js",
+    "moment/min/moment-with-locales.js"
 ];
 
 var cssLibraries = ["bootstrap/dist/css/bootstrap.min.css",
     "angular-material/angular-material.min.css",
     "odometer/themes/odometer-theme-default.css",
-    "flag-icon-css/css/flag-icon.min.css",
+    "flag-icon-css/css/flag-icon.min.css"
 ];
 
 var fontLibraries = ["bootstrap/dist/fonts/*"];
@@ -64,17 +66,28 @@ function errorHandler(error) {
     this.emit("end");
 }
 
-gulp.task("myScripts", function() {
+gulp.task("myJS", function () {
     var jsStream = gulp.src(["src/**/*.js", "!src/languages/locals/*.js"]);
 
     return es.merge(jsStream)
         .pipe(sourcemaps.init())
         .pipe(angularFileSort()).on("error", errorHandler)
         .pipe(ngAnnotate()).on("error", errorHandler)
+        .pipe(webpack())
         // .pipe(uglify()).on("error", errorHandler)
         .pipe(concat("app.min.js"))
         .pipe(sourcemaps.write("/"))
         .pipe(gulp.dest(js));
+});
+
+gulp.task("myTS", function () {
+    var tsStream = gulp.src(["src/**/*.ts", "!typedefs/*"]);
+
+    return tsStream
+        .pipe(ts({
+            target: "ES5",
+            module: "commonjs"
+        })).pipe(gulp.dest("src/transpiledTS"));
 });
 
 gulp.task("myStyles", function() {
@@ -144,7 +157,7 @@ gulp.task("libFonts", function() {
     var fontLibStream = gulp.src(fontLibraries);
 
     return fontLibStream
-        .pipe(gulp.dest(fontLib))
+        .pipe(gulp.dest(fontLib));
 });
 
 gulp.task("langs", function() {
@@ -166,7 +179,7 @@ gulp.task("resources", function() {
 
     return resStream
         .pipe(gulp.dest(res));
-})
+});
 
 gulp.task("webserver", function() {
     return gulp.src(dist)
@@ -176,23 +189,24 @@ gulp.task("webserver", function() {
             fallback: "index.html",
             open: false
         }));
-})
+});
 
 gulp.task("watcher", function() {
-    gulp.watch("src/**/*.js", ["myScripts"])
-    gulp.watch("src/**/*.{less, css}", ["myStyles"])
+    gulp.watch(["src/**/*.js"], ["myJS"]);
+    gulp.watch("src/**/*.ts", ["myTS"]);
+    gulp.watch("src/**/*.{less,css}", ["myStyles"]);
     gulp.watch("src/**/*.html", ["myViews"]);
     gulp.watch(resPath + "/**", ["resources"]);
 });
 
 gulp.task("test", function(done) {
     return new karma.Server({
-        configFile: __dirname + "/karma.conf.js",
+        configFile: __dirname + "/karma.conf.js"
     }, done).start();
-})
+});
 
 gulp.task("default", function() {
     return runSequence("libScripts", "libStyles", "libFonts",
-        "myScripts", "myStyles", "myViews", "langs", "flags",
+        "myTS", "myJS", "myStyles", "myViews", "langs", "flags",
          "resources", "watcher", "webserver");
-})
+});

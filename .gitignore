@@ -1,4 +1,6 @@
 bower_components
 dist
 node_modules
-.idea
+src/transpiledTS
+.idea/workspace.xml
+.idea/tasks.xml
