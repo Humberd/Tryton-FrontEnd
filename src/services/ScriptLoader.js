@@ -1,7 +1,7 @@
 (function () {
 	"use strict";
 
-	angular.module("TrytonApp.Configs.ScriptLoader")
+	angular.module("TrytonApp.ScriptLoader", [])
 		.service("ScriptLoader", ScriptLoader);
 
 	function ScriptLoader(Logger, $q, $document) {
