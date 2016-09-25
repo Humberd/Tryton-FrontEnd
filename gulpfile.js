@@ -83,11 +83,11 @@ gulp.task("myJS", function () {
 				new ngAnnotateWebpack({
 					add: true,
 					sourcemap: true
-				}),
-				new webpack.optimize.UglifyJsPlugin({
-					beautify : true,
-					mangle   : true
 				})
+				// new webpack.optimize.UglifyJsPlugin({
+				// 	beautify : true,
+				// 	mangle   : true
+				// })
 			]
 		})).on("error", errorHandler)
 		.pipe(gulp.dest(js));
