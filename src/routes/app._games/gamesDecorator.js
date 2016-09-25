@@ -22,7 +22,7 @@
 
                 var templateUrl = function($stateParams) {
                     return ViewUrl + lastStateName + "_" + $stateParams.game + ".html";
-                }
+                };
                 return templateUrl;
             } else {
                 return state.self.templateUrl;
@@ -36,7 +36,7 @@
                 var controllerProvider = function($stateParams) {
                     var capitalizedGame = $stateParams.game[0].toUpperCase() + $stateParams.game.substr(1);
                     return capitalizedGame + "Controller";
-                }
+                };
                 return controllerProvider;
             } else {
                 return state.self.controllerProvider;

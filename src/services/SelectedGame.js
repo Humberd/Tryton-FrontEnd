@@ -28,6 +28,7 @@
 
                 var oldGame = selectedGame;
                 selectedGame = game.simpleShortName;
+
                 Storage.setSelectedGame(selectedGame);
                 setApiUrl(selectedGame);
 

@@ -5,11 +5,11 @@
         .provider("LanguageList", LanguageList);
 
     function LanguageList() {
-        var templateLanguage = {
-            name: "Polish",
-            shortName: "pl",
-            isAvailable: true
-        };
+        // var templateLanguage = {
+        //     name: "Polish",
+        //     shortName: "pl",
+        //     isAvailable: true
+        // };
 
         var list = [];
 

@@ -39,29 +39,28 @@
                 }
             },
             controller: function($compile, $scope) {
-                var self = this;
                 var angularTemplate;
                 var angularErrorTemplate;
                 var wrapper;
                 this.setWrapper = function(elem) {
                     wrapper = elem;
-                }
+                };
 
                 //////////////////
                 var isLoading = false;
                 var isError = false;
                 this.isLoading = function() {
                     return isLoading;
-                }
+                };
                 this.isError = function() {
                     return isError;
-                }
+                };
                 this.setLoading = function(bool) {
                     isLoading = !!bool;
-                }
+                };
                 this.setError = function(bool) {
                     isError = !!bool;
-                }
+                };
 
                 /////////////
                 this.startLoading = function(template) {
@@ -70,28 +69,28 @@
                     angularTemplate = angular.element($compile(template)($scope));
                     wrapper.append(angularTemplate);
                     showWrapper();
-                }
+                };
                 this.stopLoading = function() {
                     if (angularTemplate) {
                         this.setLoading(false);
                         angularTemplate.remove();
                         hideWrapper();
                     }
-                }
+                };
                 this.setErrorState = function(errorTemplate) {
                     this.setError(true);
                     this.stopLoading();
                     angularErrorTemplate = angular.element($compile(errorTemplate)($scope));
                     wrapper.append(angularErrorTemplate);
                     showWrapper();
-                }
+                };
                 this.unsetErrorState = function() {
                     if (angularErrorTemplate) {
                         this.setError(false);
                         angularErrorTemplate.remove();
                         hideWrapper();
                     }
-                }
+                };
                 function showWrapper() {
                     wrapper.removeClass("loader-hide");
                 }
