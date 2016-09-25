@@ -2,7 +2,7 @@
     "use strict";
 
     angular.module("TrytonApp.Router.App._games")
-        .run(AppGamesRun)
+        .run(AppGamesRun);
 
     function AppGamesRun($rootScope, $state, SelectedGame, Supported) {
         $rootScope.$on("SelectedNewGame", function(event, gameName) {
