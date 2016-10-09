@@ -37,7 +37,7 @@
 			}
 			$get[key] = function (resolvers) {
 				return ModalFunction(htmlFile, controller, resolvers);
-			}
+			};
 		}
 
 		function ModalFunction(htmlFile, controller, resolvers) {

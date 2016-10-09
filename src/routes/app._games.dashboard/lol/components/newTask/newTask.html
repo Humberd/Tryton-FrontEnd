@@ -6,16 +6,16 @@
         <div class="modal-custom-body">
             <div id="new-task">
                 <div class="header">
-                    <div class="task-name">Penta kill</div>
+                    <div class="task-name">{{templateTask.name}}</div>
                 </div>
                 <md-divider></md-divider>
                 <div class="info">
                     <div class="task-desc">
-                        Kill 5 people in a short amount of time.
+                        A task description...
                     </div>
                     <div class="task-difficulty">
                         <div class="field">
-                            <div class="field-desc">Difficulty</div>
+                            <div class="field-desc">Diffucilty</div>
                             <div class="field-value">
                                 <div class="glyphicon glyphicon-star"></div>
                                 <div class="glyphicon glyphicon-star"></div>
@@ -26,8 +26,8 @@
                     </div>
                     <div class="task-base-points">
                         <div class="field">
-                            <div class="field-desc">Base points</div>
-                            <div class="field-value">60 points</div>
+                            <div class="field-desc">Base experience</div>
+                            <div class="field-value">{{templateTask.base.exp}} exp</div>
                         </div>
                     </div>
                 </div>

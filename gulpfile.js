@@ -224,7 +224,7 @@ gulp.task("webserver", function () {
 });
 
 gulp.task("watcher", function () {
-	gulp.watch(["src/**/*.js"], ["myJS"]);
+	gulp.watch("src/**/*.js", ["myJS"]);
 	gulp.watch("src/**/*.ts", ["myTS"]);
 	gulp.watch("src/**/*.{less,css}", ["myStyles"]);
 	gulp.watch("src/**/*.html", ["myViews"]);

@@ -5,6 +5,7 @@
         .controller("newTaskController", NewTaskController);
 
     function NewTaskController($scope, $filter, $mdDialog) {
+        $scope.templateTask = this.templateTask;
         $scope.options = {
             times: {
                 min: 1,
@@ -74,42 +75,42 @@
 
             $scope.isSelectedTimes = function() {
                 return $scope.selectedSetting === times;
-            }
+            };
             $scope.isSelectedRestrict = function() {
                 return $scope.selectedSetting === restrict;
-            }
+            };
             $scope.isSelectedTimeout = function() {
                 return $scope.selectedSetting === timeout;
-            }
+            };
             $scope.selectTimes = function() {
                 $scope.selectedSetting = times;
-            }
+            };
             $scope.selectRestrict = function() {
                 $scope.selectedSetting = restrict;
-            }
+            };
             $scope.selectTimeout = function() {
                 $scope.selectedSetting = timeout;
-            }
+            };
 
             $scope.isHoursSelected = function() {
                 return $scope.values.timeout.type === "hours";
-            }
+            };
             $scope.isWonSelected = function() {
                 return $scope.values.timeout.type === "won";
-            }
+            };
             $scope.isPlayedSelected = function() {
                 return $scope.values.timeout.type === "played";
-            }
+            };
             $scope.isDateSelected = function() {
                 return $scope.values.timeout.type === "date";
-            }
+            };
 
             $scope.printTimes = function() {
                 return $scope.values.times + " times";
-            }
+            };
             $scope.printRestrict = function() {
                 return $scope.options.restrict[$scope.values.restrict].text;
-            }
+            };
             $scope.printTimeout = function() {
             	var type = $scope.values.timeout.type;
                 var selected = $scope.options.timeout[type];
@@ -126,11 +127,11 @@
                 }
 
                 return result;
-            }
+            };
         })();
 
         $scope.close = function () {
             $mdDialog.cancel();
-        }
+        };
     }
 })();
