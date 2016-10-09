@@ -23,32 +23,32 @@
                 controller: ctrl
             };
             this.checkPending(loaderName);
-        }
+        };
         this.remove = function(loaderName) {
             list[loaderName] = undefined;
-        }
+        };
         this.getController = function(loaderName) {
             var loader = list[loaderName];
             if (loader) {
                 return loader.controller;
             }
             throw "Loader doesn't exist";
-        }
+        };
         this.isLoading = function(loaderName) {
             return this.getController(loaderName).isLoading();
-        }
+        };
         this.isError = function(loaderName) {
             return this.getController(loaderName).isError();
-        }
+        };
         this.isPending = function(loaderName) {
             return angular.isFunction(pending[loaderName]);
-        }
+        };
         this.checkPending = function(loaderName) {
             if (this.isPending(loaderName)) {
                 pending[loaderName].call(this);
                 pending[loaderName] = undefined;
             }
-        }
+        };
 
         ///////////////////
         var template = "<loader-templates-loading></loader-templates-loading>";
@@ -70,16 +70,20 @@
                     controller.setErrorState();
                 });
             }
-        }
+        };
         this.startLoadingEventually = function(loaderName, promise) {
             eventually.call(this, "startLoading", arguments);
-        }
+        };
         this.stopLoading = function(loaderName) {
-            var controller = this.getController(loaderName);
+            try {
+                var controller = this.getController(loaderName);
 
-            controller.stopLoading();
-
-        }
+                controller.stopLoading();
+            } catch (err) {
+                Logger.debug("Cannot stop loading: ["+loaderName+"] because it doesn't exist anymore." +
+                    "It could exist before, but it was removed before this function was called");
+            }
+        };
         this.watchLoading = function(loaderName, expression, scope) {
             this.getController(loaderName);
             if (!angular.isString(expression) && !angular.isFunction(expression)) {
@@ -96,11 +100,11 @@
                     self.stopLoading(loaderName);
                 }
             });
-        }
+        };
         this.watchLoadingEventually = function(loaderName, expression, scope) {
             eventually.call(this, "watchLoading", arguments);
 
-        }
+        };
         this.setErrorState = function(loaderName) {
             var controller = this.getController(loaderName);
 
@@ -109,15 +113,15 @@
             }
 
             controller.setErrorState(errorTemplate);
-        }
+        };
         this.setErrorStateEventually = function(loaderName) {
             eventually.call(this, "setErrorState", arguments);
-        }
+        };
         this.unsetErrorState = function(loaderName) {
             var controller = this.getController(loaderName);
 
             controller.unsetErrorState();
-        }
+        };
 
         /////////////
         function eventually(method, args) {
@@ -127,7 +131,7 @@
                 var thisArguments = args;
                 pending[args[0]] = function() {
                     this[method].apply(this, thisArguments);
-                }
+                };
             }
         }
     }
