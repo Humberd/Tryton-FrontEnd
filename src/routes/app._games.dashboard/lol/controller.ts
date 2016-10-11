@@ -22,10 +22,8 @@ import ITimeoutService = angular.ITimeoutService;
 
 			Api.lol.getAllTasks()
 				.then(templateTasksList => {
-					$timeout(() => {
-						$scope.templateTasksList = templateTasksList;
-						Loader.stopLoading(loaderName);
-					}, 2000);
+					$scope.templateTasksList = templateTasksList;
+					Loader.stopLoading(loaderName);
 				})
 		};
 
