@@ -1,4 +1,5 @@
 import {ApiLol} from "./lol/ApiLol";
+import {ApiGeneral} from "./general/ApiGeneral";
 (function () {
 	"use strict";
 
@@ -7,6 +8,7 @@ import {ApiLol} from "./lol/ApiLol";
 
 	function ApiFactory($http, RawApiUrl) {
 		return {
+			general: new ApiGeneral().inject($http, RawApiUrl),
 			lol: new ApiLol().inject($http, RawApiUrl)
 		}
 	}
