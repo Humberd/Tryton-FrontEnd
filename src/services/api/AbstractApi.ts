@@ -11,9 +11,26 @@ export abstract class AbstractApi {
 	}
 
 	protected get(url: string): IHttpPromise {
+		return this.acquire$http("GET", url);
+	}
+
+	protected post(url: string, data?: any): IHttpPromise {
+		return this.acquire$http("POST", url, data);
+	}
+
+	protected put(url: string, data?: any): IHttpPromise {
+		return this.acquire$http("PUT", url, data);
+	}
+
+	protected del(url: string): IHttpPromise {
+		return this.acquire$http("DELETE", url);
+	}
+
+	private acquire$http(method: string, url: string, data?: any): IHttpPromise {
 		return this.$http({
-			method: "GET",
-			url: this.RawApiUrl + url
+			method,
+			url: this.RawApiUrl + url,
+			data
 		});
 	}
 }
