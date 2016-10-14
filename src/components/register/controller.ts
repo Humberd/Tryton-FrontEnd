@@ -1,4 +1,4 @@
-import {RegisterModel} from "./RegisterModel";
+import {RegisterUserRequestModel} from "./RegisterUserRequestModel";
 (function() {
     "use strict";
 
@@ -19,19 +19,24 @@ import {RegisterModel} from "./RegisterModel";
             //        console.log($scope.register); // wartosci
             //        console.log(registerForm); // bledy
 
-            let registerModel: RegisterModel = new RegisterModel();
-            registerModel.username = $scope.register.username;
-            registerModel.email = $scope.register.email;
-            registerModel.password = $scope.register.password;
+            let registerModel = $scope.packData();
 
             Api.general.postRegister(registerModel)
                 .then((data) => {
                     console.log(data);
                 }, (err) => {
-                    console.log(err);
+                    console.error(err);
                 })
-
         };
+
+        $scope.packData = function (): RegisterUserRequestModel {
+            let registerModel: RegisterUserRequestModel = new RegisterUserRequestModel();
+            registerModel.username = $scope.register.username;
+            registerModel.email = $scope.register.email;
+            registerModel.password = $scope.register.password;
+            return registerModel;
+        };
+
         $scope.close = function() {
             $mdDialog.cancel();
         };

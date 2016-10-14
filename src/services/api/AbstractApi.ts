@@ -22,7 +22,7 @@ export abstract class AbstractApi {
 		return this.acquire$http("PUT", url, data);
 	}
 
-	protected del(url: string): IHttpPromise {
+	protected delete(url: string): IHttpPromise {
 		return this.acquire$http("DELETE", url);
 	}
 
