@@ -38,9 +38,9 @@ import {Api} from "../../services/api/Api";
 
 		$scope.packData = function (): RegisterUserRequestModel {
 			let registerModel: RegisterUserRequestModel = new RegisterUserRequestModel();
-			registerModel.username = $scope.register.username;
-			registerModel.email = $scope.register.email;
-			registerModel.password = $scope.register.password;
+			registerModel.username = $scope.formData.username;
+			registerModel.email = $scope.formData.email;
+			registerModel.password = $scope.formData.password;
 			return registerModel;
 		};
 
