@@ -1,3 +1,4 @@
+import {JwtResponseModel} from "../components/login/models/JwtResponseModel";
 (function() {
     "use strict";
 
@@ -6,9 +7,9 @@
 
     function Auth(Session, Logger) {
         var returnObject = {
-            login: function AuthLogin(credentials) {
+            login: function AuthLogin(credentials: JwtResponseModel) {
                 Session.setUser(credentials);
-                Logger.info("Successfully logged in [%s]", credentials.username);
+                Logger.info("Successfully logged in [%s]", credentials);
             },
             register: function AuthRegister(credentials) {
                 returnObject.login(credentials);

@@ -26,3 +26,5 @@ http://stackoverflow.com/a/28069336/4256929 24.09.2016
 http://stackoverflow.com/a/6349488/4256929 02.10.2016
 http://stackoverflow.com/a/25528317/4256929 20.10.2016
 http://stackoverflow.com/a/25039131/4256929 23.10.2016
+http://blog.jdriven.com/2016/06/spicy-spring-inject-custom-method-argument-spring-mvc/ 26.10.2016
+http://stackoverflow.com/a/4901370/4256929 17.11.2016

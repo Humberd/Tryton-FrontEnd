@@ -1,43 +1,45 @@
 <div class="modal-custom-content">
-    <div class="modal-close-glyphicon" ng-click="close()">
-        <span class="glyphicon glyphicon-remove"></span>
-    </div>
-    <div class="modal-custom-body">
-        <h1 class="modal-logo"></h1>
-        <div class="modal-form">
-            <div class="modal-form-group input-group">
+	<div class="modal-close-glyphicon" ng-click="close()">
+		<span class="glyphicon glyphicon-remove"></span>
+	</div>
+	<div class="modal-custom-body">
+		<h1 class="modal-logo"></h1>
+		<form class="modal-form">
+			<div class="modal-form-group input-group">
                 <span class="input-group-addon">
                     <span class="glyphicon glyphicon-envelope"></span>
                 </span>
-                <input class="form-control" placeholder="{{ 'EMAIL' | translate}}" tabindex="1" autofocus ng-model="login.email" />
-            </div>
-            <div class="modal-form-group input-group">
+				<input class="form-control" placeholder="{{ 'USERNAME' | translate}}" tabindex="1" autofocus
+					   ng-model="formData.username"/>
+			</div>
+			<div class="modal-form-group input-group">
                 <span class="input-group-addon">
                     <span class="glyphicon glyphicon-lock"></span>
                 </span>
-                <input class="form-control" placeholder="{{ 'PASSWORD' | translate}}" type="password" tabindex="2" ng-model="login.password" />
-            </div>
-            <div class="modal-form-submit">
-                <button class="btn btn-primary btn-block" tabindex="3" ng-click="submit()">
-                    {{ "MODALS.LOGIN.LOGIN" | translate}}
-                </button>
-            </div>
-            <div class="modal-form-info">
-                <div>
-                    <span>{{"MODALS.LOGIN.FORGOT-PASSWORD"| translate}}</span>
-                    <a>
-                        {{"MODALS.LOGIN.RESET-PASSWORD"| translate}}
-                    </a>
-                </div>
-                <div>
-                    <span>{{"MODALS.LOGIN.NO-ACCOUNT"| translate}}</span>
-                    <a ng-click="switchToRegisterModal()">
-                        {{"MODALS.REGISTER.REGISTER"| translate}}
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal-custom-footer">
-    </div>
+				<input class="form-control" placeholder="{{ 'PASSWORD' | translate}}" type="password" tabindex="2"
+					   ng-model="formData.password"/>
+			</div>
+			<div class="modal-form-submit">
+				<button class="btn btn-primary btn-block" tabindex="3" ng-click="login()">
+					{{ "MODALS.LOGIN.LOGIN" | translate}}
+				</button>
+			</div>
+			<div class="modal-form-info">
+				<div>
+					<span>{{"MODALS.LOGIN.FORGOT-PASSWORD"| translate}}</span>
+					<a>
+						{{"MODALS.LOGIN.RESET-PASSWORD"| translate}}
+					</a>
+				</div>
+				<div>
+					<span>{{"MODALS.LOGIN.NO-ACCOUNT"| translate}}</span>
+					<a ng-click="switchToRegisterModal()">
+						{{"MODALS.REGISTER.REGISTER"| translate}}
+					</a>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="modal-custom-footer">
+	</div>
 </div>

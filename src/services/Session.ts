@@ -6,8 +6,8 @@
         .run(SessionRun);
 
     function Session() {
-        var user;
-        var currentExp = 170;
+        let user;
+        let currentExp = 170;
         return {
             getUser: function() {
                 return user;
@@ -22,7 +22,7 @@
                 currentExp = exp;
             },
             isLogged: function() {
-                return user ? true : false;
+                return !!user;
             }
         };
     }

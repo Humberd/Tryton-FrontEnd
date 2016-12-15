@@ -13,3 +13,8 @@ import {ApiGeneral} from "./general/ApiGeneral";
 		}
 	}
 })();
+
+export interface Api {
+	general: ApiGeneral;
+	lol: ApiLol
+}
