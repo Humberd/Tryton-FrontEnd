@@ -15,6 +15,7 @@ var ts = require("gulp-typescript");
 var gulpWebpack = require("webpack-stream");
 var webpack = require("webpack");
 var ngAnnotateWebpack = require("ng-annotate-webpack-plugin");
+var clean = require("gulp-clean");
 
 var dist = "dist/";
 var js = dist + "js";
@@ -92,12 +93,16 @@ function myJS() {
 }
 
 gulp.task("myTS", function () {
+	var transpiledPath = "src/transpiledTS";
 	var tsStream = gulp.src(["src/**/*.ts", "!typedefs/*"]);
+
+	gulp.src(transpiledPath)
+		.pipe(clean()).on("error", errorHandler);
 
 	tsStream = tsStream.pipe(ts({
 		target: "ES5",
 		module: "commonjs"
-	})).pipe(gulp.dest("src/transpiledTS"));
+	})).pipe(gulp.dest(transpiledPath));
 
 	myJS();
 
@@ -205,6 +210,11 @@ gulp.task("webserver", function () {
 		}));
 });
 
+gulp.task("cleanDist", function () {
+	return gulp.src(dist)
+		.pipe(clean()).on("error", errorHandler);
+});
+
 gulp.task("watcher", function () {
 	gulp.watch(["src/**/*.js", "!src/transpiledTS/**/*.js"], ["myJS"]);
 	gulp.watch(["src/**/*.ts"], ["myTS"]);
@@ -220,7 +230,7 @@ gulp.task("test", function (done) {
 });
 
 gulp.task("default", function () {
-	return runSequence("libScripts", "libStyles", "libFonts",
+	return runSequence("cleanDist", "libScripts", "libStyles", "libFonts",
 		"myTS", "myJS", "myStyles", "myViews", "langs", "flags",
 		"resources", "watcher", "webserver");
 });
