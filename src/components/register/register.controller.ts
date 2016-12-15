@@ -6,7 +6,7 @@ import {Api} from "../../services/api/Api";
 	angular.module("TrytonApp.Register")
 		.controller("registerController", RegisterController);
 
-	function RegisterController($scope, RecaptchaKey, $mdDialog, Api: Api) {
+	function RegisterController($scope, RecaptchaKey, $mdDialog, Api: Api, Loader) {
 		let self = this;
 		$scope.recaptchaKey = RecaptchaKey;
 		$scope.formData = {
@@ -22,11 +22,17 @@ import {Api} from "../../services/api/Api";
 
 			let registerModel = $scope.packData();
 
+			Loader.startLoading("registerLoader");
+
 			Api.general.postRegister(registerModel)
-				.then((data) => {
-					$
-				}, (err) => {
+				.then((response) => {
+					$mdDialog.hide(response);
+				})
+				.catch((err) => {
 					console.error(err.data.message);
+				})
+				.finally(() => {
+					Loader.stopLoading("registerLoader");
 				})
 		};
 

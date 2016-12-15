@@ -2,7 +2,7 @@
     "use strict";
 
     angular.module("TrytonApp.Loader")
-        .directive("loader", LoaderDirective)
+        .directive("loader", LoaderDirective);
     /**
      * <div loader="myLoader">
      *      **Some content**
@@ -34,9 +34,9 @@
                         //przy usunieciu loadera usuwam go z listy dostepnych loaderow
                         scope.$on("$destroy", function() {
                             Loader.remove(loaderName);
-                        })
+                        });
                     }
-                }
+                };
             },
             controller: function($compile, $scope) {
                 var angularTemplate;

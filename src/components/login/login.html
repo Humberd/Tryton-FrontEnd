@@ -1,10 +1,10 @@
-<div class="modal-custom-content">
+<div class="modal-custom-content" loader="loginLoader">
 	<div class="modal-close-glyphicon" ng-click="close()">
 		<span class="glyphicon glyphicon-remove"></span>
 	</div>
 	<div class="modal-custom-body">
 		<h1 class="modal-logo"></h1>
-		<form class="modal-form">
+		<form class="modal-form" name="loginForm" novalidate ng-submit="login(loginForm)">
 			<div class="modal-form-group input-group">
                 <span class="input-group-addon">
                     <span class="glyphicon glyphicon-envelope"></span>
@@ -20,7 +20,7 @@
 					   ng-model="formData.password"/>
 			</div>
 			<div class="modal-form-submit">
-				<button class="btn btn-primary btn-block" tabindex="3" ng-click="login()">
+				<button class="btn btn-primary btn-block" tabindex="3" type="submit">
 					{{ "MODALS.LOGIN.LOGIN" | translate}}
 				</button>
 			</div>
