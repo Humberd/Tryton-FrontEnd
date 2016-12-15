@@ -94,8 +94,8 @@ function myJS() {
 
 gulp.task("myTS", function () {
 	var transpiledPath = "src/transpiledTS";
-	gulp.src(transpiledPath)
-		.pipe(clean()).on("error", errorHandler);
+	// gulp.src(transpiledPath)
+	// 	.pipe(clean()).on("error", errorHandler);
 
 	var tsStream = gulp.src(["src/**/*.ts", "!typedefs/*"]);
 
