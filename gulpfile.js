@@ -94,18 +94,19 @@ function myJS() {
 
 gulp.task("myTS", function () {
 	var transpiledPath = "src/transpiledTS";
-	var tsStream = gulp.src(["src/**/*.ts", "!typedefs/*"]);
-
 	gulp.src(transpiledPath)
 		.pipe(clean()).on("error", errorHandler);
+
+	var tsStream = gulp.src(["src/**/*.ts", "!typedefs/*"]);
 
 	tsStream = tsStream.pipe(ts({
 		target: "ES5",
 		module: "commonjs"
-	})).on("error", errorHandler)
-		.pipe(gulp.dest(transpiledPath));
+	})).pipe(gulp.dest(transpiledPath));
 
 	myJS();
+	// runSequence("myJS");
+	// myJS();
 
 	return tsStream;
 });
@@ -217,8 +218,8 @@ gulp.task("cleanDist", function () {
 });
 
 gulp.task("watcher", function () {
-	gulp.watch(["src/**/*.js", "!src/transpiledTS/**/*.js"], ["myJS"]);
 	gulp.watch(["src/**/*.ts"], ["myTS"]);
+	gulp.watch(["src/**/*.js", "!src/transpiledTS/**/*.js"], ["myJS"]);
 	gulp.watch("src/**/*.{less,css}", ["myStyles"]);
 	gulp.watch("src/**/*.html", ["myViews"]);
 	gulp.watch(resPath + "/**", ["resources"]);
