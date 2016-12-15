@@ -102,7 +102,8 @@ gulp.task("myTS", function () {
 	tsStream = tsStream.pipe(ts({
 		target: "ES5",
 		module: "commonjs"
-	})).pipe(gulp.dest(transpiledPath));
+	})).on("error", errorHandler)
+		.pipe(gulp.dest(transpiledPath));
 
 	myJS();
 
