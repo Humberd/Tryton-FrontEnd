@@ -69,11 +69,12 @@ function errorHandler(error) {
 }
 
 
-gulp.task("myJS", function () {
+gulp.task("myJS", myJS);
+function myJS() {
 	var jsStream = gulp.src(["src/**/*.js", "!src/languages/locals/*.js"]);
 
-	jsStream.pipe(angularFileSort()).on("error", errorHandler)
-		// .pipe(ngAnnotate()).on("error", errorHandler)
+	return jsStream.pipe(angularFileSort()).on("error", errorHandler)
+	// .pipe(ngAnnotate()).on("error", errorHandler)
 		.pipe(gulpWebpack({
 			devtool: "source-map",
 			output: {
@@ -84,42 +85,23 @@ gulp.task("myJS", function () {
 					add: true,
 					sourcemap: true
 				})
-				// new webpack.optimize.UglifyJsPlugin({
-				// 	beautify : true,
-				// 	mangle   : true
-				// })
 			]
 		})).on("error", errorHandler)
 		.pipe(gulp.dest(js));
 
-	// es.merge(jsStream)
-	// 	.pipe(sourcemaps.init())
-	// 	.pipe(angularFileSort()).on("error", errorHandler)
-	// 	.pipe(ngAnnotate()).on("error", errorHandler)
-	// 	// .pipe(webpack()).on("error", errorHandler)
-	// 	.pipe(concat("app.min.js"))
-	// 	.pipe(uglify()).on("error", errorHandler)
-	// 	.pipe(sourcemaps.write("/"))
-	// 	.pipe(gulp.dest(js));
-
-	// es.merge(jsStream)
-	// 	.pipe(angularFileSort()).on("error", errorHandler)
-	// 	.pipe(ngAnnotate()).on("error", errorHandler)
-	// 	.pipe(webpack()).on("error", errorHandler)
-	// // .pipe(uglify()).on("error", errorHandler)
-	// 	.pipe(concat("app.min.js"))
-	// 	.pipe(gulp.dest(js));
-
-});
+}
 
 gulp.task("myTS", function () {
 	var tsStream = gulp.src(["src/**/*.ts", "!typedefs/*"]);
 
-	return tsStream
-		.pipe(ts({
-			target: "ES5",
-			module: "commonjs"
-		})).pipe(gulp.dest("src/transpiledTS"));
+	tsStream = tsStream.pipe(ts({
+		target: "ES5",
+		module: "commonjs"
+	})).pipe(gulp.dest("src/transpiledTS"));
+
+	myJS();
+
+	return tsStream;
 });
 
 gulp.task("myStyles", function () {
@@ -224,8 +206,8 @@ gulp.task("webserver", function () {
 });
 
 gulp.task("watcher", function () {
-	gulp.watch("src/**/*.js", ["myJS"]);
-	gulp.watch("src/**/*.ts", ["myTS"]);
+	gulp.watch(["src/**/*.js", "!src/transpiledTS/**/*.js"], ["myJS"]);
+	gulp.watch(["src/**/*.ts"], ["myTS"]);
 	gulp.watch("src/**/*.{less,css}", ["myStyles"]);
 	gulp.watch("src/**/*.html", ["myViews"]);
 	gulp.watch(resPath + "/**", ["resources"]);
