@@ -223,6 +223,7 @@ gulp.task("watcher", function () {
 	gulp.watch("src/**/*.{less,css}", ["myStyles"]);
 	gulp.watch("src/**/*.html", ["myViews"]);
 	gulp.watch(resPath + "/**", ["resources"]);
+	gulp.watch("src/languages/**.json", ["langs"]);
 });
 
 gulp.task("test", function (done) {
