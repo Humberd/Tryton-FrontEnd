@@ -16,12 +16,15 @@ import {JwtModel} from "./models/JwtModel";
 			getUser: (): JwtModel => {
 				return user;
 			},
+			getUsername: (): string | null => {
+				return user ? user.username : null;
+			},
 
 			//TODO handle this event
 			getUserExp: function () {
 				return 170;
 			},
-			isLogged: function () {
+			isLoggedIn: function () {
 				return !!user;
 			}
 		};

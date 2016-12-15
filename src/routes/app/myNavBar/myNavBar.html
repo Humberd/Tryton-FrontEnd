@@ -1,103 +1,131 @@
 <div id="my-nav-bar">
-    <div class="my-nav-bar-column">
-        <div class="my-nav-bar-column-item" ui-sref="app.home">
-            <div class="my-nav-bar-pill">
-                <div class="my-nav-bar-column-item-name">
-                    Tryton
-                </div>
-            </div>
-        </div>
-        <div class="my-nav-bar-column-item" ui-sref="app._games.dashboard">
-            <div class="my-nav-bar-pill">
-                <div class="my-nav-bar-column-item-icon">
-                    <i class="material-icons">dashboard</i>
-                </div>
-                <div class="my-nav-bar-column-item-name">
-                    Dashboard
-                </div>
-            </div>
-        </div>
-        <div class="my-nav-bar-column-item">
-            <div class="my-nav-bar-pill">
-                <div class="my-nav-bar-column-item-icon">
-                    <div class="glyphicon glyphicon-book"></div>
-                </div>
-                <div class="my-nav-bar-column-item-name">
-                    Learn More
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="my-nav-bar-column">
-        <div class="my-nav-bar-column-item short">
-            <div class="my-nav-bar-pill">
-                <div class="my-nav-bar-column-item-icon">
-                    <div class="flag-icon" bcg-image="selectedGameItem.iconUrl"></div>
-                </div>
-                <div class="my-nav-bar-column-item-name">
-                    {{selectedGameItem.shortName}}
-                </div>
-                <div class="dropdown-icon">
-                    <i class="material-icons">arrow_drop_down</i>
-                </div>
-            </div>
-            <div class="my-nav-bar-column-item-content">
-                <div class="items">
-                    <div class="item" ng-repeat="game in availableGames | filter:{isAvailable: true} |orderBy:'name'" ng-class="isSelectedGame(game.simpleShortName)" ng-click="selectGame(game.simpleShortName)" fold-on-click>
-                        <div class="icon">
-                            <div class="flag-icon" bcg-image="::game.iconUrl"></div>
-                        </div>
-                        <div class="name">
-                            {{::game.name}}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="my-nav-bar-column-item short">
-            <div class="my-nav-bar-pill">
-                <div class="my-nav-bar-column-item-icon">
-                    <div class="flag-icon flag-icon-{{selectedLanguageItem.iconUrl}}"></div>
-                </div>
-                <div class="my-nav-bar-column-item-name">
-                    {{selectedLanguageItem.shortName | uppercase}}
-                </div>
-                <div class="dropdown-icon">
-                    <i class="material-icons">arrow_drop_down</i>
-                </div>
-            </div>
-            <div class="my-nav-bar-column-item-content">
-                <div class="items">
-                    <div class="item" ng-repeat="lang in availableLanguages | filter:{isAvailable: true} |orderBy:'name'" ng-class="isSelectedLang(lang.shortName)" ng-click="selectLang(lang.shortName)" fold-on-click>
-                        <div class="icon">
-                            <div class="flag-icon flag-icon-{{::lang.iconUrl}}"></div>
-                        </div>
-                        <div class="name">
-                            {{::lang.name}}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="my-nav-bar-column-item" ng-click="openLoginModal()">
-            <div class="my-nav-bar-pill">
-                <div class="my-nav-bar-column-item-icon">
-                    <span class="glyphicon glyphicon-user"></span>
-                </div>
-                <div class="my-nav-bar-column-item-name">
-                    Login
-                </div>
-            </div>
-        </div>
-        <div class="my-nav-bar-column-item" ng-click="openRegisterModal()">
-            <div class="my-nav-bar-pill">
-                <div class="my-nav-bar-column-item-icon">
-                    <span class="glyphicon glyphicon-user"></span>
-                </div>
-                <div class="my-nav-bar-column-item-name">
-                    Register
-                </div>
-            </div>
-        </div>
-    </div>
+	<div class="my-nav-bar-column">
+		<div class="my-nav-bar-column-item" ui-sref="app.home">
+			<div class="my-nav-bar-pill">
+				<div class="my-nav-bar-column-item-name">
+					Tryton
+				</div>
+			</div>
+		</div>
+		<div class="my-nav-bar-column-item" ui-sref="app._games.dashboard">
+			<div class="my-nav-bar-pill">
+				<div class="my-nav-bar-column-item-icon">
+					<i class="material-icons">dashboard</i>
+				</div>
+				<div class="my-nav-bar-column-item-name">
+					Dashboard
+				</div>
+			</div>
+		</div>
+		<div class="my-nav-bar-column-item">
+			<div class="my-nav-bar-pill">
+				<div class="my-nav-bar-column-item-icon">
+					<div class="glyphicon glyphicon-book"></div>
+				</div>
+				<div class="my-nav-bar-column-item-name">
+					Learn More
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="my-nav-bar-column">
+		<div class="my-nav-bar-column-item short">
+			<div class="my-nav-bar-pill">
+				<div class="my-nav-bar-column-item-icon">
+					<div class="flag-icon" bcg-image="selectedGameItem.iconUrl"></div>
+				</div>
+				<div class="my-nav-bar-column-item-name">
+					{{selectedGameItem.shortName}}
+				</div>
+				<div class="dropdown-icon">
+					<i class="material-icons">arrow_drop_down</i>
+				</div>
+			</div>
+			<div class="my-nav-bar-column-item-content">
+				<div class="items">
+					<div class="item" ng-repeat="game in availableGames | filter:{isAvailable: true} |orderBy:'name'"
+						 ng-class="isSelectedGame(game.simpleShortName)" ng-click="selectGame(game.simpleShortName)"
+						 fold-on-click>
+						<div class="icon">
+							<div class="flag-icon" bcg-image="::game.iconUrl"></div>
+						</div>
+						<div class="name">
+							{{::game.name}}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="my-nav-bar-column-item short">
+			<div class="my-nav-bar-pill">
+				<div class="my-nav-bar-column-item-icon">
+					<div class="flag-icon flag-icon-{{selectedLanguageItem.iconUrl}}"></div>
+				</div>
+				<div class="my-nav-bar-column-item-name">
+					{{selectedLanguageItem.shortName | uppercase}}
+				</div>
+				<div class="dropdown-icon">
+					<i class="material-icons">arrow_drop_down</i>
+				</div>
+			</div>
+			<div class="my-nav-bar-column-item-content">
+				<div class="items">
+					<div class="item"
+						 ng-repeat="lang in availableLanguages | filter:{isAvailable: true} |orderBy:'name'"
+						 ng-class="isSelectedLang(lang.shortName)" ng-click="selectLang(lang.shortName)" fold-on-click>
+						<div class="icon">
+							<div class="flag-icon flag-icon-{{::lang.iconUrl}}"></div>
+						</div>
+						<div class="name">
+							{{::lang.name}}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="my-nav-bar-column" ng-hide="Session.isLoggedIn()">
+			<div class="my-nav-bar-column-item" ng-click="openLoginModal()">
+				<div class="my-nav-bar-pill">
+					<div class="my-nav-bar-column-item-icon">
+						<span class="glyphicon glyphicon-user"></span>
+					</div>
+					<div class="my-nav-bar-column-item-name">
+						{{"USER-NAV-BAR.LOGIN" | translate}}
+					</div>
+				</div>
+			</div>
+			<div class="my-nav-bar-column-item" ng-click="openRegisterModal()">
+				<div class="my-nav-bar-pill">
+					<div class="my-nav-bar-column-item-icon">
+						<span class="glyphicon glyphicon-user"></span>
+					</div>
+					<div class="my-nav-bar-column-item-name">
+						{{"USER-NAV-BAR.REGISTER" | translate}}
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="my-nav-bar-column" ng-show="Session.isLoggedIn()">
+			<div class="my-nav-bar-column-item">
+				<div class="my-nav-bar-pill">
+					<div class="my-nav-bar-column-item-icon">
+						<span class="glyphicon glyphicon-user"></span>
+					</div>
+					<div class="my-nav-bar-column-item-name">
+						{{Session.getUsername()}}
+					</div>
+				</div>
+			</div>
+			<div class="my-nav-bar-column-item" ng-click="logout()">
+				<div class="my-nav-bar-pill">
+					<div class="my-nav-bar-column-item-icon">
+						<span class="glyphicon glyphicon-off"></span>
+					</div>
+					<div class="my-nav-bar-column-item-name">
+						{{"USER-NAV-BAR.LOGOUT" | translate}}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
