@@ -10,6 +10,7 @@
 		.constant('RecaptchaKey', "6LeeVyITAAAAAOE0WyhwnMVRU2_q5UyR7kaqqsfe")
 
 		.constant("DefaultSelectedGame", "lol")
-		.constant("SelectedGameStorageKey", "selectedGame");
+		.constant("SelectedGameStorageKey", "selectedGame")
+		.constant("UserTokenStorageKey", "userTokenModel");
 
 })();

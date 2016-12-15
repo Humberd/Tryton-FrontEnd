@@ -1,25 +1,31 @@
 import {JwtResponseModel} from "../components/login/models/JwtResponseModel";
-(function() {
-    "use strict";
+import {JwtModel} from "./session/models/JwtModel";
+(function () {
+	"use strict";
 
-    angular.module("TrytonApp.Authentication", ["vcRecaptcha"])
-        .factory("Auth", Auth);
+	angular.module("TrytonApp.Authentication", ["vcRecaptcha"])
+		.factory("Auth", Auth);
 
-    function Auth(Session, Logger) {
-        var returnObject = {
-            login: function AuthLogin(credentials: JwtResponseModel) {
-                Session.setUser(credentials);
-                Logger.info("Successfully logged in [%s]", credentials);
-            },
-            register: function AuthRegister(credentials) {
-                returnObject.login(credentials);
-                Logger.info("Successfully registered [%s]", credentials.username);
-            },
-            logout: function AuthLogout() {
-                Session.setUser();
-                Logger.info("Successfully logged out");
-            }
-        };
-        return returnObject;
-    }
+	function Auth(Session, Logger, Storage) {
+		let returnObject = {
+			login: (credentials: JwtResponseModel) => {
+				Session.setUser(JwtModel.decodeRawToken(credentials.token));
+				Storage.setUserTokenModel(Session.getUser());
+
+				Logger.info("Successfully logged in [%s]", credentials);
+			},
+			register: (credentials: JwtResponseModel) => {
+				Logger.info("Successfully registered [%s]", credentials);
+				returnObject.login(credentials);
+			},
+			logout: () => {
+				Session.setUser();
+				Storage.setUserTokenModel(Session.getUser());
+
+				Logger.info("Successfully logged out");
+			}
+		};
+
+		return returnObject;
+	}
 })();
