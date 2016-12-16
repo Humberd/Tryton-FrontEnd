@@ -92,7 +92,7 @@
                             </div>
                         </div>
                         <div class="tasks-list">
-                            <div class="task" ng-repeat="templateTask in templateTasksList">
+                            <div class="task" ng-repeat="templateTask in ctrl.templateTasksList">
                                 <div class="task-icon" bcg-image="'http://kingofwallpapers.com/river/river-008.jpg'"></div>
                                 <div class="task-content">
                                     <div class="task-name">
@@ -110,7 +110,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="add-button" ng-click="addNewTask(templateTask)">
+                                <div class="add-button" ng-click="ctrl.addNewTask(templateTask)">
                                     <i class="material-icons">add</i>
                                 </div>
                             </div>

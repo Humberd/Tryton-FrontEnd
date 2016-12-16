@@ -9,7 +9,7 @@
             //jesli obecny stan dziedziczyz z app._games
             //czyli jesli ten state jest inny w odroznieniu od wybranej gry
             if ($state.includes("app._games")) {
-                $state.go($state.current.name, {game: gameName})
+                $state.go($state.current.name, {game: gameName});
             }
         });
         $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams) {

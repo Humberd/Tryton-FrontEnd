@@ -6,7 +6,8 @@
 
     function AppGamesDashboardConfig($stateProvider) {
     	$stateProvider.state("app._games.dashboard", {
-    		url: "/:game/dashboard"
+    		url: "/:game/dashboard",
+			controllerAs: "ctrl"
     	});
     }
 })();

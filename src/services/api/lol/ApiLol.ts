@@ -1,5 +1,5 @@
 import {AbstractApi} from "../AbstractApi";
-import {TaskLolDB} from "../../../routes/app._games.dashboard/lol/definitions/TaskLolDB";
+import {TaskLolDB} from "../../../routes/app._games.dashboard/lol/models/TaskLolDB";
 import IPromise = angular.IPromise;
 
 export class ApiLol extends AbstractApi{

@@ -2,7 +2,7 @@
     "use strict";
 
     angular.module("TrytonApp.Router.App._games")
-        .config(AppGamesConfig)
+        .config(AppGamesConfig);
 
     function AppGamesConfig($stateProvider) {
         $stateProvider.state("app._games", {

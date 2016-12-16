@@ -13,4 +13,5 @@ export interface Currency {
 
 export interface TaskLolDBOptions {
 	multipleInOneMatch: boolean;
+	mustBeWon: boolean;
 }

@@ -8,11 +8,12 @@
         $stateProvider.state("app.home", {
         	url: "/",
             templateUrl: ViewUrl + "home.html",
-            controller: "AppHomeController"
+            controller: "AppHomeController",
+            controllerAs: "ctrl"
         });
 
         $urlRouterProvider.when("/home", function ($state) {
         	$state.go("app.home");
-        })
+        });
     }
 })();
