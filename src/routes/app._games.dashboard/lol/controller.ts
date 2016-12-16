@@ -65,7 +65,9 @@ import ITimeoutService = angular.ITimeoutService;
 		// 	image: "http://kingofwallpapers.com/river/river-008.jpg"
 		// });
 		(function () {
-			$scope.downloadTemplateTasksList();
+			$timeout(() => {
+				$scope.downloadTemplateTasksList();
+			}, 2000);
 		})();
 	}
 })();

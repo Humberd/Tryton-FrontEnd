@@ -11,7 +11,7 @@
             var string = "Missing_Translation(" + translationId + ", " + lang + ")";
             Logger.warning(string);
             return string;
-        };
+        }
         return NotExistingTranslationHandler;
     }
 })();

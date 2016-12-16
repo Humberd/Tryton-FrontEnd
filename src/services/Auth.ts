@@ -12,10 +12,10 @@ import {JwtModel} from "./session/models/JwtModel";
 				Session.setUser(JwtModel.decodeRawToken(credentials.token));
 				Storage.setUserTokenModel(Session.getUser());
 
-				Logger.info("Successfully logged in [%s]", credentials);
+				Logger.info("Successfully logged in [%s]", Session.getUsername());
 			},
 			register: (credentials: JwtResponseModel) => {
-				Logger.info("Successfully registered [%s]", credentials);
+				Logger.info("Successfully registered [%s]", Session.getUsername());
 				returnObject.login(credentials);
 			},
 			logout: () => {
