@@ -23,7 +23,6 @@
 					if (Session.isLoggedIn()) {
 						config.headers.Authorization = createAuthorizationHeader(Session.getUser());
 					}
-					console.log(config);
 
 				}
 				return config;
