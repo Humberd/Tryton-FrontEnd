@@ -102,11 +102,8 @@ gulp.task("myTS", function () {
 	tsStream = tsStream.pipe(ts({
 		target: "ES5",
 		module: "commonjs"
-	})).pipe(gulp.dest(transpiledPath));
-
-	myJS();
-	// runSequence("myJS");
-	// myJS();
+	})).pipe(gulp.dest(transpiledPath))
+		.on("end", myJS);
 
 	return tsStream;
 });
