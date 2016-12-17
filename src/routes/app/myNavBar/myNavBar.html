@@ -3,17 +3,43 @@
 		<div class="my-nav-bar-column-item" ui-sref="app.home">
 			<div class="my-nav-bar-pill">
 				<div class="my-nav-bar-column-item-name">
-					Tryton
+					{{"APP-NAME" | translate}}
 				</div>
 			</div>
 		</div>
-		<div class="my-nav-bar-column-item" ui-sref="app._games.dashboard">
+		<div class="my-nav-bar-column-item">
 			<div class="my-nav-bar-pill">
 				<div class="my-nav-bar-column-item-icon">
-					<i class="material-icons">dashboard</i>
+					<i class="material-icons">flag</i>
 				</div>
 				<div class="my-nav-bar-column-item-name">
-					Dashboard
+					{{"USER-NAV-BAR.MANAGE" | translate}}
+				</div>
+				<div class="dropdown-icon">
+					<i class="material-icons">arrow_drop_down</i>
+				</div>
+			</div>
+			<div class="my-nav-bar-column-item-content">
+				<div class="items">
+					<div class="item"
+						 ui-sref="app._games.dashboard"
+						 fold-on-click>
+						<div class="icon">
+							<i class="material-icons">dashboard</i>
+						</div>
+						<div class="name">
+							{{"USER-NAV-BAR.MANAGE-PILLS.DASHBOARD" | translate}}
+						</div>
+					</div>
+					<div class="item"
+						 fold-on-click>
+						<div class="icon">
+							<i class="material-icons">account_circle</i>
+						</div>
+						<div class="name">
+							{{"USER-NAV-BAR.MANAGE-PILLS.ACCOUNT" | translate}}
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -23,7 +49,7 @@
 					<div class="glyphicon glyphicon-book"></div>
 				</div>
 				<div class="my-nav-bar-column-item-name">
-					Learn More
+					{{"USER-NAV-BAR.FAQ" | translate}}
 				</div>
 			</div>
 		</div>

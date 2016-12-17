@@ -1,8 +1,15 @@
 {
+    "APP-NAME": "Tryton",
     "USER-NAV-BAR": {
         "LOGIN": "Zaloguj",
         "REGISTER": "Zarejestruj",
-        "LOGOUT": "Wyloguj"
+        "LOGOUT": "Wyloguj",
+        "MANAGE": "Zarządzaj",
+        "MANAGE-PILLS": {
+            "DASHBOARD": "Panel główny",
+            "ACCOUNT": "Konto"
+        },
+        "FAQ": "FAQ"
     },
     "MODALS": {
         "LOGIN": {
