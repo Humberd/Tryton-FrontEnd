@@ -13,6 +13,7 @@ class LolController {
 				private Loader,
 				private $timeout: ITimeoutService) {
 		this.downloadTemplateTasksList();
+		console.log("hello");
 	}
 
 	private downloadTemplateTasksList() {
@@ -37,5 +38,5 @@ class LolController {
     "use strict";
 
     angular.module("TrytonApp.Router.App._games.Dashboard")
-		.controller("LolController", LolController)
+		.controller("dashboard_lol.controller", LolController)
 })();
