@@ -1,122 +1,115 @@
 <div id="new-task-wrapper">
-    <div class="modal-custom-content">
-        <div class="modal-close-glyphicon" ng-click="close()">
-            <span class="glyphicon glyphicon-remove"></span>
-        </div>
-        <div class="modal-custom-body">
-            <div id="new-task">
-                <div class="header">
-                    <div class="task-name">{{templateTask.name}}</div>
-                </div>
-                <md-divider></md-divider>
-                <div class="info">
-                    <div class="task-desc">
-                        A task description...
-                    </div>
-                    <div class="task-difficulty">
-                        <div class="field">
-                            <div class="field-desc">Diffucilty</div>
-                            <div class="field-value">
-                                <div class="glyphicon glyphicon-star"></div>
-                                <div class="glyphicon glyphicon-star"></div>
-                                <div class="glyphicon glyphicon-star"></div>
-                                <div class="glyphicon glyphicon-star"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="task-base-points">
-                        <div class="field">
-                            <div class="field-desc">Base experience</div>
-                            <div class="field-value">{{templateTask.base.exp}} exp</div>
-                        </div>
-                    </div>
-                </div>
-                <md-divider></md-divider>
-                <div class="settings">
-                <div class="title">Settings</div>
-                    <div class="setting">
-                        <div class="inputs">
-                            <div class="input">
-                                <md-input-container>
-                                    <input type="number" min="{{options.times.min}}" max="{{options.times.max}}" ng-model="values.times" aria-label="Select how many times" placeholder="Number of times" required>
-                                </md-input-container>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="setting">
-                        <div class="inputs">
-                            <div class="input">
-                                <md-input-container>
-                                    <label>Restrict execution</label>
-                                    <md-select ng-model="values.restrict" aria-label="Select restrictions">
-                                        <md-option ng-value="key" ng-repeat="(key, value) in options.restrict">
-                                            {{value.text}}
-                                        </md-option>
-                                    </md-select>
-                                </md-input-container>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="setting">
-                        <div class="inputs">
-                            <div class="input">
-                                <md-input-container>
-                                    <label>Timeout</label>
-                                    <md-select ng-model="values.timeout.type" aria-label="Select Timeout Value">
-                                        <md-option ng-value="key" ng-repeat="(key, value) in options.timeout">
-                                            {{value.text}}
-                                        </md-option>
-                                    </md-select>
-                                </md-input-container>
-                            </div>
-                            <div class="input">
-                                <div class="hours" ng-show="isHoursSelected()">
-                                    <md-input-container>
-                                        <input type="number" min="{{options.timeout.hours.min}}" max="{{options.timeout.hours.max}}" ng-model="values.timeout.values.hours" aria-label="Timeout hours select" placeholder="Number of hours" required>
-                                    </md-input-container>
-                                </div>
-                                <div class="won" ng-show="isWonSelected()">
-                                    <md-input-container>
-                                        <input type="number" max="{{options.timeout.won.max}}" ng-model="values.timeout.values.won" aria-label="Timeout won matches select" placeholder="Number of won matches" required>
-                                    </md-input-container>
-                                </div>
-                                <div class="player" ng-show="isPlayedSelected()">
-                                    <md-input-container>
-                                        <input type="number" max="{{options.timeout.played.max}}" ng-model="values.timeout.values.played" aria-label="Timeout played matches select" placeholder="Number of played matches" required>
-                                    </md-input-container>
-                                </div>
-                                <div class="date" ng-show="isDateSelected()">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <md-divider></md-divider>
-                <div class="summary">
-                    <div class="title">
-                        Summary
-                    </div>
-                    <div class="value">
-                        {{printTimes()}}, {{printRestrict()}}, {{printTimeout()}}
-                    </div>
-                </div>
-                <md-divider></md-divider>
-                <div class="footer">
-                    <div class="total">
-                        <div class="field">
-                            <div class="field-desc">Total</div>
-                            <div class="field-value">96 points</div>
-                        </div>
-                    </div>
-                    <div class="multiplier">
-                        <div class="field">
-                            <div class="field-desc">Multiplier</div>
-                            <div class="field-value positive">+60%</div>
-                        </div>
-                    </div>
-                    <button class="create-button mb mb-fill-green mb-small">CREATE</button>
-                </div>
-            </div>
-        </div>
-    </div>
+	<form class="modal-custom-content" novalidate ng-submit="ctrl.createTask()">
+		<div class="modal-close-glyphicon" ng-click="ctrl.close()">
+			<span class="glyphicon glyphicon-remove"></span>
+		</div>
+		<div class="modal-custom-body">
+			<div id="new-task">
+				<div class="header">
+					<div class="task-name">{{ctrl.templateTask.name}}</div>
+				</div>
+				<md-divider></md-divider>
+				<div class="info">
+					<div class="task-desc">
+						A task description...
+					</div>
+					<div class="task-difficulty">
+						<div class="field">
+							<div class="field-desc">Diffucilty</div>
+							<div class="field-value">
+								<div class="glyphicon glyphicon-star"></div>
+								<div class="glyphicon glyphicon-star"></div>
+								<div class="glyphicon glyphicon-star"></div>
+								<div class="glyphicon glyphicon-star"></div>
+							</div>
+						</div>
+					</div>
+					<div class="task-base-points">
+						<div class="field">
+							<div class="field-desc">Base experience</div>
+							<div class="field-value">{{ctrl.templateTask.base.exp}} exp</div>
+						</div>
+					</div>
+				</div>
+				<md-divider></md-divider>
+				<div class="settings">
+					<div class="title">Settings</div>
+					<div class="setting">
+						<div class="inputs">
+							<div class="input">
+								<md-input-container>
+									<input type="number" min="{{ctrl.timesOptions.min}}" max="{{ctrl.timesOptions.max}}"
+										   ng-model="ctrl.timesValue" aria-label="Select how many times"
+										   placeholder="Number of times" ng-required="true">
+								</md-input-container>
+							</div>
+						</div>
+					</div>
+					<div class="setting">
+						<div class="inputs">
+							<div class="input">
+								<md-input-container>
+									<label>Restrict execution</label>
+									<md-select ng-model="ctrl.selectedRestrictType" aria-label="Select restrictions"
+											   ng-required="true">
+										<md-option ng-value="option.value"
+												   ng-repeat="option in ctrl.restrictOptions.values">
+											{{option.text}}
+										</md-option>
+									</md-select>
+								</md-input-container>
+							</div>
+						</div>
+					</div>
+					<div class="setting">
+						<div class="inputs">
+							<div class="input">
+								<md-input-container>
+									<label>Timeout</label>
+									<md-select ng-model="ctrl.selectedTimeoutType" aria-label="Select Timeout Value"
+											   ng-required="true">
+										<md-option ng-value="option.value"
+												   ng-repeat="option in ctrl.timeoutOptions.values">
+											{{option.text}}
+										</md-option>
+									</md-select>
+									<md-input></md-input>
+								</md-input-container>
+							</div>
+							<div class="input" ng-repeat="option in ctrl.timeoutOptions.values"
+								 ng-show="isVisible = option.value === ctrl.selectedTimeoutType">
+								<md-input-container>
+									<label>{{option.text}}</label>
+									<input type="number"
+										   min="{{option.min}}"
+										   max="{{option.max}}"
+										   ng-model="ctrl.timeoutValues[option.value]"
+										   placeholder="{{option.text}}" ng-required="isVisible"/>
+								</md-input-container>
+							</div>
+						</div>
+					</div>
+				</div>
+				<md-divider></md-divider>
+				<div class="footer">
+					<div class="total">
+						<div class="field">
+							<div class="field-desc">Total</div>
+							<div class="field-value">96 points</div>
+						</div>
+					</div>
+					<!--<div class="multiplier">
+						<div class="field">
+							<div class="field-desc">Multiplier</div>
+							<div class="field-value positive">+60%</div>
+						</div>
+					</div>-->
+					<button class="create-button mb mb-fill-green mb-small"
+							type="submit">
+						CREATE
+					</button>
+				</div>
+			</div>
+		</div>
+	</form>
 </div>

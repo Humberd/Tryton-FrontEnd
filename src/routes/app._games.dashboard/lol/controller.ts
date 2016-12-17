@@ -1,13 +1,8 @@
 import {TaskLolDB} from "./models/TaskLolDB";
+import {Api} from "../../../services/api/Api";
 import IScope = angular.IScope;
 import ITimeoutService = angular.ITimeoutService;
-import {Api} from "../../../services/api/Api";
-import {Controller} from "../../../utils/decorators/Controller";
 
-@Controller({
-	module: "TrytonApp.Router.App._games.Dashboard",
-	name: "LolController"
-})
 class LolController {
 	private taskListLoaderName = "lolDashboardTemplateTasksList";
 	templateTasksList: Array<TaskLolDB>;
@@ -38,3 +33,10 @@ class LolController {
 		this.Modal.newTask({templateTask})
 	}
 }
+
+(function () {
+    "use strict";
+
+    angular.module("TrytonApp.Router.App._games.Dashboard")
+		.controller("LolController", LolController)
+})();
