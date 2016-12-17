@@ -1,0 +1,18 @@
+import {LolGameTaskRestrictType} from "../../../../../../models/constants/LolGameTaskRestrictType";
+import {LolGameTaskTimeoutType} from "../../../../../../models/constants/LolGameTaskTimeoutType";
+
+export interface SubmitLolTaskRequestModel {
+	templateId: string;
+	settings: Settings;
+}
+
+export interface Settings {
+	times: number;
+	restrict: LolGameTaskRestrictType;
+	timeout: Timeout;
+}
+
+export interface Timeout {
+	value: number;
+	type: LolGameTaskTimeoutType
+}

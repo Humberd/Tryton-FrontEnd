@@ -14,12 +14,12 @@
         "REGISTER": {
             "REGISTER": "@:USER-NAV-BAR.REGISTER",
             "HAVE-ACCOUNT": "Already have an account?",
-            "ACCEPT-TOS": "By signing up you agree to "
+            "ACCEPT-TOS": "By signing up you agree to ",
+            "TOS": "Terms of Service"
         }
     },
     "USERNAME": "Username",
     "EMAIL": "Email",
     "PASSWORD": "Password",
-    "REPEAT-PASSWORD": "Repeat password",
-    "TOS": "Terms of Service"
+    "REPEAT-PASSWORD": "Repeat password"
 }

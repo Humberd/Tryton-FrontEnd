@@ -1,4 +1,4 @@
-import {Role} from "./Role";
+import {Role} from "../../../models/constants/Role";
 
 export class JwtModel {
 	_id: string;

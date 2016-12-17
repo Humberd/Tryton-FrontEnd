@@ -57,7 +57,8 @@
 				escapeToClose: true,
 				controller: controller,
 				locals: resolvers,
-				bindToController: true
+				bindToController: true,
+				controllerAs: "ctrl"
 			});
 		}
 	}

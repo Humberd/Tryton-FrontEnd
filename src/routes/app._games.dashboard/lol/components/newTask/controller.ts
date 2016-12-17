@@ -1,3 +1,13 @@
+// import {Controller} from "../../../../../utils/decorators/Controller";
+//
+// @Controller({
+//     module: "TrytonApp.Router.App._games.Dashboard",
+//     name: "newTaskController"
+// })
+// class NewTaskController {
+//     // foo = "dupa";
+// }
+
 (function() {
     "use strict";
 

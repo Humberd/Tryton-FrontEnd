@@ -27,6 +27,7 @@ class LolController {
 		this.Api.lol.getAllTasks()
 			.then((result) => {
 				this.templateTasksList = result;
+				console.log(this.templateTasksList);
 			})
 			.finally(() => {
 				this.Loader.stopLoading(this.taskListLoaderName);
@@ -37,10 +38,3 @@ class LolController {
 		this.Modal.newTask({templateTask})
 	}
 }
-//
-// (function () {
-// 	"use strict";
-//
-// 	angular.module("TrytonApp.Router.App._games.Dashboard")
-// 		.controller("LolController", LolController);
-// })();
