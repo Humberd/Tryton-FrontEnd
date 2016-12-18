@@ -16,7 +16,7 @@
 				}
 
 				if (apiHostName === requestHostname) {
-					Logger.info("Request url: %s is under domain of Api Url: %s. Adding Authorization header",
+					Logger.debug("Request url: %s is under domain of Api Url: %s. Adding Authorization header",
 						config.url,
 						RawApiUrl);
 

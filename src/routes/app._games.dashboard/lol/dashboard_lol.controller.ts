@@ -13,7 +13,6 @@ class LolController {
 				private Loader,
 				private $timeout: ITimeoutService) {
 		this.downloadTemplateTasksList();
-		console.log("hello");
 	}
 
 	private downloadTemplateTasksList() {

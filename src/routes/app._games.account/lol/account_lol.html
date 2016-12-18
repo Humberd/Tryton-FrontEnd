@@ -1,1 +1,27 @@
-<div>LOL ACCOUNT</div>
+<div>
+	<div class="disconnected-state">
+		<div>
+			You don't have a summoner connected to your account.
+		</div>
+		<form>
+			<div>
+				<md-input-container>
+					<label>Summoner Name</label>
+					<input type="text"
+						   ng-required="true"/>
+				</md-input-container>
+			</div>
+			<div>
+				<md-input-container>
+					<label>Summoner Name</label>
+					<md-select ng-model="d" ng-required="true">
+						<md-option ng-repeat="region in ctrl.regions"
+								   ng-value="region">
+							{{region}}
+						</md-option>
+					</md-select>
+				</md-input-container>
+			</div>
+		</form>
+	</div>
+</div>
