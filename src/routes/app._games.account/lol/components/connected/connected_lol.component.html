@@ -1,0 +1,61 @@
+<div id="connected-lol-component">
+	<div class="main-description">
+		<div>Here is your connected summoner to your account.</div>
+		<div>Note: You must first verify it.</div>
+	</div>
+	<div class="summoner-info">
+		<div class="info-line">
+			<div class="info-key">
+				Summoner Name
+			</div>
+			<div class="info-value">
+				{{ctrl.getLolAccount().details.summonerName}}
+			</div>
+		</div>
+		<div class="info-line">
+			<div class="info-key">
+				Region
+			</div>
+			<div class="info-value">
+				{{ctrl.getLolAccount().details.region}}
+			</div>
+		</div>
+		<div class="info-line">
+			<div class="info-key">
+				Connected On
+			</div>
+			<div class="info-value">
+				{{ctrl.getLolAccount().createdDate | date}}
+			</div>
+		</div>
+		<div class="info-line">
+			<div class="info-key">
+				Status
+			</div>
+			<div class="info-value">
+				<div class="status verified" ng-show="ctrl.getLolAccount().verified">
+					<div class="status-icon">
+						<i class="material-icons">check</i>
+					</div>
+					<div class="status-text">
+						Verified
+					</div>
+				</div>
+				<div class="status not-verified" ng-show="!ctrl.getLolAccount().verified">
+					<div class="status-icon">
+						<i class="material-icons">cancel</i>
+					</div>
+					<div class="status-text">
+						Not Verified
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="buttons">
+		<button class="mb mb-fill-red" ng-click="ctrl.disconnectLolAccountApi()">
+			Disconnect
+		</button>
+	</div>
+
+</div>
