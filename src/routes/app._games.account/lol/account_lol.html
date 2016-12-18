@@ -1,11 +1,9 @@
 <div id="account-lol">
-	<connected-lol-account get-lol-account="ctrl.getLolAccount()"
-						   disconnect-lol-account-local="ctrl.disconnectLolAccountLocal()"
+	<connected-lol-account methods="ctrl.connectedMethods"
 						   ng-show="ctrl.isConnectedState()">
 
 	</connected-lol-account>
-	<disconnected-lol-account get-lol-account="ctrl.getLolAccount()"
-							  connect-lol-account-local="ctrl.connectLolAccountLocalWrapper()"
+	<disconnected-lol-account methods="ctrl.disconnectedMethods"
 							  ng-show="ctrl.isDisconnectedState()">
 
 	</disconnected-lol-account>

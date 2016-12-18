@@ -1,18 +1,18 @@
 export class Regions {
 	values = {
-		BR: new Region("br"),
-		EUNE: new Region("eune"),
-		EUW: new Region("euw"),
-		JP: new Region("jp"),
-		KR: new Region("kr"),
-		LAS: new Region("las"),
-		LAN: new Region("lan"),
-		NA: new Region("na"),
-		OCE: new Region("oce"),
-		PBE: new Region("pbe", true),
-		RU: new Region("ru"),
-		TR: new Region("tr"),
-		GLOBAL: new Region("global", true),
+		BR: new Region("BR"),
+		EUNE: new Region("EUNE"),
+		EUW: new Region("EUW"),
+		JP: new Region("JP"),
+		KR: new Region("KR"),
+		LAS: new Region("LAS"),
+		LAN: new Region("LAN"),
+		NA: new Region("NA"),
+		OCE: new Region("OCE"),
+		PBE: new Region("PBE", true),
+		RU: new Region("RU"),
+		TR: new Region("TR"),
+		GLOBAL: new Region("GLOBAL", true),
 	};
 
 	public toShortList(): Array<string> {

@@ -1,16 +1,13 @@
 import {Api} from "../../../../../services/api/Api";
 import {LolGameAccount} from "../../models/LolGameAccount";
+import {LolAccountResponseModel} from "../../models/LolAccountResponseModel";
 
-abstract class BindedMethods {
-	protected getLolAccount(): LolGameAccount {
-		return;
-	}
-	protected disconnectLolAccountLocal(): void {
+export class ConnectedLolController{
+	methods: {
+		disconnectLolAccountLocal: () => void;
+		getAccountModel: () => LolAccountResponseModel;
+	};
 
-	}
-}
-
-export class ConnectedLolController extends BindedMethods {
 	constructor(private Api: Api) {
 
 	}
@@ -18,8 +15,22 @@ export class ConnectedLolController extends BindedMethods {
 	public disconnectLolAccountApi(): void {
 		this.Api.lol.disconnectAccount()
 			.then(response => {
-				this.disconnectLolAccountLocal();
+				this.methods.disconnectLolAccountLocal();
 			})
+	}
+
+	public getLolAccount(): LolGameAccount {
+		let accountModel = this.methods.getAccountModel();
+		if (accountModel) {
+			return accountModel.lolAccount;
+		}
+	}
+
+	public getMasteryPageName(): string {
+		let accountModel = this.methods.getAccountModel();
+		if (accountModel) {
+			return accountModel.masteryPageName;
+		}
 	}
 
 }

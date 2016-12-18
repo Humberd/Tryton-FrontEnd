@@ -13,8 +13,7 @@ import {DisconnectedLolController} from "./disconnected_lol.component";
 				return ViewUrl + "disconnected_lol.component.html";
 			},
 			bindings: {
-				getLolAccount: "&",
-				connectLolAccountLocal: "&"
+				methods: "<"
 			}
 		}
 	}

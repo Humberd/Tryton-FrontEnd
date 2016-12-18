@@ -1,17 +1,20 @@
 import IScope = angular.IScope;
 import {Api} from "../../../services/api/Api";
-import {LolGameAccount} from "./models/LolGameAccount";
 import {ViewState} from "./ViewState";
-import {MasteryPageNameLolResponseModel} from "./models/MasteryPageNameLolResponseModel";
+import {LolAccountResponseModel} from "./models/LolAccountResponseModel";
 
 class LolController {
-	lolAccount: LolGameAccount;
+	accountModel: LolAccountResponseModel;
 	viewState: ViewState = ViewState.INIT;
 
+	connectedMethods: Object;
+	disconnectedMethods: Object;
 
 	constructor(private $scope: IScope,
 				private Api: Api) {
 		this.downloadLolAccount();
+		this.generateConnectedMethods();
+		this.generateDisconnectedMethods();
 	}
 
 	public downloadLolAccount(): void {
@@ -28,24 +31,41 @@ class LolController {
 			});
 	}
 
-
-
-	public getLolAccount(): LolGameAccount | null {
-		return this.lolAccount;
+	private generateConnectedMethods(): void {
+		let self = this;
+		this.connectedMethods = {
+			getAccountModel: function () {
+				return self.getAccountModel.apply(self, arguments);
+			},
+			disconnectLolAccountLocal: function () {
+				return self.disconnectLolAccountLocal.apply(self, arguments);
+			}
+		};
 	}
 
-	public connectLolAccountLocal(lolAccount: LolGameAccount): void {
-		lolAccount.details.region = lolAccount.details.region.toUpperCase();
-		this.lolAccount = lolAccount;
+	private generateDisconnectedMethods(): void {
+		let self = this;
+		this.disconnectedMethods = {
+			getAccountModel: function () {
+				return self.getAccountModel.apply(self, arguments);
+			},
+			connectLolAccountLocal: function () {
+				return self.connectLolAccountLocal.apply(self, arguments);
+			}
+		}
+	}
+
+	public getAccountModel(): LolAccountResponseModel | null {
+		return this.accountModel;
+	}
+
+	public connectLolAccountLocal(lolAccount: LolAccountResponseModel): void {
+		this.accountModel = lolAccount;
 		this.viewState = ViewState.CONNECTED;
 	}
 
-	public connectLolAccountLocalWrapper(): Function {
-		return this.connectLolAccountLocal;
-	}
-
 	public disconnectLolAccountLocal(): void {
-		this.lolAccount = null;
+		this.accountModel = null;
 		this.viewState = ViewState.DISCONNECTED;
 	}
 
@@ -57,12 +77,15 @@ class LolController {
 	public isInitState(): boolean {
 		return this.viewState == ViewState.INIT;
 	}
+
 	public isDisconnectedState(): boolean {
 		return this.viewState == ViewState.DISCONNECTED;
 	}
+
 	public isConnectedState(): boolean {
 		return this.viewState == ViewState.CONNECTED;
 	}
+
 	public isErrorState(): boolean {
 		return this.viewState == ViewState.ERROR;
 	}

@@ -14,8 +14,7 @@ import {ConnectedLolController} from "./connected_lol.component.controller";
 				return ViewUrl + "connected_lol.component.html";
 			},
 			bindings: {
-				getLolAccount: "&",
-				disconnectLolAccountLocal: "&"
+				methods: "<"
 			}
 		}
 	}

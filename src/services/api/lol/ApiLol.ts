@@ -1,11 +1,10 @@
 import {AbstractApi} from "../AbstractApi";
 import {TaskLolDB} from "../../../routes/app._games.dashboard/lol/models/TaskLolDB";
-import IPromise = angular.IPromise;
 import {SubmitLolTaskRequestModel} from "../../../routes/app._games.dashboard/lol/components/newTask/models/SubmitLolTaskRequestModel";
-import {LolGameAccount} from "../../../routes/app._games.account/lol/models/LolGameAccount";
-import {MasteryPageNameLolResponseModel} from "../../../routes/app._games.account/lol/models/MasteryPageNameLolResponseModel";
 import {ConnectAccountLolRequestModel} from "../../../routes/app._games.account/lol/models/ConnectAccountLolRequestModel";
 import {ResponseMessage} from "../../../models/ResponseMessage";
+import {LolAccountResponseModel} from "../../../routes/app._games.account/lol/models/LolAccountResponseModel";
+import IPromise = angular.IPromise;
 
 export class ApiLol extends AbstractApi {
 	public getAllTasks(): IPromise<TaskLolDB[]> {
@@ -23,26 +22,21 @@ export class ApiLol extends AbstractApi {
 			.then(response => response.data);
 	}
 
-	public getAccount(): IPromise<LolGameAccount> {
+	public getAccount(): IPromise<LolAccountResponseModel> {
 		return this.get("accounts/lol/")
 			.then(response => response.data)
-			.then((account: LolGameAccount) => {
-				account.createdDate = new Date(account.createdDate);
+			.then((account: LolAccountResponseModel) => {
+				account.lolAccount.createdDate = new Date(account.lolAccount.createdDate);
 				return account;
 			})
 	}
 
-	public connectAccount(data: ConnectAccountLolRequestModel): IPromise<MasteryPageNameLolResponseModel> {
-		return this.post("accounts/lol/connect/")
+	public connectAccount(data: ConnectAccountLolRequestModel): IPromise<LolAccountResponseModel> {
+		return this.post("accounts/lol/connect/", data)
 			.then(response => response.data);
 	}
 
-	public getMasteryPageName(): IPromise<MasteryPageNameLolResponseModel> {
-		return this.get("accounts/lol/verify/masteryPageName/")
-			.then(response => response.data);
-	}
-
-	public verifyAccount(): IPromise<LolGameAccount> {
+	public verifyAccount(): IPromise<LolAccountResponseModel> {
 		return this.post("accounts/lol/verify/")
 			.then(response => response.data);
 	}

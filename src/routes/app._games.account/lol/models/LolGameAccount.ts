@@ -1,5 +1,3 @@
-import {Region} from "../../../../models/constants/Region";
-
 export interface LolGameAccount {
 	createdDate: Date;
 	verified: boolean;
