@@ -37,6 +37,7 @@
     "angular-mocks": "^1.5.8",
     "ngstorage": "^0.3.11",
     "clipboard": "^1.5.16",
-    "ngclipboard": "^1.1.1"
+    "ngclipboard": "^1.1.1",
+    "angular-timeago": "^0.4.4"
   }
 }

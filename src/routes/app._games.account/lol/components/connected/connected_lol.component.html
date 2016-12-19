@@ -83,7 +83,8 @@
 			Disconnect
 		</button>
 		<button class="mb mb-fill-blue" ng-click="ctrl.verifyLolAccountApi()"
-				ng-show="!ctrl.getLolAccount().verified">
+				ng-show="!ctrl.getLolAccount().verified"
+				ng-if="!ctrl.getLolAccount().verified">
 			Verify
 		</button>
 	</div>

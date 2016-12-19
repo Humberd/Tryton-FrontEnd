@@ -5,6 +5,7 @@ import {ConnectAccountLolRequestModel} from "../../../routes/app._games.account/
 import {ResponseMessage} from "../../../models/ResponseMessage";
 import {LolAccountResponseModel} from "../../../routes/app._games.account/lol/models/LolAccountResponseModel";
 import IPromise = angular.IPromise;
+import {LolGameTaskStatus} from "../../../models/constants/LolGameTaskStatus";
 
 export class ApiLol extends AbstractApi {
 	public getAllTasks(): IPromise<TaskLolDB[]> {
@@ -45,4 +46,11 @@ export class ApiLol extends AbstractApi {
 		return this.post("accounts/lol/disconnect/")
 			.then(response => response.data);
 	}
+
+	public getMyTasks(status?: LolGameTaskStatus): IPromise<Array<Object>> {
+		return this.get(`task/lol/my/?status=${status || ""}`)
+			.then(response => response.data);
+	}
+
+
 }
