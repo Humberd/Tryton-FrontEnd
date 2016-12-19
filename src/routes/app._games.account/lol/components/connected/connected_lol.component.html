@@ -1,7 +1,6 @@
-<div id="connected-lol-component">
+<div id="connected-lol-component" loader="connectedLolAccount">
 	<div class="main-description">
 		<div>Here is your connected summoner to your account.</div>
-		<div>Note: You must first verify it.</div>
 	</div>
 	<div class="summoner-info">
 		<div class="info-line">
@@ -52,9 +51,43 @@
 			</div>
 		</div>
 	</div>
+	<div class="verify-mastery-page-area" ng-if="!ctrl.getLolAccount().verified">
+		<!--<button ngclipboard data-clipboard-text="SIEMA">
+			Copy me
+		</button>-->
+		<div class="description-up">
+			<div>You need to prove that you summoner account belongs to you.</div>
+			<div>Name one of your Mastery Pages with the following code:</div>
+		</div>
+		<div class="code-area">
+			<div class="code-description">
+				Your code
+			</div>
+			<div class="code-value">
+				{{ctrl.getMasteryPageName()}}
+			</div>
+			<button class="copy-button mb mb-fill-blue"
+					ngclipboard data-clipboard-text="{{ctrl.getMasteryPageName()}}">
+				Copy
+			</button>
+		</div>
+		<div class="description-down">
+			<div>After that hit the Verify button below.</div>
+			<div>Note: It can take a couple of minutes to update your data.</div>
+		</div>
+	</div>
+	<div class="error-field">
+		{{ctrl.errorMessage}}
+	</div>
 	<div class="buttons">
-		<button class="mb mb-fill-red" ng-click="ctrl.disconnectLolAccountApi()">
+		<button class="mb mb-fill-red" ng-click="ctrl.disconnectLolAccountApi()"
+				confirm confirm-title="Disconnect the account"
+				confirm-desc="Are you sure you want to remove a connection with your League of Legends summoner? This process will cancel all in progress tasks.">
 			Disconnect
+		</button>
+		<button class="mb mb-fill-blue" ng-click="ctrl.verifyLolAccountApi()"
+				ng-show="!ctrl.getLolAccount().verified">
+			Verify
 		</button>
 	</div>
 

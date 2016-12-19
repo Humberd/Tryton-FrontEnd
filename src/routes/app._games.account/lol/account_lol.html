@@ -1,10 +1,12 @@
 <div id="account-lol">
 	<connected-lol-account methods="ctrl.connectedMethods"
-						   ng-show="ctrl.isConnectedState()">
+						   ng-show="ctrl.isConnectedState()"
+						   ng-if="ctrl.isConnectedState()">
 
 	</connected-lol-account>
 	<disconnected-lol-account methods="ctrl.disconnectedMethods"
-							  ng-show="ctrl.isDisconnectedState()">
+							  ng-show="ctrl.isDisconnectedState()"
+							  ng-if="ctrl.isDisconnectedState()">
 
 	</disconnected-lol-account>
 </div>

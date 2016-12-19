@@ -34,4 +34,49 @@
 			}
 		}
 	}
+	.verify-mastery-page-area {
+		display: flex;
+		flex-direction: column;
+		font-size: 0.9em;
+		.description-up {
+			margin-left: 7px;
+		}
+		.code-area {
+			display: flex;
+			align-items: center;
+			margin: 30px 20px;
+			.code-description {
+				margin-right: 20px;
+				&:after {
+					content: ':';
+				}
+			}
+			.code-value {
+				font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+				background-color: @global-background-color;
+				padding: 10px 20px;
+			}
+		}
+		.copy-button {
+			margin-left: 7px;
+		}
+		.description-down {
+			margin-left: 7px;
+			margin-bottom: 20px;
+		}
+	}
+	.error-field {
+		min-height: 30px;
+		margin-left: 7px;
+		margin-bottom: 15px;
+		color: #bf3d34;
+		font-size: 0.8em;
+	}
+	.buttons {
+		display: flex;
+		justify-content: space-between;
+		button {
+			font-size: 0.8em !important;
+		}
+	}
 }

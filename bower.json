@@ -35,6 +35,8 @@
     "angular-odometer-js": "^0.1.1",
     "flag-icon-css": "^2.4.0",
     "angular-mocks": "^1.5.8",
-    "ngstorage": "^0.3.11"
+    "ngstorage": "^0.3.11",
+    "clipboard": "^1.5.16",
+    "ngclipboard": "^1.1.1"
   }
 }

@@ -53,6 +53,8 @@ var jsLibraries = ["angular/angular.js",
 	"angular-odometer-js/dist/angular-odometer.min.js",
 	"ngstorage/ngStorage.min.js",
 	"moment/min/moment-with-locales.js",
+	"clipboard/dist/clipboard.min.js",
+	"ngclipboard/dist/ngclipboard.min.js"
 ];
 
 var cssLibraries = ["bootstrap/dist/css/bootstrap.min.css",
