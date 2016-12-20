@@ -3,20 +3,17 @@ import {Api} from "../../../services/api/Api";
 import IScope = angular.IScope;
 import ITimeoutService = angular.ITimeoutService;
 import {LolGameTaskStatus} from "../../../models/constants/LolGameTaskStatus";
-
-class Helpers {
-	public calculateProgress(obj: any): number {
-		let wanted = obj.settings.times.value;
-		let made = wanted - obj.progress.remainingCompletions;
-		return made / wanted * 100;
-	}
-}
+import {ViewHelpers} from "./ViewHelpers";
 
 class LolController {
 	readonly templateTasksListLoaderName = "lolDashboardTemplateTasksList";
 	readonly myTasksListLoaderName = "lolDashboardMyTasksList";
 
-	readonly helpers: Helpers = new Helpers();
+	readonly statusList: any = LolGameTaskStatus;
+	selectedStatus = LolGameTaskStatus.IN_PROGRESS;
+
+	readonly helpers: ViewHelpers = new ViewHelpers();
+	// readonly
 
 	templateTasksList: Array<TaskLolDB>;
 	myTasksList: Array<Object>;
@@ -27,7 +24,7 @@ class LolController {
 				private Loader,
 				private $timeout: ITimeoutService) {
 		this.downloadTemplateTasksList();
-		this.downloadMyTasksList();
+		this.downloadMyTasksList(this.selectedStatus);
 	}
 
 	private downloadTemplateTasksList(): void {
@@ -43,14 +40,14 @@ class LolController {
 			})
 	}
 
-	private downloadMyTasksList(): void {
+	public downloadMyTasksList(status: LolGameTaskStatus): void {
+		console.log(status);
 		this.myTasksList = null;
 		this.Loader.startLoadingEventually(this.myTasksListLoaderName);
 
-		this.Api.lol.getMyTasks(LolGameTaskStatus.IN_PROGRESS)
+		this.Api.lol.getMyTasks(status)
 			.then((result) => {
 				this.myTasksList = result;
-				console.log(result);
 			})
 			.finally(() => {
 				this.Loader.stopLoading(this.myTasksListLoaderName);

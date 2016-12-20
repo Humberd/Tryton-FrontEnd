@@ -2,11 +2,29 @@
 	<div id="panel">
 		<div class="center-panel" loader="{{::ctrl.myTasksListLoaderName}}">
 			<div class="head-bar">
-				<div>
-				</div>
-				<button class="save-button mb mb-fill-blue" confirm>
-					SAVE
+				<button class="mb mb-fill-blue" confirm>
+					Verify Your Games
 				</button>
+				<div class="options">
+					<div class="status">
+						<div class="status-name">
+							Status
+						</div>
+						<md-input-container class="status-dropdown">
+							<md-select ng-model="ctrl.selectedStatus"
+									   ng-change="ctrl.downloadMyTasksList(ctrl.selectedStatus)"
+									   aria-label="Select status from toe list to filter the results">
+								<md-option ng-repeat="status in ctrl.statusList"
+										   ng-value="status">
+									{{status}}
+								</md-option>
+							</md-select>
+						</md-input-container>
+					</div>
+					<div class="">
+
+					</div>
+				</div>
 			</div>
 			<div class="task-list" ng-repeat="myTask in ctrl.myTasksList">
 				<div class="task">
@@ -21,6 +39,9 @@
 							</div>
 						</div>
 					</div>
+					<div class="task-status">
+						{{myTask.status}}
+					</div>
 					<div class="task-progress">
 						<div class="progress-stars">
 							<div class="glyphicon glyphicon-star"></div>
@@ -33,8 +54,19 @@
 							{{ctrl.helpers.calculateProgress(myTask)}}% progress
 						</div>
 					</div>
-					<div class="task-left">
-						{{myTask.progress.remainingCompletions}} matches left
+					<div class="task-time-left">
+						<div ng-show="myTask.progress.remainingMatches >= 0">
+							{{myTask.progress.remainingMatches}} matches left
+						</div>
+						<div ng-show="myTask.progress.finishDate"
+							 class="date-left">
+							<div>
+								{{myTask.settings.timeout.value}} hours - until
+							</div>
+							<div>
+								{{myTask.progress.finishDate | date:"short"}}
+							</div>
+						</div>
 					</div>
 					<div class="right-side">
 						<div class="task-points">

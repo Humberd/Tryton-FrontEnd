@@ -1,5 +1,5 @@
 #dashboard {
-	margin-top: 10px;
+	//margin-top: 10px;
 	#panel {
 		display: flex;
 		flex-direction: row;
@@ -8,13 +8,31 @@
 			display: flex;
 			flex-direction: column;
 			.head-bar {
+				font-size: 1.4em;
 				display: flex;
 				align-items: center;
 				justify-content: space-between;
 				min-height: 60px;
 				border-bottom: 1px solid grey;
-				.save-button {
-					margin-right: 15px;
+				padding: 0 15px;
+				.options {
+					display: flex;
+					.status {
+						display: flex;
+						align-items: center;
+						.status-name {
+							margin-right: 6px;
+							&:after {
+								content: ":";
+							}
+						}
+						.status-dropdown {
+							.md-text {
+								color: @global-color;
+							}
+						}
+					}
+
 				}
 			}
 			.task-list {
@@ -59,6 +77,9 @@
 							font-style: italic;
 						}
 					}
+					.task-status {
+						font-size: 1.2em;
+					}
 					.task-progress {
 						display: flex;
 						flex-direction: column;
@@ -66,12 +87,17 @@
 						width: 150px;
 						font-size: 1.2em;
 					}
-					.task-left {
+					.task-time-left {
 						display: flex;
 						flex-direction: column;
 						align-items: center;
 						width: 150px;
 						font-size: 1.2em;
+						.date-left {
+							display: flex;
+							flex-direction: column;
+							align-items: center;
+						}
 					}
 					.task-points {
 						display: flex;
