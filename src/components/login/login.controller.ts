@@ -14,7 +14,7 @@ import {Api} from "../../services/api/Api";
 		$scope.login = function (loginForm) {
 			Loader.startLoading("loginLoader");
 
-			Api.general.postLogin($scope.formData)
+			Api.general.login($scope.formData)
 				.then((response) => {
 					$mdDialog.hide(response);
 				})

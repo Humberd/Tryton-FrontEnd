@@ -24,7 +24,7 @@ import {Api} from "../../services/api/Api";
 
 			Loader.startLoading("registerLoader");
 
-			Api.general.postRegister(registerModel)
+			Api.general.register(registerModel)
 				.then((response) => {
 					$mdDialog.hide(response);
 				})

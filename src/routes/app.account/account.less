@@ -1,0 +1,39 @@
+@account-border-color: darken(@global-color, 45%);
+@account-border: 1px solid @account-border-color;
+
+#account {
+	display: flex;
+	flex-direction: row;
+	margin: 30px 40px 30px 40px;
+	font-size: 1.2em;
+	.settings-list {
+		display: flex;
+		flex-direction: column;
+		align-self: flex-start;
+
+		min-width: 300px;
+		margin-right: 40px;
+		border: 1px solid darken(@global-color, 40%);
+		border-radius: 3px;
+		.setting-item {
+			font-size: 1.2em;
+			padding: 10px 20px;
+			.noselect();
+			cursor: default;
+
+			color: #4c9cca;
+
+			&:not(:last-child) {
+				border-bottom: @account-border;
+			}
+			&:hover:not(.current-state) {
+				background-color: @account-border-color;
+				cursor: pointer;
+			}
+			&.current-state {
+				color: inherit;
+				border-left: 3px solid #8f4f00;
+			}
+		}
+	}
+}
