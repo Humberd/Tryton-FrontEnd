@@ -41,7 +41,6 @@ class LolController {
 	}
 
 	public downloadMyTasksList(status: LolGameTaskStatus): void {
-		console.log(status);
 		this.myTasksList = null;
 		this.Loader.startLoadingEventually(this.myTasksListLoaderName);
 

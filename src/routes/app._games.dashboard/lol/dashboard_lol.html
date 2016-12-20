@@ -58,14 +58,8 @@
 						<div ng-show="myTask.progress.remainingMatches >= 0">
 							{{myTask.progress.remainingMatches}} matches left
 						</div>
-						<div ng-show="myTask.progress.finishDate"
-							 class="date-left">
-							<div>
-								{{myTask.settings.timeout.value}} hours - until
-							</div>
-							<div>
-								{{myTask.progress.finishDate | date:"short"}}
-							</div>
+						<div ng-show="myTask.progress.finishDate">
+							{{myTask.progress.finishDate | timeAgo}}
 						</div>
 					</div>
 					<div class="right-side">
