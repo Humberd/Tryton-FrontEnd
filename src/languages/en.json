@@ -9,6 +9,9 @@
             "DASHBOARD": "Dashboard",
             "ACCOUNT": "Account"
         },
+        "ACCOUNT-PILLS": {
+            "PASSWORD": "Change Password"
+        },
         "FAQ": "FAQ"
     },
     "MODALS": {

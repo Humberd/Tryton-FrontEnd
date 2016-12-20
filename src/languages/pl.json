@@ -9,6 +9,9 @@
             "DASHBOARD": "Panel główny",
             "ACCOUNT": "Konto"
         },
+        "ACCOUNT-PILLS": {
+            "PASSWORD": "Zmień Hasło"
+        },
         "FAQ": "FAQ"
     },
     "MODALS": {

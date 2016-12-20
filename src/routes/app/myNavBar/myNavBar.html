@@ -141,6 +141,23 @@
 					<div class="my-nav-bar-column-item-name">
 						{{Session.getUsername()}}
 					</div>
+					<div class="dropdown-icon">
+						<i class="material-icons">arrow_drop_down</i>
+					</div>
+				</div>
+				<div class="my-nav-bar-column-item-content">
+					<div class="items">
+						<div class="item"
+							 ui-sref="app.account.password"
+							 fold-on-click>
+							<div class="icon">
+								<i class="material-icons">security</i>
+							</div>
+							<div class="name">
+								{{"USER-NAV-BAR.ACCOUNT-PILLS.PASSWORD" | translate}}
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 			<div class="my-nav-bar-column-item" ng-click="logout()">
