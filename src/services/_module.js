@@ -1,8 +1,15 @@
 (function () {
     "use strict";
 
-    angular.module("TrytonApp.Services", ["TrytonApp.Storage", "TrytonApp.ScriptLoader", "TrytonApp.Api", "TrytonApp.Authentication",
-		"TrytonApp.Experience", "TrytonApp.Logger", "TrytonApp.Modal", "TrytonApp.SelectedGame",
+    angular.module("TrytonApp.Services", [
+    	"TrytonApp.Storage",
+		"TrytonApp.ScriptLoader",
+		"TrytonApp.Api",
+		"TrytonApp.Authentication",
+		"TrytonApp.Experience",
+		"TrytonApp.Logger",
+		"TrytonApp.Modal",
+		"TrytonApp.SelectedGame",
 		"TrytonApp.Session"
 	]);
 })();

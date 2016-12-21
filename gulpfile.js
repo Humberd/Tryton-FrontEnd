@@ -55,7 +55,8 @@ var jsLibraries = ["angular/angular.js",
 	"moment/min/moment-with-locales.js",
 	"clipboard/dist/clipboard.min.js",
 	"ngclipboard/dist/ngclipboard.min.js",
-	"angular-timeago/dist/angular-timeago.min.js"
+	"angular-timeago/dist/angular-timeago.min.js",
+	"angular-messages/angular-messages.min.js"
 ];
 
 var cssLibraries = ["bootstrap/dist/css/bootstrap.min.css",
