@@ -28,6 +28,16 @@
             "TOS": "Terms of Service"
         }
     },
+    "TOAST": {
+        "CLOSE": "CLOSE"
+    },
+    "ACCOUNT": {
+        "PASSWORD": {
+            "TOAST": {
+                "SUCCESS": "Password changed."
+            }
+        }
+    },
     "USERNAME": "Username",
     "EMAIL": "Email",
     "PASSWORD": "Password",

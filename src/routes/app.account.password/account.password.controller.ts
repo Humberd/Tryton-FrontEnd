@@ -1,6 +1,7 @@
 import {Api} from "../../services/api/Api";
 import {ChangePasswordRequestModel} from "./models/ChangePasswordRequestModel";
 import IFormController = angular.IFormController;
+
 class PasswordController {
 	readonly loaderName = "changePasswordLoader";
 	readonly changeForm: IFormController;
@@ -11,8 +12,8 @@ class PasswordController {
 	constructor(private Loader,
 				private Api: Api,
 				private Logger,
-				private $mdToast) {
-		this.$mdToast.show(this.$mdToast.simple().textContent('Hello!'));
+				private Toast,
+				private $translate) {
 	}
 
 	public changePassword(): void {
@@ -21,6 +22,7 @@ class PasswordController {
 		this.Api.general.changePassword(this.model)
 			.then((response) => {
 				this.clearForm();
+				this.Toast.success(this.$translate.instant("ACCOUNT.PASSWORD.TOAST.SUCCESS"));
 			})
 			.catch((err) => {
 				this.Logger.error("%o", err);

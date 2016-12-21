@@ -1,35 +1,45 @@
 {
-    "APP-NAME": "Tryton",
-    "USER-NAV-BAR": {
-        "LOGIN": "Zaloguj",
-        "REGISTER": "Zarejestruj",
-        "LOGOUT": "Wyloguj",
-        "MANAGE": "Zarządzaj",
-        "MANAGE-PILLS": {
-            "DASHBOARD": "Panel główny",
-            "ACCOUNT": "Konto"
-        },
-        "ACCOUNT-PILLS": {
-            "SETTINGS": "Ustawienia"
-        },
-        "FAQ": "FAQ"
-    },
-    "MODALS": {
-        "LOGIN": {
-            "LOGIN": "@:USER-NAV-BAR.LOGIN",
-            "FORGOT-PASSWORD": "Nie pamiętasz hasła?",
-            "RESET-PASSWORD": "Zresetuj hasło",
-            "NO-ACCOUNT": "Nie masz jeszcze konta?"
-        },
-        "REGISTER": {
-            "REGISTER": "@:USER-NAV-BAR.REGISTER",
-            "HAVE-ACCOUNT": "Masz już konto?",
-            "ACCEPT-TOS": "Rejestrując się akceptujesz ",
-            "TOS": "Regulamin"
-        }
-    },
-    "USERNAME": "Username",
-    "EMAIL": "Email",
-    "PASSWORD": "Hasło",
-    "REPEAT-PASSWORD": "Powtórz hasło"
+	"APP-NAME": "Tryton",
+	"USER-NAV-BAR": {
+		"LOGIN": "Zaloguj",
+		"REGISTER": "Zarejestruj",
+		"LOGOUT": "Wyloguj",
+		"MANAGE": "Zarządzaj",
+		"MANAGE-PILLS": {
+			"DASHBOARD": "Panel główny",
+			"ACCOUNT": "Konto"
+		},
+		"ACCOUNT-PILLS": {
+			"SETTINGS": "Ustawienia"
+		},
+		"FAQ": "FAQ"
+	},
+	"MODALS": {
+		"LOGIN": {
+			"LOGIN": "@:USER-NAV-BAR.LOGIN",
+			"FORGOT-PASSWORD": "Nie pamiętasz hasła?",
+			"RESET-PASSWORD": "Zresetuj hasło",
+			"NO-ACCOUNT": "Nie masz jeszcze konta?"
+		},
+		"REGISTER": {
+			"REGISTER": "@:USER-NAV-BAR.REGISTER",
+			"HAVE-ACCOUNT": "Masz już konto?",
+			"ACCEPT-TOS": "Rejestrując się akceptujesz ",
+			"TOS": "Regulamin"
+		}
+	},
+	"TOAST": {
+		"CLOSE": "Zamknij"
+	},
+	"ACCOUNT": {
+		"PASSWORD": {
+			"TOAST": {
+				"SUCCESS": "Hasło zostało zmienione."
+			}
+		}
+	},
+	"USERNAME": "Username",
+	"EMAIL": "Email",
+	"PASSWORD": "Hasło",
+	"REPEAT-PASSWORD": "Powtórz hasło"
 }
