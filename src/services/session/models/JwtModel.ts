@@ -1,24 +1,29 @@
 import {Role} from "../../../models/constants/Role";
 
 export class JwtModel {
-	_id: string;
+	tokenId: string;
+	userId: string;
 	username: string;
 	expirationDate: Date;
 	role: Role;
 	rawToken: string;
+
+	private constructor() {
+
+	}
 
 	public static decodeRawToken = (rawToken: string): JwtModel => {
 		let dataStringEncoded = rawToken.split(".")[1];
 		let dataStringDecoded = atob(dataStringEncoded);
 		let dataObject = JSON.parse(dataStringDecoded);
 
-		let jwtModel = new JwtModel();
-		jwtModel._id = dataObject.jti;
-		jwtModel.username = dataObject.sub;
-		jwtModel.role = Role[dataObject.role];
-		jwtModel.expirationDate = new Date(dataObject.exp * 1000);
-		jwtModel.rawToken = rawToken;
-
-		return jwtModel;
+		return {
+			tokenId: dataObject.jti,
+			userId: dataObject.subId,
+			username: dataObject.sub,
+			expirationDate: new Date(dataObject.exp * 1000),
+			role: Role[dataObject.role],
+			rawToken: rawToken
+		};
 	};
 }
