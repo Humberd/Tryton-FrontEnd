@@ -41,8 +41,8 @@
 	"_GAMES": {
 		"ACCOUNT": {
 			"DISCONNECTED": {
-				"HEADER-1": "Twoje konto nie jest obecnie połączone z żadnym Przywoływaczem.",
-				"HEADER-2": "Aby rozpocząć proces weryfikacji wprowadź jego dane.",
+				"HEADER-1": "Nie posiadasz połączenia z żadnym kontem League of Legends.",
+				"HEADER-2": "Aby rozpocząć proces wprowadź dane Przywoływacza.",
 				"SUMMONER-NAME": "Nazwa Przywoływacza",
 				"REGION": "Region",
 				"CONNECT": "Połącz"
@@ -52,5 +52,8 @@
 	"USERNAME": "Username",
 	"EMAIL": "Email",
 	"PASSWORD": "Hasło",
-	"REPEAT-PASSWORD": "Powtórz hasło"
+	"REPEAT-PASSWORD": "Powtórz hasło",
+	"DEFAULT-VALIDATOR-MESSAGES": {
+		"REQUIRED": "To pole jest wymagane!"
+	}
 }

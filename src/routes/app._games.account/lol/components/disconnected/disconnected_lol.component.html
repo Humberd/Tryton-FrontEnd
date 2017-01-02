@@ -1,7 +1,7 @@
 <div id="disconnected-lol-component">
 	<div class="main-description">
 		<div>{{"_GAMES.ACCOUNT.DISCONNECTED.HEADER-1" | translate}}</div>
-		<div class="space">{{"_GAMES.ACCOUNT.DISCONNECTED.HEADER-2" | translate}}</div>
+		<div class="space smaller">{{"_GAMES.ACCOUNT.DISCONNECTED.HEADER-2" | translate}}</div>
 	</div>
 	<md-content md-theme="forms-dark">
 		<form class="connect-form" name="ctrl.connectForm"
@@ -19,7 +19,7 @@
 						   ng-model="ctrl.model.summonerName"
 						   ng-required="true"/>
 					<div ng-messages="ctrl.connectForm.summonerName.$error">
-						<div ng-message="required">This is required!</div>
+						<div ng-message="required">{{"DEFAULT-VALIDATOR-MESSAGES.REQUIRED" | translate}}</div>
 					</div>
 				</md-input-container>
 			</div>
@@ -35,7 +35,7 @@
 						</md-option>
 					</md-select>
 					<div ng-messages="ctrl.connectForm.region.$error">
-						<div ng-message="required">This is required!</div>
+						<div ng-message="required">{{"DEFAULT-VALIDATOR-MESSAGES.REQUIRED" | translate}}</div>
 					</div>
 				</md-input-container>
 			</div>

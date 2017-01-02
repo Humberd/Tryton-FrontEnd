@@ -52,5 +52,8 @@
     "USERNAME": "Username",
     "EMAIL": "Email",
     "PASSWORD": "Password",
-    "REPEAT-PASSWORD": "Repeat password"
+    "REPEAT-PASSWORD": "Repeat password",
+    "DEFAULT-VALIDATOR-MESSAGES": {
+        "REQUIRED": "This field is required!"
+    }
 }
