@@ -38,6 +38,17 @@
 			}
 		}
 	},
+	"_GAMES": {
+		"ACCOUNT": {
+			"DISCONNECTED": {
+				"HEADER-1": "Twoje konto nie jest obecnie połączone z żadnym Przywoływaczem.",
+				"HEADER-2": "Aby rozpocząć proces weryfikacji wprowadź jego dane.",
+				"SUMMONER-NAME": "Nazwa Przywoływacza",
+				"REGION": "Region",
+				"CONNECT": "Połącz"
+			}
+		}
+	},
 	"USERNAME": "Username",
 	"EMAIL": "Email",
 	"PASSWORD": "Hasło",

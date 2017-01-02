@@ -1,41 +1,86 @@
 <div id="disconnected-lol-component">
 	<div class="main-description">
-		<div>You don't have a summoner connected to your account.</div>
-		<div class="space">Please enter your summoner info in order to start the verification process.</div>
+		<div>{{"_GAMES.ACCOUNT.DISCONNECTED.HEADER-1" | translate}}</div>
+		<div class="space">{{"_GAMES.ACCOUNT.DISCONNECTED.HEADER-2" | translate}}</div>
 	</div>
-	<form class="content" name="summonerForm"
-		  ng-submit="ctrl.connectLolAccountApi(summonerForm)"
-		  loader="disconnectedSummonerForm"
-		  novalidate>
-		<div id="summoner-form">
+	<md-content md-theme="forms-dark">
+		<form class="connect-form" name="ctrl.connectForm"
+			  loader="{{::ctrl.loaderName}}"
+			  ng-submit="ctrl.connectForm.$valid && ctrl.connectLolAccount()"
+			  novalidate>
 			<div class="error-field">
 				{{ctrl.errorMessage}}
 			</div>
-			<div class="field">
+			<div class="summoner-name-input input-container">
 				<md-input-container>
-					<label>Summoner Name</label>
+					<label>{{"_GAMES.ACCOUNT.DISCONNECTED.SUMMONER-NAME" | translate}}</label>
 					<input type="text"
-						   ng-model="ctrl.data.summonerName"
+						   name="summonerName"
+						   ng-model="ctrl.model.summonerName"
 						   ng-required="true"/>
+					<div ng-messages="ctrl.connectForm.summonerName.$error">
+						<div ng-message="required">This is required!</div>
+					</div>
 				</md-input-container>
 			</div>
-			<div class="field">
+			<div class="region-input input-container">
 				<md-input-container>
-					<label>Region</label>
-					<md-select ng-model="ctrl.data.region" ng-required="true">
+					<label>{{"_GAMES.ACCOUNT.DISCONNECTED.REGION" | translate}}</label>
+					<md-select name="region"
+							   ng-model="ctrl.model.region"
+							   ng-required="true">
 						<md-option ng-repeat="region in ctrl.regions"
 								   ng-value="region">
 							{{region}}
 						</md-option>
 					</md-select>
+					<div ng-messages="ctrl.connectForm.region.$error">
+						<div ng-message="required">This is required!</div>
+					</div>
 				</md-input-container>
 			</div>
-		</div>
-		<div class="buttons">
-			<button type="submit" class="mb mb-fill-green"
-					ng-disabled="summonerForm.$invalid">
-				Connect
-			</button>
-		</div>
-	</form>
+			<div class="buttons">
+				<button type="submit" class="mb mb-fill-green">
+					{{"_GAMES.ACCOUNT.DISCONNECTED.CONNECT" | translate}}
+				</button>
+			</div>
+		</form>
+
+
+		<!--<form class="content" name="summonerForm"
+			  ng-submit="ctrl.connectLolAccountApi(summonerForm)"
+			  loader="disconnectedSummonerForm"
+			  novalidate>
+			<div id="summoner-form">
+				<div class="error-field">
+					{{ctrl.errorMessage}}
+				</div>
+				<div class="field">
+					<md-input-container>
+						<label>{{"_GAMES.ACCOUNT.DISCONNECTED.SUMMONER-NAME" | translate}}</label>
+						<input type="text"
+							   ng-model="ctrl.data.summonerName"
+							   ng-required="true"/>
+					</md-input-container>
+				</div>
+				<div class="field">
+					<md-input-container>
+						<label>{{"_GAMES.ACCOUNT.DISCONNECTED.REGION" | translate}}</label>
+						<md-select ng-model="ctrl.data.region" ng-required="true">
+							<md-option ng-repeat="region in ctrl.regions"
+									   ng-value="region">
+								{{region}}
+							</md-option>
+						</md-select>
+					</md-input-container>
+				</div>
+			</div>
+			<div class="buttons">
+				<button type="submit" class="mb mb-fill-green"
+						ng-disabled="summonerForm.$invalid">
+					{{"_GAMES.ACCOUNT.DISCONNECTED.CONNECT" | translate}}
+				</button>
+			</div>
+		</form>-->
+	</md-content>
 </div>

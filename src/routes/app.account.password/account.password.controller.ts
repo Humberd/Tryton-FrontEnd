@@ -17,21 +17,20 @@ class PasswordController {
 	}
 
 	public changePassword(): void {
-		this.clearForm();
-		// this.Loader.startLoading(this.loaderName);
+		this.Loader.startLoading(this.loaderName);
 
-		// this.Api.general.changePassword(this.model)
-		// 	.then((response) => {
-		// 		this.clearForm();
-		// 		this.Toast.success(this.$translate.instant("ACCOUNT.PASSWORD.TOAST.SUCCESS"));
-		// 	})
-		// 	.catch((err) => {
-		// 		this.Logger.error("%o", err);
-		// 		this.errorMessage = err.data.message;
-		// 	})
-		// 	.finally(() => {
-		// 		this.Loader.stopLoading(this.loaderName);
-		// 	})
+		this.Api.general.changePassword(this.model)
+			.then((response) => {
+				this.clearForm();
+				this.Toast.success(this.$translate.instant("ACCOUNT.PASSWORD.TOAST.SUCCESS"));
+			})
+			.catch((err) => {
+				this.Logger.error("%o", err);
+				this.errorMessage = err.data.message;
+			})
+			.finally(() => {
+				this.Loader.stopLoading(this.loaderName);
+			})
 	}
 
 	private clearForm(): void {

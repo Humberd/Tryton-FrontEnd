@@ -10,31 +10,28 @@ export class DisconnectedLolController {
 		getAccountModel: () => LolAccountResponseModel;
 	};
 	readonly loaderName = "disconnectedSummonerForm";
+	readonly connectForm: IFormController;
 
 	regions = new Regions().toList();
-	data: ConnectAccountLolRequestModel;
+	model: ConnectAccountLolRequestModel;
 	errorMessage: string;
 
 	constructor(private Api: Api,
 				private Loader,
 				private Logger) {
-		this.clearData();
 	}
 
-	public connectLolAccountApi(summonerForm: IFormController): void {
-		if (summonerForm.$invalid) {
-			return;
-		}
+	public connectLolAccount(): void {
 		this.Loader.startLoading(this.loaderName);
-		this.Api.lol.connectAccount(this.data)
+
+		this.Api.lol.connectAccount(this.model)
 			.then((response) => {
+				this.clearForm();
 				this.methods.connectLolAccountLocal(response);
-				this.clearData();
 			})
-			.catch((response) => {
-				console.log(response);
-				this.Logger.error("%o", response);
-				this.errorMessage = response.data.message;
+			.catch((err) => {
+				this.Logger.error("%o", err);
+				this.errorMessage = err.data.message;
 			})
 			.finally(() => {
 				this.Loader.stopLoading(this.loaderName);
@@ -42,8 +39,8 @@ export class DisconnectedLolController {
 	}
 
 
-	public clearData(): void {
-		this.data = new ConnectAccountLolRequestModel();
+	public clearForm(): void {
+		this.model = new ConnectAccountLolRequestModel();
 		this.errorMessage = null;
 	}
 }

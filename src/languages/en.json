@@ -38,6 +38,17 @@
             }
         }
     },
+    "_GAMES": {
+        "ACCOUNT": {
+            "DISCONNECTED": {
+                "HEADER-1": "You don't have a summoner connected to your account.",
+                "HEADER-2": "Please enter your summoner info in order to start the verification process.",
+                "SUMMONER-NAME": "Summoner Name",
+                "REGION": "Region",
+                "CONNECT": "Connect"
+            }
+        }
+    },
     "USERNAME": "Username",
     "EMAIL": "Email",
     "PASSWORD": "Password",

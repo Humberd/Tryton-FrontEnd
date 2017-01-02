@@ -1,38 +1,44 @@
 #disconnected-lol-component {
 	display: flex;
 	flex-direction: column;
-	.content {
-		#summoner-form {
+	md-content {
+		.connect-form {
 			display: flex;
 			flex-direction: column;
-			align-items: center;
-			margin: 30px 0;
-			padding: 15px 15px 65px 15px;
-			background-color: #799898;
+
 			font-size: 0.8em;
-			.field {
+			background-color: @global-background-color;
+			padding: 20px 40px 40px 40px;
+
+			.input-container {
+				//width: 400px;
 				md-input-container {
-					width: 400px;
-					md-select {
-						.md-text {
-							color: rgba(0, 0, 0, 0.87);
-						}
+					width: 100%;
+					.md-input-message-animation {
+						font-size: 0.75em;
 					}
 				}
 			}
+			.buttons {
+				display: flex;
+				flex-direction: row-reverse;
+				button {
+					font-size: inherit;
+				}
+			}
 			.error-field {
-				align-self: flex-start;
-				height: 30px;
-				margin-bottom: 15px;
-				color: #bf3d34;
+				font-size: 1.1em;
+				min-height: 32px;
+				overflow: hidden;
+				-webkit-transition: all .3s cubic-bezier(.55, 0, .55, .2);
+				transition: all .3s cubic-bezier(.55, 0, .55, .2);
+				opacity: 1;
+				margin-top: 0;
+				margin-bottom: 10px;
+				padding-top: 5px;
+				color: rgb(221, 44, 0);
 			}
 		}
-		.buttons{
-			display: flex;
-			justify-content: flex-end;
-			button {
-				font-size: 0.8em !important;
-			}
-		}
+
 	}
 }
