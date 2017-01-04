@@ -1,11 +1,11 @@
 <div id="connected-lol-component" loader="connectedLolAccount">
 	<div class="main-description">
-		<div>Here is your connected summoner to your account.</div>
+		<div>{{"_GAMES.ACCOUNT.CONNECTED.HEADER-1" | translate}}</div>
 	</div>
 	<div class="summoner-info">
 		<div class="info-line">
 			<div class="info-key">
-				Summoner Name
+				{{"_GAMES.ACCOUNT.CONNECTED.SUMMONER-NAME" | translate}}
 			</div>
 			<div class="info-value">
 				{{ctrl.getLolAccount().details.summonerName}}
@@ -13,7 +13,7 @@
 		</div>
 		<div class="info-line">
 			<div class="info-key">
-				Region
+				{{"_GAMES.ACCOUNT.CONNECTED.REGION" | translate}}
 			</div>
 			<div class="info-value">
 				{{ctrl.getLolAccount().details.region}}
@@ -21,7 +21,7 @@
 		</div>
 		<div class="info-line">
 			<div class="info-key">
-				Connected On
+				{{"_GAMES.ACCOUNT.CONNECTED.CONNECT-DATE" | translate}}
 			</div>
 			<div class="info-value">
 				{{ctrl.getLolAccount().createdDate | date}}
@@ -29,7 +29,7 @@
 		</div>
 		<div class="info-line">
 			<div class="info-key">
-				Status
+				{{"_GAMES.ACCOUNT.CONNECTED.STATUS.LABEL" | translate}}
 			</div>
 			<div class="info-value">
 				<div class="status verified" ng-show="ctrl.getLolAccount().verified">
@@ -37,7 +37,7 @@
 						<i class="material-icons">check</i>
 					</div>
 					<div class="status-text">
-						Verified
+						{{"_GAMES.ACCOUNT.CONNECTED.STATUS.VERIFIED" | translate}}
 					</div>
 				</div>
 				<div class="status not-verified" ng-show="!ctrl.getLolAccount().verified">
@@ -45,7 +45,7 @@
 						<i class="material-icons">cancel</i>
 					</div>
 					<div class="status-text">
-						Not Verified
+						{{"_GAMES.ACCOUNT.CONNECTED.STATUS.NOT-VERIFIED" | translate}}
 					</div>
 				</div>
 			</div>
@@ -53,24 +53,24 @@
 	</div>
 	<div class="verify-mastery-page-area" ng-if="!ctrl.getLolAccount().verified">
 		<div class="description-up">
-			<div>You need to prove that you summoner account belongs to you.</div>
-			<div>Name one of your Mastery Pages with the following code:</div>
+			<div>{{"_GAMES.ACCOUNT.CONNECTED.INFO-1" | translate}}</div>
+			<div>{{"_GAMES.ACCOUNT.CONNECTED.INFO-2" | translate}}</div>
 		</div>
 		<div class="code-area">
 			<div class="code-description">
-				Your code
+				{{"_GAMES.ACCOUNT.CONNECTED.YOUR-CODE" | translate}}
 			</div>
 			<div class="code-value">
 				{{ctrl.getMasteryPageName()}}
 			</div>
 			<button class="copy-button mb mb-fill-blue"
 					ngclipboard data-clipboard-text="{{ctrl.getMasteryPageName()}}">
-				Copy
+				{{"_GAMES.ACCOUNT.CONNECTED.COPY" | translate}}
 			</button>
 		</div>
 		<div class="description-down">
-			<div>After that hit the Verify button below.</div>
-			<div>Note: It can take a couple of minutes to update your data.</div>
+			<div>{{"_GAMES.ACCOUNT.CONNECTED.INFO-3" | translate}}</div>
+			<div>{{"_GAMES.ACCOUNT.CONNECTED.INFO-4" | translate}}</div>
 		</div>
 	</div>
 	<div class="error-field">
@@ -78,14 +78,14 @@
 	</div>
 	<div class="buttons">
 		<button class="mb mb-fill-red" ng-click="ctrl.disconnectLolAccountApi()"
-				confirm confirm-title="Disconnect the account"
-				confirm-desc="Are you sure you want to remove a connection with your League of Legends summoner? This process will cancel all in progress tasks.">
-			Disconnect
+				confirm confirm-title="{{'_GAMES.ACCOUNT.CONNECTED.DISCONNECT-CONFIRM.TITLE' | translate}}"
+				confirm-desc="{{'_GAMES.ACCOUNT.CONNECTED.DISCONNECT-CONFIRM.DESC' | translate}}">
+			{{"_GAMES.ACCOUNT.CONNECTED.DISCONNECT" | translate}}
 		</button>
 		<button class="mb mb-fill-blue" ng-click="ctrl.verifyLolAccountApi()"
 				ng-show="!ctrl.getLolAccount().verified"
 				ng-if="!ctrl.getLolAccount().verified">
-			Verify
+			{{"_GAMES.ACCOUNT.CONNECTED.VERIFY" | translate}}
 		</button>
 	</div>
 

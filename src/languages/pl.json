@@ -46,6 +46,29 @@
 				"SUMMONER-NAME": "Nazwa Przywoływacza",
 				"REGION": "Region",
 				"CONNECT": "Połącz"
+			},
+			"CONNECTED": {
+				"HEADER-1": "Poniżej znajduje się Przywoływacz połączony z Twoim kontem.",
+				"SUMMONER-NAME": "Nazwa Przywoływacza",
+				"REGION": "Region",
+				"CONNECT-DATE": "Połączony",
+				"STATUS": {
+					"LABEL": "Status",
+					"VERIFIED": "Zweryfikowany",
+					"NOT-VERIFIED": "Niezweryfikowany"
+				},
+				"INFO-1": "Musisz udowodnić, że konto Przywołwacza jest faktycznie Twoje.",
+				"INFO-2": "Nazwij jedną ze swoich Mastery Page kodem znajdującym się poniżej:",
+				"INFO-3": "Po tym wciśnij przycisk Weryfikuj.",
+				"INFO-4": "Uwaga: Aktualizacja Twoich danych może zająć kilka minut.",
+				"YOUR-CODE": "Twój kod",
+				"COPY": "Kopiuj",
+				"DISCONNECT": "Odłącz",
+				"DISCONNECT-CONFIRM": {
+					"TITLE": "Odłącz konto",
+					"DESC": "Czy jesteś pewien, że chcesz odłączyć powiązanie z kontem League of Legends? Spowoduje to anulowanie Twoich wszystkich obecnie wykonywanych zadań."
+				},
+				"VERIFY": "Weryfikuj"
 			}
 		}
 	},

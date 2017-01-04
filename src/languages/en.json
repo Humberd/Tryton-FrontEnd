@@ -46,6 +46,29 @@
                 "SUMMONER-NAME": "Summoner Name",
                 "REGION": "Region",
                 "CONNECT": "Connect"
+            },
+            "CONNECTED": {
+                "HEADER-1": "Here is your connected summoner to your account.",
+                "SUMMONER-NAME": "Summoner Name",
+                "REGION": "Region",
+                "CONNECT-DATE": "Connected On",
+                "STATUS": {
+                    "LABEL": "Status",
+                    "VERIFIED": "Verified",
+                    "NOT-VERIFIED": "Not Verified"
+                },
+                "INFO-1": "You need to prove that you summoner account belongs to you.",
+                "INFO-2": "Name one of your Mastery Pages with the following code:",
+                "INFO-3": "After that hit the Verify button below.",
+                "INFO-4": "Note: It can take a couple of minutes to update your data.",
+                "YOUR-CODE": "Your code",
+                "COPY": "Copy",
+                "DISCONNECT": "Disconnect",
+                "DISCONNECT-CONFIRM": {
+                    "TITLE": "Disconnect the account",
+                    "DESC": "Are you sure you want to remove a connection with your League of Legends summoner? This process will cancel all in progress tasks."
+                },
+                "VERIFY": "Verify"
             }
         }
     },
