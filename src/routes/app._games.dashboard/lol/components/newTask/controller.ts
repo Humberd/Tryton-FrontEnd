@@ -1,53 +1,49 @@
 import {TaskLolDB} from "../../models/TaskLolDB";
 import {TimesOptions} from "./models/TimesOptions";
-import {RestrictOptions} from "./models/RestrictOptions";
 import {TimeoutOptions} from "./models/TimeoutOptions";
-import {LolGameTaskRestrictType} from "../../../../../models/constants/LolGameTaskRestrictType";
 import {LolGameTaskTimeoutType} from "../../../../../models/constants/LolGameTaskTimeoutType";
 import {SubmitLolTaskRequestModel} from "./models/SubmitLolTaskRequestModel";
 import {Api} from "../../../../../services/api/Api";
 import IScope = angular.IScope;
 
 class NewTaskController {
+	readonly loaderName: string = "newLolTaskFormLoader";
+
 	templateTask: TaskLolDB;//tutaj modal sam binduje wartosc w te pole
 	timesOptions: TimesOptions = new TimesOptions();
-	restrictOptions: RestrictOptions = new RestrictOptions();
 	timeoutOptions: TimeoutOptions = new TimeoutOptions();
 
-	selectedRestrictType: LolGameTaskRestrictType;
-	selectedTimeoutType: LolGameTaskTimeoutType;
-	timesValue: number;
-
-	timeoutValues: {
-		[key: string]: number;
-	} = {};
+	selectedTimeoutType: LolGameTaskTimeoutType = LolGameTaskTimeoutType.HOUR;
+	selectedTimeoutValue: number = 1;
+	selectedTimesValue: number = 1;
 
 	constructor(private $scope: IScope,
 				private $mdDialog,
 				private Api: Api) {
 	}
 
-	public createTask(): void {
+	public submitTask(): void {
 		let requestModel: SubmitLolTaskRequestModel = {
 			templateId: this.templateTask._id,
 			settings: {
-				times: this.timesValue,
-				restrict: this.selectedRestrictType,
+				times: this.selectedTimesValue,
 				timeout: {
 					type: this.selectedTimeoutType,
-					value: this.timeoutValues[this.selectedTimeoutType]
+					value: this.selectedTimeoutValue
 				}
 			}
 		};
 
+		console.log(requestModel);
 
-		this.Api.lol.submitTask(requestModel)
-			.then((result) => {
-				console.log(result);
-			})
-			.catch((err) => {
-				console.log(err);
-			})
+
+		// this.Api.lol.submitTask(requestModel)
+		// 	.then((result) => {
+		// 		console.log(result);
+		// 	})
+		// 	.catch((err) => {
+		// 		console.log(err);
+		// 	})
 	}
 
 	public close(): void {

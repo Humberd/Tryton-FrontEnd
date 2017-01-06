@@ -20,7 +20,6 @@
         font-size: 1.2em;
         font-weight: bold;
         letter-spacing: 1px;
-        font-style: italic;
         margin-top: 5px;
         margin-bottom: 10px;
     }
@@ -76,14 +75,7 @@
                 display: flex;
                 flex-direction: column;
                 md-input-container {
-                    margin-bottom: 0;
-                    min-width: 50%;
-                    input {
-                        width: 100%;
-                    }
-                    md-select {
-                        margin-bottom: 0;
-                    }
+                    width: 100%;
                     .md-errors-spacer {
                         display: none;
                     }
@@ -102,5 +94,16 @@
             padding: 10px 5px;
             padding-top: 0;
         }
+    }
+    .error-field {
+        font-size: 1.1em;
+        overflow: hidden;
+        -webkit-transition: all .3s cubic-bezier(.55, 0, .55, .2);
+        transition: all .3s cubic-bezier(.55, 0, .55, .2);
+        opacity: 1;
+        margin-top: 0;
+        margin-bottom: 10px;
+        padding-top: 5px;
+        color: rgb(221, 44, 0);
     }
 }

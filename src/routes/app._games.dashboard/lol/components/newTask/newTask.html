@@ -1,5 +1,8 @@
 <div id="new-task-wrapper">
-	<form class="modal-custom-content" novalidate ng-submit="ctrl.createTask()">
+	<form class="modal-custom-content" name="ctrl.newTaskForm"
+		  loader="{{::ctrl.loaderName}}"
+		  ng-submit="ctrl.newTaskForm.$valid && ctrl.submitTask()"
+		  novalidate>
 		<div class="modal-close-glyphicon" ng-click="ctrl.close()">
 			<span class="glyphicon glyphicon-remove"></span>
 		</div>
@@ -34,13 +37,42 @@
 				<md-divider></md-divider>
 				<div class="settings">
 					<div class="title">Settings</div>
+					<div class="error-field">
+						{{ctrl.errorMessage}}
+					</div>
 					<div class="setting">
 						<div class="inputs">
 							<div class="input">
 								<md-input-container>
-									<input type="number" min="{{ctrl.timesOptions.min}}" max="{{ctrl.timesOptions.max}}"
-										   ng-model="ctrl.timesValue" aria-label="Select how many times"
-										   placeholder="Number of times" ng-required="true">
+									<label for="times-input">Do this task the following number of times in a game</label>
+									<input id="times-input"
+										   name="times"
+										   type="number"
+										   min="{{ctrl.timesOptions.min}}"
+										   max="{{ctrl.timesOptions.max}}"
+										   ng-model="ctrl.selectedTimesValue"
+										   ng-required="true"
+										   aria-label="How many times to achieve this task in a game">
+									<div ng-messages="ctrl.newTaskForm.times.$error">
+										<div ng-message="required">{{"DEFAULT-VALIDATOR-MESSAGES.REQUIRED" | translate}}</div>
+									</div>
+								</md-input-container>
+							</div>
+						</div>
+					</div>
+					Complete the task within:
+					<div class="setting">
+						<div class="inputs">
+							<div class="input">
+								<md-input-container>
+									<label for="timeout-number-input">Number</label>
+									<input id="timeout-number-input"
+										   type="number"
+										   min="{{ctrl.timeoutOptions.get(ctrl.selectedTimeoutType).min}}"
+										   max="{{ctrl.timeoutOptions.get(ctrl.selectedTimeoutType).max}}"
+										   ng-model="ctrl.selectedTimeoutValue"
+										   ng-required="true"
+										   aria-label="Number to complete the task within"/>
 								</md-input-container>
 							</div>
 						</div>
@@ -49,42 +81,17 @@
 						<div class="inputs">
 							<div class="input">
 								<md-input-container>
-									<label>Restrict execution</label>
-									<md-select ng-model="ctrl.selectedRestrictType" aria-label="Select restrictions"
-											   ng-required="true">
-										<md-option ng-value="option.value"
-												   ng-repeat="option in ctrl.restrictOptions.values">
-											{{option.text}}
-										</md-option>
-									</md-select>
-								</md-input-container>
-							</div>
-						</div>
-					</div>
-					<div class="setting">
-						<div class="inputs">
-							<div class="input">
-								<md-input-container>
-									<label>Timeout</label>
-									<md-select ng-model="ctrl.selectedTimeoutType" aria-label="Select Timeout Value"
-											   ng-required="true">
+									<label for="timeout-type-input">Type</label>
+									<md-select id="timeout-type-input"
+											   ng-model="ctrl.selectedTimeoutType"
+											   ng-required="true"
+											   aria-label="Type of the task to complete within">
 										<md-option ng-value="option.value"
 												   ng-repeat="option in ctrl.timeoutOptions.values">
-											{{option.text}}
+											{{option.value}}
 										</md-option>
 									</md-select>
 									<md-input></md-input>
-								</md-input-container>
-							</div>
-							<div class="input" ng-repeat="option in ctrl.timeoutOptions.values"
-								 ng-show="isVisible = option.value === ctrl.selectedTimeoutType">
-								<md-input-container>
-									<label>{{option.text}}</label>
-									<input type="number"
-										   min="{{option.min}}"
-										   max="{{option.max}}"
-										   ng-model="ctrl.timeoutValues[option.value]"
-										   placeholder="{{option.text}}" ng-required="isVisible"/>
 								</md-input-container>
 							</div>
 						</div>
@@ -95,7 +102,7 @@
 					<div class="total">
 						<div class="field">
 							<div class="field-desc">Total</div>
-							<div class="field-value">96 points</div>
+							<div class="field-value"></div>
 						</div>
 					</div>
 					<!--<div class="multiplier">
