@@ -8,6 +8,7 @@ import IScope = angular.IScope;
 
 class NewTaskController {
 	readonly loaderName: string = "newLolTaskFormLoader";
+	errorMessage: string;
 
 	templateTask: TaskLolDB;//tutaj modal sam binduje wartosc w te pole
 	timesOptions: TimesOptions = new TimesOptions();
@@ -19,7 +20,8 @@ class NewTaskController {
 
 	constructor(private $scope: IScope,
 				private $mdDialog,
-				private Api: Api) {
+				private Api: Api,
+				private Loader) {
 	}
 
 	public submitTask(): void {
@@ -34,20 +36,30 @@ class NewTaskController {
 			}
 		};
 
-		console.log(requestModel);
+		this.Loader.startLoading(this.loaderName);
 
-
-		// this.Api.lol.submitTask(requestModel)
-		// 	.then((result) => {
-		// 		console.log(result);
-		// 	})
-		// 	.catch((err) => {
-		// 		console.log(err);
-		// 	})
+		this.Api.lol.submitTask(requestModel)
+			.then((response) => {
+				console.log(response);
+			})
+			.catch((response) => {
+				console.error(response);
+				this.errorMessage = response.data.message;
+			})
+			.finally(() => {
+				this.Loader.stopLoading(this.loaderName);
+			});
 	}
 
 	public close(): void {
 		this.$mdDialog.cancel();
+	}
+
+	public minMaxTranslationData(min: number, max: number) {
+		return {
+			minValue: min,
+			maxValue: max
+		}
 	}
 }
 

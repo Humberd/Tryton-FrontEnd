@@ -70,6 +70,19 @@
 				},
 				"VERIFY": "Weryfikuj"
 			}
+		},
+		"DASHBOARD": {
+			"NEW-TASK": {
+				"DIFFICULTY": "Poziom trudności",
+				"BASE-EXP-LABEL": "Bazowy exp",
+				"SETTINGS": "Ustawienia",
+				"TIMES-INPUT-LABEL": "Wykonaj zadanie poniższą ilość razy w jednej grze",
+				"TIMEOUT-INFO": "Wykonaj zadanie w ciągu:",
+				"TIMEOUT-INPUT-VALUE-LABEL": "Ilość",
+				"TIMEOUT-INPUT-VALUE-TYPE-LABEL": "Typ",
+				"TOTAL": "Razem",
+				"CREATE": "Stwórz"
+			}
 		}
 	},
 	"USERNAME": "Username",
@@ -77,6 +90,12 @@
 	"PASSWORD": "Hasło",
 	"REPEAT-PASSWORD": "Powtórz hasło",
 	"DEFAULT-VALIDATOR-MESSAGES": {
-		"REQUIRED": "To pole jest wymagane!"
+		"REQUIRED": "To pole jest wymagane!",
+		"MIN": "Wartość musi być większa lub równa {{value}}",
+		"MAX": "Wartość musi być mniejsza lub równa {{value}}",
+		"MIN-MAX": "Wartość musi być pomiędzy {{minValue}} a {{maxValue}}"
+	},
+	"USABLE": {
+		"EXP": "{{value}} exp"
 	}
 }

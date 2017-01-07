@@ -18,7 +18,9 @@
 					</div>
 					<div class="task-difficulty">
 						<div class="field">
-							<div class="field-desc">Diffucilty</div>
+							<div class="field-desc">
+								{{"_GAMES.DASHBOARD.NEW-TASK.DIFFICULTY" | translate}}
+							</div>
 							<div class="field-value">
 								<div class="glyphicon glyphicon-star"></div>
 								<div class="glyphicon glyphicon-star"></div>
@@ -29,8 +31,13 @@
 					</div>
 					<div class="task-base-points">
 						<div class="field">
-							<div class="field-desc">Base experience</div>
-							<div class="field-value">{{ctrl.templateTask.base.exp}} exp</div>
+							<div class="field-desc">
+								{{"_GAMES.DASHBOARD.NEW-TASK.BASE-EXP-LABEL" | translate}}
+							</div>
+							<div class="field-value"
+								 translate="USABLE.EXP"
+								 translate-value-value="{{ctrl.templateTask.base.exp}}">
+							</div>
 						</div>
 					</div>
 				</div>
@@ -44,7 +51,9 @@
 						<div class="inputs">
 							<div class="input">
 								<md-input-container>
-									<label for="times-input">Do this task the following number of times in a game</label>
+									<label for="times-input">
+										{{"_GAMES.DASHBOARD.NEW-TASK.TIMES-INPUT-LABEL" | translate}}
+									</label>
 									<input id="times-input"
 										   name="times"
 										   type="number"
@@ -52,27 +61,48 @@
 										   max="{{ctrl.timesOptions.max}}"
 										   ng-model="ctrl.selectedTimesValue"
 										   ng-required="true"
-										   aria-label="How many times to achieve this task in a game">
+										   md-autofocus
+										   aria-label="{{'_GAMES.DASHBOARD.NEW-TASK.TIMES-INPUT-LABEL' | translate}}">
 									<div ng-messages="ctrl.newTaskForm.times.$error">
-										<div ng-message="required">{{"DEFAULT-VALIDATOR-MESSAGES.REQUIRED" | translate}}</div>
+										<div ng-message="required">{{"DEFAULT-VALIDATOR-MESSAGES.REQUIRED" |
+											translate}}
+										</div>
+										<div ng-message="min, max">{{"DEFAULT-VALIDATOR-MESSAGES.MIN-MAX" |
+											translate:ctrl.minMaxTranslationData(
+											ctrl.timesOptions.min,
+											ctrl.timesOptions.max)}}
+										</div>
 									</div>
 								</md-input-container>
 							</div>
 						</div>
 					</div>
-					Complete the task within:
+					{{"_GAMES.DASHBOARD.NEW-TASK.TIMEOUT-INFO" | translate}}
 					<div class="setting">
 						<div class="inputs">
 							<div class="input">
 								<md-input-container>
-									<label for="timeout-number-input">Number</label>
+									<label for="timeout-number-input">
+										{{"_GAMES.DASHBOARD.NEW-TASK.TIMEOUT-INPUT-VALUE-LABEL" | translate}}
+									</label>
 									<input id="timeout-number-input"
+										   name="timeoutNumber"
 										   type="number"
 										   min="{{ctrl.timeoutOptions.get(ctrl.selectedTimeoutType).min}}"
 										   max="{{ctrl.timeoutOptions.get(ctrl.selectedTimeoutType).max}}"
 										   ng-model="ctrl.selectedTimeoutValue"
 										   ng-required="true"
-										   aria-label="Number to complete the task within"/>
+										   aria-label="{{'_GAMES.DASHBOARD.NEW-TASK.TIMEOUT-INPUT-VALUE-LABEL' | translate}}"/>
+									<div ng-messages="ctrl.newTaskForm.timeoutNumber.$error">
+										<div ng-message="required">{{"DEFAULT-VALIDATOR-MESSAGES.REQUIRED" |
+											translate}}
+										</div>
+										<div ng-message="min, max">{{"DEFAULT-VALIDATOR-MESSAGES.MIN-MAX" |
+											translate:ctrl.minMaxTranslationData(
+											ctrl.timeoutOptions.get(ctrl.selectedTimeoutType).min,
+											ctrl.timeoutOptions.get(ctrl.selectedTimeoutType).max)}}
+										</div>
+									</div>
 								</md-input-container>
 							</div>
 						</div>
@@ -81,17 +111,24 @@
 						<div class="inputs">
 							<div class="input">
 								<md-input-container>
-									<label for="timeout-type-input">Type</label>
+									<label for="timeout-type-input">
+										{{"_GAMES.DASHBOARD.NEW-TASK.TIMEOUT-INPUT-VALUE-TYPE-LABEL" | translate}}
+									</label>
 									<md-select id="timeout-type-input"
+											   name="timeoutType"
 											   ng-model="ctrl.selectedTimeoutType"
 											   ng-required="true"
-											   aria-label="Type of the task to complete within">
+											   aria-label="{{'_GAMES.DASHBOARD.NEW-TASK.TIMEOUT-INPUT-VALUE-TYPE-LABEL' | translate}}">
 										<md-option ng-value="option.value"
 												   ng-repeat="option in ctrl.timeoutOptions.values">
 											{{option.value}}
 										</md-option>
 									</md-select>
-									<md-input></md-input>
+									<div ng-messages="ctrl.newTaskForm.timeoutType.$error">
+										<div ng-message="required">{{"DEFAULT-VALIDATOR-MESSAGES.REQUIRED" |
+											translate}}
+										</div>
+									</div>
 								</md-input-container>
 							</div>
 						</div>
@@ -101,7 +138,9 @@
 				<div class="footer">
 					<div class="total">
 						<div class="field">
-							<div class="field-desc">Total</div>
+							<div class="field-desc">
+								{{"_GAMES.DASHBOARD.NEW-TASK.TOTAL" | translate}}
+							</div>
 							<div class="field-value"></div>
 						</div>
 					</div>
@@ -113,7 +152,7 @@
 					</div>-->
 					<button class="create-button mb mb-fill-green mb-small"
 							type="submit">
-						CREATE
+						{{"_GAMES.DASHBOARD.NEW-TASK.CREATE" | translate}}
 					</button>
 				</div>
 			</div>

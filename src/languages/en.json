@@ -70,6 +70,19 @@
                 },
                 "VERIFY": "Verify"
             }
+        },
+        "DASHBOARD": {
+            "NEW-TASK": {
+                "DIFFICULTY": "Difficulty",
+                "BASE-EXP-LABEL": "Base experience",
+                "SETTINGS": "Settings",
+                "TIMES-INPUT-LABEL": "Do this task the following number of times in a game",
+                "TIMEOUT-INFO": "Complete the task within:",
+                "TIMEOUT-INPUT-VALUE-LABEL": "Number",
+                "TIMEOUT-INPUT-VALUE-TYPE-LABEL": "Type",
+                "TOTAL": "Total",
+                "CREATE": "Create"
+            }
         }
     },
     "USERNAME": "Username",
@@ -77,6 +90,12 @@
     "PASSWORD": "Password",
     "REPEAT-PASSWORD": "Repeat password",
     "DEFAULT-VALIDATOR-MESSAGES": {
-        "REQUIRED": "This field is required!"
+        "REQUIRED": "This field is required!",
+        "MIN": "This value must be greater or equal than {{value}}",
+        "MAX": "This value must be smaller or equal than {{value}}",
+        "MIN-MAX": "This value must be between {{minValue}} and {{maxValue}}"
+    },
+    "USABLE": {
+        "EXP": "{{value}} exp"
     }
 }
