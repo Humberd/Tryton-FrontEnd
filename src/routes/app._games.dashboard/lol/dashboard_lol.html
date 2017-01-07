@@ -43,19 +43,6 @@
 					<div class="task-status">
 						{{myTask.status}}
 					</div>
-					<div class="task-progress">
-						<div class="progress-stars">
-							<div class="glyphicon glyphicon-star"></div>
-							<div class="glyphicon glyphicon-star"></div>
-							<div class="glyphicon glyphicon-star"></div>
-							<div class="glyphicon glyphicon-star"></div>
-							<div class="glyphicon glyphicon-star-empty"></div>
-						</div>
-						<div class="progress-text-value"
-							 translate="_GAMES.DASHBOARD.USER-TASKS.PROGRESS"
-							 translate-value-value="{{ctrl.helpers.calculateProgress(myTask)}}">
-						</div>
-					</div>
 					<div class="task-time-left">
 						<div ng-show="myTask.progress.remainingMatches >= 0"
 							 translate="_GAMES.DASHBOARD.USER-TASKS.GAMES-LEFT"
