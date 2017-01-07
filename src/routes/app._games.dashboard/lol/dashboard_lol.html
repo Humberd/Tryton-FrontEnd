@@ -1,19 +1,27 @@
 <div id="dashboard">
+	<select id="example">
+		<option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+		<option value="4">4</option>
+		<option value="5">5</option>
+	</select>
+
 	<div id="panel">
 		<div class="center-panel" loader="{{::ctrl.myTasksListLoaderName}}">
 			<div class="head-bar">
-				<button class="mb mb-fill-blue" confirm>
-					Verify Your Games
+				<button class="mb mb-fill-blue">
+					{{'_GAMES.DASHBOARD.USER-TASKS.VERIFY' | translate}}
 				</button>
 				<div class="options">
 					<div class="status">
 						<div class="status-name">
-							Status
+							{{'_GAMES.DASHBOARD.USER-TASKS.STATUS' | translate}}
 						</div>
 						<md-input-container class="status-dropdown">
 							<md-select ng-model="ctrl.selectedStatus"
 									   ng-change="ctrl.downloadMyTasksList(ctrl.selectedStatus)"
-									   aria-label="Select status from toe list to filter the results">
+									   aria-label="{{'_GAMES.DASHBOARD.USER-TASKS.STATUS-ARIA' | translate}}">
 								<md-option ng-repeat="status in ctrl.statusList"
 										   ng-value="status">
 									{{status}}
@@ -34,8 +42,9 @@
 							<div class="info-name">
 								{{myTask.template.name}}
 							</div>
-							<div class="info-ago">
-								Created {{myTask.createdDate | timeAgo}}
+							<div class="info-ago"
+								 translate="_GAMES.DASHBOARD.USER-TASKS.CREATED"
+								 translate-value-value="{{myTask.createdDate | timeAgo}}">
 							</div>
 						</div>
 					</div>
@@ -50,21 +59,24 @@
 							<div class="glyphicon glyphicon-star"></div>
 							<div class="glyphicon glyphicon-star-empty"></div>
 						</div>
-						<div class="progress-text-value">
-							{{ctrl.helpers.calculateProgress(myTask)}}% progress
+						<div class="progress-text-value"
+							 translate="_GAMES.DASHBOARD.USER-TASKS.PROGRESS"
+							 translate-value-value="{{ctrl.helpers.calculateProgress(myTask)}}">
 						</div>
 					</div>
 					<div class="task-time-left">
-						<div ng-show="myTask.progress.remainingMatches >= 0">
-							{{myTask.progress.remainingMatches}} matches left
+						<div ng-show="myTask.progress.remainingMatches >= 0"
+							 translate="_GAMES.DASHBOARD.USER-TASKS.GAMES-LEFT"
+							 translate-value-value="{{myTask.progress.remainingMatches}}">
 						</div>
 						<div ng-show="myTask.progress.finishDate">
 							{{myTask.progress.finishDate | timeAgo}}
 						</div>
 					</div>
 					<div class="right-side">
-						<div class="task-points">
-							{{myTask.result.expected.exp}} exp
+						<div class="task-points"
+							 translate="USABLE.EXP"
+							 translate-value-value="{{myTask.result.expected.exp}}">
 						</div>
 					</div>
 				</div>
@@ -73,11 +85,12 @@
 		<div class="side-panel" loader="{{::ctrl.templateTasksListLoaderName}}">
 			<div class="header">
 				<div class="title">
-					Tasks List
+					{{"_GAMES.DASHBOARD.TEMPLATE-TASKS.TITLE" | translate}}
 				</div>
 			</div>
 			<div class="tasks-list">
-				<div class="task" ng-repeat="templateTask in ctrl.templateTasksList">
+				<div class="task"
+					 ng-repeat="templateTask in ctrl.templateTasksList">
 					<div class="task-icon"
 						 bcg-image="'http://kingofwallpapers.com/river/river-008.jpg'"></div>
 					<div class="task-content">

@@ -56,16 +56,23 @@ var jsLibraries = ["angular/angular.js",
 	"clipboard/dist/clipboard.min.js",
 	"ngclipboard/dist/ngclipboard.min.js",
 	"angular-timeago/dist/angular-timeago.min.js",
-	"angular-messages/angular-messages.min.js"
+	"angular-messages/angular-messages.min.js",
+	"jquery/dist/jquery.min.js",
+	"jquery-bar-rating/dist/jquery.barrating.min.js"
 ];
 
 var cssLibraries = ["bootstrap/dist/css/bootstrap.min.css",
 	"angular-material/angular-material.min.css",
 	"odometer/themes/odometer-theme-default.css",
-	"flag-icon-css/css/flag-icon.min.css"
+	"flag-icon-css/css/flag-icon.min.css",
+	"jquery-bar-rating/dist/themes/fontawesome-stars.css",
+	"components-font-awesome/css/font-awesome.min.css"
 ];
 
-var fontLibraries = ["bootstrap/dist/fonts/*"];
+var fontLibraries = [
+	"bootstrap/dist/fonts/*",
+	"components-font-awesome/fonts/*"
+];
 
 function errorHandler(error) {
 	console.log(error.message);

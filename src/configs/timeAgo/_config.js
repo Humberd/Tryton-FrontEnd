@@ -6,5 +6,6 @@
 
 	function Config(timeAgoSettings) {
     	timeAgoSettings.allowFuture = true;
+		timeAgoSettings.refreshMillis = 10000;
 	}
 })();

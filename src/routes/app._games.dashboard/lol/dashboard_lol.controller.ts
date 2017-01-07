@@ -1,9 +1,9 @@
 import {TaskLolDB} from "./models/TaskLolDB";
 import {Api} from "../../../services/api/Api";
-import IScope = angular.IScope;
-import ITimeoutService = angular.ITimeoutService;
 import {LolGameTaskStatus} from "../../../models/constants/LolGameTaskStatus";
 import {ViewHelpers} from "./ViewHelpers";
+import IScope = angular.IScope;
+import ITimeoutService = angular.ITimeoutService;
 
 class LolController {
 	readonly templateTasksListLoaderName = "lolDashboardTemplateTasksList";
@@ -13,7 +13,6 @@ class LolController {
 	selectedStatus = LolGameTaskStatus.IN_PROGRESS;
 
 	readonly helpers: ViewHelpers = new ViewHelpers();
-	// readonly
 
 	templateTasksList: Array<TaskLolDB>;
 	myTasksList: Array<Object>;
@@ -55,6 +54,13 @@ class LolController {
 
 	public addNewTask(templateTask: TaskLolDB): void {
 		this.Modal.newTask({templateTask})
+			.then((newTask) => {
+				if (this.selectedStatus === LolGameTaskStatus.IN_PROGRESS) {
+					if (angular.isArray(this.myTasksList)) {
+						this.myTasksList.push(newTask);
+					}
+				}
+			})
 	}
 }
 

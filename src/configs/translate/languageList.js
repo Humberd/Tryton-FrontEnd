@@ -8,6 +8,7 @@
         // var templateLanguage = {
         //     name: "Polish",
         //     shortName: "pl",
+        //     officialName: "pl_PL",
         //     isAvailable: true
         // };
 
@@ -29,10 +30,11 @@
                     }
                 }
             },
-            put: function(name, shortName, isAvailable) {
+            put: function(name, shortName, isAvailable, officialName) {
                 var newLanguage = {
                     name: name,
                     shortName: shortName,
+                    officialName: officialName,
                     isAvailable: isAvailable
                 };
 

@@ -72,6 +72,17 @@
             }
         },
         "DASHBOARD": {
+            "USER-TASKS": {
+                "VERIFY": "Verify Your Tasks",
+                "STATUS": "Status",
+                "STATUS-ARIA": "Filter your tasks by status",
+                "CREATED": "Created {{value}}",
+                "PROGRESS": "{{value}}% progress",
+                "GAMES-LEFT": "{{value}} games left"
+            },
+            "TEMPLATE-TASKS": {
+                "TITLE": "Tasks List"
+            },
             "NEW-TASK": {
                 "DIFFICULTY": "Difficulty",
                 "BASE-EXP-LABEL": "Base experience",

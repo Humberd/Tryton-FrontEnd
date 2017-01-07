@@ -72,6 +72,17 @@
 			}
 		},
 		"DASHBOARD": {
+			"USER-TASKS": {
+				"VERIFY": "Aktualizuj zadania",
+				"STATUS": "Status",
+				"STATUS-ARIA": "Filtruj swoje zadania po statusie",
+				"CREATED": "Utworzono {{value}}",
+				"PROGRESS": "progres {{value}}%",
+				"GAMES-LEFT": "{{value}} gier do końca"
+			},
+			"TEMPLATE-TASKS": {
+				"TITLE": "Zadania"
+			},
 			"NEW-TASK": {
 				"DIFFICULTY": "Poziom trudności",
 				"BASE-EXP-LABEL": "Bazowy exp",

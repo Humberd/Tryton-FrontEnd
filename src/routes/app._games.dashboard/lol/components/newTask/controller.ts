@@ -40,18 +40,21 @@ class NewTaskController {
 
 		this.Api.lol.submitTask(requestModel)
 			.then((response) => {
-				console.log(response);
+				this.hideModal(response);
 			})
-			.catch((response) => {
-				console.error(response);
-				this.errorMessage = response.data.message;
+			.catch((err) => {
+				console.error(err);
+				this.errorMessage = err.data.message;
 			})
 			.finally(() => {
 				this.Loader.stopLoading(this.loaderName);
 			});
 	}
 
-	public close(): void {
+	public hideModal(newTask: any): void {
+		this.$mdDialog.hide(newTask);
+	}
+	public closeModal(): void {
 		this.$mdDialog.cancel();
 	}
 

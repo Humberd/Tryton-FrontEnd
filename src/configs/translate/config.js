@@ -5,9 +5,9 @@
         .config(TranslateConfig);
 
     function TranslateConfig($translateProvider, LanguageListProvider, tmhDynamicLocaleProvider) {
-        LanguageListProvider.put("Polski", "pl", true);
-        LanguageListProvider.put("English", "en", true);
-        LanguageListProvider.put("Francais", "fr", false);
+        LanguageListProvider.put("Polski", "pl", true, "pl_PL");
+        LanguageListProvider.put("English", "en", true, "en_US");
+        LanguageListProvider.put("Francais", "fr", false, "fr_FR");
 
         //ustawiam język, z którego ma brać  tłumaczenia, jeśli zabraknie ich w swoim
         //    $translateProvider.fallbackLanguage("en");
