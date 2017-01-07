@@ -65,7 +65,7 @@ var cssLibraries = ["bootstrap/dist/css/bootstrap.min.css",
 	"angular-material/angular-material.min.css",
 	"odometer/themes/odometer-theme-default.css",
 	"flag-icon-css/css/flag-icon.min.css",
-	"jquery-bar-rating/dist/themes/fontawesome-stars.css",
+	"jquery-bar-rating/dist/themes/*.css",
 	"components-font-awesome/css/font-awesome.min.css"
 ];
 

@@ -1,5 +1,7 @@
 (function() {
 	"use strict";
 
-	angular.module("TrytonApp.Directives", []);
+	angular.module("TrytonApp.Directives", [
+
+	]);
 })();
