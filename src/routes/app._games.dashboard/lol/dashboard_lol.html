@@ -92,11 +92,11 @@
 					<div class="add-button" ng-click="ctrl.addNewTask(templateTask)">
 						<i class="material-icons">add</i>
 					</div>
-					<div class="level-required">
+					<div class="level-required"
+						ng-show="ctrl.getUserLevel() < templateTask.requiredLevel">
 						<i class="material-icons">lock</i>
 					</div>
 				</div>
-				<pre>{{ctrl.getLolProfile() | json}}</pre>
 			</div>
 		</div>
 	</div>
