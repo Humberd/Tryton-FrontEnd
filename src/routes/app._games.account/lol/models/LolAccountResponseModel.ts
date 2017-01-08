@@ -1,4 +1,4 @@
-import {LolGameAccount} from "./LolGameAccount";
+import {LolGameAccount} from "../../../../models/user/LolGameAccount";
 
 export interface LolAccountResponseModel {
 	lolAccount: LolGameAccount;

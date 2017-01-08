@@ -1,5 +1,5 @@
 export interface LolGameAccount {
-	createdDate: Date;
+	createdDate: number;
 	verified: boolean;
 	details: Details;
 }

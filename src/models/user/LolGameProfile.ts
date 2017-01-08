@@ -1,4 +1,4 @@
-export class UserProfileModel {
+export interface LolGameProfile {
 	level: number;
 	experience: number;
 }

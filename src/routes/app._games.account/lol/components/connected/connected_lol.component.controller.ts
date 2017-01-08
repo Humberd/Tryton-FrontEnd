@@ -1,5 +1,5 @@
 import {Api} from "../../../../../services/api/Api";
-import {LolGameAccount} from "../../models/LolGameAccount";
+import {LolGameAccount} from "../../../../../models/user/LolGameAccount";
 import {LolAccountResponseModel} from "../../models/LolAccountResponseModel";
 
 export class ConnectedLolController {

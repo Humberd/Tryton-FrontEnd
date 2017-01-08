@@ -1,5 +1,5 @@
 import {JwtModel} from "./models/JwtModel";
-import {UserProfileModel} from "./models/UserProfileModel";
+import {LolProfileModel} from "./models/LolProfileModel";
 
 (function () {
 	"use strict";
@@ -10,7 +10,7 @@ import {UserProfileModel} from "./models/UserProfileModel";
 
 	function Session() {
 		let user: JwtModel;
-		let userProfile: UserProfileModel;
+		let lolProfile: LolProfileModel;
 		return {
 			setUser(newUser: JwtModel): void {
 				user = newUser;
@@ -22,12 +22,13 @@ import {UserProfileModel} from "./models/UserProfileModel";
 				return user ? user.username : null;
 			},
 
-			setUserProfile(newUserProfile: UserProfileModel): void {
-				userProfile = newUserProfile;
+			setLolProfile(newLolProfile: LolProfileModel): void {
+				lolProfile = newLolProfile;
 			},
-			getUserProfile(): UserProfileModel {
-				return userProfile;
+			getLolProfile(): LolProfileModel {
+				return lolProfile;
 			},
+
 
 			//TODO handle this event
 			getUserExp: function () {
@@ -36,10 +37,8 @@ import {UserProfileModel} from "./models/UserProfileModel";
 			isLoggedIn: function () {
 				return !!user;
 			},
-
 			clearSession(): void {
 				user = null;
-				userProfile = null;
 			}
 		};
 	}
