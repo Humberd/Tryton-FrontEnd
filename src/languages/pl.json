@@ -41,6 +41,10 @@
 	},
 	"_GAMES": {
 		"ACCOUNT": {
+			"TABS": {
+				"MY-ACCOUNT": "Moje konto",
+				"HISTORY": "Historia"
+			},
 			"DISCONNECTED": {
 				"HEADER-1": "Nie posiadasz połączenia z żadnym kontem League of Legends.",
 				"HEADER-2": "Aby rozpocząć proces wprowadź dane Przywoływacza.",

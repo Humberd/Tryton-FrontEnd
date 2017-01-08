@@ -41,6 +41,10 @@
     },
     "_GAMES": {
         "ACCOUNT": {
+            "TABS": {
+                "MY-ACCOUNT": "My account",
+                "HISTORY": "History"
+            },
             "DISCONNECTED": {
                 "HEADER-1": "You don't have a summoner connected to your account.",
                 "HEADER-2": "Please enter your summoner info in order to start the verification process.",

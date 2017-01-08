@@ -7,6 +7,7 @@ import {LolAccountResponseModel} from "../../../routes/app._games.account/lol/mo
 import {LolGameTaskStatus} from "../../../models/constants/LolGameTaskStatus";
 import IPromise = angular.IPromise;
 import {LolProfileModel} from "../../session/models/LolProfileModel";
+import {LolGameAccount} from "../../../models/user/LolGameAccount";
 
 export class ApiLol extends AbstractApi {
 	public getAllTemplateTasks(): IPromise<TaskLolDB[]> {
@@ -41,6 +42,11 @@ export class ApiLol extends AbstractApi {
 
 	public getLolAccount(): IPromise<LolAccountResponseModel> {
 		return this.get("game/lol/account/")
+			.then(response => response.data);
+	}
+
+	public getLolAccountsHistory(): IPromise<Array<LolGameAccount>> {
+		return this.get("game/lol/account/history/")
 			.then(response => response.data);
 	}
 
