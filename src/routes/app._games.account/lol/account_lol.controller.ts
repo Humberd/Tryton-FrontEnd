@@ -18,7 +18,7 @@ class LolController {
 	}
 
 	public downloadLolAccount(): void {
-		this.Api.lol.getAccount()
+		this.Api.lol.getLolAccount()
 			.then(response => {
 				this.connectLolAccountLocal(response);
 			})

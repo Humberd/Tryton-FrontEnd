@@ -30,7 +30,7 @@ class LolController {
 		this.templateTasksList = null;
 		this.Loader.startLoadingEventually(this.templateTasksListLoaderName);
 
-		this.Api.lol.getAllTasks()
+		this.Api.lol.getAllTemplateTasks()
 			.then((result) => {
 				this.templateTasksList = result;
 			})
@@ -43,7 +43,7 @@ class LolController {
 		this.myTasksList = null;
 		this.Loader.startLoadingEventually(this.myTasksListLoaderName);
 
-		this.Api.lol.getMyTasks(status)
+		this.Api.lol.getUserTasksByStatus(status)
 			.then((result) => {
 				this.myTasksList = result;
 			})

@@ -56,7 +56,8 @@
 
         //zwraca tyle ile potrzebuje zeby wbic 1 level
         function formula(level) {
-            return level * 100;
+            // return level * 100;
+            return 100;
         }
     };
 })();

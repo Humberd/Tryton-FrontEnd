@@ -24,7 +24,7 @@ export class DisconnectedLolController {
 	public connectLolAccount(): void {
 		this.Loader.startLoading(this.loaderName);
 
-		this.Api.lol.connectAccount(this.model)
+		this.Api.lol.connectLolAccount(this.model)
 			.then((response) => {
 				this.clearForm();
 				this.methods.connectLolAccountLocal(response);

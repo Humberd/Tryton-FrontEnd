@@ -17,7 +17,7 @@ export class ConnectedLolController {
 	}
 
 	public disconnectLolAccountApi(): void {
-		this.Api.lol.disconnectAccount()
+		this.Api.lol.disconnectLolAccount()
 			.then(response => {
 				this.methods.disconnectLolAccountLocal();
 			})
@@ -26,7 +26,7 @@ export class ConnectedLolController {
 	public verifyLolAccountApi(): void {
 		this.Loader.startLoading(this.loaderName);
 
-		this.Api.lol.verifyAccount()
+		this.Api.lol.verifyLolAccount()
 			.then(response => {
 				this.getLolAccount().verified = true;
 				this.errorMessage = null;

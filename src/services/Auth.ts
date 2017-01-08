@@ -19,7 +19,7 @@ import {JwtModel} from "./session/models/JwtModel";
 				returnObject.login(credentials);
 			},
 			logout: () => {
-				Session.setUser();
+				Session.clearSession();
 				Storage.setUserTokenModel(Session.getUser());
 
 				Logger.info("Successfully logged out");

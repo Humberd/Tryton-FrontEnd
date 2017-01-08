@@ -38,7 +38,7 @@ class NewTaskController {
 
 		this.Loader.startLoading(this.loaderName);
 
-		this.Api.lol.submitTask(requestModel)
+		this.Api.lol.submitUserTask(requestModel)
 			.then((response) => {
 				this.hideModal(response);
 			})

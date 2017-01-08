@@ -1,7 +1,6 @@
 export enum LolGameTaskStatus {
 	IN_PROGRESS = <any> "IN_PROGRESS",
 	COMPLETED = <any> "COMPLETED",
-	COMPLETED_WITH_FAILS = <any> "COMPLETED_WITH_FAILS",
 	FAILED = <any> "FAILED",
 	CANCELED = <any> "CANCELED"
 }
