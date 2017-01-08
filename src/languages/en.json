@@ -45,6 +45,10 @@
                 "MY-ACCOUNT": "My account",
                 "HISTORY": "History"
             },
+            "HISTORY": {
+                "HEADER-1": "History of your Summoner accounts",
+                "EMPTY-FIELD": "No previous accounts."
+            },
             "DISCONNECTED": {
                 "HEADER-1": "You don't have a summoner connected to your account.",
                 "HEADER-2": "Please enter your summoner info in order to start the verification process.",

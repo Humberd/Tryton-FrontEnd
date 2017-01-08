@@ -5,7 +5,6 @@ import {Controller} from "../../utils/decorators/Controller";
 	name: "AppHomeController"
 })
 class AppHomeController {
-	dupa = "foo";
 	flag = true;
 	constructor(private $scope,
 				private Loader,

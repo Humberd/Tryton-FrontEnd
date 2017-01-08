@@ -45,6 +45,10 @@
 				"MY-ACCOUNT": "Moje konto",
 				"HISTORY": "Historia"
 			},
+			"HISTORY": {
+				"HEADER-1": "Historia Twoich kont Przywoływaczy.",
+				"EMPTY-FIELD": "Brak wcześniejszych kont."
+			},
 			"DISCONNECTED": {
 				"HEADER-1": "Nie posiadasz połączenia z żadnym kontem League of Legends.",
 				"HEADER-2": "Aby rozpocząć proces wprowadź dane Przywoływacza.",
