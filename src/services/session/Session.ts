@@ -10,7 +10,10 @@ import {LolProfileModel} from "./models/LolProfileModel";
 
 	function Session() {
 		let user: JwtModel;
-		let lolProfile: LolProfileModel;
+		let profile: {
+			lol: LolProfileModel,
+			csgo: any
+		} = {};
 		return {
 			setUser(newUser: JwtModel): void {
 				user = newUser;
@@ -22,11 +25,11 @@ import {LolProfileModel} from "./models/LolProfileModel";
 				return user ? user.username : null;
 			},
 
-			setLolProfile(newLolProfile: LolProfileModel): void {
-				lolProfile = newLolProfile;
+			setProfile(game: string, newProfile: LolProfileModel): void {
+				profile[game] = newProfile;
 			},
 			getLolProfile(): LolProfileModel {
-				return lolProfile;
+				return profile.lol;
 			},
 
 
@@ -39,6 +42,7 @@ import {LolProfileModel} from "./models/LolProfileModel";
 			},
 			clearSession(): void {
 				user = null;
+				profile = {};
 			}
 		};
 	}

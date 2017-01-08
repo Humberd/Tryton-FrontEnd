@@ -4,6 +4,7 @@ import {LolGameTaskStatus} from "../../../models/constants/LolGameTaskStatus";
 import {ViewHelpers} from "./ViewHelpers";
 import IScope = angular.IScope;
 import ITimeoutService = angular.ITimeoutService;
+import {LolProfileModel} from "../../../services/session/models/LolProfileModel";
 
 class LolController {
 	readonly templateTasksListLoaderName = "lolDashboardTemplateTasksList";
@@ -21,7 +22,8 @@ class LolController {
 				private Modal,
 				private Api: Api,
 				private Loader,
-				private $timeout: ITimeoutService) {
+				private $timeout: ITimeoutService,
+				private Session) {
 		this.downloadTemplateTasksList();
 		this.downloadMyTasksList(this.selectedStatus);
 	}
@@ -61,6 +63,11 @@ class LolController {
 					}
 				}
 			})
+	}
+
+	public getLolProfile(): LolProfileModel {
+		// console.log(this.Session.getLolProfile());
+		return this.Session.getLolProfile();
 	}
 }
 

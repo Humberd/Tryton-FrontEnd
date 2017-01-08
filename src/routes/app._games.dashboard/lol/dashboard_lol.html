@@ -71,7 +71,8 @@
 				<div class="task"
 					 ng-repeat="templateTask in ctrl.templateTasksList">
 					<div class="task-icon"
-						 bcg-image="'http://kingofwallpapers.com/river/river-008.jpg'"></div>
+						 bcg-image="'http://kingofwallpapers.com/river/river-008.jpg'">
+					</div>
 					<div class="task-content">
 						<div class="task-name">
 							{{templateTask.name}}
@@ -91,7 +92,11 @@
 					<div class="add-button" ng-click="ctrl.addNewTask(templateTask)">
 						<i class="material-icons">add</i>
 					</div>
+					<div class="level-required">
+						<i class="material-icons">lock</i>
+					</div>
 				</div>
+				<pre>{{ctrl.getLolProfile() | json}}</pre>
 			</div>
 		</div>
 	</div>
