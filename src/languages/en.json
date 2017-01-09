@@ -94,6 +94,7 @@
             "NEW-TASK": {
                 "DIFFICULTY": "Difficulty",
                 "BASE-EXP-LABEL": "Base experience",
+                "REQUIRED-LEVEL": "Required level",
                 "SETTINGS": "Settings",
                 "TIMES-INPUT-LABEL": "Do this task the following number of times in a game",
                 "TIMEOUT-INFO": "Complete the task within:",
@@ -101,7 +102,8 @@
                 "TIMEOUT-INPUT-VALUE-TYPE-LABEL": "Type",
                 "TOTAL": "Total",
                 "CREATE": "Create"
-            }
+            },
+            "EMPTY-FIELD": "No Tasks"
         }
     },
     "USERNAME": "Username",
@@ -115,6 +117,31 @@
         "MIN-MAX": "This value must be between {{minValue}} and {{maxValue}}"
     },
     "USABLE": {
-        "EXP": "{{value}} exp"
+        "EXP": "{{value}} exp",
+        "LEVEL": "{{value}} level"
+    },
+    "LOL": {
+        "TEMPLATE-TASKS": {
+            "tl-1": {
+                "NAME": "Big fish",
+                "HINT": "Penta Kill",
+                "DESC": "Score a Penta Kill killing 5 enemies in a short amount of time."
+            },
+            "tl-2": {
+                "NAME": "A Walking Terror",
+                "HINT": "Quadra Kill",
+                "DESC": "Score a Quadra Kill killing 4 enemies in a short amount of time."
+            },
+            "tl-3": {
+                "NAME": "Killing Machine",
+                "HINT": "Triple Kill",
+                "DESC": "Score a Triple Kill killing 3 enemies in a short amount of time."
+            },
+            "tl-4": {
+                "NAME": "Start from scratch",
+                "HINT": "Double Kill",
+                "DESC": "Score a Double Kill killing 2 enemies in a short amount of time."
+            }
+        }
     }
 }

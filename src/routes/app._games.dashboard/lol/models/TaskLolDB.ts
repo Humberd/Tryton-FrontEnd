@@ -3,6 +3,7 @@ export interface TaskLolDB {
 	name: string;
 	difficulty: number;
 	base: Currency;
+	iconUrl: string;
 	requiredLevel: number;
 	options: TaskLolDBOptions;
 }

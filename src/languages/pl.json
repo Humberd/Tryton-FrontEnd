@@ -94,6 +94,7 @@
 			"NEW-TASK": {
 				"DIFFICULTY": "Poziom trudności",
 				"BASE-EXP-LABEL": "Bazowy exp",
+				"REQUIRED-LEVEL": "Wymagany poziom",
 				"SETTINGS": "Ustawienia",
 				"TIMES-INPUT-LABEL": "Wykonaj zadanie poniższą ilość razy w jednej grze",
 				"TIMEOUT-INFO": "Wykonaj zadanie w ciągu:",
@@ -101,7 +102,8 @@
 				"TIMEOUT-INPUT-VALUE-TYPE-LABEL": "Typ",
 				"TOTAL": "Razem",
 				"CREATE": "Stwórz"
-			}
+			},
+			"EMPTY-FIELD": "Brak zadań"
 		}
 	},
 	"USERNAME": "Username",
@@ -115,6 +117,31 @@
 		"MIN-MAX": "Wartość musi być pomiędzy {{minValue}} a {{maxValue}}"
 	},
 	"USABLE": {
-		"EXP": "{{value}} exp"
+		"EXP": "{{value}} exp",
+		"LEVEL": "{{value}} level"
+	},
+	"LOL": {
+		"TEMPLATE-TASKS": {
+			"tl-1": {
+				"NAME": "Gruba ryba",
+				"HINT": "Penta Kill",
+				"DESC": "Zdobądź Penta Kill-a zabijając 5 przeciwników w krótkim odstępie czasu."
+			},
+			"tl-2": {
+				"NAME": "Chodzący postrach",
+				"HINT": "Quadra Kill",
+				"DESC": "Zdobądź Quadra Kill-a zabijając 4 przeciwników w krótkim odstępie czasu."
+			},
+			"tl-3": {
+				"NAME": "Maszyna do zabijania",
+				"HINT": "Triple Kill",
+				"DESC": "Zdobądź Triple Kill-a zabijając 3 przeciwników w krótkim odstępie czasu."
+			},
+			"tl-4": {
+				"NAME": "Od czegoś trzeba zacząć",
+				"HINT": "Double Kill",
+				"DESC": "Zdobądź Double Kill-a zabijając 2 przeciwników w krótkim odstępie czasu."
+			}
+		}
 	}
 }

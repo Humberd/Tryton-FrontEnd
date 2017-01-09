@@ -9,12 +9,17 @@
 		<div class="modal-custom-body">
 			<div id="new-task">
 				<div class="header">
-					<div class="task-name">{{ctrl.templateTask.name}}</div>
+					<div class="task-name">
+						{{"LOL.TEMPLATE-TASKS."+ctrl.templateTask._id+".NAME" | translate}}
+					</div>
+					<div class="task-hint">
+						({{"LOL.TEMPLATE-TASKS."+ctrl.templateTask._id+".HINT" | translate}})
+					</div>
 				</div>
 				<md-divider></md-divider>
 				<div class="info">
 					<div class="task-desc">
-						A task description...
+						{{"LOL.TEMPLATE-TASKS."+ctrl.templateTask._id+".DESC" | translate}}
 					</div>
 					<div class="task-difficulty">
 						<div class="field">
@@ -22,10 +27,7 @@
 								{{"_GAMES.DASHBOARD.NEW-TASK.DIFFICULTY" | translate}}
 							</div>
 							<div class="field-value">
-								<div class="glyphicon glyphicon-star"></div>
-								<div class="glyphicon glyphicon-star"></div>
-								<div class="glyphicon glyphicon-star"></div>
-								<div class="glyphicon glyphicon-star"></div>
+								{{ctrl.templateTask.difficulty}}/5
 							</div>
 						</div>
 					</div>
@@ -34,9 +36,18 @@
 							<div class="field-desc">
 								{{"_GAMES.DASHBOARD.NEW-TASK.BASE-EXP-LABEL" | translate}}
 							</div>
-							<div class="field-value"
-								 translate="USABLE.EXP"
-								 translate-value-value="{{ctrl.templateTask.base.exp}}">
+							<div class="field-value">
+								{{ctrl.templateTask.base.exp}}
+							</div>
+						</div>
+					</div>
+					<div class="task-required-level">
+						<div class="field">
+							<div class="field-desc">
+								{{"_GAMES.DASHBOARD.NEW-TASK.REQUIRED-LEVEL" | translate}}
+							</div>
+							<div class="field-value">
+								{{ctrl.templateTask.requiredLevel}}
 							</div>
 						</div>
 					</div>

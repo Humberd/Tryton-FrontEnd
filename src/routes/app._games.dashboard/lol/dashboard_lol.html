@@ -26,10 +26,12 @@
 					</div>
 				</div>
 			</div>
-			<div class="task-list" ng-repeat="myTask in ctrl.myTasksList">
+			<div class="task-list"
+				 ng-repeat="myTask in ctrl.myTasksList">
 				<div class="task">
 					<div class="left-side">
-						<div class="task-icon" bcg-image="'http://kingofwallpapers.com/river/river-008.jpg'"></div>
+						<div class="task-icon"
+							 bcg-image="myTask.template.iconUrl"></div>
 						<div class="task-info">
 							<div class="info-name">
 								{{myTask.template.name}}
@@ -60,6 +62,10 @@
 					</div>
 				</div>
 			</div>
+			<div class="empty-field"
+				 ng-show="!ctrl.myTasksList || ctrl.myTasksList.length === 0">
+				{{"_GAMES.DASHBOARD.EMPTY-FIELD" | translate}}
+			</div>
 		</div>
 		<div class="side-panel" loader="{{::ctrl.templateTasksListLoaderName}}">
 			<div class="header">
@@ -69,31 +75,33 @@
 			</div>
 			<div class="tasks-list">
 				<div class="task"
-					 ng-repeat="templateTask in ctrl.templateTasksList">
+					 ng-repeat="templateTask in ctrl.templateTasksList | orderBy:'+requiredLevel'">
 					<div class="task-icon"
-						 bcg-image="'http://kingofwallpapers.com/river/river-008.jpg'">
+						 bcg-image="templateTask.iconUrl">
 					</div>
 					<div class="task-content">
 						<div class="task-name">
-							{{templateTask.name}}
+							{{"LOL.TEMPLATE-TASKS."+templateTask._id+".NAME" | translate}}
+						</div>
+						<div class="task-hint">
+							({{"LOL.TEMPLATE-TASKS."+templateTask._id+".HINT" | translate}})
 						</div>
 						<div class="task-details">
-							<div class="task-difficulty">
-								<div class="glyphicon glyphicon-star-empty"></div>
-								<div class="glyphicon glyphicon-star-empty"></div>
-								<div class="glyphicon glyphicon-star-empty"></div>
-								<div class="glyphicon glyphicon-star-empty"></div>
+							<div class="task-level"
+								 translate="USABLE.LEVEL"
+								 translate-value-value="{{::templateTask.requiredLevel}}">
 							</div>
-							<div class="task-exp">
-								{{templateTask.base.exp}} exp
+							<div class="task-exp"
+								 translate="USABLE.EXP"
+								 translate-value-value="{{::templateTask.base.exp}}">
 							</div>
 						</div>
 					</div>
-					<div class="add-button" ng-click="ctrl.addNewTask(templateTask)">
+					<div class="add-button" ng-click="::ctrl.addNewTask(templateTask)">
 						<i class="material-icons">add</i>
 					</div>
 					<div class="level-required"
-						ng-show="ctrl.getUserLevel() < templateTask.requiredLevel">
+						 ng-show="ctrl.getUserLevel() < templateTask.requiredLevel">
 						<i class="material-icons">lock</i>
 					</div>
 				</div>
