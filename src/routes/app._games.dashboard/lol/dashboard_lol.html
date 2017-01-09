@@ -2,7 +2,9 @@
 	<div id="panel">
 		<div class="center-panel" loader="{{::ctrl.myTasksListLoaderName}}">
 			<div class="head-bar">
-				<button class="mb mb-fill-blue">
+				<button class="mb mb-fill-blue"
+						loader="{{::ctrl.verifyButtonLoaderName}}"
+						ng-click="ctrl.verifyUserTasks()">
 					{{'_GAMES.DASHBOARD.USER-TASKS.VERIFY' | translate}}
 				</button>
 				<div class="options">

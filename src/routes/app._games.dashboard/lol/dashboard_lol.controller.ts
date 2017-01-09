@@ -8,6 +8,7 @@ import ITimeoutService = angular.ITimeoutService;
 class LolController {
 	readonly templateTasksListLoaderName = "lolDashboardTemplateTasksList";
 	readonly myTasksListLoaderName = "lolDashboardMyTasksList";
+	readonly verifyButtonLoaderName = "lolDashboardVerifyButton";
 
 	readonly statusList: any = LolGameTaskStatus;
 	selectedStatus = LolGameTaskStatus.IN_PROGRESS;
@@ -34,7 +35,6 @@ class LolController {
 		this.Api.lol.getAllTemplateTasks()
 			.then((result) => {
 				this.templateTasksList = result;
-				this.addNewTask(result[3]);
 			})
 			.finally(() => {
 				this.Loader.stopLoading(this.templateTasksListLoaderName);
@@ -62,6 +62,18 @@ class LolController {
 						this.myTasksList.push(newTask);
 					}
 				}
+			})
+	}
+
+	public verifyUserTasks(): void {
+		this.Loader.startLoading(this.verifyButtonLoaderName);
+
+		this.Api.lol.verifyUserTasks()
+			.then(response => {
+				console.log(response);
+			})
+			.finally(() => {
+				this.Loader.stopLoading(this.verifyButtonLoaderName);
 			})
 	}
 
