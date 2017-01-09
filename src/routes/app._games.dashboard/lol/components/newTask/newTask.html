@@ -170,7 +170,13 @@
 							<div class="field-desc">
 								{{"_GAMES.DASHBOARD.NEW-TASK.TOTAL" | translate}}
 							</div>
-							<div class="field-value"></div>
+							<div class="field-value">
+								<strong
+									translate="USABLE.EXP"
+									translate-value-value="{{ctrl.calculateTotalExp() | number:0}}">
+
+								</strong>
+							</div>
 						</div>
 					</div>
 					<!--<div class="multiplier">

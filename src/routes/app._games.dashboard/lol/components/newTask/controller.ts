@@ -54,15 +54,24 @@ class NewTaskController {
 	public hideModal(newTask: any): void {
 		this.$mdDialog.hide(newTask);
 	}
+
 	public closeModal(): void {
 		this.$mdDialog.cancel();
 	}
 
-	public minMaxTranslationData(min: number, max: number) {
+	public minMaxTranslationData(min: number, max: number): Object {
 		return {
 			minValue: min,
 			maxValue: max
 		}
+	}
+
+	public calculateTotalExp(): number {
+		let times = this.selectedTimesValue || 1;
+		let timeout = this.selectedTimeoutValue || 1;
+		let base = this.templateTask.base.exp || 0;
+
+		return (1 + (((2 * times) - 2) / timeout)) * base;
 	}
 }
 
