@@ -104,6 +104,18 @@
 				"TOTAL": "Razem",
 				"CREATE": "Stwórz"
 			},
+			"VERIFY-TASKS": {
+				"DIALOG-NAME": "Raport z analizy",
+				"ERROR-MESSAGES": {
+					"NO-TASKS": "Brak zadań do weryfikacji ze statuse IN_PROGRESS.",
+					"NO-GAMES": "Brak ostatnich gier do weryfikacji.",
+					"API-LIMIT": "Nie zweryfikowano kilku ostatnich gier z powodu przeciążonych serwerów."
+				},
+				"STATUS": "Status",
+				"ANALYZED-GAMES": "Przeanalizowane gry",
+				"REWARD": "Nagroda",
+				"REASON": "Powód"
+			},
 			"EMPTY-FIELD": "Brak zadań"
 		}
 	},

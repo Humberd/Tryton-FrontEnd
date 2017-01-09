@@ -1,0 +1,83 @@
+<div id="verify-wrapper">
+	<div class="modal-close-glyphicon" ng-click="ctrl.closeModal()">
+		<span class="glyphicon glyphicon-remove"></span>
+	</div>
+	<div class="modal-custom-body">
+		<div id="verify-content">
+			<div class="header">
+				<div class="name">
+					{{"_GAMES.DASHBOARD.VERIFY-TASKS.DIALOG-NAME" | translate}}
+				</div>
+			</div>
+			<md-divider></md-divider>
+			<div class="error-fields">
+				<div class="error-field large"
+					 ng-show="ctrl.analyzeResult.noTasksToValidate">
+					{{"_GAMES.DASHBOARD.VERIFY-TASKS.ERROR-MESSAGES.NO-TASKS" | translate}}
+				</div>
+				<div class="error-field large"
+					 ng-show="ctrl.analyzeResult.noGamesToValidate">
+					{{"_GAMES.DASHBOARD.VERIFY-TASKS.ERROR-MESSAGES.NO-GAMES" | translate}}
+				</div>
+				<div class="error-field"
+					 ng-show="ctrl.analyzeResult.apiLimitExceeded">
+					{{"_GAMES.DASHBOARD.VERIFY-TASKS.ERROR-MESSAGES.API-LIMIT" | translate}}
+				</div>
+			</div>
+			<div class="tasks"
+				 ng-show="ctrl.analyzeResult">
+				<div class="task" ng-repeat="analyzedTask in ctrl.analyzeResult.tasks">
+					<div class="task-name">
+						{{"LOL.TEMPLATE-TASKS."+analyzedTask.task.template._id+".NAME" | translate}}
+						({{"LOL.TEMPLATE-TASKS."+analyzedTask.task.template._id+".HINT" | translate}})
+					</div>
+					<div class="task-data">
+						<div class="status">
+							<div class="field">
+								<div class="field-desc">
+									{{"_GAMES.DASHBOARD.VERIFY-TASKS.STATUS" | translate}}
+								</div>
+								<div class="field-value">
+									{{analyzedTask.task.status}}
+								</div>
+							</div>
+						</div>
+						<div class="analyzed">
+							<div class="field">
+								<div class="field-desc">
+									{{"_GAMES.DASHBOARD.VERIFY-TASKS.ANALYZED-GAMES" | translate}}
+								</div>
+								<div class="field-value">
+									{{analyzedTask.analyzedGames}}
+								</div>
+							</div>
+						</div>
+						<div class="reward"
+							 ng-show="analyzedTask.task.status === 'COMPLETED'">
+							<div class="field">
+								<div class="field-desc">
+									{{"_GAMES.DASHBOARD.VERIFY-TASKS.REWARD" | translate}}
+								</div>
+								<div class="field-value"
+									 translate="USABLE.EXP"
+									 translate-value-value="{{analyzedTask.task.result.acquired.exp}}">
+								</div>
+							</div>
+						</div>
+						<div class="reason"
+							 ng-show="analyzedTask.task.status !== 'COMPLETED'">
+							<div class="field">
+								<div class="field-desc">
+									{{"_GAMES.DASHBOARD.VERIFY-TASKS.REASON" | translate}}
+								</div>
+								<div class="field-value">
+									{{analyzedTask.task.result.message}}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

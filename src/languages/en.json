@@ -104,6 +104,18 @@
                 "TOTAL": "Total",
                 "CREATE": "Create"
             },
+            "VERIFY-TASKS": {
+                "DIALOG-NAME": "Analyze report",
+                "ERROR-MESSAGES": {
+                    "NO-TASKS": "There is no IN_PROGRESS tasks to validate.",
+                    "NO-GAMES": "There is no recent games to validate.",
+                    "API-LIMIT": "Didn't verify all the recent games due to Riot servers being busy."
+                },
+                "STATUS": "Status",
+                "ANALYZED-GAMES": "Analyzed games",
+                "REWARD": "Reward",
+                "REASON": "Reason"
+            },
             "EMPTY-FIELD": "No Tasks"
         }
     },

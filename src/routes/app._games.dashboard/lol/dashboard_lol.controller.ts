@@ -66,11 +66,13 @@ class LolController {
 	}
 
 	public verifyUserTasks(): void {
-		this.Loader.startLoading(this.verifyButtonLoaderName);
+		this.Loader.startLoadingEventually(this.verifyButtonLoaderName);
 
 		this.Api.lol.verifyUserTasks()
 			.then(response => {
-				console.log(response);
+				this.Modal.verify({
+					analyzeResult: response
+				});
 			})
 			.finally(() => {
 				this.Loader.stopLoading(this.verifyButtonLoaderName);
