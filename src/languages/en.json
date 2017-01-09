@@ -95,6 +95,7 @@
                 "DIFFICULTY": "Difficulty",
                 "BASE-EXP-LABEL": "Base experience",
                 "REQUIRED-LEVEL": "Required level",
+                "MUST-BE-WON": "Must win a game",
                 "SETTINGS": "Settings",
                 "TIMES-INPUT-LABEL": "Do this task the following number of times in a game",
                 "TIMEOUT-INFO": "Complete the task within:",
@@ -118,7 +119,9 @@
     },
     "USABLE": {
         "EXP": "{{value}} exp",
-        "LEVEL": "{{value}} level"
+        "LEVEL": "{{value}} level",
+        "YES": "Yes",
+        "NO": "No"
     },
     "LOL": {
         "TEMPLATE-TASKS": {
