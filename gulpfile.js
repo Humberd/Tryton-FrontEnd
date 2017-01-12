@@ -61,6 +61,8 @@ var jsLibraries = ["angular/angular.js",
 	"jquery-bar-rating/dist/jquery.barrating.min.js"
 ];
 
+var npmLibraries = [];
+
 var cssLibraries = ["bootstrap/dist/css/bootstrap.min.css",
 	"angular-material/angular-material.min.css",
 	"odometer/themes/odometer-theme-default.css",
@@ -150,10 +152,11 @@ gulp.task("myViews", function () {
 });
 
 gulp.task("libScripts", function () {
-	jsLibraries = jsLibraries.map(function (lib) {
+	var jslibs = jsLibraries.map(function (lib) {
 		return libPath + lib;
 	});
-	var jsLibStream = gulp.src(jsLibraries);
+	jslibs = jslibs.concat(npmLibraries);
+	var jsLibStream = gulp.src(jslibs);
 
 	return jsLibStream
 		.pipe(sourcemaps.init({loadMaps: true}))

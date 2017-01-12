@@ -1,0 +1,28 @@
+#dota2-account-history {
+	.accounts {
+		display: flex;
+		flex-direction: column;
+		background-color: @global-background-color;
+		padding: 20px 20px;
+		margin-top: 30px;
+		.account {
+			display: flex;
+			justify-content: space-between;
+			&:not(:first-child) {
+				padding-top: 10px;
+			}
+		}
+	}
+	.empty-field {
+		text-align: center;
+	}
+	.error-field {
+		min-height: 30px;
+		margin-left: 7px;
+		margin-bottom: 15px;
+		color: #bf3d34;
+		font-size: 0.8em;
+		padding-top: 10px;
+		text-align: center;
+	}
+}

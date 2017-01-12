@@ -1,0 +1,21 @@
+<div id="dota2-account-history">
+	<div class="main-description">
+		{{"_GAMES.DOTA2.ACCOUNT.HISTORY.HEADER-1" | translate}}
+	</div>
+	<div class="accounts"
+		 loader="{{::ctrl.loaderName}}">
+		<div class="account"
+			 ng-repeat="account in ctrl.accounts">
+			<div class="username">{{account.details.username}}</div>
+			<div class="created-date">{{account.createdDate | date}}</div>
+		</div>
+		<div class="empty-field"
+			 ng-show="ctrl.accounts.length === 0">
+			{{"_GAMES.DOTA2.ACCOUNT.HISTORY.EMPTY-FIELD" | translate}}
+		</div>
+
+	</div>
+	<div class="error-field">
+		{{ctrl.errorMessage}}
+	</div>
+</div>

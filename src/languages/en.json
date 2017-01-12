@@ -117,6 +117,14 @@
                 "REASON": "Reason"
             },
             "EMPTY-FIELD": "No Tasks"
+        },
+        "DOTA2": {
+            "ACCOUNT": {
+                "HISTORY": {
+                    "HEADER-1": "History of your connected accounts",
+                    "EMPTY-FIELD": "No previous accounts."
+                }
+            }
         }
     },
     "USERNAME": "Username",

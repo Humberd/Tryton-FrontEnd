@@ -1,0 +1,31 @@
+<div id="account-dota2">
+	<my-tabs position="left">
+		<my-tab-names>
+			<my-tab-name body="account-tab">
+				{{"_GAMES.ACCOUNT.TABS.MY-ACCOUNT" | translate}}
+			</my-tab-name>
+			<my-tab-name body="history-tab" select>
+				{{"_GAMES.ACCOUNT.TABS.HISTORY" | translate}}
+			</my-tab-name>
+		</my-tab-names>
+		<my-tab-bodies class="bigger-size">
+			<my-tab-body id="account-tab">
+				<connected-lol-account methods="ctrl.connectedMethods"
+									   ng-show="ctrl.isConnectedState()"
+									   ng-if="ctrl.isConnectedState()">
+
+				</connected-lol-account>
+				<disconnected-lol-account methods="ctrl.disconnectedMethods"
+										  ng-show="ctrl.isDisconnectedState()"
+										  ng-if="ctrl.isDisconnectedState()">
+
+				</disconnected-lol-account>
+			</my-tab-body>
+			<my-tab-body id="history-tab">
+				<dota2-account-history>
+
+				</dota2-account-history>
+			</my-tab-body>
+		</my-tab-bodies>
+	</my-tabs>
+</div>
