@@ -142,6 +142,10 @@
                         "TITLE": "Disconnect the account",
                         "DESC": "Are you sure you want to remove a connection with your Dota 2 account? This process will cancel all in progress tasks."
                     }
+                },
+                "DISCONNECTED": {
+                    "HEADER-1": "You don't have a Steam account connected to Dota 2.",
+                    "HEADER-2": "Hit the 'Verify' button below to start the verification process."
                 }
             }
         }

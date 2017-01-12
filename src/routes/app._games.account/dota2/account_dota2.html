@@ -15,11 +15,11 @@
 									   ng-if="ctrl.isConnectedState()">
 
 				</connected-dota2-account>
-				<!--<disconnected-lol-account methods="ctrl.disconnectedMethods"-->
-										  <!--ng-show="ctrl.isDisconnectedState()"-->
-										  <!--ng-if="ctrl.isDisconnectedState()">-->
+				<disconnected-dota2-account methods="ctrl.disconnectedMethods"
+										  ng-show="ctrl.isDisconnectedState()"
+										  ng-if="ctrl.isDisconnectedState()">
 
-				<!--</disconnected-lol-account>-->
+				</disconnected-dota2-account>
 			</my-tab-body>
 			<my-tab-body id="history-tab">
 				<dota2-account-history>

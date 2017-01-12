@@ -11,17 +11,11 @@ export class DotaAccountController {
 	connectedMethods: Object;
 	disconnectedMethods: Object;
 
-	constructor(private SteamOpenIDConfig: SteamOpenIDConfig,
-				private $window: IWindowService,
+	constructor(private $window: IWindowService,
 				private Api: Api) {
 		this.checkRedirectFromSteam($window.location.search);
 		this.generateConnectedMethods();
 		this.generateDisconnectedMethods();
-	}
-
-	public openSteamLoginPage() {
-		let url = this.SteamOpenIDConfig.generateValidLoginUrl();
-		this.$window.location.replace(url);
 	}
 
 	private checkRedirectFromSteam(params: string) {

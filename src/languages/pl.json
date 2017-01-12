@@ -142,6 +142,10 @@
 						"TITLE": "Odłącz konto",
 						"DESC": "Czy jesteś pewien, że chcesz odłączyć powiązanie z kontem Dota 2? Spowoduje to anulowanie Twoich wszystkich obecnie wykonywanych zadań."
 					}
+				},
+				"DISCONNECTED": {
+					"HEADER-1": "Nie posiadasz połączenia z żadnym kontem Steam.",
+					"HEADER-2": "Aby rozpocząć proces łączenia wciśnij przycisk poniżej"
 				}
 			}
 		}
