@@ -1,4 +1,4 @@
-export enum ViewState {
+export enum Dota2AccountViewState {
 	INIT,
 	DISCONNECTED,
 	CONNECTED,

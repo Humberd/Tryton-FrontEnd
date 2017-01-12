@@ -120,9 +120,28 @@
         },
         "DOTA2": {
             "ACCOUNT": {
+                "TABS": {
+                    "MY-ACCOUNT": "My account",
+                    "HISTORY": "History"
+                },
                 "HISTORY": {
                     "HEADER-1": "History of your connected accounts",
                     "EMPTY-FIELD": "No previous accounts."
+                },
+                "CONNECTED": {
+                    "HEADER-1": "Here is your connected summoner to your account.",
+                    "USERNAME": "Username",
+                    "CONNECT-DATE": "Connected On",
+                    "STATUS": {
+                        "LABEL": "Status",
+                        "VERIFIED": "Verified",
+                        "NOT-VERIFIED": "Not Verified"
+                    },
+                    "DISCONNECT": "Disconnect",
+                    "DISCONNECT-CONFIRM": {
+                        "TITLE": "Disconnect the account",
+                        "DESC": "Are you sure you want to remove a connection with your Dota 2 account? This process will cancel all in progress tasks."
+                    }
                 }
             }
         }

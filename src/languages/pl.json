@@ -120,9 +120,28 @@
 		},
 		"DOTA2": {
 			"ACCOUNT": {
+				"TABS": {
+					"MY-ACCOUNT": "Moje konto",
+					"HISTORY": "Historia"
+				},
 				"HISTORY": {
 					"HEADER-1": "Historia Twoich połączonych kont",
 					"EMPTY-FIELD": "Brak wcześniejszych kont."
+				},
+				"CONNECTED": {
+					"HEADER-1": "Poniżej znajduje się Przywoływacz połączony z Twoim kontem.",
+					"USERNAME": "Nazwa",
+					"CONNECT-DATE": "Połączony",
+					"STATUS": {
+						"LABEL": "Status",
+						"VERIFIED": "Zweryfikowany",
+						"NOT-VERIFIED": "Niezweryfikowany"
+					},
+					"DISCONNECT": "Odłącz",
+					"DISCONNECT-CONFIRM": {
+						"TITLE": "Odłącz konto",
+						"DESC": "Czy jesteś pewien, że chcesz odłączyć powiązanie z kontem Dota 2? Spowoduje to anulowanie Twoich wszystkich obecnie wykonywanych zadań."
+					}
 				}
 			}
 		}
