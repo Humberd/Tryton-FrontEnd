@@ -6,5 +6,6 @@ export interface Dota2GameAccount {
 
 export interface Details {
 	userId: number;
+	userIdShort: number;
 	username: string;
 }

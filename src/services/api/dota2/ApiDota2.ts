@@ -34,6 +34,11 @@ export class ApiDota2 extends AbstractApi {
 			.then(response => response.data);
 	}
 
+	public verifyUserTasks(): IPromise<any> {
+		return this.post("game/dota2/tasks/user/verify/")
+			.then(response => response.data);
+	}
+
 	public getDota2Account(): IPromise<Dota2AccountResponseModel> {
 		return this.get("game/dota2/account/")
 			.then(response => response.data);

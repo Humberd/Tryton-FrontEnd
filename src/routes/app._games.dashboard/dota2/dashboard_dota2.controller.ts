@@ -57,6 +57,20 @@ export class DotaController {
 			})
 	}
 
+	public verifyUserTasks(): void {
+		this.Loader.startLoadingEventually(this.verifyButtonLoaderName);
+
+		this.Api.dota2.verifyUserTasks()
+			.then(response => {
+				this.Modal["verify_dota2"]({
+					analyzeResult: response
+				});
+			})
+			.finally(() => {
+				this.Loader.stopLoading(this.verifyButtonLoaderName);
+			})
+	}
+
 	public getUserLevel(): number {
 		return this.Session.getDota2Profile().profile.level;
 	}
