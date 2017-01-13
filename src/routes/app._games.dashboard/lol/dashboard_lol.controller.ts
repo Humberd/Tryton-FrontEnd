@@ -18,11 +18,9 @@ class LolController {
 	templateTasksList: Array<TaskLolDB>;
 	myTasksList: Array<Object>;
 
-	constructor(private $scope: IScope,
-				private Modal,
+	constructor(private Modal,
 				private Api: Api,
 				private Loader,
-				private $timeout: ITimeoutService,
 				private Session) {
 		this.downloadTemplateTasksList();
 		this.downloadMyTasksList(this.selectedStatus);

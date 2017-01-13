@@ -1,0 +1,113 @@
+<div id="dashboard-dota2">
+	<div id="panel">
+		<div class="center-panel" loader="{{::ctrl.myTasksListLoaderName}}">
+			<div class="head-bar">
+				<button class="mb mb-fill-blue"
+						loader="{{::ctrl.verifyButtonLoaderName}}"
+						ng-click="ctrl.verifyUserTasks()">
+					{{'_GAMES.DASHBOARD.USER-TASKS.VERIFY' | translate}}
+				</button>
+				<div class="options">
+					<div class="status">
+						<div class="status-name">
+							{{'_GAMES.DASHBOARD.USER-TASKS.STATUS' | translate}}
+						</div>
+						<md-input-container class="status-dropdown">
+							<md-select ng-model="ctrl.selectedStatus"
+									   ng-change="ctrl.downloadMyTasksList(ctrl.selectedStatus)"
+									   aria-label="{{'_GAMES.DASHBOARD.USER-TASKS.STATUS-ARIA' | translate}}">
+								<md-option ng-repeat="status in ctrl.statusList"
+										   ng-value="status">
+									{{status}}
+								</md-option>
+							</md-select>
+						</md-input-container>
+					</div>
+					<div class="">
+
+					</div>
+				</div>
+			</div>
+			<div class="task-list"
+				 ng-repeat="myTask in ctrl.myTasksList">
+				<div class="task">
+					<div class="left-side">
+						<div class="task-icon"
+							 bcg-image="myTask.template.iconUrl"></div>
+						<div class="task-info">
+							<div class="info-name">
+								{{myTask.template.name}}
+							</div>
+							<div class="info-ago"
+								 translate="_GAMES.DASHBOARD.USER-TASKS.CREATED"
+								 translate-value-value="{{myTask.createdDate | timeAgo}}">
+							</div>
+						</div>
+					</div>
+					<div class="task-status">
+						{{myTask.status}}
+					</div>
+					<div class="task-time-left">
+						<div ng-show="myTask.progress.remainingMatches >= 0"
+							 translate="_GAMES.DASHBOARD.USER-TASKS.GAMES-LEFT"
+							 translate-value-value="{{myTask.progress.remainingMatches}}">
+						</div>
+						<div ng-show="myTask.progress.finishDate">
+							{{myTask.progress.finishDate | timeAgo}}
+						</div>
+					</div>
+					<div class="right-side">
+						<div class="task-points"
+							 translate="USABLE.EXP"
+							 translate-value-value="{{myTask.result.expected.exp}}">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="empty-field"
+				 ng-show="!ctrl.myTasksList || ctrl.myTasksList.length === 0">
+				{{"_GAMES.DASHBOARD.EMPTY-FIELD" | translate}}
+			</div>
+		</div>
+		<div class="side-panel" loader="{{::ctrl.templateTasksListLoaderName}}">
+			<div class="header">
+				<div class="title">
+					{{"_GAMES.DASHBOARD.TEMPLATE-TASKS.TITLE" | translate}}
+				</div>
+			</div>
+			<div class="tasks-list">
+				<div class="task"
+					 ng-repeat="templateTask in ctrl.templateTasksList | orderBy:'+requiredLevel'">
+					<div class="task-icon"
+						 bcg-image="templateTask.iconUrl">
+					</div>
+					<div class="task-content">
+						<div class="task-name">
+							{{"DOTA2.TEMPLATE-TASKS."+templateTask._id+".NAME" | translate}}
+						</div>
+						<div class="task-hint">
+							({{"DOTA2.TEMPLATE-TASKS."+templateTask._id+".HINT" | translate}})
+						</div>
+						<div class="task-details">
+							<div class="task-level"
+								 translate="USABLE.LEVEL"
+								 translate-value-value="{{::templateTask.requiredLevel}}">
+							</div>
+							<div class="task-exp"
+								 translate="USABLE.EXP"
+								 translate-value-value="{{::templateTask.base.exp}}">
+							</div>
+						</div>
+					</div>
+					<div class="add-button" ng-click="::ctrl.addNewTask(templateTask)">
+						<i class="material-icons">add</i>
+					</div>
+					<div class="level-required"
+						 ng-show="ctrl.getUserLevel() < templateTask.requiredLevel">
+						<i class="material-icons">lock</i>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

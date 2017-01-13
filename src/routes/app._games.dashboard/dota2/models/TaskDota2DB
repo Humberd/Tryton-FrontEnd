@@ -1,0 +1,18 @@
+export interface TaskDota2DB {
+	_id: string;
+	name: string;
+	difficulty: number;
+	base: Currency;
+	iconUrl: string;
+	requiredLevel: number;
+	options: TaskDota2DBOptions;
+}
+
+export interface Currency {
+	exp: number;
+}
+
+export interface TaskDota2DBOptions {
+	multipleInOneMatch: boolean;
+	mustBeWon: boolean;
+}

@@ -1,0 +1,4 @@
+export interface Dota2GameProfile {
+	level: number;
+	experience: number;
+}

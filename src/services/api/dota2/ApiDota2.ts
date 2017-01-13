@@ -3,8 +3,31 @@ import {Dota2GameAccount} from "../../../models/user/Dota2GameAccount";
 import {Dota2AccountResponseModel} from "../../../routes/app._games.account/dota2/models/Dota2AccountResponseModel";
 import {ConnectDota2AccountRequestModel} from "../../../routes/app._games.account/dota2/models/ConnectDota2AccountRequestModel";
 import {ResponseMessage} from "../../../models/ResponseMessage";
+import {TaskDota2DB} from "../../../routes/app._games.dashboard/dota2/models/TaskDota2DB";
+import {LolGameTaskStatus} from "../../../models/constants/LolGameTaskStatus";
+import {Dota2ProfileModel} from "../../session/models/Dota2ProfileModel";
 
 export class ApiDota2 extends AbstractApi {
+	public getAllTemplateTasks(): IPromise<TaskDota2DB[]> {
+		return this.get("game/dota2/tasks/templates/")
+			.then(response => response.data);
+	}
+
+	public getTemplateTAskById(id: number|string): IPromise<TaskDota2DB> {
+		return this.get(`game/dota2/tasks/templates/?id=${id}`)
+			.then(response => response.data);
+	}
+
+	public getAllUserTasks(): IPromise<Object> {
+		return this.get("game/dota2/tasks/user/")
+			.then(response => response.data);
+	}
+
+	public getUserTasksByStatus(status: LolGameTaskStatus): IPromise<Array<Object>> {
+		return this.get(`game/dota2/tasks/user/?status=${status || ""}`)
+			.then(response => response.data);
+	}
+
 	public getDota2Account(): IPromise<Dota2AccountResponseModel> {
 		return this.get("game/dota2/account/")
 			.then(response => response.data);
@@ -22,6 +45,11 @@ export class ApiDota2 extends AbstractApi {
 
 	public disconnectDota2Account(): IPromise<ResponseMessage> {
 		return this.post("game/dota2/account/disconnect/")
+			.then(response => response.data);
+	}
+
+	public getDota2Profile(): IPromise<Dota2ProfileModel> {
+		return this.get("game/dota2/profile/")
 			.then(response => response.data);
 	}
 }

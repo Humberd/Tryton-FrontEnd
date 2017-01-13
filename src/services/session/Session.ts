@@ -1,5 +1,6 @@
 import {JwtModel} from "./models/JwtModel";
 import {LolProfileModel} from "./models/LolProfileModel";
+import {Dota2ProfileModel} from "./models/Dota2ProfileModel";
 
 (function () {
 	"use strict";
@@ -12,7 +13,7 @@ import {LolProfileModel} from "./models/LolProfileModel";
 		let user: JwtModel;
 		let profile: {
 			lol: LolProfileModel,
-			csgo: any
+			dota2: Dota2ProfileModel
 		} = {};
 		return {
 			setUser(newUser: JwtModel): void {
@@ -30,6 +31,9 @@ import {LolProfileModel} from "./models/LolProfileModel";
 			},
 			getLolProfile(): LolProfileModel {
 				return profile.lol;
+			},
+			getDota2Profile(): Dota2ProfileModel {
+				return profile.dota2;
 			},
 
 

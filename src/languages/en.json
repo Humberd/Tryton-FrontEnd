@@ -129,7 +129,7 @@
                     "EMPTY-FIELD": "No previous accounts."
                 },
                 "CONNECTED": {
-                    "HEADER-1": "Here is your connected summoner to your account.",
+                    "HEADER-1": "Here is your connected Steam account.",
                     "USERNAME": "Username",
                     "CONNECT-DATE": "Connected On",
                     "STATUS": {
@@ -187,6 +187,30 @@
                 "NAME": "Start from scratch",
                 "HINT": "Double Kill",
                 "DESC": "Score a Double Kill killing 2 enemies in a short amount of time."
+            }
+        }
+    },
+    "DOTA2": {
+        "TEMPLATE-TASKS": {
+            "td-1": {
+                "NAME": "Walking Death",
+                "HINT": "Min 100k hero damage",
+                "DESC": "Deal at least 100 000 damage to other heroes in a match."
+            },
+            "td-2": {
+                "NAME": "I'll kill everyone",
+                "HINT": "Min 70k hero damage",
+                "DESC": "Deal at least 70 000 damage to other heroes in a match."
+            },
+            "td-3": {
+                "NAME": "Mediocare bomber",
+                "HINT": "Min 50k hero damage",
+                "DESC": "Deal at least 50 000 damage to other heroes in a match."
+            },
+            "td-4": {
+                "NAME": "I'm so afraid",
+                "HINT": "Min 20k hero damage",
+                "DESC": "Deal at least 20 000 damage to other heroes in a match."
             }
         }
     }

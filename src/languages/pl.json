@@ -129,7 +129,7 @@
 					"EMPTY-FIELD": "Brak wcześniejszych kont."
 				},
 				"CONNECTED": {
-					"HEADER-1": "Poniżej znajduje się Przywoływacz połączony z Twoim kontem.",
+					"HEADER-1": "Poniżej znajduje się połączone konto Steam.",
 					"USERNAME": "Nazwa",
 					"CONNECT-DATE": "Połączony",
 					"STATUS": {
@@ -187,6 +187,30 @@
 				"NAME": "Od czegoś trzeba zacząć",
 				"HINT": "Double Kill",
 				"DESC": "Zdobądź Double Kill-a zabijając 2 przeciwników w krótkim odstępie czasu."
+			}
+		}
+	},
+	"DOTA2": {
+		"TEMPLATE-TASKS": {
+			"td-1": {
+				"NAME": "Chodząca śmierć",
+				"HINT": "Min 100k obrażen",
+				"DESC": "Zadaj co najmniej 100 000 obrażeń innym bohaterom."
+			},
+			"td-2": {
+				"NAME": "Zabiję wszystkich",
+				"HINT": "Min 70k obrażen",
+				"DESC": "Zadaj co najmniej 70 000 obrażeń innym bohaterom."
+			},
+			"td-3": {
+				"NAME": "Średni bombardier",
+				"HINT": "Min 50k obrażen",
+				"DESC": "Zadaj co najmniej 50 000 obrażeń innym bohaterom."
+			},
+			"td-4": {
+				"NAME": "Tak bardzo się boję",
+				"HINT": "Min 20k obrażen",
+				"DESC": "Zadaj co najmniej 20k 000 obrażeń innym bohaterom."
 			}
 		}
 	}
