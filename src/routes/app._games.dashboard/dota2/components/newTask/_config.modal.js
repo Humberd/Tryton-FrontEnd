@@ -6,4 +6,5 @@
 
 	function Config(ModalProvider) {
 		ModalProvider.registerModal("dota2NewTask.html", "dota2NewTaskController");
+	}
 })();

@@ -46,9 +46,16 @@ export class DotaController {
 			})
 	}
 
-	// public addNewTask(templateTask: TaskDota2DB): boid {
-	// 	this.Modal
-	// }
+	public addNewTask(templateTask: TaskDota2DB): void {
+		this.Modal.dota2NewTask({templateTask})
+			.then(newTask => {
+				if (this.selectedStatus === LolGameTaskStatus.IN_PROGRESS) {
+					if (angular.isArray(this.myTasksList)) {
+						this.myTasksList.push(newTask);
+					}
+				}
+			})
+	}
 
 	public getUserLevel(): number {
 		return this.Session.getDota2Profile().profile.level;
