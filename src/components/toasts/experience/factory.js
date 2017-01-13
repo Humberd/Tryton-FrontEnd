@@ -15,10 +15,10 @@
         var toastController;
 
         return {
-            _init: function(exp) {
+            init: function(exp) {
                 this._createScope();
                 this._bindController();
-                toastController.init(Session.getUserExp());
+                toastController.init(exp);
                 get_toast();
             },
 
@@ -40,8 +40,6 @@
                 _isDisplayed = true;
 
                 var defer = $q.defer();
-
-                this._init();
 
                 toastController.getPromise().then(function() {
                     self._hide();

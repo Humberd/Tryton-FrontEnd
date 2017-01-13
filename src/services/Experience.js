@@ -27,7 +27,7 @@
 
                 return totalRequiredExp;
             },
-            // 1500 exp = 5 lvl
+            // 1500 exp = 6 lvl
             getLevel: function(exp) {
                 if (!angular.isNumber(exp)) {
                     throw "Exp must be a positive integer number";
@@ -36,7 +36,7 @@
                 for (var i = 0;; i++) {
                     sum += _formula(i);
                     if (sum > exp) {
-                        return i - 1;
+                        return i;
                     }
                 }
             },
@@ -56,8 +56,8 @@
 
         //zwraca tyle ile potrzebuje zeby wbic 1 level
         function formula(level) {
-            // return level * 100;
-            return 100;
+
+            return level * 100;
         }
     };
 })();
