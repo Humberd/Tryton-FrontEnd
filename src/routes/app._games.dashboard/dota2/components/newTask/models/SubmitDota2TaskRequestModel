@@ -1,0 +1,16 @@
+import {LolGameTaskTimeoutType} from "../../../../../../models/constants/LolGameTaskTimeoutType";
+
+export interface SubmitDota2TaskRequestModel {
+	templateId: string;
+	settings: Settings;
+}
+
+export interface Settings {
+	times: number;
+	timeout: Timeout;
+}
+
+export interface Timeout {
+	value: number;
+	type: LolGameTaskTimeoutType
+}

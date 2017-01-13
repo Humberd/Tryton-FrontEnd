@@ -1,1 +1,197 @@
-{{ctrl.foo}}
+<div id="new-task-wrapper">
+	<form class="modal-custom-content" name="ctrl.newTaskForm"
+		  loader="{{::ctrl.loaderName}}"
+		  ng-submit="ctrl.newTaskForm.$valid && ctrl.submitTask()"
+		  novalidate>
+		<div class="modal-close-glyphicon" ng-click="ctrl.closeModal()">
+			<span class="glyphicon glyphicon-remove"></span>
+		</div>
+		<div class="modal-custom-body">
+			<div id="new-task-dota2">
+				<div class="header">
+					<div class="task-name">
+						{{"DOTA2.TEMPLATE-TASKS."+ctrl.templateTask._id+".NAME" | translate}}
+					</div>
+					<div class="task-hint">
+						({{"DOTA2.TEMPLATE-TASKS."+ctrl.templateTask._id+".HINT" | translate}})
+					</div>
+				</div>
+				<md-divider></md-divider>
+				<div class="info">
+					<div class="task-desc">
+						{{"DOTA2.TEMPLATE-TASKS."+ctrl.templateTask._id+".DESC" | translate}}
+					</div>
+					<div class="task-difficulty">
+						<div class="field">
+							<div class="field-desc">
+								{{"_GAMES.DASHBOARD.NEW-TASK.DIFFICULTY" | translate}}
+							</div>
+							<div class="field-value">
+								{{ctrl.templateTask.difficulty}}/5
+							</div>
+						</div>
+					</div>
+					<div class="task-base-points">
+						<div class="field">
+							<div class="field-desc">
+								{{"_GAMES.DASHBOARD.NEW-TASK.BASE-EXP-LABEL" | translate}}
+							</div>
+							<div class="field-value">
+								{{ctrl.templateTask.base.exp}}
+							</div>
+						</div>
+					</div>
+					<div class="task-required-level">
+						<div class="field">
+							<div class="field-desc">
+								{{"_GAMES.DASHBOARD.NEW-TASK.REQUIRED-LEVEL" | translate}}
+							</div>
+							<div class="field-value">
+								{{ctrl.templateTask.requiredLevel}}
+							</div>
+						</div>
+					</div>
+					<div class="spacer"></div>
+					<div class="task-must-be-won">
+						<div class="field">
+							<div class="field-desc">
+								{{"_GAMES.DASHBOARD.NEW-TASK.MUST-BE-WON" | translate}}
+							</div>
+							<div class="field-value">
+								<strong>
+									<div ng-show="ctrl.templateTask.options.mustBeWon">
+										{{"USABLE.YES" | translate}}
+									</div>
+									<div ng-hide="ctrl.templateTask.options.mustBeWon">
+										{{"USABLE.NO" | translate}}
+									</div>
+								</strong>
+							</div>
+						</div>
+					</div>
+				</div>
+				<md-divider></md-divider>
+				<div class="settings">
+					<div class="title">Settings</div>
+					<div class="error-field">
+						{{ctrl.errorMessage}}
+					</div>
+					<div class="setting" ng-show="ctrl.templateTask.options.multipleInOneMatch">
+						<div class="inputs">
+							<div class="input">
+								<md-input-container>
+									<label for="times-input">
+										{{"_GAMES.DASHBOARD.NEW-TASK.TIMES-INPUT-LABEL" | translate}}
+									</label>
+									<input id="times-input"
+										   name="times"
+										   type="number"
+										   min="{{ctrl.timesOptions.min}}"
+										   max="{{ctrl.timesOptions.max}}"
+										   ng-model="ctrl.selectedTimesValue"
+										   ng-required="true"
+										   md-autofocus
+										   aria-label="{{'_GAMES.DASHBOARD.NEW-TASK.TIMES-INPUT-LABEL' | translate}}">
+									<div ng-messages="ctrl.newTaskForm.times.$error">
+										<div ng-message="required">{{"DEFAULT-VALIDATOR-MESSAGES.REQUIRED" |
+											translate}}
+										</div>
+										<div ng-message="min, max">{{"DEFAULT-VALIDATOR-MESSAGES.MIN-MAX" |
+											translate:ctrl.minMaxTranslationData(
+											ctrl.timesOptions.min,
+											ctrl.timesOptions.max)}}
+										</div>
+									</div>
+								</md-input-container>
+							</div>
+						</div>
+					</div>
+					{{"_GAMES.DASHBOARD.NEW-TASK.TIMEOUT-INFO" | translate}}
+					<div class="setting">
+						<div class="inputs">
+							<div class="input">
+								<md-input-container>
+									<label for="timeout-number-input">
+										{{"_GAMES.DASHBOARD.NEW-TASK.TIMEOUT-INPUT-VALUE-LABEL" | translate}}
+									</label>
+									<input id="timeout-number-input"
+										   name="timeoutNumber"
+										   type="number"
+										   min="{{ctrl.timeoutOptions.get(ctrl.selectedTimeoutType).min}}"
+										   max="{{ctrl.timeoutOptions.get(ctrl.selectedTimeoutType).max}}"
+										   ng-model="ctrl.selectedTimeoutValue"
+										   ng-required="true"
+										   md-autofocus="!ctrl.templateTask.options.multipleInOneMatch"
+										   aria-label="{{'_GAMES.DASHBOARD.NEW-TASK.TIMEOUT-INPUT-VALUE-LABEL' | translate}}"/>
+									<div ng-messages="ctrl.newTaskForm.timeoutNumber.$error">
+										<div ng-message="required">{{"DEFAULT-VALIDATOR-MESSAGES.REQUIRED" |
+											translate}}
+										</div>
+										<div ng-message="min, max">{{"DEFAULT-VALIDATOR-MESSAGES.MIN-MAX" |
+											translate:ctrl.minMaxTranslationData(
+											ctrl.timeoutOptions.get(ctrl.selectedTimeoutType).min,
+											ctrl.timeoutOptions.get(ctrl.selectedTimeoutType).max)}}
+										</div>
+									</div>
+								</md-input-container>
+							</div>
+						</div>
+					</div>
+					<div class="setting">
+						<div class="inputs">
+							<div class="input">
+								<md-input-container>
+									<label for="timeout-type-input">
+										{{"_GAMES.DASHBOARD.NEW-TASK.TIMEOUT-INPUT-VALUE-TYPE-LABEL" | translate}}
+									</label>
+									<md-select id="timeout-type-input"
+											   name="timeoutType"
+											   ng-model="ctrl.selectedTimeoutType"
+											   ng-required="true"
+											   aria-label="{{'_GAMES.DASHBOARD.NEW-TASK.TIMEOUT-INPUT-VALUE-TYPE-LABEL' | translate}}">
+										<md-option ng-value="option.value"
+												   ng-repeat="option in ctrl.timeoutOptions.values">
+											{{option.value}}
+										</md-option>
+									</md-select>
+									<div ng-messages="ctrl.newTaskForm.timeoutType.$error">
+										<div ng-message="required">{{"DEFAULT-VALIDATOR-MESSAGES.REQUIRED" |
+											translate}}
+										</div>
+									</div>
+								</md-input-container>
+							</div>
+						</div>
+					</div>
+				</div>
+				<md-divider></md-divider>
+				<div class="footer">
+					<div class="total">
+						<div class="field">
+							<div class="field-desc">
+								{{"_GAMES.DASHBOARD.NEW-TASK.TOTAL" | translate}}
+							</div>
+							<div class="field-value">
+								<strong
+										translate="USABLE.EXP"
+										translate-value-value="{{ctrl.calculateTotalExp() | number:0}}">
+
+								</strong>
+							</div>
+						</div>
+					</div>
+					<!--<div class="multiplier">
+						<div class="field">
+							<div class="field-desc">Multiplier</div>
+							<div class="field-value positive">+60%</div>
+						</div>
+					</div>-->
+					<button class="create-button mb mb-fill-green mb-small"
+							type="submit">
+						{{"_GAMES.DASHBOARD.NEW-TASK.CREATE" | translate}}
+					</button>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>

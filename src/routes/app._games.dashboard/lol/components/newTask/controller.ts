@@ -18,8 +18,7 @@ class NewTaskController {
 	selectedTimeoutValue: number = 1;
 	selectedTimesValue: number = 1;
 
-	constructor(private $scope: IScope,
-				private $mdDialog,
+	constructor(private $mdDialog,
 				private Api: Api,
 				private Loader) {
 	}

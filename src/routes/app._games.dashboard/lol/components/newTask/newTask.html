@@ -76,7 +76,7 @@
 					<div class="error-field">
 						{{ctrl.errorMessage}}
 					</div>
-					<div class="setting">
+					<div class="setting"  ng-show="ctrl.templateTask.options.multipleInOneMatch">
 						<div class="inputs">
 							<div class="input">
 								<md-input-container>
@@ -121,6 +121,7 @@
 										   max="{{ctrl.timeoutOptions.get(ctrl.selectedTimeoutType).max}}"
 										   ng-model="ctrl.selectedTimeoutValue"
 										   ng-required="true"
+										   md-autofocus="!ctrl.templateTask.options.multipleInOneMatch"
 										   aria-label="{{'_GAMES.DASHBOARD.NEW-TASK.TIMEOUT-INPUT-VALUE-LABEL' | translate}}"/>
 									<div ng-messages="ctrl.newTaskForm.timeoutNumber.$error">
 										<div ng-message="required">{{"DEFAULT-VALIDATOR-MESSAGES.REQUIRED" |
