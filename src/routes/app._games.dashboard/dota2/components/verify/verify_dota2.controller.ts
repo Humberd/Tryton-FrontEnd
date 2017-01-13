@@ -2,6 +2,7 @@ import {VerifyLolTaskResponseModel} from "../../../lol/components/verify/models/
 export class Dota2TaskVerifyController {
 	//auto data binding from modal
 	analyzeResult: VerifyLolTaskResponseModel;
+	errorMessage: string;
 
 	constructor(private Session,
 				private $mdDialog) {

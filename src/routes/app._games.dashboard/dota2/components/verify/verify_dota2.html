@@ -23,9 +23,18 @@
 					 ng-show="ctrl.analyzeResult.apiLimitExceeded">
 					{{"_GAMES.DASHBOARD.VERIFY-TASKS.ERROR-MESSAGES.API-LIMIT" | translate}}
 				</div>
+				<div class="error-field"
+					 ng-show="ctrl.analyzeResult.didNotAllowPublicMatches">
+					{{"_GAMES.DASHBOARD.VERIFY-TASKS.ERROR-MESSAGES.MUST-CONNECT" | translate}}
+				</div>
+				<div class="error-field"
+					 ng-show="ctrl.errorMessage">
+					<div> {{"_GAMES.DASHBOARD.VERIFY-TASKS.ERROR-MESSAGES.UNEXPECTED-ERROR" | translate}}</div>
+					<div>{{ctrl.errorMessage}}</div>
+				</div>
 			</div>
 			<div class="tasks"
-				 ng-show="ctrl.analyzeResult">
+				 ng-show="ctrl.analyzeResult.tasks.length > 0">
 				<div class="task" ng-repeat="analyzedTask in ctrl.analyzeResult.tasks">
 					<div class="task-name">
 						{{"DOTA2.TEMPLATE-TASKS."+analyzedTask.task.template._id+".NAME" | translate}}
@@ -65,7 +74,7 @@
 							</div>
 						</div>
 						<div class="reason"
-							 ng-show="analyzedTask.task.status !== 'COMPLETED'">
+							 ng-show="analyzedTask.task.status !== 'COMPLETED' && analyzedTask.task.status !== 'IN_PROGRESS'	">
 							<div class="field">
 								<div class="field-desc">
 									{{"_GAMES.DASHBOARD.VERIFY-TASKS.REASON" | translate}}

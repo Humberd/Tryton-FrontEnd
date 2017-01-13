@@ -109,7 +109,9 @@
                 "ERROR-MESSAGES": {
                     "NO-TASKS": "There is no IN_PROGRESS tasks to validate.",
                     "NO-GAMES": "There is no recent games to validate.",
-                    "API-LIMIT": "Didn't verify all the recent games due to Riot servers being busy."
+                    "API-LIMIT": "Didn't verify all the recent games due to Riot servers being busy.",
+                    "MUST-CONNECT": "You must turn on sharing public matches in your client.",
+                    "UNEXPECTED-ERROR": "Unexpected error"
                 },
                 "STATUS": "Status",
                 "ANALYZED-GAMES": "Analyzed games",

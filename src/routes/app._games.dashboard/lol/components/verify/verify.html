@@ -25,7 +25,7 @@
 				</div>
 			</div>
 			<div class="tasks"
-				 ng-show="ctrl.analyzeResult">
+				 ng-show="ctrl.analyzeResult.tasks.length > 0">
 				<div class="task" ng-repeat="analyzedTask in ctrl.analyzeResult.tasks">
 					<div class="task-name">
 						{{"LOL.TEMPLATE-TASKS."+analyzedTask.task.template._id+".NAME" | translate}}

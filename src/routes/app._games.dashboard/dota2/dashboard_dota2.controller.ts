@@ -15,7 +15,8 @@ export class DotaController {
 	constructor(private Modal,
 				private Api: Api,
 				private Loader,
-				private Session) {
+				private Session,
+				private Logger) {
 		this.downloadTemplateTasksList();
 		this.downloadMyTasksList(this.selectedStatus);
 	}
@@ -65,6 +66,11 @@ export class DotaController {
 				this.Modal["verify_dota2"]({
 					analyzeResult: response
 				});
+			})
+			.catch(response => {
+				let errorMessage = response.data.message || response;
+				this.Modal["verify_dota2"]({errorMessage});
+				this.Logger.error(errorMessage)
 			})
 			.finally(() => {
 				this.Loader.stopLoading(this.verifyButtonLoaderName);

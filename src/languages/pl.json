@@ -107,9 +107,11 @@
 			"VERIFY-TASKS": {
 				"DIALOG-NAME": "Raport z analizy",
 				"ERROR-MESSAGES": {
-					"NO-TASKS": "Brak zadań do weryfikacji ze statuse IN_PROGRESS.",
+					"NO-TASKS": "Brak zadań do weryfikacji ze statusem IN_PROGRESS.",
 					"NO-GAMES": "Brak ostatnich gier do weryfikacji.",
-					"API-LIMIT": "Nie zweryfikowano kilku ostatnich gier z powodu przeciążonych serwerów."
+					"API-LIMIT": "Nie zweryfikowano kilku ostatnich gier z powodu przeciążonych serwerów.",
+					"MUST-CONNECT": "Musisz włączyć udostępnianie publicznych meczów w ustawieniach klienta.",
+					"UNEXPECTED-ERROR": "Nieoczekiwany błąd"
 				},
 				"STATUS": "Status",
 				"ANALYZED-GAMES": "Przeanalizowane gry",
