@@ -37,6 +37,16 @@
 	},
 	"ACCOUNT": {
 		"PASSWORD": {
+			"NAME": "Hasło",
+			"HEADER-1": "Zmień Hasło",
+			"OLD-PASSWORD": "Obecne Hasło",
+			"NEW-PASSWORD": "Nowe Hasło",
+			"NEW-PASSWORD-REPEAT": "Powtórz Nowe Hasło",
+			"UPDATE-PASSWORD": "Aktualizuj",
+			"VALIDATORS": {
+				"DIFFERENT-FROM": "Nowe Hasło musi być inne niż Obecne.",
+				"SAME-AS": "Hasła muszą sięzgadzać."
+			},
 			"TOAST": {
 				"SUCCESS": "Hasło zostało zmienione."
 			}

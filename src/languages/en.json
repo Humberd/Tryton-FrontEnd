@@ -37,6 +37,16 @@
     },
     "ACCOUNT": {
         "PASSWORD": {
+            "NAME": "Password",
+            "HEADER-1": "Change Password",
+            "OLD-PASSWORD": "Old Password",
+            "NEW-PASSWORD": "New Password",
+            "NEW-PASSWORD-REPEAT": "Repeat New Password",
+            "UPDATE-PASSWORD": "Update Password",
+            "VALIDATORS": {
+                "DIFFERENT-FROM": "New password needs to be different then the old one.",
+                "SAME-AS": "Passwords need to match."
+            },
             "TOAST": {
                 "SUCCESS": "Password changed."
             }

@@ -8,7 +8,13 @@
 		$stateProvider.state("app.account", {
 			abstract: true,
 			url: "/account",
-			templateUrl: ViewUrl + "account.html"
+			templateUrl: ViewUrl + "account.html",
+			data: {
+				permissions: {
+					only: "USER",
+					redirectTo: "app.home"
+				}
+			}
 		});
 
 		$urlRouterProvider.when("/account", function ($state) {
