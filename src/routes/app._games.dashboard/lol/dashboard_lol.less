@@ -131,10 +131,18 @@
 			border-left: 1px solid grey;
 			.header {
 				padding: 10px;
-				.title {
-					font-size: 1.8em;
+				.content {
+					display: flex;
+					justify-content: space-between;
+
 					padding-bottom: 5px;
 					border-bottom: 2px solid lighten(@global-background-color, 10%);
+					.title {
+						font-size: 1.8em;
+					}
+					md-input-container {
+						margin: 0;
+					}
 				}
 			}
 			.tasks-list {

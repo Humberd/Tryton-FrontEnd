@@ -80,13 +80,26 @@
 		</div>
 		<div class="side-panel" loader="{{::ctrl.templateTasksListLoaderName}}">
 			<div class="header">
-				<div class="title">
-					{{"_GAMES.DASHBOARD.TEMPLATE-TASKS.TITLE" | translate}}
+				<div class="content">
+					<div class="title">
+						{{"_GAMES.DASHBOARD.TEMPLATE-TASKS.TITLE" | translate}}
+					</div>
+					<md-input-container class="status-dropdown">
+						<md-select ng-model="templateTasksSortBy"
+								   aria-label="foo">
+							<md-option ng-value="'+requiredLevel'" selected>
+								min to max lvl
+							</md-option>
+							<md-option ng-value="'-requiredLevel'">
+								max to min lvl
+							</md-option>
+						</md-select>
+					</md-input-container>
 				</div>
 			</div>
 			<div class="tasks-list">
 				<div class="task"
-					 ng-repeat="templateTask in ctrl.templateTasksList | orderBy:'+requiredLevel'">
+					 ng-repeat="templateTask in ctrl.templateTasksList | orderBy:templateTasksSortBy">
 					<div class="task-icon"
 						 bcg-image="templateTask.iconUrl">
 					</div>
