@@ -16,9 +16,15 @@ export class DotaController {
 				private Api: Api,
 				private Loader,
 				private Session,
-				private Logger) {
+				private Logger,
+				private $state) {
 		this.downloadTemplateTasksList();
 		this.downloadMyTasksList(this.selectedStatus);
+
+
+		if (!Session.getLolProfile()) {
+			$state.go("app._games.account");
+		}
 	}
 
 	private downloadTemplateTasksList(): void {
@@ -80,6 +86,7 @@ export class DotaController {
 	public getUserLevel(): number {
 		return this.Session.getDota2Profile().profile.level;
 	}
+
 	public getUserExp(): number {
 		return this.Session.getDota2Profile().profile.experience;
 	}

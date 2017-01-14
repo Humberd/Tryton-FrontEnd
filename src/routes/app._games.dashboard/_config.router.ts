@@ -8,12 +8,12 @@
     	$stateProvider.state("app._games.dashboard", {
     		url: "/:game/dashboard",
 			controllerAs: "ctrl",
-			data: {
-    			permissions: {
-    				only: "VERIFIED-ACCOUNT",
-					redirectTo: "app._games.account"
-				}
-			}
+			// data: {
+    			// permissions: {
+    			// 	only: "VERIFIED-ACCOUNT",
+			// 		redirectTo: "app._games.account"
+			// 	}
+			// }
     	});
     }
 })();

@@ -16,7 +16,7 @@ import {Api} from "../../services/api/Api";
 				}
 			},
 			resolve: {
-				foo: function (Api: Api,
+				profile: function (Api: Api,
 							   Session,
 							   Logger,
 							   SelectedGame) {

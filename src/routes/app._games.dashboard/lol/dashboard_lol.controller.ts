@@ -22,9 +22,14 @@ class LolController {
 				private Api: Api,
 				private Loader,
 				private Session,
-				private $scope) {
+				private $scope,
+				private $state) {
 		this.downloadTemplateTasksList();
 		this.downloadMyTasksList(this.selectedStatus);
+
+		if (!Session.getLolProfile()) {
+			$state.go("app._games.account");
+		}
 	}
 
 	private downloadTemplateTasksList(): void {
