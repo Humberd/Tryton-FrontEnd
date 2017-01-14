@@ -8,8 +8,8 @@ import {Api} from "../../services/api/Api";
 	function LoginController($scope, $mdDialog, Api: Api, Loader) {
 		let self = this;
 		$scope.formData = {
-			username: "Humberd",
-			password: "admin123"
+			username: "",
+			password: ""
 		};
 		$scope.login = function (loginForm) {
 			Loader.startLoading("loginLoader");
