@@ -11,7 +11,9 @@ export class Dota2ConnectedComponent {
 	errorMessage: string;
 
 	constructor(private Api: Api,
-				private Loader) {
+				private Loader,
+				private Session,
+				private SelectedGame) {
 
 	}
 
@@ -19,6 +21,7 @@ export class Dota2ConnectedComponent {
 		this.Api.dota2.disconnectDota2Account()
 			.then(response => {
 				this.methods.disconnectDota2AccountLocal();
+				this.Session.setProfile(this.SelectedGame.get(), null);
 			})
 	}
 

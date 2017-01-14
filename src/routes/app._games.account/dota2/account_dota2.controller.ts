@@ -12,7 +12,8 @@ export class DotaAccountController {
 	disconnectedMethods: Object;
 
 	constructor(private $window: IWindowService,
-				private Api: Api) {
+				private Api: Api,
+				private Session) {
 		this.checkRedirectFromSteam($window.location.search);
 		this.generateConnectedMethods();
 		this.generateDisconnectedMethods();
@@ -26,6 +27,7 @@ export class DotaAccountController {
 
 			this.Api.dota2.connectDota2Account(model)
 				.then((response) => {
+					this.Session.getDota2Profile().account = response.dota2Account;
 					this.connectDota2AccountLocal(response);
 				})
 				.catch((response) => {

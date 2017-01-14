@@ -12,7 +12,9 @@ export class ConnectedLolController {
 	errorMessage: string;
 
 	constructor(private Api: Api,
-				private Loader) {
+				private Loader,
+				private Session,
+				private SelectedGame) {
 
 	}
 
@@ -20,6 +22,7 @@ export class ConnectedLolController {
 		this.Api.lol.disconnectLolAccount()
 			.then(response => {
 				this.methods.disconnectLolAccountLocal();
+				this.Session.setProfile(this.SelectedGame.get(), null);
 			})
 	}
 

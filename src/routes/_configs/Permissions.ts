@@ -15,7 +15,8 @@
 		});
 		RoleStore.defineRole("VERIFIED-ACCOUNT", () => {
 			let userProfile = Session.getProfile(SelectedGame.get());
-			if (userProfile) {
+			console.log(userProfile);
+			if (userProfile && userProfile.account) {
 				return userProfile.account.verified;
 			}
 			return false;
