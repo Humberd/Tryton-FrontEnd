@@ -7,7 +7,13 @@
     function AppGamesDashboardConfig($stateProvider) {
     	$stateProvider.state("app._games.dashboard", {
     		url: "/:game/dashboard",
-			controllerAs: "ctrl"
+			controllerAs: "ctrl",
+			data: {
+    			permissions: {
+    				only: "VERIFIED-ACCOUNT",
+					redirectTo: "app._games.account"
+				}
+			}
     	});
     }
 })();
