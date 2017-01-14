@@ -95,6 +95,7 @@
 					Session.clearSession();
 					$state.go("app.home");
 				};
+
 				/////////////////lang functions//////////
 				$scope.availableLanguages = Supported.languages.getAll();
 				$scope.selectedLanguage = $translate.proposedLanguage() || $translate.use();

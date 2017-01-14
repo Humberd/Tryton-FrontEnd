@@ -30,6 +30,7 @@ import {Api} from "../../services/api/Api";
 				})
 				.catch((err) => {
 					console.error(err.data.message);
+					$scope.errorMessage = err.data.message;
 				})
 				.finally(() => {
 					Loader.stopLoading("registerLoader");

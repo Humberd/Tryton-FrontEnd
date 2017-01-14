@@ -9,6 +9,12 @@ import {Api} from "../../services/api/Api";
 		$stateProvider.state("app._games", {
 			abstract: true,
 			template: "<div ui-view></div>",
+			data: {
+				permissions: {
+					only: "USER",
+					redirectTo: "app.home"
+				}
+			},
 			resolve: {
 				foo: function (Api: Api,
 							   Session,
