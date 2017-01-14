@@ -10,14 +10,14 @@
             shortName: "LoL",
             simpleShortName: "lol",
             isAvailable: true,
-            iconUrl: "lol.png"
+            iconUrl: "https://i.imgur.com/xNLs83T.png"
         };
         var dota2 = {
             name: "Dota 2",
 			shortName: "Dota2",
 			simpleShortName: "dota2",
 			isAvailable: true,
-			iconUrl: "csgo.png"
+			iconUrl: "http://orig11.deviantart.net/ace7/f/2014/103/1/b/dota_2_by_polishxcii-d7ea6me.png"
         };
         var csgo = {
             name: "Counter String: Global Offensive",

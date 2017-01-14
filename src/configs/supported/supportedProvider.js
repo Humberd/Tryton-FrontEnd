@@ -55,7 +55,8 @@
             "games": {
                 add: function(configs) {
                     var defaultUrl = GamesIconsUrl;
-                    var icon = configs.iconUrl ? defaultUrl + configs.iconUrl : "";
+                    var icon = configs.iconUrl;
+                    // var icon = configs.iconUrl ? defaultUrl + configs.iconUrl : "";
                     var item = new Item(configs.name, configs.shortName, configs.isAvailable, icon, configs.simpleShortName);
                     items.add("games", item);
                 },
