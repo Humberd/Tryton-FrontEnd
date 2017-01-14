@@ -5,12 +5,14 @@
 		.directive("myNavBar", MyNavBar);
 
 	function MyNavBar(ViewUrl, Modal, Auth, Logger, $translate,
-					  $document, Supported, SelectedGame) {
+					  $document, Supported, SelectedGame, Session,
+					  $state) {
 		return {
 			restrict: "E",
 			templateUrl: ViewUrl + "myNavBar.html",
 			link: function (scope, elem, attrs) {
 				var $scope = scope;
+
 
 				//if element have item-content class
 				var itemsToExpand = findContentPills();
@@ -90,6 +92,8 @@
 				};
 				$scope.logout = function logout() {
 					Auth.logout();
+					Session.clearSession();
+					$state.go("app.home");
 				};
 				/////////////////lang functions//////////
 				$scope.availableLanguages = Supported.languages.getAll();

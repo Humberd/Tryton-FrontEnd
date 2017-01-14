@@ -21,7 +21,8 @@ class LolController {
 	constructor(private Modal,
 				private Api: Api,
 				private Loader,
-				private Session) {
+				private Session,
+				private $scope) {
 		this.downloadTemplateTasksList();
 		this.downloadMyTasksList(this.selectedStatus);
 	}
@@ -79,6 +80,9 @@ class LolController {
 
 	public getUserLevel(): number {
 		return this.Session.getLolProfile().profile.level;
+	}
+	public getUserExp(): number {
+		return this.Session.getLolProfile().profile.experience;
 	}
 }
 

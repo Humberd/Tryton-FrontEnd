@@ -80,6 +80,9 @@ export class DotaController {
 	public getUserLevel(): number {
 		return this.Session.getDota2Profile().profile.level;
 	}
+	public getUserExp(): number {
+		return this.Session.getDota2Profile().profile.experience;
+	}
 }
 
 (function () {

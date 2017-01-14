@@ -29,6 +29,9 @@ import {Dota2ProfileModel} from "./models/Dota2ProfileModel";
 			setProfile(game: string, newProfile: LolProfileModel): void {
 				profile[game] = newProfile;
 			},
+			getProfile(game: string): any {
+				return profile[game];
+			},
 			getLolProfile(): LolProfileModel {
 				return profile.lol;
 			},

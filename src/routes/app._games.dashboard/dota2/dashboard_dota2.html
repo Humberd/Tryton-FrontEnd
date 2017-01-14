@@ -7,6 +7,15 @@
 						ng-click="ctrl.verifyUserTasks()">
 					{{'_GAMES.DASHBOARD.USER-TASKS.VERIFY' | translate}}
 				</button>
+				<div>
+					<span translate="USABLE.LEVEL"
+						  translate-value-value="{{ctrl.getUserLevel()}}">
+					</span>
+					<span>/</span>
+					<span translate="USABLE.EXP"
+						  translate-value-value="{{ctrl.getUserExp()}}">
+					</span>
+				</div>
 				<div class="options">
 					<div class="status">
 						<div class="status-name">
