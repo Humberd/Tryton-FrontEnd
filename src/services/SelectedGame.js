@@ -6,7 +6,7 @@
 
 	function SelectedGameFactory(Supported, Logger, $rootScope,
 								 DefaultSelectedGame, Storage, $urlMatcherFactory, RawApiUrl, ApiUrl,
-								 Api, Session) {
+								 Api, Session, $state) {
 
 		var selectedGame;
 		var interf = {

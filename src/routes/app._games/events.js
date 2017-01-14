@@ -10,6 +10,8 @@
             //czyli jesli ten state jest inny w odroznieniu od wybranej gry
             if ($state.includes("app._games")) {
                 $state.go($state.current.name, {game: gameName},{reload: true});
+            } else {
+                $state.reload();
             }
         });
         $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams) {
