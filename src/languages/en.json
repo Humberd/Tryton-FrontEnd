@@ -1,252 +1,276 @@
 {
-    "APP-NAME": "Tryton",
-    "FAQ": {
-        "HEADER-1": "Frequently Asked Questions",
-        "ITEM-1": {
-            "QUESTION-1": "What is this?",
-            "ANSWER-1": "It's a website, thats to which you'll be able to do specific tasks within a game for a reward."
-        },
-        "ITEM-2": {
-            "QUESTION-1": "In which games I can do the tasks?",
-            "ANSWER-1": "Currently supported games are: League of Legends and Dota 2."
-        },
-        "ITEM-3": {
-            "QUESTION-1": "What's the reward?",
-            "ANSWER-1": "The reward is experience, thanks to which you'll unlock more difficult tasks."
-        },
-        "ITEM-4": {
-            "QUESTION-1": "In what kind of matches I'm allowed to complete the tasks?",
-            "ANSWER-1": "In League of Legends only in Ranked SOLO or FLEX.",
-            "ANSWER-2": "In Dota 2 every kind."
-        }
-    },
-    "USER-NAV-BAR": {
-        "LOGIN": "Login",
-        "REGISTER": "Register",
-        "LOGOUT": "Logout",
-        "MANAGE": "Manage",
-        "MANAGE-PILLS": {
-            "DASHBOARD": "Dashboard",
-            "PROFILE": "Profile",
-            "ACCOUNT": "Account"
-        },
-        "ACCOUNT-PILLS": {
-            "SETTINGS": "Settings"
-        },
-        "FAQ": "FAQ"
-    },
-    "PERMISSIONS": {
-        "UNAUTHORIZED": "You need to be logged in."
-    },
-    "MODALS": {
-        "LOGIN": {
-            "LOGIN": "@:USER-NAV-BAR.LOGIN",
-            "FORGOT-PASSWORD": "Forgot your password?",
-            "RESET-PASSWORD": "Reset password",
-            "NO-ACCOUNT": "Don't have an account yet?"
-        },
-        "REGISTER": {
-            "REGISTER": "@:USER-NAV-BAR.REGISTER",
-            "HAVE-ACCOUNT": "Already have an account?",
-            "ACCEPT-TOS": "By signing up you agree to ",
-            "TOS": "Terms of Service"
-        }
-    },
-    "TOAST": {
-        "CLOSE": "CLOSE"
-    },
-    "ACCOUNT": {
-        "PASSWORD": {
-            "NAME": "Password",
-            "HEADER-1": "Change Password",
-            "OLD-PASSWORD": "Old Password",
-            "NEW-PASSWORD": "New Password",
-            "NEW-PASSWORD-REPEAT": "Repeat New Password",
-            "UPDATE-PASSWORD": "Update Password",
-            "VALIDATORS": {
-                "DIFFERENT-FROM": "New password needs to be different then the old one.",
-                "SAME-AS": "Passwords need to match."
-            },
-            "TOAST": {
-                "SUCCESS": "Password changed."
-            }
-        }
-    },
-    "_GAMES": {
-        "ACCOUNT": {
-            "TABS": {
-                "MY-ACCOUNT": "My account",
-                "HISTORY": "History"
-            },
-            "HISTORY": {
-                "HEADER-1": "History of your Summoner accounts",
-                "EMPTY-FIELD": "No previous accounts."
-            },
-            "DISCONNECTED": {
-                "HEADER-1": "You don't have a summoner connected to your account.",
-                "HEADER-2": "Please enter your summoner info in order to start the verification process.",
-                "SUMMONER-NAME": "Summoner Name",
-                "REGION": "Region",
-                "CONNECT": "Connect"
-            },
-            "CONNECTED": {
-                "HEADER-1": "Here is your connected summoner to your account.",
-                "SUMMONER-NAME": "Summoner Name",
-                "REGION": "Region",
-                "CONNECT-DATE": "Connected On",
-                "STATUS": {
-                    "LABEL": "Status",
-                    "VERIFIED": "Verified",
-                    "NOT-VERIFIED": "Not Verified"
-                },
-                "INFO-1": "You need to prove that you summoner account belongs to you.",
-                "INFO-2": "Name one of your Mastery Pages with the following code:",
-                "INFO-3": "After that hit the Verify button below.",
-                "INFO-4": "Note: It can take a couple of minutes to update your data.",
-                "YOUR-CODE": "Your code",
-                "COPY": "Copy",
-                "DISCONNECT": "Disconnect",
-                "DISCONNECT-CONFIRM": {
-                    "TITLE": "Disconnect the account",
-                    "DESC": "Are you sure you want to remove a connection with your League of Legends summoner? This process will cancel all in progress tasks."
-                },
-                "VERIFY": "Verify"
-            }
-        },
-        "DASHBOARD": {
-            "USER-TASKS": {
-                "VERIFY": "Verify Your Tasks",
-                "STATUS": "Status",
-                "STATUS-ARIA": "Filter your tasks by status",
-                "CREATED": "Created {{value}}",
-                "GAMES-LEFT": "{{value}} games left"
-            },
-            "TEMPLATE-TASKS": {
-                "TITLE": "Tasks List"
-            },
-            "NEW-TASK": {
-                "DIFFICULTY": "Difficulty",
-                "BASE-EXP-LABEL": "Base experience",
-                "REQUIRED-LEVEL": "Required level",
-                "MUST-BE-WON": "Must win a game",
-                "SETTINGS": "Settings",
-                "TIMES-INPUT-LABEL": "Do this task the following number of times in a game",
-                "TIMEOUT-INFO": "Complete the task within:",
-                "TIMEOUT-INPUT-VALUE-LABEL": "Number",
-                "TIMEOUT-INPUT-VALUE-TYPE-LABEL": "Type",
-                "TOTAL": "Total",
-                "CREATE": "Create"
-            },
-            "VERIFY-TASKS": {
-                "DIALOG-NAME": "Analyze report",
-                "ERROR-MESSAGES": {
-                    "NO-TASKS": "There is no IN_PROGRESS tasks to validate.",
-                    "NO-GAMES": "There is no recent games to validate.",
-                    "API-LIMIT": "Didn't verify all the recent games due to Riot servers being busy.",
-                    "MUST-CONNECT": "You must turn on sharing public matches in your client.",
-                    "UNEXPECTED-ERROR": "Unexpected error"
-                },
-                "STATUS": "Status",
-                "ANALYZED-GAMES": "Analyzed games",
-                "REWARD": "Reward",
-                "REASON": "Reason"
-            },
-            "EMPTY-FIELD": "No Tasks"
-        },
-        "DOTA2": {
-            "ACCOUNT": {
-                "TABS": {
-                    "MY-ACCOUNT": "My account",
-                    "HISTORY": "History"
-                },
-                "HISTORY": {
-                    "HEADER-1": "History of your connected accounts",
-                    "EMPTY-FIELD": "No previous accounts."
-                },
-                "CONNECTED": {
-                    "HEADER-1": "Here is your connected Steam account.",
-                    "USERNAME": "Username",
-                    "CONNECT-DATE": "Connected On",
-                    "STATUS": {
-                        "LABEL": "Status",
-                        "VERIFIED": "Verified",
-                        "NOT-VERIFIED": "Not Verified"
-                    },
-                    "DISCONNECT": "Disconnect",
-                    "DISCONNECT-CONFIRM": {
-                        "TITLE": "Disconnect the account",
-                        "DESC": "Are you sure you want to remove a connection with your Dota 2 account? This process will cancel all in progress tasks."
-                    }
-                },
-                "DISCONNECTED": {
-                    "HEADER-1": "You don't have a Steam account connected to Dota 2.",
-                    "HEADER-2": "Hit the 'Verify' button below to start the verification process."
-                }
-            }
-        }
-    },
-    "USERNAME": "Username",
-    "EMAIL": "Email",
-    "PASSWORD": "Password",
-    "REPEAT-PASSWORD": "Repeat password",
-    "DEFAULT-VALIDATOR-MESSAGES": {
-        "REQUIRED": "This field is required!",
-        "MIN": "This value must be greater or equal than {{value}}",
-        "MAX": "This value must be smaller or equal than {{value}}",
-        "MIN-MAX": "This value must be between {{minValue}} and {{maxValue}}"
-    },
-    "USABLE": {
-        "EXP": "{{value}} exp",
-        "LEVEL": "{{value}} level",
-        "YES": "Yes",
-        "NO": "No"
-    },
-    "LOL": {
-        "TEMPLATE-TASKS": {
-            "tl-1": {
-                "NAME": "Big fish",
-                "HINT": "Penta Kill",
-                "DESC": "Score a Penta Kill killing 5 enemies in a short amount of time."
-            },
-            "tl-2": {
-                "NAME": "A Walking Terror",
-                "HINT": "Quadra Kill",
-                "DESC": "Score a Quadra Kill killing 4 enemies in a short amount of time."
-            },
-            "tl-3": {
-                "NAME": "Killing Machine",
-                "HINT": "Triple Kill",
-                "DESC": "Score a Triple Kill killing 3 enemies in a short amount of time."
-            },
-            "tl-4": {
-                "NAME": "Start from scratch",
-                "HINT": "Double Kill",
-                "DESC": "Score a Double Kill killing 2 enemies in a short amount of time."
-            }
-        }
-    },
-    "DOTA2": {
-        "TEMPLATE-TASKS": {
-            "td-1": {
-                "NAME": "Walking Death",
-                "HINT": "Min 100k hero damage",
-                "DESC": "Deal at least 100 000 damage to other heroes in a match."
-            },
-            "td-2": {
-                "NAME": "I'll kill everyone",
-                "HINT": "Min 70k hero damage",
-                "DESC": "Deal at least 70 000 damage to other heroes in a match."
-            },
-            "td-3": {
-                "NAME": "Mediocare bomber",
-                "HINT": "Min 50k hero damage",
-                "DESC": "Deal at least 50 000 damage to other heroes in a match."
-            },
-            "td-4": {
-                "NAME": "I'm so afraid",
-                "HINT": "Min 20k hero damage",
-                "DESC": "Deal at least 20 000 damage to other heroes in a match."
-            }
-        }
-    }
+	"APP-NAME": "Tryton",
+	"HOME": {
+		"MAIN": {
+			"HEADLINE": "Achievements",
+			"DESC-1": "Place where you do the tasks in games",
+			"DESC-2": "that don't support it",
+			"BUTTON-1": "Start Now",
+			"BUTTON-2": "Learn More"
+		},
+		"LOL": {
+			"HEADLINE": "League of Legends",
+			"DESC-1": "The most popular game in the world",
+			"DESC-2": "that connects millions of players",
+			"DESC-3": "every day",
+			"BUTTON-1": "Start Now",
+			"BUTTON-2": "Go to Dashboard"
+		},
+		"DOTA2": {
+			"HEADLINE": "Dota 2",
+			"DESC-1": "The game with the biggest prize pool",
+			"DESC-2": "in the entire esports scene",
+			"BUTTON-1": "Start Now",
+			"BUTTON-2": "Go to Dashboard"
+		}
+	},
+	"FAQ": {
+		"HEADER-1": "Frequently Asked Questions",
+		"ITEM-1": {
+			"QUESTION-1": "What is this?",
+			"ANSWER-1": "It's a website, thats to which you'll be able to do specific tasks within a game for a reward."
+		},
+		"ITEM-2": {
+			"QUESTION-1": "In which games I can do the tasks?",
+			"ANSWER-1": "Currently supported games are: League of Legends and Dota 2."
+		},
+		"ITEM-3": {
+			"QUESTION-1": "What's the reward?",
+			"ANSWER-1": "The reward is experience, thanks to which you'll unlock more difficult tasks."
+		},
+		"ITEM-4": {
+			"QUESTION-1": "In what kind of matches I'm allowed to complete the tasks?",
+			"ANSWER-1": "In League of Legends only in Ranked SOLO or FLEX.",
+			"ANSWER-2": "In Dota 2 every kind."
+		}
+	},
+	"USER-NAV-BAR": {
+		"LOGIN": "Login",
+		"REGISTER": "Register",
+		"LOGOUT": "Logout",
+		"MANAGE": "Manage",
+		"MANAGE-PILLS": {
+			"DASHBOARD": "Dashboard",
+			"PROFILE": "Profile",
+			"ACCOUNT": "Account"
+		},
+		"ACCOUNT-PILLS": {
+			"SETTINGS": "Settings"
+		},
+		"FAQ": "FAQ"
+	},
+	"PERMISSIONS": {
+		"UNAUTHORIZED": "You need to be logged in."
+	},
+	"MODALS": {
+		"LOGIN": {
+			"LOGIN": "@:USER-NAV-BAR.LOGIN",
+			"FORGOT-PASSWORD": "Forgot your password?",
+			"RESET-PASSWORD": "Reset password",
+			"NO-ACCOUNT": "Don't have an account yet?"
+		},
+		"REGISTER": {
+			"REGISTER": "@:USER-NAV-BAR.REGISTER",
+			"HAVE-ACCOUNT": "Already have an account?",
+			"ACCEPT-TOS": "By signing up you agree to ",
+			"TOS": "Terms of Service"
+		}
+	},
+	"TOAST": {
+		"CLOSE": "CLOSE"
+	},
+	"ACCOUNT": {
+		"PASSWORD": {
+			"NAME": "Password",
+			"HEADER-1": "Change Password",
+			"OLD-PASSWORD": "Old Password",
+			"NEW-PASSWORD": "New Password",
+			"NEW-PASSWORD-REPEAT": "Repeat New Password",
+			"UPDATE-PASSWORD": "Update Password",
+			"VALIDATORS": {
+				"DIFFERENT-FROM": "New password needs to be different then the old one.",
+				"SAME-AS": "Passwords need to match."
+			},
+			"TOAST": {
+				"SUCCESS": "Password changed."
+			}
+		}
+	},
+	"_GAMES": {
+		"ACCOUNT": {
+			"TABS": {
+				"MY-ACCOUNT": "My account",
+				"HISTORY": "History"
+			},
+			"HISTORY": {
+				"HEADER-1": "History of your Summoner accounts",
+				"EMPTY-FIELD": "No previous accounts."
+			},
+			"DISCONNECTED": {
+				"HEADER-1": "You don't have a summoner connected to your account.",
+				"HEADER-2": "Please enter your summoner info in order to start the verification process.",
+				"SUMMONER-NAME": "Summoner Name",
+				"REGION": "Region",
+				"CONNECT": "Connect"
+			},
+			"CONNECTED": {
+				"HEADER-1": "Here is your connected summoner to your account.",
+				"SUMMONER-NAME": "Summoner Name",
+				"REGION": "Region",
+				"CONNECT-DATE": "Connected On",
+				"STATUS": {
+					"LABEL": "Status",
+					"VERIFIED": "Verified",
+					"NOT-VERIFIED": "Not Verified"
+				},
+				"INFO-1": "You need to prove that you summoner account belongs to you.",
+				"INFO-2": "Name one of your Mastery Pages with the following code:",
+				"INFO-3": "After that hit the Verify button below.",
+				"INFO-4": "Note: It can take a couple of minutes to update your data.",
+				"YOUR-CODE": "Your code",
+				"COPY": "Copy",
+				"DISCONNECT": "Disconnect",
+				"DISCONNECT-CONFIRM": {
+					"TITLE": "Disconnect the account",
+					"DESC": "Are you sure you want to remove a connection with your League of Legends summoner? This process will cancel all in progress tasks."
+				},
+				"VERIFY": "Verify"
+			}
+		},
+		"DASHBOARD": {
+			"USER-TASKS": {
+				"VERIFY": "Verify Your Tasks",
+				"STATUS": "Status",
+				"STATUS-ARIA": "Filter your tasks by status",
+				"CREATED": "Created {{value}}",
+				"GAMES-LEFT": "{{value}} games left"
+			},
+			"TEMPLATE-TASKS": {
+				"TITLE": "Tasks List"
+			},
+			"NEW-TASK": {
+				"DIFFICULTY": "Difficulty",
+				"BASE-EXP-LABEL": "Base experience",
+				"REQUIRED-LEVEL": "Required level",
+				"MUST-BE-WON": "Must win a game",
+				"SETTINGS": "Settings",
+				"TIMES-INPUT-LABEL": "Do this task the following number of times in a game",
+				"TIMEOUT-INFO": "Complete the task within:",
+				"TIMEOUT-INPUT-VALUE-LABEL": "Number",
+				"TIMEOUT-INPUT-VALUE-TYPE-LABEL": "Type",
+				"TOTAL": "Total",
+				"CREATE": "Create"
+			},
+			"VERIFY-TASKS": {
+				"DIALOG-NAME": "Analyze report",
+				"ERROR-MESSAGES": {
+					"NO-TASKS": "There is no IN_PROGRESS tasks to validate.",
+					"NO-GAMES": "There is no recent games to validate.",
+					"API-LIMIT": "Didn't verify all the recent games due to Riot servers being busy.",
+					"MUST-CONNECT": "You must turn on sharing public matches in your client.",
+					"UNEXPECTED-ERROR": "Unexpected error"
+				},
+				"STATUS": "Status",
+				"ANALYZED-GAMES": "Analyzed games",
+				"REWARD": "Reward",
+				"REASON": "Reason"
+			},
+			"EMPTY-FIELD": "No Tasks"
+		},
+		"DOTA2": {
+			"ACCOUNT": {
+				"TABS": {
+					"MY-ACCOUNT": "My account",
+					"HISTORY": "History"
+				},
+				"HISTORY": {
+					"HEADER-1": "History of your connected accounts",
+					"EMPTY-FIELD": "No previous accounts."
+				},
+				"CONNECTED": {
+					"HEADER-1": "Here is your connected Steam account.",
+					"USERNAME": "Username",
+					"CONNECT-DATE": "Connected On",
+					"STATUS": {
+						"LABEL": "Status",
+						"VERIFIED": "Verified",
+						"NOT-VERIFIED": "Not Verified"
+					},
+					"DISCONNECT": "Disconnect",
+					"DISCONNECT-CONFIRM": {
+						"TITLE": "Disconnect the account",
+						"DESC": "Are you sure you want to remove a connection with your Dota 2 account? This process will cancel all in progress tasks."
+					}
+				},
+				"DISCONNECTED": {
+					"HEADER-1": "You don't have a Steam account connected to Dota 2.",
+					"HEADER-2": "Hit the 'Verify' button below to start the verification process."
+				}
+			}
+		}
+	},
+	"USERNAME": "Username",
+	"EMAIL": "Email",
+	"PASSWORD": "Password",
+	"REPEAT-PASSWORD": "Repeat password",
+	"DEFAULT-VALIDATOR-MESSAGES": {
+		"REQUIRED": "This field is required!",
+		"MIN": "This value must be greater or equal than {{value}}",
+		"MAX": "This value must be smaller or equal than {{value}}",
+		"MIN-MAX": "This value must be between {{minValue}} and {{maxValue}}"
+	},
+	"USABLE": {
+		"EXP": "{{value}} exp",
+		"LEVEL": "{{value}} level",
+		"YES": "Yes",
+		"NO": "No"
+	},
+	"LOL": {
+		"TEMPLATE-TASKS": {
+			"tl-1": {
+				"NAME": "Big fish",
+				"HINT": "Penta Kill",
+				"DESC": "Score a Penta Kill killing 5 enemies in a short amount of time."
+			},
+			"tl-2": {
+				"NAME": "A Walking Terror",
+				"HINT": "Quadra Kill",
+				"DESC": "Score a Quadra Kill killing 4 enemies in a short amount of time."
+			},
+			"tl-3": {
+				"NAME": "Killing Machine",
+				"HINT": "Triple Kill",
+				"DESC": "Score a Triple Kill killing 3 enemies in a short amount of time."
+			},
+			"tl-4": {
+				"NAME": "Start from scratch",
+				"HINT": "Double Kill",
+				"DESC": "Score a Double Kill killing 2 enemies in a short amount of time."
+			}
+		}
+	},
+	"DOTA2": {
+		"TEMPLATE-TASKS": {
+			"td-1": {
+				"NAME": "Walking Death",
+				"HINT": "Min 100k hero damage",
+				"DESC": "Deal at least 100 000 damage to other heroes in a match."
+			},
+			"td-2": {
+				"NAME": "I'll kill everyone",
+				"HINT": "Min 70k hero damage",
+				"DESC": "Deal at least 70 000 damage to other heroes in a match."
+			},
+			"td-3": {
+				"NAME": "Mediocare bomber",
+				"HINT": "Min 50k hero damage",
+				"DESC": "Deal at least 50 000 damage to other heroes in a match."
+			},
+			"td-4": {
+				"NAME": "I'm so afraid",
+				"HINT": "Min 20k hero damage",
+				"DESC": "Deal at least 20 000 damage to other heroes in a match."
+			}
+		}
+	}
 }

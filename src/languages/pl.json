@@ -1,5 +1,29 @@
 {
 	"APP-NAME": "Tryton",
+	"HOME": {
+		"MAIN": {
+			"HEADLINE": "Zadania",
+			"DESC-1": "Miejsce, gdzie wykonujesz zadania w grach,",
+			"DESC-2": "które tego nie wspierają",
+			"BUTTON-1": "Zacznij Teraz",
+			"BUTTON-2": "Dowiedz się więcej"
+		},
+		"LOL": {
+			"HEADLINE": "League of Legends",
+			"DESC-1": "Najpopularniejsza gra na świecie,",
+			"DESC-2": "która łączy miliony graczy",
+			"DESC-3": "każdego dnia",
+			"BUTTON-1": "Zacznij Teraz",
+			"BUTTON-2": "Przejdź do panelu"
+		},
+		"DOTA2": {
+			"HEADLINE": "Dota 2",
+			"DESC-1": "Gra z największą pulą nagród",
+			"DESC-2": "w całym świecie esportowym",
+			"BUTTON-1": "Zacznij Teraz",
+			"BUTTON-2": "Przejdź do panelu"
+		}
+	},
 	"FAQ": {
 		"HEADER-1": "Najczęściej zadawane pytania",
 		"ITEM-1": {

@@ -22,7 +22,7 @@ export class DotaController {
 		this.downloadMyTasksList(this.selectedStatus);
 
 
-		if (!Session.getLolProfile()) {
+		if (!Session.getDota2Profile()) {
 			$state.go("app._games.account");
 		}
 	}
