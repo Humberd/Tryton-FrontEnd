@@ -1,67 +1,75 @@
 <div id="home">
-    <div class="slides" loader="home.slides">
-        <div uib-carousel active="foo" no-pause="true" ng-cloak>
-            <div uib-slide index="0">
-                <div bcg-image="'http://imgur.com/AKgZdEt.png'" class="slide-image"></div>
-                <div class="carousel-caption">
-                    <div class="headline">
-                        {{"HOME.MAIN.HEADLINE" | translate}}
-                    </div>
-                    <div class="description">
-                        <div class="part">{{"HOME.MAIN.DESC-1" | translate}}</div>
-                        <div class="part">{{"HOME.MAIN.DESC-2" | translate}}</div>
-                    </div>
-                    <div class="buttons">
-                        <button class="mb mb-fill-blue">
-                            {{"HOME.MAIN.BUTTON-1" | translate}}
-                        </button>
-                        <button class="mb mb-trans">
-                            {{"HOME.MAIN.BUTTON-2" | translate}}
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div uib-slide index="1">
-                <div bcg-image="'http://news.cdn.leagueoflegends.com/public/images/misc/Background.jpg'" class="slide-image"></div>
-                <div class="carousel-caption">
-                    <div class="headline">
-                        {{"HOME.LOL.HEADLINE" | translate}}
-                    </div>
-                    <div class="description">
-                        <div class="part">{{"HOME.LOL.DESC-1" | translate}}</div>
-                        <div class="part">{{"HOME.LOL.DESC-2" | translate}}</div>
-                        <div class="part">{{"HOME.LOL.DESC-3" | translate}}</div>
-                    </div>
-                    <div class="buttons">
-                        <button class="mb mb-fill-blue">
-                            {{"HOME.LOL.BUTTON-1" | translate}}
-                        </button>
-                        <button class="mb mb-trans">
-                            {{"HOME.LOL.BUTTON-2" | translate}}
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div uib-slide index="2">
-                <div bcg-image="'https://s-media-cache-ak0.pinimg.com/originals/b1/40/e8/b140e88d57a80c086521ab39e3d02ebb.jpg'" class="slide-image"></div>
-                <div class="carousel-caption">
-                    <div class="headline">
-                        {{"HOME.DOTA2.HEADLINE" | translate}}
-                    </div>
-                    <div class="description">
-                        <div class="part">{{"HOME.DOTA2.DESC-1" | translate}}</div>
-                        <div class="part">{{"HOME.DOTA2.DESC-2" | translate}}</div>
-                    </div>
-                    <div class="buttons">
-                        <button class="mb mb-fill-blue">
-                            {{"HOME.DOTA2.BUTTON-1" | translate}}
-                        </button>
-                        <button class="mb mb-trans">
-                            {{"HOME.DOTA2.BUTTON-2" | translate}}
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+	<div class="slides" loader="home.slides">
+		<div uib-carousel active="foo" no-pause="true" ng-cloak>
+			<div uib-slide index="0">
+				<div bcg-image="'http://imgur.com/AKgZdEt.png'" class="slide-image"></div>
+				<div class="carousel-caption">
+					<div class="headline">
+						{{"HOME.MAIN.HEADLINE" | translate}}
+					</div>
+					<div class="description">
+						<div class="part">{{"HOME.MAIN.DESC-1" | translate}}</div>
+						<div class="part">{{"HOME.MAIN.DESC-2" | translate}}</div>
+					</div>
+					<div class="buttons">
+						<button class="mb mb-fill-blue"
+								ng-click="ctrl.register()">
+							{{"HOME.MAIN.BUTTON-1" | translate}}
+						</button>
+						<button class="mb mb-trans"
+								ng-click="ctrl.faq()">
+							{{"HOME.MAIN.BUTTON-2" | translate}}
+						</button>
+					</div>
+				</div>
+			</div>
+			<div uib-slide index="1">
+				<div bcg-image="'http://news.cdn.leagueoflegends.com/public/images/misc/Background.jpg'"
+					 class="slide-image"></div>
+				<div class="carousel-caption">
+					<div class="headline">
+						{{"HOME.LOL.HEADLINE" | translate}}
+					</div>
+					<div class="description">
+						<div class="part">{{"HOME.LOL.DESC-1" | translate}}</div>
+						<div class="part">{{"HOME.LOL.DESC-2" | translate}}</div>
+						<div class="part">{{"HOME.LOL.DESC-3" | translate}}</div>
+					</div>
+					<div class="buttons">
+						<button class="mb mb-fill-blue"
+								ng-click="ctrl.register()">
+							{{"HOME.LOL.BUTTON-1" | translate}}
+						</button>
+						<button class="mb mb-trans"
+								ng-click="ctrl.dashboard()">
+							{{"HOME.LOL.BUTTON-2" | translate}}
+						</button>
+					</div>
+				</div>
+			</div>
+			<div uib-slide index="2">
+				<div bcg-image="'https://s-media-cache-ak0.pinimg.com/originals/b1/40/e8/b140e88d57a80c086521ab39e3d02ebb.jpg'"
+					 class="slide-image"></div>
+				<div class="carousel-caption">
+					<div class="headline">
+						{{"HOME.DOTA2.HEADLINE" | translate}}
+					</div>
+					<div class="description">
+						<div class="part">{{"HOME.DOTA2.DESC-1" | translate}}</div>
+						<div class="part">{{"HOME.DOTA2.DESC-2" | translate}}</div>
+					</div>
+					<div class="buttons">
+						<button class="mb mb-fill-blue"
+								ng-click="ctrl.register()">
+							{{"HOME.DOTA2.BUTTON-1" | translate}}
+						</button>
+						<button class="mb mb-trans"
+								ng-click="ctrl.dashboard()">
+							{{"HOME.DOTA2.BUTTON-2" | translate}}
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
