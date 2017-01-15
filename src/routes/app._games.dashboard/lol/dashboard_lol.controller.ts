@@ -16,7 +16,7 @@ class LolController {
 	readonly helpers: ViewHelpers = new ViewHelpers();
 
 	templateTasksList: Array<TaskLolDB>;
-	myTasksList: Array<Object>;
+	myTasksList: Array<any>;
 
 	constructor(private Modal,
 				private Api: Api,
@@ -83,9 +83,22 @@ class LolController {
 			})
 	}
 
+	public cancelTask(task): void {
+		this.Modal.cancelLolTask({task})
+			.then((newTask) => {
+				//remove task from in progress list
+				for (let i = 0, size = this.myTasksList.length; i < size; i++) {
+					if (this.myTasksList[i].createdDate === newTask.createdDate) {
+						this.myTasksList.splice(i, 1);
+					}
+				}
+			})
+	}
+
 	public getUserLevel(): number {
 		return this.Session.getLolProfile().profile.level;
 	}
+
 	public getUserExp(): number {
 		return this.Session.getLolProfile().profile.experience;
 	}

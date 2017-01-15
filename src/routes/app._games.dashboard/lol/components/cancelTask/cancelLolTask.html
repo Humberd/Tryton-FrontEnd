@@ -1,0 +1,41 @@
+<div id="cancel-lol-task-wrapper">
+	<form class="modal-custom-content" name="ctrl.cancelTaskForm"
+		  loader="{{::ctrl.loaderName}}"
+		  ng-submit="ctrl.cancelTaskForm.$valid && ctrl.cancelTask()"
+		  novalidate>
+		<div class="modal-close-glyphicon" ng-click="ctrl.closeModal()">
+			<span class="glyphicon glyphicon-remove"></span>
+		</div>
+		<div class="modal-custom-body">
+			<div class="headers">
+				<div class="header">
+					Czy na pewno chcesz usunąć te zadanie?
+				</div>
+				<div class="header header-small">
+					Jeśli tak, to podaj powód dlaczego.
+				</div>
+			</div>
+			<div class="inputs">
+				<md-input-container>
+					<label for="reason-input">Powód</label>
+					<textarea id="reason-input"
+							  name="reason"
+							  cols="30" rows="2"
+							  ng-model="ctrl.reason">
+					</textarea>
+				</md-input-container>
+			</div>
+			<div class="buttons">
+				<button class="mb mb-fill-blue"
+						type="button"
+						ng-click="ctrl.closeModal()">
+					Anuluj
+				</button>
+				<button class="mb mb-fill-red"
+						type="submit">
+					Usuń
+				</button>
+			</div>
+		</div>
+	</form>
+</div>

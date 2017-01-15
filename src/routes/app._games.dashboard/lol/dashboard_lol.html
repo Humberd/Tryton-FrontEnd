@@ -71,6 +71,18 @@
 							 translate-value-value="{{myTask.result.expected.exp}}">
 						</div>
 					</div>
+					<div class="overlay">
+						<div class="item"
+							 ng-show="ctrl.selectedStatus === 'IN_PROGRESS'"
+							 ng-click="ctrl.cancelTask(myTask)">
+							<div class="icon">
+								<i class="material-icons">delete</i>
+							</div>
+							<div class="content">
+								Anuluj
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 			<div class="empty-field"

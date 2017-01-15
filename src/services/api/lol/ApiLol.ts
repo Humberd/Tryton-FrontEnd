@@ -8,6 +8,7 @@ import {LolGameTaskStatus} from "../../../models/constants/LolGameTaskStatus";
 import IPromise = angular.IPromise;
 import {LolProfileModel} from "../../session/models/LolProfileModel";
 import {LolGameAccount} from "../../../models/user/LolGameAccount";
+import {CancelLolTaskRequestModel} from "../../../routes/app._games.dashboard/lol/components/cancelTask/models/CancelLolTaskRequestModel";
 
 export class ApiLol extends AbstractApi {
 	public getAllTemplateTasks(): IPromise<TaskLolDB[]> {
@@ -32,6 +33,11 @@ export class ApiLol extends AbstractApi {
 
 	public submitUserTask(data: SubmitLolTaskRequestModel) {
 		return this.post("game/lol/tasks/user/submit/", data)
+			.then(response => response.data);
+	}
+
+	public cancelUserTask(data: CancelLolTaskRequestModel) {
+		return this.post("game/lol/tasks/user/cancel/", data)
 			.then(response => response.data);
 	}
 
