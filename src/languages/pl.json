@@ -1,5 +1,25 @@
 {
 	"APP-NAME": "Tryton",
+	"FAQ": {
+		"HEADER-1": "Najczęściej zadawane pytania",
+		"ITEM-1": {
+			"QUESTION-1": "Co to jest?",
+			"ANSWER-1": "Jest to strona, dzięki której będziesz miał możliwość wykonywania zadań w grach w zamian za nagrodę."
+		},
+		"ITEM-2": {
+			"QUESTION-1": "W jakich grach mogę wykonywać zadania?",
+			"ANSWER-1": "Aktualnie wspierane są gry: League of Legends oraz Dota 2."
+		},
+		"ITEM-3": {
+			"QUESTION-1": "Jaka jest nagroda?",
+			"ANSWER-1": "Nagrodą jest doświadczenie (exp), dzięki któremu odblokujesz dostęp do trudniejszych zadań."
+		},
+		"ITEM-4": {
+			"QUESTION-1": "W jakich meczach mogę wykonywać zadania?",
+			"ANSWER-1": "W League of Legends tylko w rankingowych SOLO lub FLEX.",
+			"ANSWER-2": "W Dota 2 we wszystkich."
+		}
+	},
 	"USER-NAV-BAR": {
 		"LOGIN": "Zaloguj",
 		"REGISTER": "Zarejestruj",

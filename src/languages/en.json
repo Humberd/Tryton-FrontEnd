@@ -1,5 +1,25 @@
 {
     "APP-NAME": "Tryton",
+    "FAQ": {
+        "HEADER-1": "Frequently Asked Questions",
+        "ITEM-1": {
+            "QUESTION-1": "What is this?",
+            "ANSWER-1": "It's a website, thats to which you'll be able to do specific tasks within a game for a reward."
+        },
+        "ITEM-2": {
+            "QUESTION-1": "In which games I can do the tasks?",
+            "ANSWER-1": "Currently supported games are: League of Legends and Dota 2."
+        },
+        "ITEM-3": {
+            "QUESTION-1": "What's the reward?",
+            "ANSWER-1": "The reward is experience, thanks to which you'll unlock more difficult tasks."
+        },
+        "ITEM-4": {
+            "QUESTION-1": "In what kind of matches I'm allowed to complete the tasks?",
+            "ANSWER-1": "In League of Legends only in Ranked SOLO or FLEX.",
+            "ANSWER-2": "In Dota 2 every kind."
+        }
+    },
     "USER-NAV-BAR": {
         "LOGIN": "Login",
         "REGISTER": "Register",
