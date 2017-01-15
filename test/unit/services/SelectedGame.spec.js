@@ -9,17 +9,18 @@ describe('SelectedGame', function() {
         simpleShortName: "tf2",
         isAvailable: true,
         iconUrl: "tf2.png"
-    }
+    };
     var cod = {
         name: "Call of Duty",
         shortName: "COD",
         simpleShortName: "cod",
         isAvailable: false,
         iconUrl: "cod.png"
-    }
+    };
 
     beforeEach(function() {
         module("ui.router");
+        module("TrytonApp");
         module("TrytonApp.Storage");
         module("TrytonApp.SelectedGame");
         module("TrytonApp.Configs", function(SupportedProvider, $provide) {
@@ -34,14 +35,14 @@ describe('SelectedGame', function() {
             $injector = _$injector_;
             selectedGame = _$injector_.get("SelectedGame");
             $rootScope = _$injector_.get("$rootScope");
-        })
+        });
     });
 
     describe('.get()', function() {
         it('should return selectedGame', function() {
             selectedGame.set("tf2");
             expect(selectedGame.get()).toBe("tf2");
-            $rootScope.$digest();
+            // $rootScope.$digest();
         });
     });
 
@@ -55,7 +56,7 @@ describe('SelectedGame', function() {
                 expect(function() {
                     selectedGame.set(value);
                 }).toThrow();
-            })
+            });
         });
         it('should throw when trying to set empty string', function() {
             expect(function() {
@@ -64,7 +65,7 @@ describe('SelectedGame', function() {
         });
         it('should throw when the game doesnt exist', function() {
             expect(function() {
-                selectedGame.set("not existing game at all")
+                selectedGame.set("not existing game at all");
             }).toThrow();
         });
         it('should throw when the game is not isAvailable', function() {

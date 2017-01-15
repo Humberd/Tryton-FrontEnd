@@ -8,7 +8,7 @@ describe('Cookies', function() {
     beforeEach(function() {
         inject(function(_$injector_) {
         	Cookies = _$injector_.get("Cookies");
-        })
+        });
     });
 
     var acceptableValues = ["ala ma kota", true, false, undefined, null, 0, 15, {foo: "blah"}, ["first", null]];
