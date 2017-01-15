@@ -7,6 +7,7 @@ import {TaskDota2DB} from "../../../routes/app._games.dashboard/dota2/models/Tas
 import {LolGameTaskStatus} from "../../../models/constants/LolGameTaskStatus";
 import {Dota2ProfileModel} from "../../session/models/Dota2ProfileModel";
 import {SubmitDota2TaskRequestModel} from "../../../routes/app._games.dashboard/dota2/components/newTask/models/SubmitDota2TaskRequestModel";
+import {CancelDota2TaskRequestModel} from "../../../routes/app._games.dashboard/dota2/components/cancelTask/models/CancelDota2TaskRequestModel";
 
 export class ApiDota2 extends AbstractApi {
 	public getAllTemplateTasks(): IPromise<TaskDota2DB[]> {
@@ -31,6 +32,11 @@ export class ApiDota2 extends AbstractApi {
 
 	public submitUserTask(data: SubmitDota2TaskRequestModel) {
 		return this.post("game/dota2/tasks/user/submit/", data)
+			.then(response => response.data);
+	}
+
+	public cancelUserTask(data: CancelDota2TaskRequestModel) {
+		return this.post("game/dota2/tasks/user/cancel/", data)
 			.then(response => response.data);
 	}
 

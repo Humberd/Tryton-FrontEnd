@@ -1,0 +1,4 @@
+export interface CancelDota2TaskRequestModel{
+	createdDate: number;
+	reason: string;
+}

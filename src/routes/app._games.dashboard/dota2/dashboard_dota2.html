@@ -56,7 +56,8 @@
 					<div class="task-status">
 						{{myTask.status}}
 					</div>
-					<div class="task-time-left">
+					<div class="task-time-left"
+						 ng-show="ctrl.selectedStatus === 'IN_PROGRESS'">
 						<div ng-show="myTask.progress.remainingMatches >= 0"
 							 translate="_GAMES.DASHBOARD.USER-TASKS.GAMES-LEFT"
 							 translate-value-value="{{myTask.progress.remainingMatches}}">
@@ -65,10 +66,26 @@
 							{{myTask.progress.finishDate | timeAgo}}
 						</div>
 					</div>
+					<div class="task-message"
+						 ng-hide="ctrl.selectedStatus === 'IN_PROGRESS'">
+						{{myTask.result.message}}
+					</div>
 					<div class="right-side">
 						<div class="task-points"
 							 translate="USABLE.EXP"
 							 translate-value-value="{{myTask.result.expected.exp}}">
+						</div>
+					</div>
+					<div class="overlay">
+						<div class="item"
+							 ng-show="ctrl.selectedStatus === 'IN_PROGRESS'"
+							 ng-click="ctrl.cancelTask(myTask)">
+							<div class="icon">
+								<i class="material-icons">delete</i>
+							</div>
+							<div class="content">
+								Anuluj
+							</div>
 						</div>
 					</div>
 				</div>

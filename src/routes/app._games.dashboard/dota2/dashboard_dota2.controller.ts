@@ -10,7 +10,7 @@ export class DotaController {
 	selectedStatus = LolGameTaskStatus.IN_PROGRESS;
 
 	templateTasksList: Array<TaskDota2DB>;
-	myTasksList: Array<Object>;
+	myTasksList: Array<any>;
 
 	constructor(private Modal,
 				private Api: Api,
@@ -80,6 +80,18 @@ export class DotaController {
 			})
 			.finally(() => {
 				this.Loader.stopLoading(this.verifyButtonLoaderName);
+			})
+	}
+
+	public cancelTask(task): void {
+		this.Modal.cancelDota2Task({task})
+			.then((newTask) => {
+				//remove task from in progress list
+				for (let i = 0, size = this.myTasksList.length; i < size; i++) {
+					if (this.myTasksList[i].createdDate === newTask.createdDate) {
+						this.myTasksList.splice(i, 1);
+					}
+				}
 			})
 	}
 

@@ -22,7 +22,6 @@ class LolController {
 				private Api: Api,
 				private Loader,
 				private Session,
-				private $scope,
 				private $state) {
 		this.downloadTemplateTasksList();
 		this.downloadMyTasksList(this.selectedStatus);
