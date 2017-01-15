@@ -175,6 +175,13 @@
 				"REWARD": "Nagroda",
 				"REASON": "Powód"
 			},
+			"CANCEL-TASK": {
+				"HEADER-1": "Czy na pewno chcesz odwołać te zadanie?",
+				"HEADER-2": "Jeśli tak, to podaj powód dlaczego.",
+				"REASON-LABEL": "Powód",
+				"BACK": "Powrót",
+				"CANCEL": "Odwołaj zadanie"
+			},
 			"EMPTY-FIELD": "Brak zadań"
 		},
 		"DOTA2": {

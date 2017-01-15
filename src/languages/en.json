@@ -175,6 +175,13 @@
 				"REWARD": "Reward",
 				"REASON": "Reason"
 			},
+			"CANCEL-TASK": {
+				"HEADER-1": "Do you really want to cancel this task?",
+				"HEADER-2": "If so, then please provide a reason.",
+				"REASON-LABEL": "Reason",
+				"BACK": "Back",
+				"CANCEL": "Cancel the Task"
+			},
 			"EMPTY-FIELD": "No Tasks"
 		},
 		"DOTA2": {

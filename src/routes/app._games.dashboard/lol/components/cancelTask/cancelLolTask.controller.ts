@@ -1,5 +1,6 @@
 import {Api} from "../../../../../services/api/Api";
 import {CancelLolTaskRequestModel} from "./models/CancelLolTaskRequestModel";
+
 export class CancelLolTaskController {
 	readonly loaderName: string = "cancelLolTaskFormLoader";
 
@@ -10,7 +11,6 @@ export class CancelLolTaskController {
 	constructor(private $mdDialog,
 				private Api: Api,
 				private Loader) {
-		console.log(this.task);
 	}
 
 	public cancelTask(): void {

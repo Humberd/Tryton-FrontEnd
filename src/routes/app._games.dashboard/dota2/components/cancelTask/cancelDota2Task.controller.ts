@@ -1,5 +1,6 @@
 import {CancelDota2TaskRequestModel} from "./models/CancelDota2TaskRequestModel";
 import {Api} from "../../../../../services/api/Api";
+
 export class CancelDota2TaskController {
 	readonly loaderName: string = "cancelDota2TaskFormLoader";
 
@@ -10,7 +11,6 @@ export class CancelDota2TaskController {
 	constructor(private $mdDialog,
 				private Api: Api,
 				private Loader) {
-		console.log(this.task);
 	}
 
 	public cancelTask(): void {

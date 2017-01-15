@@ -1,4 +1,4 @@
-<div id="cancel-dota2-task-wrapper">
+<div id="cancel-lol-task-wrapper">
 	<form class="modal-custom-content" name="ctrl.cancelTaskForm"
 		  loader="{{::ctrl.loaderName}}"
 		  ng-submit="ctrl.cancelTaskForm.$valid && ctrl.cancelTask()"
@@ -9,15 +9,17 @@
 		<div class="modal-custom-body">
 			<div class="headers">
 				<div class="header">
-					Czy na pewno chcesz usunąć te zadanie?
+					{{"_GAMES.DASHBOARD.CANCEL-TASK.HEADER-1" | translate}}
 				</div>
 				<div class="header header-small">
-					Jeśli tak, to podaj powód dlaczego.
+					{{"_GAMES.DASHBOARD.CANCEL-TASK.HEADER-2" | translate}}
 				</div>
 			</div>
 			<div class="inputs">
 				<md-input-container>
-					<label for="reason-input">Powód</label>
+					<label for="reason-input">
+						{{"_GAMES.DASHBOARD.CANCEL-TASK.REASON-LABEL" | translate}}
+					</label>
 					<textarea id="reason-input"
 							  name="reason"
 							  cols="30" rows="2"
@@ -29,11 +31,11 @@
 				<button class="mb mb-fill-blue"
 						type="button"
 						ng-click="ctrl.closeModal()">
-					Anuluj
+					{{"_GAMES.DASHBOARD.CANCEL-TASK.BACK" | translate}}
 				</button>
 				<button class="mb mb-fill-red"
 						type="submit">
-					Usuń
+					{{"_GAMES.DASHBOARD.CANCEL-TASK.CANCEL" | translate}}
 				</button>
 			</div>
 		</div>

@@ -38,6 +38,7 @@ class LolController {
 		this.Api.lol.getAllTemplateTasks()
 			.then((result) => {
 				this.templateTasksList = result;
+				// this.cancelTask(result[0]);
 			})
 			.finally(() => {
 				this.Loader.stopLoading(this.templateTasksListLoaderName);
