@@ -183,6 +183,16 @@
 				"BACK": "Back",
 				"CANCEL": "Cancel the Task"
 			},
+			"VIEW-TASK": {
+				"EXECUTE-TIMES": "Execute this amount of times",
+				"COMPLETE-WITHIN": "Complete withing",
+				"PROGRESS": "Progress",
+				"STATUS": "Status",
+				"START-BEFORE": "Start a match before",
+				"MATCHES-LEFT": "Matches left",
+				"REASON": "Reason",
+				"BACK": "Back"
+			},
 			"EMPTY-FIELD": "No Tasks"
 		},
 		"DOTA2": {

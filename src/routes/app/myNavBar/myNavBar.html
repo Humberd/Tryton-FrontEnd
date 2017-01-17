@@ -7,7 +7,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="my-nav-bar-column-item">
+		<div class="my-nav-bar-column-item expandable">
 			<div class="my-nav-bar-pill">
 				<div class="my-nav-bar-column-item-icon">
 					<i class="material-icons">flag</i>
@@ -67,7 +67,7 @@
 		</div>
 	</div>
 	<div class="my-nav-bar-column">
-		<div class="my-nav-bar-column-item short">
+		<div class="my-nav-bar-column-item short expandable">
 			<div class="my-nav-bar-pill">
 				<div class="my-nav-bar-column-item-icon">
 					<div class="flag-icon" bcg-image="selectedGameItem.iconUrl"></div>
@@ -94,7 +94,8 @@
 				</div>
 			</div>
 		</div>
-		<div class="my-nav-bar-column-item short">
+		<div id="languages-tab"
+			 class="my-nav-bar-column-item short expandable">
 			<div class="my-nav-bar-pill">
 				<div class="my-nav-bar-column-item-icon">
 					<div class="flag-icon flag-icon-{{selectedLanguageItem.iconUrl}}"></div>
@@ -144,7 +145,7 @@
 			</div>
 		</div>
 		<div class="my-nav-bar-column" ng-show="Session.isLoggedIn()">
-			<div class="my-nav-bar-column-item">
+			<div class="my-nav-bar-column-item expandable">
 				<div class="my-nav-bar-pill">
 					<div class="my-nav-bar-column-item-icon">
 						<span class="glyphicon glyphicon-user"></span>

@@ -52,6 +52,7 @@ class LolController {
 		this.Api.lol.getUserTasksByStatus(status)
 			.then((result) => {
 				this.myTasksList = result;
+				this.viewTask(result[0]);
 			})
 			.finally(() => {
 				this.Loader.stopLoading(this.myTasksListLoaderName);
@@ -93,6 +94,10 @@ class LolController {
 					}
 				}
 			})
+	}
+
+	public viewTask(task): void {
+		this.Modal.viewTaskLol({task});
 	}
 
 	public getUserLevel(): number {

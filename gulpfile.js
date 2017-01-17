@@ -16,6 +16,7 @@ var gulpWebpack = require("webpack-stream");
 var webpack = require("webpack");
 var ngAnnotateWebpack = require("ng-annotate-webpack-plugin");
 var clean = require("gulp-clean");
+var protractor = require("protractor");
 
 var dist = "dist/";
 var js = dist + "js";
@@ -241,6 +242,10 @@ gulp.task("test", function (done) {
 	return new karma.Server({
 		configFile: __dirname + "/karma.conf.js"
 	}, done).start();
+});
+
+gulp.task("e2e", function () {
+	console.log(protractor);
 });
 
 gulp.task("default", function () {

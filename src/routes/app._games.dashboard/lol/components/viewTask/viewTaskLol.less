@@ -1,0 +1,113 @@
+#view-task-lol-wrapper {
+	.modal-custom-content {
+		width: 500px;
+	}
+}
+
+#view-task-lol {
+	display: flex;
+	flex-direction: column;
+	font-size: 1.2em;
+	.header {
+		display: flex;
+		flex-direction: column;
+		.task-name {
+			font-size: 1.8em;
+		}
+		.task-hint {
+			font-size: 1.2em;
+			font-style: italic;
+		}
+	}
+	.title {
+		text-align: center;
+		font-size: 1.2em;
+		font-weight: bold;
+		letter-spacing: 1px;
+		margin-top: 5px;
+		margin-bottom: 10px;
+	}
+	.info {
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 10px;
+		.task-desc {
+			padding-left: 5px;
+			margin: 20px 0;
+		}
+	}
+	.footer {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		margin-top: 10px;
+		.total {
+			.field-value {
+				font-weight: bold;
+			}
+		}
+		.multiplier {
+			.positive {
+				font-weight: bold;
+				color: #168500;
+			}
+		}
+	}
+	.field {
+		display: flex;
+		flex-direction: row;
+		font-size: 1.1em;
+		.field-desc {
+			margin-right: 10px;
+			&:after {
+				content: ":";
+			}
+		}
+	}
+	.settings {
+		display: flex;
+		flex-direction: column;
+		.setting {
+			display: flex;
+			flex-direction: column;
+			margin: 5px 0;
+			.inputs {
+				display: flex;
+				flex-direction: column;
+				md-input-container {
+					width: 100%;
+					.md-errors-spacer {
+						display: none;
+					}
+					label {
+						margin-bottom: 0;
+						font-weight: 700;
+					}
+				}
+			}
+		}
+	}
+	.summary {
+		.value {
+			text-align: center;
+			font-size: 1.05em;
+			padding: 10px 5px;
+			padding-top: 0;
+		}
+	}
+	.error-field {
+		font-size: 1.1em;
+		overflow: hidden;
+		-webkit-transition: all .3s cubic-bezier(.55, 0, .55, .2);
+		transition: all .3s cubic-bezier(.55, 0, .55, .2);
+		opacity: 1;
+		margin-top: 0;
+		margin-bottom: 10px;
+		padding-top: 5px;
+		color: rgb(221, 44, 0);
+	}
+	.spacer {
+		margin-top: 10px;
+	}
+}

@@ -1,0 +1,285 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Projekt</title>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.js"></script>
+	<script
+			src="https://code.jquery.com/jquery-3.1.1.min.js"
+			integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+			crossorigin="anonymous"></script>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"
+		  integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+
+<style>
+	.center-block {
+		float: none;
+	}
+
+	.marginleft {
+		margin-left: 185px;
+	}
+
+	.marginleftheader {
+		margin-left: 200px;
+	}
+
+	.margintop {
+		margin-top: 30px;
+	}
+</style>
+<body ng-app="aplikacja">
+
+<div class="container"
+	 ng-controller="MyAppController"
+	 ng-init="getBooks()">
+	<div class="row">
+		<div class="col-sm-8 center-block">
+			<h1 class="text-center">
+				Tabela Książek
+			</h1>
+
+			<button class="btn btn-success" ng-click="showAddBook()">
+				Add New Book
+			</button>
+			<br/>
+
+			<div class="input-group">
+				<span class="input-group-addon">Pokaż książki autora: </span>
+				<input type="text" class="form-control" ng-model="searchText.author" placeholder="Wpisz autora"/>
+			</div>
+
+			</br>
+
+			<div class="input-group">
+				<span class="input-group-addon">Posortuj według: </span>
+				<select class="form-control" ng-model="sortColumn">
+					<option value="title">Title</option>
+					<option value="author">Author</option>
+					<option value="type">Type</option>
+				</select>
+			</div>
+			<br/>
+
+			<div class="table-responsive">
+				<table class="table table-hover">
+					<thead>
+					<tr>
+						<th ng-repeat="naglowek in [
+									 'Index', 'Tytuł', 'Autor', 'Gatunek', 'Rok Wydania', 'Wydawnictwo', 'Usuń'
+								]">
+							{{naglowek}}
+						</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr ng-repeat="book in books | filter: searchText | orderBy: sortColumn">
+						<td>{{book.id}}</td>
+						<td>{{book.title}}</td>
+						<td>{{book.author}}</td>
+						<td>{{book.type}}</td>
+						<td>{{book.year}}</td>
+						<td>{{book.publisher}}</td>
+						<td>
+							<button ng-click="removeBook(book.id)"
+									class="btn btn-danger btn-xs">DELETE
+							</button>
+						</td>
+						<td>
+							<button ng-click="showBookToEdit(book)"
+									class="btn btn-danger btn-xs">EDIT
+							</button>
+						</td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<div class="add-book" ng-show="addOrEdit === 0">
+		<h3 class="marginleftheader">Dodawanie:</h3>
+		<br/>
+
+		<div class="col-md-4 marginleft">
+			<form class="form">
+
+				<div class="form-group">
+					<label>Title</label>
+					<input type="text" class="form-control" ng-model="newBook.title" required>
+				</div>
+				<div>
+					<div class="form-group">
+						<label>Author</label>
+						<input type="text" class="form-control" ng-model="newBook.author" required>
+					</div>
+				</div>
+				<div>
+					<div class="form-group">
+						<label>Type</label>
+						<input type="text" class="form-control" ng-model="newBook.type" required>
+					</div>
+				</div>
+				<div class="form-group">
+					<label>Year</label>
+					<input type="text" class="form-control" ng-model="newBook.year" required>
+				</div>
+				<div class="form-group">
+					<label>Publisher</label>
+					<input type="text" class="form-control" ng-model="newBook.publisher" required>
+				</div>
+				<div>
+					<button type="text" class="btn btn-default" ng-click="addBook()">Add</button>
+				</div>
+
+			</form>
+		</div>
+		<br/>
+	</div>
+
+
+	<div class="edit-book" ng-show="addOrEdit === 1">
+		<h3 class="margintop">Edytowanie:</h3>
+
+		<div class="col-md-4">
+			<form class="form">
+
+				<div class="form-group">
+					<label>Title</label>
+					<input type="text" class="form-control" ng-model="bookToEdit.title" required>
+				</div>
+				<div>
+					<div class="form-group">
+						<label>Author</label>
+						<input type="text" class="form-control" ng-model="bookToEdit.author" required>
+					</div>
+				</div>
+				<div class="form-group">
+					<label>Type</label>
+					<input type="text" class="form-control" ng-model="bookToEdit.type" required>
+				</div>
+				<div>
+					<div class="form-group">
+						<label>Year</label>
+						<input type="text" class="form-control" ng-model="bookToEdit.year" required>
+					</div>
+				</div>
+				<div>
+					<div class="form-group">
+						<label>Publisher</label>
+						<input type="text" class="form-control" ng-model="bookToEdit.publisher" required>
+					</div>
+				</div>
+				<div>
+					<button type="text" class="btn btn-default" ng-click="editBook()">Edit</button>
+				</div>
+		</div>
+	</div>
+	</form>
+</div>
+<br/>
+
+<script>
+	var app = angular.module('aplikacja', []);
+
+	app.controller("MyAppController", function ($scope, $http) {
+		//$scope.books - lista ksiazek
+
+		//tutaj trzymam flage, czy w widoku ma wyswietlac dodawanie elementu, czy edytowanie
+		//0 dodawanie
+		//1 edytowanie
+		//2 NIC
+		$scope.addOrEdit = 0;
+
+		$scope.showBookToEdit = function (book) {
+			$scope.addOrEdit = 1;
+
+			$scope.bookToEdit = book;
+		};
+
+		$scope.showAddBook = function () {
+			$scope.addOrEdit = 0;
+		};
+
+
+		////////////ZAPYTANIA DO SERWERA/////////////
+		//zamiast zapytan do serwera zrobilem to na tablicy ktosa sobie zdefiniowalem ponizej
+		//zakomentowalem zapytania do serwera, ktore mozesz wykonac,
+
+		$scope.getBooks = function () {
+			$scope.books = [{
+				id: 1,
+				title: "Lord of the Rings",
+				author: "J.R.R. Tolkien",
+				year: 1920,
+				type: "Fantasy",
+				publisher: "Zielona sowa"
+			}];
+
+//				$http.get('http://localhost:8080/books')
+//					.then(function (response) {
+//						$scope.books = response.data;
+//					});
+		};
+
+		$scope.removeBook = function (bookId) {
+			//tutaj szukam ksiazki z tym id, zeby ja usunac
+			for (var i = 0; i < $scope.books.length; i++) {
+				//jesli ksiazka posiada id takie co ja chce usunac
+				if ($scope.books[i].id === bookId) {
+					//wtedy z tablicy usuwam jeden element zaczynajac od indeksu i
+					$scope.books.splice(i, 1);
+				}
+			}
+
+//				$http.delete('http://localhost:8080/books/' + bookId)
+//					.then(function () {
+//					});
+		};
+
+		$scope.addBook = function () {
+			$scope.books.push($scope.newBook);//dodaje ksiazke do tablicy ksiazek
+			$scope.newBook = null;//czyszcze formularz
+
+//				$http.post('http://localhost:8080/books/', $scope.newBook)
+//					.then(function () {
+//					});
+		};
+
+var books = [];
+books = response.data;
+
+console.log("var books = %o", books);
+console.log("response.data = %o", response.data);
+
+books[0].id = "DUPA";
+
+console.log("var books = %o", books);
+console.log("response.data = %o", response.data);
+
+//to jest to samo
+
+var books;
+books = response.data;
+
+console.log("var books = %o", books);
+console.log("response.data = %o", response.data);
+
+books[0].id = "DUPA";
+
+console.log("var books = %o", books);
+console.log("response.data = %o", response.data);
+
+		$scope.editBook = function () {
+			//tutaj wysylam zapytanie do servera
+			//jak sie skonczy, to musze powrocic na znowu dodawanie
+			//
+		}
+
+	});
+
+</script>
+
+</body>
+</html>

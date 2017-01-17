@@ -178,10 +178,20 @@
 			},
 			"CANCEL-TASK": {
 				"HEADER-1": "Czy na pewno chcesz odwołać te zadanie?",
-				"HEADER-2": "Jeśli tak, to podaj powód dlaczego.",
+				"HEADER-2": "Jeśli tak podaj powód dlaczego.",
 				"REASON-LABEL": "Powód",
 				"BACK": "Powrót",
 				"CANCEL": "Odwołaj zadanie"
+			},
+			"VIEW-TASK": {
+				"EXECUTE-TIMES": "Wykonaj ilość razy",
+				"COMPLETE-WITHIN": "Ukończ przed",
+				"PROGRESS": "Postęp",
+				"STATUS": "Status",
+				"START-BEFORE": "Rozpocznij mecz przed",
+				"MATCHES-LEFT": "Pozostało meczów",
+				"REASON": "Powód",
+				"BACK": "Powrót"
 			},
 			"EMPTY-FIELD": "Brak zadań"
 		},
