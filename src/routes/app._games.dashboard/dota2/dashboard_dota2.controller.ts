@@ -95,6 +95,10 @@ export class DotaController {
 			})
 	}
 
+	public viewTask(task): void {
+		this.Modal.viewTaskDota2({task});
+	}
+
 	public getUserLevel(): number {
 		return this.Session.getDota2Profile().profile.level;
 	}

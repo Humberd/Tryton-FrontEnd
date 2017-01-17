@@ -144,7 +144,8 @@
 				"STATUS-ARIA": "Filtruj swoje zadania po statusie",
 				"CREATED": "Utworzono {{value}}",
 				"GAMES-LEFT": "{{value}} gier do końca",
-				"CANCEL": "Anuluj"
+				"CANCEL": "Anuluj",
+				"DETAILS": "Szczegóły"
 			},
 			"TEMPLATE-TASKS": {
 				"TITLE": "Zadania"

@@ -144,7 +144,8 @@
 				"STATUS-ARIA": "Filter your tasks by status",
 				"CREATED": "Created {{value}}",
 				"GAMES-LEFT": "{{value}} games left to go",
-				"CANCEL": "Cancel"
+				"CANCEL": "Cancel",
+				"DETAILS": "Details"
 			},
 			"TEMPLATE-TASKS": {
 				"TITLE": "Tasks List"

@@ -8,6 +8,7 @@
 		"TrytonApp.Router.App._games.Dashboard.viewTaskLol",
 		"TrytonApp.Router.App._games.Dashboard.dota2NewTask",
 		"TrytonApp.Router.App._games.Dashboard.dota2Verify",
-		"TrytonApp.Router.App._games.Dashboard.cancelDota2Task"
+		"TrytonApp.Router.App._games.Dashboard.cancelDota2Task",
+		"TrytonApp.Router.App._games.Dashboard.viewTaskDota2"
 	]);
 })();

@@ -1,0 +1,162 @@
+<div id="view-task-dota2-wrapper">
+	<form class="modal-custom-content" name="ctrl.newTaskForm"
+		  novalidate>
+		<div class="modal-close-glyphicon" ng-click="ctrl.closeModal()">
+			<span class="glyphicon glyphicon-remove"></span>
+		</div>
+		<div class="modal-custom-body">
+			<div id="view-task-dota2">
+				<div class="header">
+					<div class="task-name">
+						{{"DOTA2.TEMPLATE-TASKS."+ctrl.task.template._id+".NAME" | translate}}
+					</div>
+					<div class="task-hint">
+						({{"DOTA2.TEMPLATE-TASKS."+ctrl.task.template._id+".HINT" | translate}})
+					</div>
+				</div>
+				<md-divider></md-divider>
+				<div class="info">
+					<div class="task-desc">
+						{{"DOTA2.TEMPLATE-TASKS."+ctrl.task.template._id+".DESC" | translate}}
+					</div>
+					<div class="task-difficulty">
+						<div class="field">
+							<div class="field-desc">
+								{{"_GAMES.DASHBOARD.NEW-TASK.DIFFICULTY" | translate}}
+							</div>
+							<div class="field-value">
+								{{ctrl.task.template.difficulty}}/5
+							</div>
+						</div>
+					</div>
+					<div class="task-base-points">
+						<div class="field">
+							<div class="field-desc">
+								{{"_GAMES.DASHBOARD.NEW-TASK.BASE-EXP-LABEL" | translate}}
+							</div>
+							<div class="field-value">
+								{{ctrl.task.template.base.exp}}
+							</div>
+						</div>
+					</div>
+					<div class="task-required-level">
+						<div class="field">
+							<div class="field-desc">
+								{{"_GAMES.DASHBOARD.NEW-TASK.REQUIRED-LEVEL" | translate}}
+							</div>
+							<div class="field-value">
+								{{ctrl.task.template.requiredLevel}}
+							</div>
+						</div>
+					</div>
+					<div class="spacer"></div>
+					<div class="task-must-be-won">
+						<div class="field">
+							<div class="field-desc">
+								{{"_GAMES.DASHBOARD.NEW-TASK.MUST-BE-WON" | translate}}
+							</div>
+							<div class="field-value">
+								<strong>
+									<div ng-show="ctrl.task.template.options.mustBeWon">
+										{{"USABLE.YES" | translate}}
+									</div>
+									<div ng-hide="ctrl.task.template.options.mustBeWon">
+										{{"USABLE.NO" | translate}}
+									</div>
+								</strong>
+							</div>
+						</div>
+					</div>
+				</div>
+				<md-divider></md-divider>
+				<div class="settings">
+					<div class="title">{{"_GAMES.DASHBOARD.NEW-TASK.SETTINGS" | translate}}</div>
+					<div class="field">
+						<div class="field-desc">
+							{{"_GAMES.DASHBOARD.VIEW-TASK.EXECUTE-TIMES" | translate}}
+						</div>
+						<div class="field-value">
+							{{ctrl.task.settings.times.value}}
+						</div>
+					</div>
+					<div class="field">
+						<div class="field-desc">
+							{{"_GAMES.DASHBOARD.VIEW-TASK.COMPLETE-WITHIN" | translate}}
+						</div>
+						<div class="field-value">
+							{{ctrl.task.settings.timeout.value}} {{ctrl.task.settings.timeout.type}}
+						</div>
+					</div>
+				</div>
+				<md-divider></md-divider>
+				<div class="settings">
+					<div class="title">
+						{{"_GAMES.DASHBOARD.VIEW-TASK.PROGRESS" | translate}}
+					</div>
+					<div class="field">
+						<div class="field-desc">
+							{{"_GAMES.DASHBOARD.VIEW-TASK.STATUS" | translate}}
+						</div>
+						<div class="field-value">
+							{{ctrl.task.status}}
+						</div>
+					</div>
+					<div ng-show="ctrl.task.status === 'IN_PROGRESS'">
+						<div class="field" ng-show="ctrl.task.progress.finishDate">
+							<div class="field-desc">
+								{{"_GAMES.DASHBOARD.VIEW-TASK.START-BEFORE" | translate}}
+							</div>
+							<div class="field-value">
+								{{ctrl.task.progress.finishDate | date:"short"}}
+							</div>
+						</div>
+						<div class="field" ng-show="ctrl.task.progress.remainingMatches >= 0">
+							<div class="field-desc">
+								{{"_GAMES.DASHBOARD.VIEW-TASK.MATCHES-LEFT" | translate}}
+							</div>
+							<div class="field-value">
+								{{ctrl.task.progress.remainingMatches}}
+							</div>
+						</div>
+					</div>
+					<div ng-show="ctrl.task.status !=='IN_PROGRESS'">
+						<div class="field">
+							<div class="field-desc">
+								{{"_GAMES.DASHBOARD.VIEW-TASK.REASON" | translate}}
+							</div>
+							<div class="field-value">
+								{{ctrl.task.result.message || "-----"}}
+							</div>
+						</div>
+					</div>
+				</div>
+				<md-divider></md-divider>
+				<div class="footer">
+					<div class="total">
+						<div class="field">
+							<div class="field-desc">
+								{{"_GAMES.DASHBOARD.NEW-TASK.TOTAL" | translate}}
+							</div>
+							<div class="field-value">
+								<strong translate="USABLE.EXP"
+										translate-value-value="{{ctrl.task.result.expected.exp | number:0}}">
+								</strong>
+							</div>
+						</div>
+					</div>
+					<!--<div class="multiplier">
+						<div class="field">
+							<div class="field-desc">Multiplier</div>
+							<div class="field-value positive">+60%</div>
+						</div>
+					</div>-->
+					<button class="create-button mb mb-fill-blue mb-small"
+							type="button"
+							ng-click="ctrl.hideModal()">
+						{{"_GAMES.DASHBOARD.VIEW-TASK.BACK" | translate}}
+					</button>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>

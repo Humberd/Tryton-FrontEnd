@@ -52,7 +52,7 @@ class LolController {
 		this.Api.lol.getUserTasksByStatus(status)
 			.then((result) => {
 				this.myTasksList = result;
-				this.viewTask(result[0]);
+				// this.viewTask(result[0]);
 			})
 			.finally(() => {
 				this.Loader.stopLoading(this.myTasksListLoaderName);
