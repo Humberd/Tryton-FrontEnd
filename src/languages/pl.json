@@ -269,22 +269,82 @@
 			"tl-5": {
 				"NAME": "Czyste konto",
 				"HINT": "Min. 5 kill-i przy 0 dead-ach",
-				"DESC": "Po skończonym meczu miej conajmniej 5 zabitych przeciwników sam przy tym nie ginąc."
+				"DESC": "Po skończonym meczu miej co najmniej 5 zabitych przeciwników sam przy tym nie ginąc."
 			},
 			"tl-6": {
 				"NAME": "Czysty jak łza",
 				"HINT": "Min. 10 kill-i przy 0 dead-ach",
-				"DESC": "Po skończonym meczu miej conajmniej 10 zabitych przeciwników sam przy tym nie ginąc."
+				"DESC": "Po skończonym meczu miej co najmniej 10 zabitych przeciwników sam przy tym nie ginąc."
 			},
 			"tl-7": {
 				"NAME": "Koreański mistrz uniku",
 				"HINT": "Min. 15 kill-i przy 0 dead-ach",
-				"DESC": "Po skończonym meczu miej conajmniej 15 zabitych przeciwników sam przy tym nie ginąc."
+				"DESC": "Po skończonym meczu miej co najmniej 15 zabitych przeciwników sam przy tym nie ginąc."
 			},
 			"tl-8": {
 				"NAME": "Chuck Norris nade mną czuwa",
 				"HINT": "Min. 20 kill-i przy 0 dead-ach",
-				"DESC": "Po skończonym meczu miej conajmniej 20 zabitych przeciwników sam przy tym nie ginąc."
+				"DESC": "Po skończonym meczu miej co najmniej 20 zabitych przeciwników sam przy tym nie ginąc."
+			},
+			"tl-9": {
+				"NAME": "Lekki zwiadowca",
+				"HINT": "Min. 5 asyst",
+				"DESC": "Po skończonym meczu miej co najmniej 5 asyst na koncie."
+			},
+			"tl-10": {
+				"NAME": "Widać już główkę!",
+				"HINT": "Min. 12 asyst",
+				"DESC": "Po skończonym meczu miej co najmniej 12 asyst na koncie."
+			},
+			"tl-11": {
+				"NAME": "Prawdziwy support",
+				"HINT": "Min. 20 asyst",
+				"DESC": "Po skończonym meczu miej co najmniej 20 asyst na koncie."
+			},
+			"tl-12": {
+				"NAME": "Semi-ex-pro",
+				"HINT": "Min. 30 asyst",
+				"DESC": "Po skończonym meczu miej co najmniej 30 asyst na koncie."
+			},
+			"tl-13": {
+				"NAME": "Poświęcam siebie za innych",
+				"HINT": "Min. 40 asyst",
+				"DESC": "Po skończonym meczu miej co najmniej 40 asyst na koncie."
+			},
+			"tl-14": {
+				"NAME": "Jak grochem o ścianę",
+				"HINT": "Zniszcz min. 1 turret",
+				"DESC": "Zniszcz co najmniej 1 turret w grze."
+			},
+			"tl-15": {
+				"NAME": "Taranem do bazy",
+				"HINT": "Zniszcz min. 3 turret-y",
+				"DESC": "Zniszcz co najmniej 3 turret-y w grze."
+			},
+			"tl-16": {
+				"NAME": "Totalna samowolka",
+				"HINT": "Zniszcz min. 5 turret-ów",
+				"DESC": "Zniszcz co najmniej 5 turret-ów w grze."
+			},
+			"tl-17": {
+				"NAME": "Zabijaka",
+				"HINT": "Zadaj najwięcej obrażeń w drużynie",
+				"DESC": "Zadaj najwięcej obrażeń w drużynie."
+			},
+			"tl-18": {
+				"NAME": "Pan nade wszystko",
+				"HINT": "Zadaj najwięcej obrażeń w grze",
+				"DESC": "Zadaj najwięcej obrażeń w grze."
+			},
+			"tl-19": {
+				"NAME": "Żelazne płuca",
+				"HINT": "Otrzymaj najwięcej obrażeń w drużynie",
+				"DESC": "Otrzymaj najwięcej obrażeń w drużynie."
+			},
+			"tl-20": {
+				"NAME": "Niezniszczalny ogier",
+				"HINT": "Otrzymaj najwięcej obrażeń w grze",
+				"DESC": "Otrzymaj najwięcej obrażeń w grze."
 			}
 		}
 	},

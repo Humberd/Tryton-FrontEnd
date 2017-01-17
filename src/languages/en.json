@@ -285,6 +285,66 @@
 				"NAME": "Chuck Norris watches over me",
 				"HINT": "Min. 20 kills with 0 deaths",
 				"DESC": "Have at least 20 kills and 0 deaths after the finished match."
+			},
+			"tl-9": {
+				"NAME": "Light scout",
+				"HINT": "Min. 5 assists",
+				"DESC": "Have at least 5 assists after the finished match."
+			},
+			"tl-10": {
+				"NAME": "I can see the head!",
+				"HINT": "Min. 12 assists",
+				"DESC": "Have at least 12 assists after the finished match."
+			},
+			"tl-11": {
+				"NAME": "A true support",
+				"HINT": "Min. 20 assists",
+				"DESC": "Have at least 20 assists after the finished match."
+			},
+			"tl-12": {
+				"NAME": "Semi-ex-pro",
+				"HINT": "Min. 30 assists",
+				"DESC": "Have at least 30 assists after the finished match."
+			},
+			"tl-13": {
+				"NAME": "I sacrifice myself for the others",
+				"HINT": "Min. 40 assists",
+				"DESC": "Have at least 40 assists after the finished match."
+			},
+			"tl-14": {
+				"NAME": "Little knocker",
+				"HINT": "Kill min. 1 turret",
+				"DESC": "Kill at least 1 turret in a game."
+			},
+			"tl-15": {
+				"NAME": "Ram to the base",
+				"HINT": "Kill min. 3 turrets",
+				"DESC": "Kill at least 3 turrets in a game."
+			},
+			"tl-16": {
+				"NAME": "Total lowlessness",
+				"HINT": "Kill min. 5 turrets",
+				"DESC": "Kill at least 5 turrets in a game."
+			},
+			"tl-17": {
+				"NAME": "A Bully",
+				"HINT": "Deal the most damage in a team",
+				"DESC": "Deal the most damage in a team."
+			},
+			"tl-18": {
+				"NAME": "You above all",
+				"HINT": "Deal the most damage in a game",
+				"DESC": "Deal the most damage in a game."
+			},
+			"tl-19": {
+				"NAME": "Iron lungs",
+				"HINT": "Take the most damage in a team",
+				"DESC": "Take the most damage in a team."
+			},
+			"tl-20": {
+				"NAME": "indestructible stallion",
+				"HINT": "Take the most damage in a game",
+				"DESC": "Take the most damage in a game."
 			}
 		}
 	},
