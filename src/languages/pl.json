@@ -265,6 +265,26 @@
 				"NAME": "Od czegoś trzeba zacząć",
 				"HINT": "Double Kill",
 				"DESC": "Zdobądź Double Kill-a zabijając 2 przeciwników w krótkim odstępie czasu."
+			},
+			"tl-5": {
+				"NAME": "Czyste konto",
+				"HINT": "Min. 5 kill-i przy 0 dead-ach",
+				"DESC": "Po skończonym meczu miej conajmniej 5 zabitych przeciwników sam przy tym nie ginąc."
+			},
+			"tl-6": {
+				"NAME": "Czysty jak łza",
+				"HINT": "Min. 10 kill-i przy 0 dead-ach",
+				"DESC": "Po skończonym meczu miej conajmniej 10 zabitych przeciwników sam przy tym nie ginąc."
+			},
+			"tl-7": {
+				"NAME": "Koreański mistrz uniku",
+				"HINT": "Min. 15 kill-i przy 0 dead-ach",
+				"DESC": "Po skończonym meczu miej conajmniej 15 zabitych przeciwników sam przy tym nie ginąc."
+			},
+			"tl-8": {
+				"NAME": "Chuck Norris nade mną czuwa",
+				"HINT": "Min. 20 kill-i przy 0 dead-ach",
+				"DESC": "Po skończonym meczu miej conajmniej 20 zabitych przeciwników sam przy tym nie ginąc."
 			}
 		}
 	},

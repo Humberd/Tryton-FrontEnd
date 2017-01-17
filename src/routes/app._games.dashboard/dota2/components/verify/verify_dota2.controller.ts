@@ -18,9 +18,11 @@ export class Dota2TaskVerifyController {
 		try {
 			this.ExpToast.init(this.Session.getDota2Profile().profile.experience);
 			this.analyzeResult.tasks.forEach((task) => {
-				let gainedExp = task.task.result.acquired.exp;
-				let taskName = task.task.template.name;
-				this.ExpToast.addTask(gainedExp, taskName);
+				if (task.task.status === "COMPLETED") {
+					let gainedExp = task.task.result.acquired.exp;
+					let taskName = task.task.template.name;
+					this.ExpToast.addTask(gainedExp, taskName);
+				}
 			})
 		} catch (e) {
 			console.error(e);

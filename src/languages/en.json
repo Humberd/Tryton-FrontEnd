@@ -265,6 +265,26 @@
 				"NAME": "Start from scratch",
 				"HINT": "Double Kill",
 				"DESC": "Score a Double Kill killing 2 enemies in a short amount of time."
+			},
+			"tl-5": {
+				"NAME": "Clean sheet",
+				"HINT": "Min. 5 kills with 0 deaths",
+				"DESC": "Have at least 5 kills and 0 deaths after the finished match."
+			},
+			"tl-6": {
+				"NAME": "Clean as a whistle",
+				"HINT": "Min. 10 kills with 0 deaths",
+				"DESC": "Have at least 10 kills and 0 deaths after the finished match."
+			},
+			"tl-7": {
+				"NAME": "Korean master dodger",
+				"HINT": "Min. 15 kills with 0 deaths",
+				"DESC": "Have at least 15 kills and 0 deaths after the finished match."
+			},
+			"tl-8": {
+				"NAME": "Chuck Norris watches over me",
+				"HINT": "Min. 20 kills with 0 deaths",
+				"DESC": "Have at least 20 kills and 0 deaths after the finished match."
 			}
 		}
 	},
