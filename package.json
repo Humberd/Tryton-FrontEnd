@@ -16,6 +16,7 @@
   "main": "index.js",
   "scripts": {
     "start": "gulp",
+    "install-all": "npm install && bower install",
     "test": "gulp test",
     "e2e": "protractor protractor.conf.js"
   },
@@ -33,6 +34,7 @@
     "@types/angular": "^1.5.22",
     "@types/angular-translate": "^2.4.34",
     "@types/jquery": "^2.0.34",
+    "bower": "^1.8.0",
     "event-stream": "^3.3.3",
     "gulp": "^3.9.1",
     "gulp-angular-filesort": "^1.1.1",
