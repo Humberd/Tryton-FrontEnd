@@ -1,3 +1,4 @@
+import {AppHomeController} from "./controller";
 (function() {
     "use strict";
 
@@ -8,7 +9,7 @@
         $stateProvider.state("app.home", {
         	url: "/",
             templateUrl: ViewUrl + "home.html",
-            controller: "AppHomeController",
+            controller: AppHomeController,
             controllerAs: "ctrl"
         });
 

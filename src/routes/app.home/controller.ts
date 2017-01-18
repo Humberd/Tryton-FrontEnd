@@ -1,10 +1,4 @@
-import {Controller} from "../../utils/decorators/Controller";
-
-@Controller({
-	module: "TrytonApp.Router.App.Home",
-	name: "AppHomeController"
-})
-class AppHomeController {
+export class AppHomeController {
 	flag = true;
 	constructor(private $scope,
 				private Loader,
