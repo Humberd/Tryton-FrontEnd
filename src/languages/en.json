@@ -223,7 +223,9 @@
 					"DISCONNECT-CONFIRM": {
 						"TITLE": "Disconnect the account",
 						"DESC": "Are you sure you want to remove a connection with your Dota 2 account? This process will cancel all in progress tasks."
-					}
+					},
+					"ALLOW-PUBLIC": "WARNING: To be able to use this service You must set the option in Your Dota 2 client to make your games history public."
+
 				},
 				"DISCONNECTED": {
 					"HEADER-1": "You don't have a Steam account connected to Dota 2.",

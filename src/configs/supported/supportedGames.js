@@ -10,7 +10,7 @@
             shortName: "LoL",
             simpleShortName: "lol",
             isAvailable: true,
-            iconUrl: "https://i.imgur.com/xNLs83T.png"
+            iconUrl: "http://orig00.deviantart.net/5559/f/2015/095/a/b/ab4283292bff84fb4abb435c1f8b6e83-d8okjau.png"
         };
         var dota2 = {
             name: "Dota 2",

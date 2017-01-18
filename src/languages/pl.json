@@ -223,7 +223,8 @@
 					"DISCONNECT-CONFIRM": {
 						"TITLE": "Odłącz konto",
 						"DESC": "Czy jesteś pewien, że chcesz odłączyć powiązanie z kontem Dota 2? Spowoduje to anulowanie Twoich wszystkich obecnie wykonywanych zadań."
-					}
+					},
+					"ALLOW-PUBLIC": "UWAGA: Aby móc korzystać z serwisu i pobierać historie swoich meczów musisz w ustawieniach klienta Dota 2 pozwolić na upublicznianie swoich meczów."
 				},
 				"DISCONNECTED": {
 					"HEADER-1": "Nie posiadasz połączenia z żadnym kontem Steam.",
