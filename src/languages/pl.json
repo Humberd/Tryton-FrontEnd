@@ -373,6 +373,36 @@
 				"NAME": "Tak bardzo się boję",
 				"HINT": "Min 20k obrażen",
 				"DESC": "Zadaj co najmniej 20 000 obrażeń innym bohaterom."
+			},
+			"td-5": {
+				"NAME": "Mały ogrodnik",
+				"HINT": "Min 100 creepów",
+				"DESC": "Zabij co najmniej 100 creepów."
+			},
+			"td-6": {
+				"NAME": "Zapylacz",
+				"HINT": "Min 150 creepów",
+				"DESC": "Zabij co najmniej 150 creepów."
+			},
+			"td-7": {
+				"NAME": "Farmer jakich mało",
+				"HINT": "Min 200 creepów",
+				"DESC": "Zabij co najmniej 200 creepów."
+			},
+			"td-8": {
+				"NAME": "Kombajn",
+				"HINT": "Min 300 creepów",
+				"DESC": "Zabij co najmniej 300 creepów."
+			},
+			"td-9": {
+				"NAME": "Tik - tak, Tik - tak",
+				"HINT": "300 xp na minutę",
+				"DESC": "Zdobywaj średnio co najmniej 300 xp na każdą minutę rozgrywki."
+			},
+			"td-10": {
+				"NAME": "Ka-Ching",
+				"HINT": "300 gold na minutę",
+				"DESC": "Zdobywaj średnio co najmniej 300 złota na każdą minutę rozgrywki."
 			}
 		}
 	}

@@ -373,6 +373,36 @@
 				"NAME": "I'm so afraid",
 				"HINT": "Min 20k hero damage",
 				"DESC": "Deal at least 20 000 damage to other heroes in a match."
+			},
+			"td-5": {
+				"NAME": "Little gardener",
+				"HINT": "Min 100 creeps",
+				"DESC": "Kill at least 100 creeps in a match."
+			},
+			"td-6": {
+				"NAME": "Pollinator",
+				"HINT": "Min 150 creeps",
+				"DESC": "Kill at least 150 creeps in a match."
+			},
+			"td-7": {
+				"NAME": "Farmer at its best",
+				"HINT": "Min 200 creeps",
+				"DESC": "Kill at least 200 creeps in a match."
+			},
+			"td-8": {
+				"NAME": "Harvester",
+				"HINT": "Min 300 creeps",
+				"DESC": "Kill at least 300 creeps in a match."
+			},
+			"td-9": {
+				"NAME": "Tick - tack, Tick - tack",
+				"HINT": "300 xp per minute",
+				"DESC": "Have approximately 300 xp per minute in a match."
+			},
+			"td-10": {
+				"NAME": "Ka-Ching",
+				"HINT": "300 gold per minute",
+				"DESC": "Have approximately 300 gold per minute in a match."
 			}
 		}
 	}
