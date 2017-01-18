@@ -17,7 +17,9 @@ export class DotaController {
 				private Loader,
 				private Session,
 				private Logger,
-				private $state) {
+				private $state,
+				private $translate,
+				private Toast) {
 		this.downloadTemplateTasksList();
 		this.downloadMyTasksList(this.selectedStatus);
 
