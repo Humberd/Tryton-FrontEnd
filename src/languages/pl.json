@@ -71,7 +71,7 @@
 			"NO-ACCOUNT": "Nie masz jeszcze konta?"
 		},
 		"REGISTER": {
-			"HEADER": "Rejectacja",
+			"HEADER": "Rejestracja",
 			"REGISTER": "@:USER-NAV-BAR.REGISTER",
 			"HAVE-ACCOUNT": "Masz już konto?",
 			"ACCEPT-TOS": "Rejestrując się akceptujesz ",
