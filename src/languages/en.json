@@ -64,12 +64,14 @@
 	},
 	"MODALS": {
 		"LOGIN": {
+			"HEADER": "Login",
 			"LOGIN": "@:USER-NAV-BAR.LOGIN",
 			"FORGOT-PASSWORD": "Forgot your password?",
 			"RESET-PASSWORD": "Reset password",
 			"NO-ACCOUNT": "Don't have an account yet?"
 		},
 		"REGISTER": {
+			"HEADER": "Register",
 			"REGISTER": "@:USER-NAV-BAR.REGISTER",
 			"HAVE-ACCOUNT": "Already have an account?",
 			"ACCEPT-TOS": "By signing up you agree to ",
