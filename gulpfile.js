@@ -17,6 +17,8 @@ var webpack = require("webpack");
 var ngAnnotateWebpack = require("ng-annotate-webpack-plugin");
 var clean = require("gulp-clean");
 var protractor = require("protractor");
+var postcss = require("gulp-postcss");
+var autoprefixer = require("autoprefixer");
 
 var dist = "dist/";
 var js = dist + "js";
@@ -135,6 +137,7 @@ gulp.task("myStyles", function () {
 	var cssStream = gulp.src("src/**/*.css");
 
 	return es.merge(lessParsedStream, cssStream)
+		.pipe(postcss([autoprefixer()])).on("error", errorHandler)
 		.pipe(concat("app.min.css"))
 		// .pipe(cleanCss())
 		.pipe(gulp.dest(css));

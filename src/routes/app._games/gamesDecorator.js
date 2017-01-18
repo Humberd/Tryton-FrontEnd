@@ -24,7 +24,7 @@
 					return ViewUrl + lastStateName + "_" + $stateParams.game + ".html";
 				};
 				return templateUrl;
-			} else {
+			} else {	
 				return state.self.templateUrl;
 			}
 		});
