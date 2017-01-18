@@ -22,12 +22,30 @@ class LolController {
 				private Api: Api,
 				private Loader,
 				private Session,
-				private $state) {
+				private $state,
+				private Toast,
+				private $translate) {
 		this.downloadTemplateTasksList();
 		this.downloadMyTasksList(this.selectedStatus);
 
 		if (!Session.getLolProfile()) {
 			$state.go("app._games.account");
+			this.$translate("TOAST.ACCOUNT-NOT-CONNECT")
+				.then((translation) => {
+					this.Toast.error(translation);
+				});
+		} else if (!Session.getLolProfile().account) {
+			$state.go("app._games.account");
+			this.$translate("TOAST.ACCOUNT-NOT-CONNECT")
+				.then((translation) => {
+					this.Toast.error(translation);
+				});
+		} else if (!Session.getLolProfile().account.verified) {
+			$state.go("app._games.account");
+			this.$translate("TOAST.ACCOUNT-NOT-VERIFIED")
+				.then((translation) => {
+					this.Toast.error(translation);
+				});
 		}
 	}
 

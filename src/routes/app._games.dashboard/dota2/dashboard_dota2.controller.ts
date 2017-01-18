@@ -24,6 +24,22 @@ export class DotaController {
 
 		if (!Session.getDota2Profile()) {
 			$state.go("app._games.account");
+			this.$translate("TOAST.ACCOUNT-NOT-CONNECT")
+				.then((translation) => {
+					this.Toast.error(translation);
+				});
+		} else if (!Session.getDota2Profile().account) {
+			$state.go("app._games.account");
+			this.$translate("TOAST.ACCOUNT-NOT-CONNECT")
+				.then((translation) => {
+					this.Toast.error(translation);
+				});
+		} else if (!Session.getDota2Profile().account.verified) {
+			$state.go("app._games.account");
+			this.$translate("TOAST.ACCOUNT-NOT-VERIFIED")
+				.then((translation) => {
+					this.Toast.error(translation);
+				});
 		}
 	}
 

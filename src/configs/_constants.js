@@ -4,7 +4,7 @@
 	angular.module("TrytonApp.Configs")
 		.constant("ViewUrl", "html/")
 		.constant("GamesIconsUrl", "resources/gamesIcons/")
-		.constant("RawApiUrl", "http://192.168.1.100:8080/")
+		.constant("RawApiUrl", "http://localhost:8080/")
 
 		.constant("RecaptchaUrl", "https://www.google.com/recaptcha/api.js?onload=vcRecaptchaApiLoaded&render=explicit?hl")
 		.constant('RecaptchaKey', "6LeeVyITAAAAAOE0WyhwnMVRU2_q5UyR7kaqqsfe")

@@ -79,7 +79,9 @@
 		}
 	},
 	"TOAST": {
-		"CLOSE": "CLOSE"
+		"CLOSE": "CLOSE",
+		"ACCOUNT-NOT-CONNECT": "You need to connect your game account",
+		"ACCOUNT-NOT-VERIFIED": "You need to verify your game account"
 	},
 	"ACCOUNT": {
 		"PASSWORD": {
